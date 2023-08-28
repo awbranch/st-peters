@@ -1,20 +1,18 @@
-import Block from '@/components/Block';
-import Page from '@/components/Page';
+import Hero from '@/components/Hero';
+import LunchMenu from '@/components/LunchMenu';
 
 export default function Home() {
   return (
     <main>
-      <Block bg="blue" center>
-        <h2 className="text-xl uppercase mb-1">What’s for Lunch?</h2>
-        <p>Monday through Friday - Noon to 2:00 PM</p>
-        <p>681 Brown St. Rochester, NY</p>
-        <div className="text-black mt-4 md:mt-8">
-          <Page>
-            <h3 className="text-lg">Monday</h3>
-            <caption className="block text-sm">Today</caption>
-          </Page>
-        </div>
-      </Block>
+      <Hero
+        bg="green"
+        header="Welcoming Everyone with Love"
+        text="At St. Peter’s Kitchen we are working to build a stronger community that welcomes all in need while attempting to eradicate hunger in downtown Rochester, NY. "
+        btnLabel="Learn More"
+        btnHref=""
+        image=""
+      />
+      <LunchMenu />
     </main>
   );
 }
