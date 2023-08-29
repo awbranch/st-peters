@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Color } from '@/types/color';
+import type { Color } from '@/types/Color';
 
 interface Props {
   bg?: Color;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Color } from '@/types/color';
+import { Color } from '@/types/Color';
 import Block from '@/components/Block';
 import Para from '@/components/Para';
 

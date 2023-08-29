@@ -1,7 +1,7 @@
 import Hero from '@/components/Hero';
-import LunchMenu from '@/components/LunchMenu';
+import LunchMenuBlock from '@/components/LunchMenuBlock';
 
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Hero
@@ -12,7 +12,7 @@ export default function Home() {
         btnHref=""
         image=""
       />
-      <LunchMenu />
+      <LunchMenuBlock />
     </main>
   );
 }
