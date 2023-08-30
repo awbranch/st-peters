@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import LunchMenuBlock from '@/components/LunchMenuBlock';
+import RevalidateBlock from '@/components/RevalidateBlock';
 
 export default async function Home() {
   return (
@@ -13,6 +14,7 @@ export default async function Home() {
         image=""
       />
       <LunchMenuBlock />
+      <RevalidateBlock />
     </main>
   );
 }

@@ -7,6 +7,9 @@ import { getLunchMenus } from '@/sanity/sanity-utils';
 
 export default async function LunchMenuBlock() {
   const lunchMenus = await getLunchMenus();
+  console.log(
+    '>>> LunchMenuBlock queried lunch menus: ' + new Date().getTime(),
+  );
 
   return (
     <Block bg="blue" center>
