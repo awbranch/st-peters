@@ -3,7 +3,7 @@
 import React from 'react';
 import Block from '@/components/Block';
 
-export default async function RevalidateBlock() {
+export default function RevalidateBlock() {
   const handleClick = async () => {
     console.log('Clicked');
     fetch('/api/revalidate')
@@ -14,10 +14,11 @@ export default async function RevalidateBlock() {
   };
 
   return (
-    <Block bg="black" center>
-      <h2 className="text-xl uppercase mb-1">Revalidate</h2>
+    <Block bg="pink" center>
       <div className="mt-4">
-        <button onClick={handleClick}>Revalidate</button>
+        <button className="border-2 p-2" onClick={handleClick}>
+          Revalidate
+        </button>
       </div>
     </Block>
   );

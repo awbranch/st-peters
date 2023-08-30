@@ -4,7 +4,7 @@ import { revalidateTag, revalidatePath } from 'next/cache';
 export async function GET(req: NextRequest) {
   try {
     revalidatePath('/');
-    revalidateTag('lunchMenu');
+    revalidatePath('https://st-peters-b7v0dx93o-branchhead.vercel.app/');
 
     return NextResponse.json(
       { message: 'Revalidated Successfully' },
