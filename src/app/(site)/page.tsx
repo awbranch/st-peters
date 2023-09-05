@@ -1,15 +1,16 @@
-import RevalidateBlock from '@/components/RevalidateBlock';
-import Block from '@/components/Block';
+import LunchMenuBlock from '@/components/LunchMenuBlock';
+import HeroBlock from '@/components/HeroBlock';
+import { getHeroes } from '@/sanity/sanity-utils';
 
 export default async function Home() {
-  console.log('>>> Home rendered');
+  const heroes = await getHeroes();
+
   return (
     <main>
-      <Block bg="blue" center>
-        <h1>Random number {Math.floor(Math.random() * 1000)}</h1>
-      </Block>
-
-      <RevalidateBlock />
+      {heroes.map((h) => (
+        <HeroBlock key={h._id} hero={h} priority={true} />
+      ))}
+      <LunchMenuBlock />
     </main>
   );
 }

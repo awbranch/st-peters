@@ -1,5 +1,8 @@
+/** @type {import('tailwindcss').Config} */
+
 import type { Config } from 'tailwindcss';
-import { toGrid, toRem } from './src/utils/base';
+
+import { toGrid, toRem, breakpoints } from './src/utils/globals';
 
 const config: Config = {
   content: [
@@ -84,6 +87,7 @@ const config: Config = {
       none: '0',
       DEFAULT: '5px',
     },
+    breakpoints,
   },
   plugins: [],
 };
