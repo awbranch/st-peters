@@ -5,6 +5,7 @@ export default defineType({
   name: 'settings',
   title: 'Settings',
   type: 'document',
+  description: 'Long desc',
   icon,
   fields: [
     defineField({

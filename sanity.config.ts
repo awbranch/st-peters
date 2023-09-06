@@ -6,6 +6,7 @@ import schemas from '@/sanity/schema';
 
 const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
+  homePage: '520e6364-71e8-41bb-82be-304e2bd545c9',
 };
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);

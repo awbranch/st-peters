@@ -3,11 +3,11 @@ import { GiStrong as icon } from 'react-icons/gi';
 import { backgroundColors } from '@/sanity/schema/helpers';
 
 export default defineType({
-  name: 'hero',
-  title: 'Hero',
+  name: 'lunchPlan',
+  title: 'Lunch Plan',
   type: 'object',
   description:
-    'A hero an large image and block of text that appears at the top of a webpage.',
+    'This block displays the next three days of lunch menus. Use the "Lunch Menu" object to enter daily menus.',
   icon,
   fields: [
     defineField({
@@ -33,19 +33,6 @@ export default defineType({
           },
         },
       ],
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'alt',
-      title: 'Alternate Image Text',
-      description:
-        'An image description is important for accessibility and page ranking.',
-      type: 'string',
     }),
     defineField({
       name: 'color',
