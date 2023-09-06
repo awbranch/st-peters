@@ -20,6 +20,12 @@ const hero = {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    },
+    {
       name: 'text',
       title: 'Text',
       type: 'array',
@@ -43,6 +49,13 @@ const hero = {
       type: 'image',
       description: 'Best practice is to keep the max width <= 1280px',
       validation: (Rule: any) => Rule.required(),
+    },
+    {
+      name: 'alt',
+      title: 'Alternate Image Text',
+      description:
+        'An image description is important for accessibility and page ranking.',
+      type: 'string',
     },
   ],
 };

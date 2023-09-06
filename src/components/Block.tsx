@@ -1,9 +1,9 @@
 import React from 'react';
-import type { Color } from '@/types/Color';
+import type { BgColor } from '@/types/Color';
 import { maxScreenWidth } from '@/utils/globals';
 
 interface Props {
-  bg?: Color;
+  bg?: BgColor;
   center?: boolean;
   className?: string;
   children: React.ReactNode;
@@ -29,7 +29,7 @@ export default function Block({
           : 'bg-white text-black'
       } ${center ? 'text-center' : ''} px-2 md:px-4 py-4 md:py-8 ${className}`}
     >
-      <div className={`mx-auto`} style={{ maxWidth: maxScreenWidth }}>
+      <div className="mx-auto" style={{ maxWidth: maxScreenWidth }}>
         {children}
       </div>
     </div>

@@ -1,9 +1,10 @@
 import { PortableTextBlock, Image } from 'sanity';
-import { Color } from '@/types/Color';
+import { BgColor } from '@/types/Color';
 
 export type Hero = {
   _id: string;
-  color: Color;
+  color: BgColor;
+  title: string;
   text: PortableTextBlock[];
   image: Image;
   alt: string;
