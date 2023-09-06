@@ -1,19 +1,23 @@
-const lunchMenu = {
+import { defineField, defineType } from 'sanity';
+import { FaClipboardList as icon } from 'react-icons/fa';
+
+const lunchMenu = defineType({
   name: 'lunchMenu',
   title: 'Lunch Menu',
   type: 'document',
+  icon,
   fields: [
-    {
+    defineField({
       name: 'day',
       title: 'Day',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'date',
       title: 'Date',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'items',
       title: 'Items',
       type: 'array',
@@ -24,8 +28,8 @@ const lunchMenu = {
           type: 'string',
         },
       ],
-    },
+    }),
   ],
-};
+});
 
 export default lunchMenu;

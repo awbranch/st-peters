@@ -1,9 +1,13 @@
-const hero = {
+import { defineField, defineType } from 'sanity';
+import { GiStrong as icon } from 'react-icons/gi';
+
+export default defineType({
   name: 'hero',
   title: 'Hero',
   type: 'document',
+  icon,
   fields: [
-    {
+    defineField({
       name: 'color',
       title: 'Color',
       type: 'string',
@@ -18,14 +22,14 @@ const hero = {
         layout: 'dropdown',
       },
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'array',
@@ -42,22 +46,20 @@ const hero = {
           },
         },
       ],
-    },
-    {
+    }),
+    defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
       description: 'Best practice is to keep the max width <= 1280px',
       validation: (Rule: any) => Rule.required(),
-    },
-    {
+    }),
+    defineField({
       name: 'alt',
       title: 'Alternate Image Text',
       description:
         'An image description is important for accessibility and page ranking.',
       type: 'string',
-    },
+    }),
   ],
-};
-
-export default hero;
+});
