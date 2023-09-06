@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { GiStrong as icon } from 'react-icons/gi';
-import { backgroundColors } from '@/sanity/schema/helpers';
+import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
   name: 'lunchPlan',
@@ -10,6 +10,15 @@ export default defineType({
     'This block displays the next three days of lunch menus. Use the "Lunch Menu" object to enter daily menus.',
   icon,
   fields: [
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'simplerColor',
+      options: {
+        colorList: backgroundColorList,
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -33,16 +42,6 @@ export default defineType({
           },
         },
       ],
-    }),
-    defineField({
-      name: 'color',
-      title: 'Background Color',
-      type: 'string',
-      options: {
-        list: backgroundColors,
-        layout: 'dropdown',
-      },
-      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

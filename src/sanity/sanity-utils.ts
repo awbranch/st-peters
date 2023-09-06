@@ -64,3 +64,17 @@ export async function getHeroes(): Promise<Hero[]> {
   }`,
   );
 }
+
+export async function getHomePage() {
+  return client.fetch(groq`*[_type == "homePage"]{
+    _id,
+    hero {  
+      "color": backgroundColor.label,
+      title,
+      text,
+      image,
+      alt
+    }
+  }
+`);
+}

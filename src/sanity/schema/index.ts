@@ -12,10 +12,10 @@ import impact from '@/sanity/schema/impact-schema';
 
 const schemas = [
   settings,
+  lunchMenu,
   homePage,
   hero,
   lunchPlan,
-  lunchMenu,
   address,
   social,
   link,

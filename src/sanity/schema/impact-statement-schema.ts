@@ -1,11 +1,20 @@
 import { defineField, defineType } from 'sanity';
-import { backgroundColors } from '@/sanity/schema/helpers';
+import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
   name: 'impactStatement',
   title: 'Impact Statement',
   type: 'object',
   fields: [
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'simplerColor',
+      options: {
+        colorList: backgroundColorList,
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -26,16 +35,6 @@ export default defineType({
           },
         },
       ],
-    }),
-    defineField({
-      name: 'color',
-      title: 'Background Color',
-      type: 'string',
-      options: {
-        list: backgroundColors,
-        layout: 'dropdown',
-      },
-      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'impacts',

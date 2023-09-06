@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { GiStrong as icon } from 'react-icons/gi';
-import { backgroundColors } from '@/sanity/schema/helpers';
+import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
   name: 'hero',
@@ -10,6 +10,15 @@ export default defineType({
     'A hero an large image and block of text that appears at the top of a webpage.',
   icon,
   fields: [
+    defineField({
+      name: 'backgroundColor',
+      title: 'Background Color',
+      type: 'simplerColor',
+      options: {
+        colorList: backgroundColorList,
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -48,14 +57,9 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'color',
-      title: 'Background Color',
+      name: 'buttonLabel',
+      title: 'Button Label',
       type: 'string',
-      options: {
-        list: backgroundColors,
-        layout: 'dropdown',
-      },
-      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });
