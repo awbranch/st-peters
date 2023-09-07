@@ -2,12 +2,13 @@ import React from 'react';
 import Logo from '@/components/Logo';
 import Hamburger from '@/components/Hamburger';
 import { maxScreenWidth } from '@/utils/globals';
+import NextLink from 'next/link';
 
 const menus = [
-  { name: 'About', href: '#' },
-  { name: 'News', href: '#' },
-  { name: 'Volunteer', href: '#' },
-  { name: 'Support Us', href: '#' },
+  { name: 'About', href: '/about' },
+  { name: 'News', href: '/news' },
+  { name: 'Volunteer', href: '/volunteer' },
+  { name: 'Support Us', href: '/support-us' },
 ];
 
 export default function NavBar() {
@@ -18,20 +19,23 @@ export default function NavBar() {
         style={{ maxWidth: maxScreenWidth }}
       >
         <div className="flex-1 flex">
-          <a href="/">
+          <NextLink href="/">
             <Logo color={'white'} />
-          </a>
+          </NextLink>
         </div>
-        <a href="/" className="lg:hidden block">
+        <NextLink href="/" className="lg:hidden block">
           <Hamburger color={'white'} />
-        </a>
+        </NextLink>
         <div className="hidden lg:block">
           <ul className="gap-x-3 flex">
             {menus.map((m) => (
               <li key={m.name}>
-                <a className="hover:pb-[2px] hover:border-b-2" href={m.href}>
+                <NextLink
+                  className="hover:pb-[2px] hover:border-b-2"
+                  href={m.href}
+                >
                   {m.name}
-                </a>
+                </NextLink>
               </li>
             ))}
           </ul>

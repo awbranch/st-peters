@@ -16,8 +16,8 @@ export default defineType({
       title: 'Lunch',
     },
     {
-      name: 'community',
-      title: 'Community',
+      name: 'highlights',
+      title: 'Highlights',
     },
     {
       name: 'impact',
@@ -26,10 +26,6 @@ export default defineType({
     {
       name: 'programs',
       title: 'Programs',
-    },
-    {
-      name: 'volunteer',
-      title: 'Volunteer',
     },
     {
       name: 'instagram',
@@ -50,17 +46,17 @@ export default defineType({
       group: 'lunch',
     }),
     defineField({
-      name: 'displayProfile',
-      title: 'Display Profile',
+      name: 'displayHighlight1',
+      title: 'Display Highlight One',
       type: 'boolean',
-      group: 'community',
+      group: 'highlights',
     }),
     defineField({
-      name: 'profile',
-      title: 'Profile',
+      name: 'highlight1',
+      title: 'Highlight One',
       type: 'highlight',
-      group: 'community',
-      hidden: ({ document }) => !document?.displayProfile,
+      group: 'highlights',
+      hidden: ({ document }) => !document?.displayHighlight1,
     }),
     defineField({
       name: 'impact',
@@ -75,10 +71,17 @@ export default defineType({
       group: 'programs',
     }),
     defineField({
-      name: 'volunteer',
-      title: 'Volunteer',
+      name: 'displayHighlight2',
+      title: 'Display Highlight Two',
+      type: 'boolean',
+      group: 'highlights',
+    }),
+    defineField({
+      name: 'highlight2',
+      title: 'Highlight Two',
       type: 'highlight',
-      group: 'volunteer',
+      group: 'highlights',
+      hidden: ({ document }) => !document?.displayHighlight2,
     }),
     defineField({
       name: 'displayInstagram',

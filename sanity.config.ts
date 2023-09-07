@@ -2,7 +2,6 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { media } from 'sanity-plugin-media';
-import { simplerColorInput } from 'sanity-plugin-simpler-color-input';
 
 import schemas from '@/sanity/schema';
 
@@ -53,7 +52,6 @@ const config = defineConfig({
       defaultApiVersion: 'v2021-10-21',
     }),
     media(),
-    simplerColorInput(),
   ],
   schema: {
     types: schemas,

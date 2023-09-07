@@ -1,6 +1,5 @@
 import { defineField, defineType } from 'sanity';
 import { GiStrong as icon } from 'react-icons/gi';
-import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
   name: 'highlight',
@@ -10,29 +9,6 @@ export default defineType({
     'Highlight another section of the site for the user to navigate to.',
   icon,
   fields: [
-    defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'simplerColor',
-      options: {
-        colorList: backgroundColorList,
-      },
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'orientation',
-      title: 'Orientation',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Image on Left', value: 'left' },
-          { title: 'Image on Right', value: 'right' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      validation: (Rule: any) => Rule.required(),
-    }),
     defineField({
       name: 'title',
       title: 'Title',
