@@ -5,7 +5,6 @@ export default defineType({
   name: 'impact',
   title: 'Impact',
   type: 'object',
-  icon,
   fields: [
     defineField({
       name: 'category',

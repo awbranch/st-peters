@@ -3,11 +3,11 @@ import { GiStrong as icon } from 'react-icons/gi';
 import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
-  name: 'hero',
-  title: 'Hero',
+  name: 'highlight',
+  title: 'Highlight',
   type: 'object',
   description:
-    'A hero an large image and block of text that appears at the top of a webpage.',
+    'Highlight another section of the site for the user to navigate to.',
   icon,
   fields: [
     defineField({
@@ -16,6 +16,20 @@ export default defineType({
       type: 'simplerColor',
       options: {
         colorList: backgroundColorList,
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'orientation',
+      title: 'Orientation',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Image on Left', value: 'left' },
+          { title: 'Image on Right', value: 'right' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
       },
       validation: (Rule: any) => Rule.required(),
     }),
@@ -56,6 +70,11 @@ export default defineType({
     defineField({
       name: 'buttonLabel',
       title: 'Button Label',
+      type: 'string',
+    }),
+    defineField({
+      name: 'buttonLink',
+      title: 'Button Link',
       type: 'string',
     }),
   ],

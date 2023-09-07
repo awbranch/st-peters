@@ -1,22 +1,11 @@
 import { defineField, defineType } from 'sanity';
-import { backgroundColorList } from '@/sanity/schema/helpers';
 
 export default defineType({
-  name: 'lunchPlan',
-  title: 'Lunch Plan',
+  name: 'instagramFeed',
+  title: 'Instagram Feed',
   type: 'object',
-  description:
-    'This block displays the next three days of lunch menus. Use the top-level "Lunch Menu" object to enter daily menus.',
+  description: 'This block displays the instagram live feed.',
   fields: [
-    defineField({
-      name: 'backgroundColor',
-      title: 'Background Color',
-      type: 'simplerColor',
-      options: {
-        colorList: backgroundColorList,
-      },
-      validation: (Rule: any) => Rule.required(),
-    }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -37,6 +26,13 @@ export default defineType({
           },
         },
       ],
+    }),
+    defineField({
+      name: 'config',
+      title: 'Configuration',
+      type: 'text',
+      rows: 10,
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaAddressCard as icon } from 'react-icons/fa';
 
 export default defineType({
   name: 'address',
   title: 'Address',
   type: 'object',
-  icon,
   fields: [
     defineField({
       name: 'street',
