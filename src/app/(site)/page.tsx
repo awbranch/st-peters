@@ -1,16 +1,14 @@
-import LunchMenuBlock from '@/components/LunchMenuBlock';
 import HeroBlock from '@/components/HeroBlock';
-import { getHeroes } from '@/sanity/sanity-utils';
+import LunchPlanBlock from '@/components/LunchPlanBlock';
+import { getHomePage } from '@/sanity/sanity-utils';
 
 export default async function Home() {
-  const heroes = await getHeroes();
+  const data = await getHomePage();
 
   return (
     <main>
-      {heroes.map((h) => (
-        <HeroBlock key={h._id} hero={h} />
-      ))}
-      <LunchMenuBlock />
+      <HeroBlock color="green" hero={data.hero} />
+      <LunchPlanBlock plan={data.lunchPlan} />
     </main>
   );
 }

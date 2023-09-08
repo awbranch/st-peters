@@ -8,27 +8,37 @@ const lunchMenu = defineType({
   icon,
   fields: [
     defineField({
-      name: 'day',
-      title: 'Day',
-      type: 'string',
-    }),
-    defineField({
       name: 'date',
       title: 'Date',
-      type: 'string',
+      type: 'date',
+      options: {
+        dateFormat: 'MM/DD/YYYY',
+      },
     }),
     defineField({
-      name: 'items',
-      title: 'Items',
-      type: 'array',
-      of: [
-        {
-          name: 'item',
-          title: 'Item',
-          type: 'string',
-        },
-      ],
+      name: 'menu',
+      title: 'Menu',
+      type: 'text',
     }),
+  ],
+  preview: {
+    select: {
+      date: 'date',
+    },
+    prepare(selection: { date: string }) {
+      const { date } = selection;
+      const parts = date.split('-');
+      return {
+        title: `${parts[1]}/${parts[2]}/${parts[0]}`,
+      };
+    },
+  },
+  orderings: [
+    {
+      title: 'Date',
+      name: 'date',
+      by: [{ field: 'date', direction: 'desc' }],
+    },
   ],
 });
 

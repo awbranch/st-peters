@@ -2,6 +2,7 @@ import { createClient, groq } from 'next-sanity';
 import { Image } from 'sanity';
 import { LunchMenu } from '@/types/LunchMenu';
 import { Hero } from '@/types/Hero';
+import { HomePage } from '@/types/HomePage';
 import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
@@ -45,9 +46,8 @@ export async function getLunchMenus(): Promise<LunchMenu[]> {
   return client.fetch(
     groq`*[_type == "lunchMenu"]{
     _id,
-    day,
     date,
-    items[]
+    menu
   }`,
   );
 }
@@ -65,16 +65,22 @@ export async function getHeroes(): Promise<Hero[]> {
   );
 }
 
-export async function getHomePage() {
+export async function getHomePage(): Promise<HomePage> {
+  // Embed the menus array into the lunch plan including all menus that are newer than 2 days ago GMT
   return client.fetch(groq`*[_type == "homePage"]{
     _id,
-    hero {  
-      "color": backgroundColor.label,
-      title,
-      text,
-      image,
-      alt
-    }
-  }
-`);
+    hero,
+    lunchPlan {
+      ...,
+      "menus": *[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*2]{menu, date} | order(date asc)
+    },
+    displayHighlight1,
+    highlight1,
+    impact,
+    programs,
+    displayHighlight2,
+    highlight2,
+    displayInstagram,
+    instagram
+  }[0]`);
 }

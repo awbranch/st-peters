@@ -6,19 +6,21 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
 import cn from 'classnames';
+import { BgColor } from '@/types/Color';
 
 interface Props {
+  color: BgColor;
   hero: Hero;
 }
 
-export default function HeroBlock({ hero }: Props) {
+export default function HeroBlock({ color, hero }: Props) {
   const { width, height } = imageAttributes(hero.image);
 
   // Layout hero in a flex row when the image is in portrait mode
   const portrait = height > width;
 
   return (
-    <Block bg={hero.color}>
+    <Block bg={color}>
       <div
         className={cn('flex flex-col-reverse gap-4', {
           'lg:flex-row': portrait,

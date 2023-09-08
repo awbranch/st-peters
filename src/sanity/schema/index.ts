@@ -1,6 +1,5 @@
 import settings from '@/sanity/schema/settings-schema';
 import homePage from '@/sanity/schema/home-page-schema';
-
 import lunchPlan from '@/sanity/schema/lunch-plan-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
 import hero from '@/sanity/schema/hero-schema';
