@@ -7,6 +7,7 @@ import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
 import cn from 'classnames';
 import { BgColor } from '@/types/Color';
+import NextLink from 'next/link';
 
 interface Props {
   color: BgColor;
@@ -31,6 +32,9 @@ export default function HeroBlock({ color, hero }: Props) {
         >
           <h1 className="text-xl sm:text-2xl uppercase mb-4">{hero.title}</h1>
           <RichText document={hero.text} />
+          <NextLink href="#" className="text-lg">
+            {hero.buttonLabel}
+          </NextLink>
         </div>
         <div className={portrait ? 'lg:flex-1' : ''}>
           <ResponsiveImage
