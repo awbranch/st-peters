@@ -25,8 +25,7 @@ const lunchMenu = defineType({
     select: {
       date: 'date',
     },
-    prepare(selection: { date: string }) {
-      const { date } = selection;
+    prepare({ date }) {
       const parts = date.split('-');
       return {
         title: `${parts[1]}/${parts[2]}/${parts[0]}`,

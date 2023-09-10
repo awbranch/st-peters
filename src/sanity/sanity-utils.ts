@@ -63,7 +63,10 @@ export async function getHomePage(): Promise<HomePage> {
     displayHighlight1,
     highlight1,
     impact,
-    programGrid,
+    programGrid {
+      ...,
+      "programs": *[_type == "program"] | order(order asc)
+    },
     displayHighlight2,
     highlight2,
     displayInstagram,

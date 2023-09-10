@@ -12,6 +12,13 @@ export default defineType({
       name: 'title',
       title: 'Title',
       type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'introImage',
@@ -26,11 +33,10 @@ export default defineType({
           name: 'alt',
           title: 'Alternate Text',
           type: 'string',
-          description:
-            'An image description is important for accessibility and page ranking.',
           validation: (Rule: any) => Rule.required(),
         }),
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'mainImage',
@@ -46,8 +52,6 @@ export default defineType({
           name: 'alt',
           title: 'Alternate Text',
           type: 'string',
-          description:
-            'An image description is important for accessibility and page ranking.',
           validation: (Rule: any) => Rule.required(),
         }),
       ],
@@ -78,5 +82,23 @@ export default defineType({
         { type: 'image' },
       ],
     }),
+  ],
+  preview: {
+    select: {
+      title: 'title',
+      order: 'order',
+    },
+    prepare({ title, order }) {
+      return {
+        title: `${order}: ${title}`,
+      };
+    },
+  },
+  orderings: [
+    {
+      title: 'Display Order',
+      name: 'displayOrder',
+      by: [{ field: 'order', direction: 'asc' }],
+    },
   ],
 });

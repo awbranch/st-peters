@@ -33,7 +33,6 @@ export default function HighlightBlock({
         <div className="flex-1 basis-5/12">
           <ResponsiveImage
             image={highlight.image}
-            alt={highlight.alt}
             priority={true}
             sizes={'100vw'}
             className="border-8 border-black rounded-[20px]"

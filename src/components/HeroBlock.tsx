@@ -39,7 +39,6 @@ export default function HeroBlock({ color, hero }: Props) {
         <div className={portrait ? 'lg:flex-1' : ''}>
           <ResponsiveImage
             image={hero.image}
-            alt={hero.alt}
             priority={true}
             sizes={
               portrait ? `(max-width: ${breakpoints.lg}) 100vw, 50vw` : '100vw'

@@ -40,8 +40,6 @@ export default defineType({
           name: 'alt',
           title: 'Alternate Text',
           type: 'string',
-          description:
-            'An image description is important for accessibility and page ranking.',
           validation: (Rule: any) => Rule.required(),
         }),
       ],

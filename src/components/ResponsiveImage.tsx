@@ -1,10 +1,9 @@
 import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
-import { Image } from 'sanity';
 import { maxScreenWidth } from '@/utils/globals';
+import { SanityImage } from '@/types/SanityImage';
 
 interface Props {
-  image: Image;
-  alt: string;
+  image: SanityImage;
   sizes: string;
   priority?: boolean;
   className?: string;
@@ -14,7 +13,6 @@ const widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 
 export default function ResponsiveImage({
   image,
-  alt,
   sizes,
   priority = false,
   className,
@@ -36,7 +34,7 @@ export default function ResponsiveImage({
 
   return (
     <img
-      alt={alt}
+      alt={image.alt}
       fetchPriority={priority ? 'high' : undefined}
       width={width}
       height={height}
