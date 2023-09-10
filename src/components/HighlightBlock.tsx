@@ -1,11 +1,11 @@
 import React from 'react';
-import Block from '@/components/Block';
-import RichText from '@/components/RichText';
-
+import Link from 'next/link';
+import cn from 'classnames';
 import { BgColor } from '@/types/Color';
 import { Highlight } from '@/types/Highlight';
+import Block from '@/components/Block';
+import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import NextLink from 'next/link';
 
 interface Props {
   color: BgColor;
@@ -20,22 +20,43 @@ export default function HighlightBlock({
 }: Props) {
   return (
     <Block bg={color}>
-      <div className="flex flex-row gap-4">
+      <div
+        className={cn(
+          'flex gap-4',
+          {
+            'flex-row': orientation === 'right',
+          },
+          {
+            'flex-row-reverse': orientation === 'left',
+          },
+        )}
+      >
         <div className="flex-1 basis-7/12">
-          <h1 className="text-xl sm:text-xl uppercase border-black border-b-4 pb-1 mb-3">
+          <h1
+            className={cn(
+              'text-xl sm:text-xl uppercase border-black border-b-4 pb-1 mb-3',
+              color === 'white' ? 'border-black' : 'border-white',
+            )}
+          >
             {highlight.title}
           </h1>
           <RichText document={highlight.text} />
-          <NextLink href="#" className="text-lg block py-2">
+          <Link
+            href="#"
+            className="text-lg block py-2 hover:underline hover:underline-offset-4"
+          >
             {highlight.buttonLabel}
-          </NextLink>
+          </Link>
         </div>
         <div className="flex-1 basis-5/12">
           <ResponsiveImage
             image={highlight.image}
             priority={true}
             sizes={'100vw'}
-            className="border-8 border-black rounded-[20px]"
+            className={cn(
+              'border-8 rounded-[20px]',
+              color === 'white' ? 'border-black' : 'border-white',
+            )}
           />
         </div>
       </div>

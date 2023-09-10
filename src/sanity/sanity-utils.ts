@@ -3,6 +3,7 @@ import { Image } from 'sanity';
 import { LunchMenu } from '@/types/LunchMenu';
 import { HomePage } from '@/types/HomePage';
 import imageUrlBuilder from '@sanity/image-url';
+import { Program } from '@/types/Program';
 
 export const client = createClient({
   projectId: 't6t8tv0q',
@@ -52,7 +53,6 @@ export async function getLunchMenus(): Promise<LunchMenu[]> {
 }
 
 export async function getHomePage(): Promise<HomePage> {
-  // Embed the menus array into the lunch plan including all menus that are newer than 2 days ago GMT
   return client.fetch(groq`*[_type == "homePage"]{
     _id,
     hero,
@@ -72,4 +72,14 @@ export async function getHomePage(): Promise<HomePage> {
     displayInstagram,
     instagram
   }[0]`);
+}
+
+export async function getProgram(slug: string): Promise<Program> {
+  return client.fetch(
+    groq`*[_type == "program" && slug.current == $slug]{
+    ...,
+    "slug": slug.current
+  }[0]`,
+    { slug },
+  );
 }

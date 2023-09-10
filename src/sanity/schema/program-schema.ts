@@ -15,9 +15,20 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 200,
+      },
+    }),
+    defineField({
       name: 'order',
       title: 'Order',
       type: 'number',
+      initialValue: 0,
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({

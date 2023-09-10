@@ -2,7 +2,7 @@ import React from 'react';
 import Logo from '@/components/Logo';
 import Hamburger from '@/components/Hamburger';
 import { maxScreenWidth } from '@/utils/globals';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 const menus = [
   { name: 'About', href: '/about' },
@@ -19,23 +19,20 @@ export default function NavBar() {
         style={{ maxWidth: maxScreenWidth }}
       >
         <div className="flex-1 flex">
-          <NextLink href="/">
+          <Link href="/">
             <Logo color={'white'} />
-          </NextLink>
+          </Link>
         </div>
-        <NextLink href="/" className="lg:hidden block">
+        <Link href="/" className="lg:hidden block">
           <Hamburger color={'white'} />
-        </NextLink>
+        </Link>
         <div className="hidden lg:block">
           <ul className="gap-x-3 flex">
             {menus.map((m) => (
               <li key={m.name}>
-                <NextLink
-                  className="hover:pb-[2px] hover:border-b-2"
-                  href={m.href}
-                >
+                <Link className="hover:pb-[2px] hover:border-b-2" href={m.href}>
                   {m.name}
-                </NextLink>
+                </Link>
               </li>
             ))}
           </ul>

@@ -7,14 +7,15 @@ import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
 import cn from 'classnames';
 import { BgColor } from '@/types/Color';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 interface Props {
   color: BgColor;
   hero: Hero;
+  href: string;
 }
 
-export default function HeroBlock({ color, hero }: Props) {
+export default function HeroBlock({ color, href, hero }: Props) {
   const { width, height } = imageAttributes(hero.image);
 
   // Layout hero in a flex row when the image is in portrait mode
@@ -32,9 +33,12 @@ export default function HeroBlock({ color, hero }: Props) {
         >
           <h1 className="text-xl sm:text-2xl uppercase mb-4">{hero.title}</h1>
           <RichText document={hero.text} />
-          <NextLink href="#" className="text-lg">
+          <Link
+            href={href}
+            className="text-lg hover:underline hover:underline-offset-4"
+          >
             {hero.buttonLabel}
-          </NextLink>
+          </Link>
         </div>
         <div className={portrait ? 'lg:flex-1' : ''}>
           <ResponsiveImage

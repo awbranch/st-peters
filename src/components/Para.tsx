@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 export default function Para({
   className,
@@ -7,7 +7,7 @@ export default function Para({
   ...props
 }: React.ParamHTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={classNames('text-base mb-2', className)} {...props}>
+    <p className={cn('text-base mb-2', className)} {...props}>
       {children}
     </p>
   );

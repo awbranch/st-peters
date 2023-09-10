@@ -10,23 +10,35 @@ export default async function Home() {
 
   return (
     <main>
-      <HeroBlock color="green" hero={data.hero} />
-      <LunchPlanBlock plan={data.lunchPlan} />
+      <section id="hero">
+        <HeroBlock color="green" hero={data.hero} href="#lunch-menu" />
+      </section>
+      <section id="lunch-menu">
+        <LunchPlanBlock plan={data.lunchPlan} />
+      </section>
       {data.displayHighlight1 && (
-        <HighlightBlock
-          color="white"
-          orientation="right"
-          highlight={data.highlight1}
-        />
+        <section id={data.highlight1.slug.current}>
+          <HighlightBlock
+            color="white"
+            orientation="right"
+            highlight={data.highlight1}
+          />
+        </section>
       )}
-      <ImpactBlock statement={data.impact} />
-      <ProgramGridBlock programGrid={data.programGrid} />
+      <section id="impact">
+        <ImpactBlock statement={data.impact} />
+      </section>
+      <section id="programs">
+        <ProgramGridBlock programGrid={data.programGrid} />
+      </section>
       {data.displayHighlight2 && (
-        <HighlightBlock
-          color="blue"
-          orientation="left"
-          highlight={data.highlight2}
-        />
+        <section id={data.highlight2.slug.current}>
+          <HighlightBlock
+            color="blue"
+            orientation="left"
+            highlight={data.highlight2}
+          />
+        </section>
       )}
     </main>
   );

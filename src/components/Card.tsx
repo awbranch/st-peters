@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import cn from 'classnames';
 
 export default function Card({
   className,
@@ -7,7 +7,7 @@ export default function Card({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={classNames('bg-white rounded p-3', className)} {...props}>
+    <div className={cn('bg-white rounded p-3', className)} {...props}>
       {children}
     </div>
   );

@@ -16,6 +16,12 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
       type: 'array',

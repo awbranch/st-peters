@@ -1,9 +1,9 @@
 import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
 import { maxScreenWidth } from '@/utils/globals';
-import { SanityImage } from '@/types/SanityImage';
+import { Image } from '@/types/Image';
 
 interface Props {
-  image: SanityImage;
+  image: Image;
   sizes: string;
   priority?: boolean;
   className?: string;

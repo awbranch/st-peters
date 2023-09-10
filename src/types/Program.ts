@@ -1,9 +1,10 @@
-import { PortableTextBlock } from 'sanity';
-import { SanityImage } from '@/types/SanityImage';
+import { PortableTextBlock, Slug } from 'sanity';
+import { Image } from '@/types/Image';
 
 export type Program = {
   title: string;
-  introImage: SanityImage;
-  mainImage: SanityImage;
+  slug: Slug;
+  introImage: Image;
+  mainImage: Image;
   text: PortableTextBlock[];
 };

@@ -87,6 +87,11 @@ const config: Config = {
       none: '0',
       DEFAULT: '5px',
     },
+    fontWeight: {
+      normal: '400',
+      bold: '700',
+      'extra-bold': '800',
+    },
     breakpoints,
   },
   plugins: [],

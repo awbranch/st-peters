@@ -1,10 +1,10 @@
 import { PortableTextBlock } from 'sanity';
-import { SanityImage } from '@/types/SanityImage';
+import { Image } from '@/types/Image';
 
 export type Hero = {
   title: string;
   text: PortableTextBlock[];
-  image: SanityImage;
+  image: Image;
   alt: string;
   buttonLabel: string;
 };
