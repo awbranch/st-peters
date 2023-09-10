@@ -12,7 +12,7 @@ export type HomePage = {
   displayHighlight1: boolean;
   highlight1: Highlight;
   impact: ImpactStatement;
-  programs: ProgramGrid;
+  programGrid: ProgramGrid;
   displayHighlight2: boolean;
   highlight2: Highlight;
   displayInstagram: boolean;

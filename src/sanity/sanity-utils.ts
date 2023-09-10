@@ -1,7 +1,6 @@
 import { createClient, groq } from 'next-sanity';
 import { Image } from 'sanity';
 import { LunchMenu } from '@/types/LunchMenu';
-import { Hero } from '@/types/Hero';
 import { HomePage } from '@/types/HomePage';
 import imageUrlBuilder from '@sanity/image-url';
 
@@ -52,19 +51,6 @@ export async function getLunchMenus(): Promise<LunchMenu[]> {
   );
 }
 
-export async function getHeroes(): Promise<Hero[]> {
-  return client.fetch(
-    groq`*[_type == "hero"]{
-    _id,
-    color,
-    title,
-    text,
-    image,
-    alt
-  }`,
-  );
-}
-
 export async function getHomePage(): Promise<HomePage> {
   // Embed the menus array into the lunch plan including all menus that are newer than 2 days ago GMT
   return client.fetch(groq`*[_type == "homePage"]{
@@ -77,7 +63,7 @@ export async function getHomePage(): Promise<HomePage> {
     displayHighlight1,
     highlight1,
     impact,
-    programs,
+    programGrid,
     displayHighlight2,
     highlight2,
     displayInstagram,

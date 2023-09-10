@@ -20,7 +20,7 @@ export default async function Home() {
         />
       )}
       <ImpactBlock statement={data.impact} />
-      <ProgramGridBlock programGrid={data.programs} />
+      <ProgramGridBlock programGrid={data.programGrid} />
       {data.displayHighlight2 && (
         <HighlightBlock
           color="blue"

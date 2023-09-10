@@ -65,8 +65,8 @@ export default defineType({
       group: 'impact',
     }),
     defineField({
-      name: 'programs',
-      title: 'Programs',
+      name: 'programGrid',
+      title: 'Program Grid',
       type: 'programGrid',
       group: 'programs',
     }),

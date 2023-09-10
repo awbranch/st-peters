@@ -28,6 +28,7 @@ const RichText = ({ document }: Props) => {
       h3: ({ children }: { children: React.ReactNode }) => (
         <h3 className="text-lg mb-2">{children}</h3>
       ),
+      // TODO: Add: Quote, Bulleted List, Numbered List, Bold, Italic
       normal: ({ children }: { children: React.ReactNode }) => (
         <p className="text-base mb-2">{children}</p>
       ),

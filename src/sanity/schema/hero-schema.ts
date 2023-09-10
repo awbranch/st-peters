@@ -35,13 +35,16 @@ export default defineType({
       title: 'Image',
       type: 'image',
       validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'alt',
-      title: 'Alternate Image Text',
-      description:
-        'An image description is important for accessibility and page ranking.',
-      type: 'string',
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alternate Text',
+          type: 'string',
+          description:
+            'An image description is important for accessibility and page ranking.',
+          validation: (Rule: any) => Rule.required(),
+        }),
+      ],
     }),
     defineField({
       name: 'buttonLabel',
