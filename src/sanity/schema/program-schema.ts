@@ -3,7 +3,7 @@ import { FaCertificate as icon } from 'react-icons/fa6';
 
 export default defineType({
   name: 'program',
-  title: 'Program',
+  title: 'Programs',
   type: 'document',
   description: "One of programmatic services that St. Peter's provides.",
   icon,

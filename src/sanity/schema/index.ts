@@ -19,11 +19,12 @@ import donationLevel from '@/sanity/schema/donation-level-schema';
 
 import history from '@/sanity/schema/history-schema';
 import map from '@/sanity/schema/map-schema';
+import team from '@/sanity/schema/team-schema';
 
 const schemas = [
+  settings,
   homePage,
   aboutPage,
-  settings,
   lunchMenu,
   program,
   hero,
@@ -40,6 +41,7 @@ const schemas = [
   donationLevel,
   history,
   map,
+  team,
 ];
 
 export default schemas;

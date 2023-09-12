@@ -3,7 +3,7 @@ import { FaClipboardList as icon } from 'react-icons/fa';
 
 const lunchMenu = defineType({
   name: 'lunchMenu',
-  title: 'Lunch Menu',
+  title: 'Lunch Menus',
   type: 'document',
   icon,
   fields: [

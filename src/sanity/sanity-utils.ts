@@ -85,6 +85,7 @@ export async function getAboutPage(): Promise<AboutPage> {
   return client.fetch(groq`*[_type == "aboutPage"]{
     _id,
     history,
-    map
+    map,
+    team
   }[0]`);
 }

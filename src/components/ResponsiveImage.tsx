@@ -1,8 +1,9 @@
 import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
 import { maxScreenWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
+import React from 'react';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLElement> {
   image: Image;
   sizes: string;
   priority?: boolean;

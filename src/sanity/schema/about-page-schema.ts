@@ -41,6 +41,12 @@ export default defineType({
       type: 'map',
       group: 'map',
     }),
+    defineField({
+      name: 'team',
+      title: 'Team',
+      type: 'team',
+      group: 'team',
+    }),
   ],
   preview: {
     prepare() {
