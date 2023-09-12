@@ -22,9 +22,7 @@ export default defineType({
           type: 'block',
           styles: [],
           lists: [],
-          marks: {
-            decorators: [],
-          },
+          marks: {},
         },
       ],
       hidden: ({ document }) => !document?.showNotification,

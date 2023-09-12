@@ -1,7 +1,9 @@
+import homePage from '@/sanity/schema/home-page-schema';
+import aboutPage from '@/sanity/schema/about-page-schema';
 import settings from '@/sanity/schema/settings-schema';
+
 import lunchPlan from '@/sanity/schema/lunch-plan-schema';
 import program from '@/sanity/schema/program-schema';
-import homePage from '@/sanity/schema/home-page-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
 import hero from '@/sanity/schema/hero-schema';
 import highlight from '@/sanity/schema/highlight-schema';
@@ -15,11 +17,15 @@ import instagramFeed from '@/sanity/schema/instagram-feed';
 import donationRequest from '@/sanity/schema/donation-request-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
 
+import history from '@/sanity/schema/history-schema';
+import map from '@/sanity/schema/map-schema';
+
 const schemas = [
+  homePage,
+  aboutPage,
   settings,
   lunchMenu,
   program,
-  homePage,
   hero,
   highlight,
   lunchPlan,
@@ -32,6 +38,8 @@ const schemas = [
   instagramFeed,
   donationRequest,
   donationLevel,
+  history,
+  map,
 ];
 
 export default schemas;

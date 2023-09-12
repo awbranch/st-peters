@@ -1,12 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaCertificate as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'program',
-  title: 'Program',
-  type: 'document',
-  description: "One of programmatic services that St. Peter's provides.",
-  icon,
+  name: 'history',
+  title: 'History',
+  type: 'object',
   fields: [
     defineField({
       name: 'title',
@@ -25,33 +22,8 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-      initialValue: 0,
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'introImage',
-      title: 'Intro Image',
-      description: 'The image that is displayed on the program grid.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternate Text',
-          type: 'string',
-          validation: (Rule: any) => Rule.required(),
-        }),
-      ],
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main Image',
+      name: 'image',
+      title: 'Image',
       description: 'The image that is displayed on the top of the page.',
       type: 'image',
       options: {
@@ -91,28 +63,5 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: 'donationRequest',
-      title: 'Donation Request',
-      type: 'donationRequest',
-    }),
-  ],
-  preview: {
-    select: {
-      title: 'title',
-      order: 'order',
-    },
-    prepare({ title, order }) {
-      return {
-        title: `${order}: ${title}`,
-      };
-    },
-  },
-  orderings: [
-    {
-      title: 'Display Order',
-      name: 'displayOrder',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
   ],
 });

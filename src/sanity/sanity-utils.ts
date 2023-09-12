@@ -1,8 +1,9 @@
 import { createClient, groq } from 'next-sanity';
 import { Image } from 'sanity';
+import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
 import { HomePage } from '@/types/HomePage';
-import imageUrlBuilder from '@sanity/image-url';
+import { AboutPage } from '@/types/AboutPage';
 import { Program } from '@/types/Program';
 
 export const client = createClient({
@@ -78,4 +79,12 @@ export async function getProgram(slug: string): Promise<Program> {
   return client.fetch(groq`*[_type == "program" && slug.current == $slug][0]`, {
     slug,
   });
+}
+
+export async function getAboutPage(): Promise<AboutPage> {
+  return client.fetch(groq`*[_type == "aboutPage"]{
+    _id,
+    history,
+    map
+  }[0]`);
 }
