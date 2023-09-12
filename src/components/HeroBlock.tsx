@@ -6,11 +6,11 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
 import cn from 'classnames';
-import { BgColor } from '@/types/Color';
+import { Color } from '@/types/Color';
 import Link from 'next/link';
 
 interface Props {
-  color: BgColor;
+  color: Color;
   hero: Hero;
   href: string;
 }
@@ -22,7 +22,7 @@ export default function HeroBlock({ color, href, hero }: Props) {
   const portrait = height > width;
 
   return (
-    <Block bg={color}>
+    <Block color={color}>
       <div
         className={cn('flex flex-col-reverse gap-4', {
           'lg:flex-row': portrait,

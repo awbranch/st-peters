@@ -20,13 +20,10 @@ const RichText = ({ document }: Props) => {
     },
     block: {
       h1: ({ children }: { children: React.ReactNode }) => (
-        <h1 className="text-2xl uppercase mb-2">{children}</h1>
+        <h1 className="text-xl uppercase mb-2">{children}</h1>
       ),
       h2: ({ children }: { children: React.ReactNode }) => (
-        <h2 className="text-xl mb-2">{children}</h2>
-      ),
-      h3: ({ children }: { children: React.ReactNode }) => (
-        <h3 className="text-lg mb-2">{children}</h3>
+        <h2 className="text-lg mb-2">{children}</h2>
       ),
       // TODO: Add: Quote, Bulleted List, Numbered List, Bold, Italic
       normal: ({ children }: { children: React.ReactNode }) => (

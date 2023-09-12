@@ -10,7 +10,7 @@ interface Props {
 
 export default function ImpactBlock({ statement }: Props) {
   return (
-    <Block bg="pink" center>
+    <Block color="pink" center>
       <h1 className="text-xl uppercase">{statement.title}</h1>
       <div className="max-w-lg mx-auto mt-4">
         <RichText document={statement.description} />

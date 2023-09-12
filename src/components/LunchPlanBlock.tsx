@@ -50,7 +50,7 @@ export default function LunchPlanBlock({ plan }: Props) {
   let menus = today ? calcMenus(plan, today) : null;
 
   return (
-    <Block bg="blue" center>
+    <Block color="blue" center>
       <h2 className="text-xl uppercase mb-1">{plan.title}</h2>
       <RichText document={plan.text} />
       <div className="mt-4 md:mt-8 flex flex-row justify-between min-h-[400px]">

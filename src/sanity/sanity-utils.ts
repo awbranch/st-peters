@@ -75,11 +75,7 @@ export async function getHomePage(): Promise<HomePage> {
 }
 
 export async function getProgram(slug: string): Promise<Program> {
-  return client.fetch(
-    groq`*[_type == "program" && slug.current == $slug]{
-    ...,
-    "slug": slug.current
-  }[0]`,
-    { slug },
-  );
+  return client.fetch(groq`*[_type == "program" && slug.current == $slug][0]`, {
+    slug,
+  });
 }

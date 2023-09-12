@@ -6,7 +6,6 @@ export type Highlight = {
   slug: Slug;
   text: PortableTextBlock[];
   image: Image;
-  alt: string;
   buttonLabel: string;
   buttonLink: string;
 };

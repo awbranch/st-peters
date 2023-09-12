@@ -93,6 +93,11 @@ export default defineType({
         { type: 'image' },
       ],
     }),
+    defineField({
+      name: 'donationRequest',
+      title: 'Donation Request',
+      type: 'donationRequest',
+    }),
   ],
   preview: {
     select: {

@@ -12,6 +12,8 @@ import impactStatement from '@/sanity/schema/impact-statement-schema';
 import impact from '@/sanity/schema/impact-schema';
 import programGrid from '@/sanity/schema/program-grid-schema';
 import instagramFeed from '@/sanity/schema/instagram-feed';
+import donationRequest from '@/sanity/schema/donation-request-schema';
+import donationLevel from '@/sanity/schema/donation-level-schema';
 
 const schemas = [
   settings,
@@ -28,6 +30,8 @@ const schemas = [
   impact,
   programGrid,
   instagramFeed,
+  donationRequest,
+  donationLevel,
 ];
 
 export default schemas;

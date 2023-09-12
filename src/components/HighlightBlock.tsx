@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import { BgColor } from '@/types/Color';
+import { Color } from '@/types/Color';
 import { Highlight } from '@/types/Highlight';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
 interface Props {
-  color: BgColor;
+  color: Color;
   orientation: 'left' | 'right';
   highlight: Highlight;
 }
@@ -19,7 +19,7 @@ export default function HighlightBlock({
   highlight,
 }: Props) {
   return (
-    <Block bg={color}>
+    <Block color={color}>
       <div
         className={cn(
           'flex gap-4',

@@ -14,7 +14,7 @@ export default function RevalidateBlock() {
   };
 
   return (
-    <Block bg="pink" center>
+    <Block color="pink" center>
       <div className="mt-4">
         <button className="border-2 p-2" onClick={handleClick}>
           Revalidate

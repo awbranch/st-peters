@@ -12,7 +12,7 @@ interface Props {
 
 export default function ProgramGridBlock({ programGrid }: Props) {
   return (
-    <Block bg="white">
+    <Block color="white">
       <h1 className="text-xl uppercase">{programGrid.title}</h1>
       <div className="mt-4">
         <RichText document={programGrid.text} />

@@ -86,6 +86,7 @@ const config: Config = {
     borderRadius: {
       none: '0',
       DEFAULT: '5px',
+      xl: '30px',
     },
     fontWeight: {
       normal: '400',

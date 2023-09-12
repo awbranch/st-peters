@@ -1,33 +1,33 @@
 import React from 'react';
-import type { BgColor } from '@/types/Color';
+import type { Color } from '@/types/Color';
 import { maxScreenWidth } from '@/utils/globals';
+import cn from 'classnames';
 
 interface Props {
-  bg?: BgColor;
+  color?: Color;
   center?: boolean;
   className?: string;
   children: React.ReactNode;
 }
 
 export default function Block({
-  bg,
+  color,
   center = false,
   className = '',
   children,
 }: Props) {
   return (
     <div
-      className={`${
-        bg === 'green'
-          ? 'bg-green text-white'
-          : bg === 'blue'
-          ? 'bg-blue text-white'
-          : bg === 'pink'
-          ? 'bg-pink text-white'
-          : bg === 'black'
-          ? 'bg-black text-white'
-          : 'bg-white text-black'
-      } ${center ? 'text-center' : ''} px-2 md:px-4 py-4 md:py-8 ${className}`}
+      className={cn(
+        'px-2 md:px-4 py-4 md:py-8',
+        { 'bg-green text-white': color === 'green' },
+        { 'bg-blue text-white': color === 'blue' },
+        { 'bg-pink text-white': color === 'pink' },
+        { 'bg-black text-white': color === 'black' },
+        { 'bg-white text-black': color === 'white' },
+        { 'text-center': center },
+        className,
+      )}
     >
       <div className="mx-auto" style={{ maxWidth: maxScreenWidth }}>
         {children}

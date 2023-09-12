@@ -1,6 +1,9 @@
+import './globals.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 import React from 'react';
 import type { Metadata } from 'next';
-import './globals.css';
 import { Montserrat } from 'next/font/google';
 import cn from 'classnames';
 import NavBar from '@/components/NavBar';
