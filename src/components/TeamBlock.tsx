@@ -21,7 +21,7 @@ export default function TeamBlock({ team }: Props) {
         ].map((g) => (
           <div key={g.slug}>
             <div className="h-[360px]">
-              <Link href={`/program/${g.slug}`} title={g.label}>
+              <Link href={`/about/${g.slug}`} title={g.label}>
                 <ResponsiveImage
                   image={g.photo}
                   priority={false}
