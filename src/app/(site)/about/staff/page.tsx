@@ -2,8 +2,11 @@ import React from 'react';
 import Block from '@/components/Block';
 import { FaArrowLeft } from 'react-icons/fa6';
 import Link from 'next/link';
+import { getStaffMembers } from '@/sanity/sanity-utils';
+import TeamMemberCard from '@/components/TeamMemberCard';
 
 export default async function Staff() {
+  let team = await getStaffMembers();
   return (
     <main>
       <Block color={'white'}>
@@ -17,6 +20,9 @@ export default async function Staff() {
           </Link>
         </div>
         <h1 className="text-xl uppercase mb-4">Our Staff</h1>
+        {team.map((m, i) => (
+          <TeamMemberCard member={m} key={i} />
+        ))}
       </Block>
     </main>
   );

@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity';
-import { GiStrong as icon } from 'react-icons/gi';
 
 export default defineType({
   name: 'hero',
@@ -7,7 +6,6 @@ export default defineType({
   type: 'object',
   description:
     'A hero an large image and block of text that appears at the top of a webpage.',
-  icon,
   fields: [
     defineField({
       name: 'title',

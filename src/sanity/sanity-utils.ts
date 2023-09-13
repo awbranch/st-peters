@@ -5,6 +5,7 @@ import { LunchMenu } from '@/types/LunchMenu';
 import { HomePage } from '@/types/HomePage';
 import { AboutPage } from '@/types/AboutPage';
 import { Program } from '@/types/Program';
+import { TeamMember } from '@/types/TeamMember';
 
 export const client = createClient({
   projectId: 't6t8tv0q',
@@ -88,4 +89,16 @@ export async function getAboutPage(): Promise<AboutPage> {
     map,
     team
   }[0]`);
+}
+
+export async function getStaffMembers(): Promise<TeamMember[]> {
+  return client.fetch(
+    groq`*[_type == "staffMember"] | order(lastName asc, firstName asc)`,
+  );
+}
+
+export async function getBoardMembers(): Promise<TeamMember[]> {
+  return client.fetch(
+    groq`*[_type == "boardMember"] | order(lastName asc, firstName asc)`,
+  );
 }
