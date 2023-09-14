@@ -48,9 +48,9 @@ export default defineType({
       group: 'team',
     }),
     defineField({
-      name: 'jobsBoard',
-      title: 'Jobs Board',
-      type: 'jobsBoard',
+      name: 'jobOpenings',
+      title: 'Job Openings',
+      type: 'jobOpenings',
       group: 'jobs',
     }),
   ],

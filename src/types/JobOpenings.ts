@@ -1,10 +1,10 @@
 import { PortableTextBlock } from 'sanity';
 import { JobPosting } from '@/types/JobPosting';
 
-export type JobsBoard = {
+export type JobOpenings = {
   title: string;
   description: PortableTextBlock[];
+  jobPostings: JobPosting[];
   details?: PortableTextBlock[];
   noOpenings?: PortableTextBlock[];
-  jobPostings: JobPosting[];
 };

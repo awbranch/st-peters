@@ -1,25 +1,25 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { JobsBoard } from '@/types/JobsBoard';
+import { JobOpenings } from '@/types/JobOpenings';
 import Card from '@/components/Card';
 import Button from '@/components/Button';
 
 interface Props {
-  jobsBoard: JobsBoard;
+  jobOpenings: JobOpenings;
 }
 
-export default function JobsBoardBlock({ jobsBoard }: Props) {
+export default function JobOpeningsBlock({ jobOpenings }: Props) {
   return (
     <Block color="blue" center>
       <div className="max-w-screen-md mx-auto">
-        <h1 className="text-xl mb-3">{jobsBoard.title}</h1>
-        <RichText document={jobsBoard.description} />
+        <h1 className="text-xl mb-3">{jobOpenings.title}</h1>
+        <RichText document={jobOpenings.description} />
       </div>
 
       <div className="mt-4 flex flex-row min-h-[400px] justify-around">
-        {jobsBoard.jobPostings &&
-          jobsBoard.jobPostings.map((j, i) => (
+        {jobOpenings.jobPostings &&
+          jobOpenings.jobPostings.map((j, i) => (
             <Card
               key={i}
               className="text-black w-[300px] flex flex-col justify-between"
@@ -30,6 +30,7 @@ export default function JobsBoardBlock({ jobsBoard }: Props) {
                 <p className="mt-3">{j.description}</p>
               </div>
               <Button
+                className={'mt-3'}
                 size={'small'}
                 variant={'text'}
                 color={'blue'}
@@ -42,7 +43,7 @@ export default function JobsBoardBlock({ jobsBoard }: Props) {
       </div>
 
       <div className="max-w-screen-md mx-auto mt-4">
-        <RichText document={jobsBoard.details} />
+        <RichText document={jobOpenings.details} />
       </div>
     </Block>
   );

@@ -4,7 +4,7 @@ import { FaPersonDigging as icon } from 'react-icons/fa6';
 export default defineType({
   name: 'jobPosting',
   title: 'Job Posting',
-  type: 'document',
+  type: 'object',
   icon,
   fields: [
     defineField({

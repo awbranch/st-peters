@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
 
 export default defineType({
-  name: 'jobsBoard',
-  title: 'Jobs Board',
+  name: 'jobOpenings',
+  title: 'Job Openings',
   type: 'object',
-  description:
-    'This block displays the the list job openings. Use the top-level "Jobs" object to add individual jobs.',
   fields: [
     defineField({
       name: 'title',
@@ -26,6 +24,12 @@ export default defineType({
         },
       ],
       validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'jobPostings',
+      title: 'Jop Postings',
+      type: 'array',
+      of: [{ type: 'jobPosting' }],
     }),
     defineField({
       name: 'details',

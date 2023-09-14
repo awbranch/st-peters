@@ -2,7 +2,7 @@ import { getAboutPage } from '@/sanity/sanity-utils';
 import HistoryBlock from '@/components/HistoryBlock';
 import GoogleMapBlock from '@/components/GoogleMapBlock';
 import TeamBlock from '@/components/TeamBlock';
-import JobsBoardBlock from '@/components/JobsBoardBlock';
+import JobOpeningsBlock from '@/components/JobOpeningsBlock';
 import React from 'react';
 
 export default async function AboutUs() {
@@ -23,7 +23,7 @@ export default async function AboutUs() {
       </section>
 
       <section id="jobs">
-        <JobsBoardBlock jobsBoard={data.jobsBoard} />
+        <JobOpeningsBlock jobOpenings={data.jobOpenings} />
       </section>
 
       <div className="h-24" />

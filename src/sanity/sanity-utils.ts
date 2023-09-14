@@ -69,13 +69,7 @@ export async function getProgram(slug: string): Promise<Program> {
 }
 
 export async function getAboutPage(): Promise<AboutPage> {
-  return client.fetch(groq`*[_type == "aboutPage"]{
-     ...,
-     jobsBoard {
-        ...,
-        "jobPostings": *[_type == "jobPosting"] | order(_updatedAt asc)
-     }
-  }[0]`);
+  return client.fetch(groq`*[_type == "aboutPage"][0]`);
 }
 
 export async function getStaffMembers(): Promise<TeamMember[]> {
