@@ -32,23 +32,23 @@ export default function Button({
         { 'bg-white text-black': variant === 'solid' && color === 'white' },
         {
           'bg-white text-green border-green':
-            variant === 'outline' && color === 'green',
+            (variant === 'outline' || variant === 'text') && color === 'green',
         },
         {
           'bg-white text-blue border-blue':
-            variant === 'outline' && color === 'blue',
+            (variant === 'outline' || variant === 'text') && color === 'blue',
         },
         {
           'bg-white text-pink border-pink':
-            variant === 'outline' && color === 'pink',
+            (variant === 'outline' || variant === 'text') && color === 'pink',
         },
         {
           'bg-white text-black border-black':
-            variant === 'outline' && color === 'black',
+            (variant === 'outline' || variant === 'text') && color === 'black',
         },
         {
           'bg-black text-white border-white':
-            variant === 'outline' && color === 'white',
+            (variant === 'outline' || variant === 'text') && color === 'white',
         },
         { 'text-base font-bold': size === 'small' },
         { 'text-lg': size === 'large' },

@@ -47,6 +47,12 @@ export default defineType({
       type: 'team',
       group: 'team',
     }),
+    defineField({
+      name: 'jobsBoard',
+      title: 'Jobs Board',
+      type: 'jobsBoard',
+      group: 'jobs',
+    }),
   ],
   preview: {
     prepare() {

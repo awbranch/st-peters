@@ -23,6 +23,9 @@ import team from '@/sanity/schema/team-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
 
+import jobsBoard from '@/sanity/schema/jobs-board-schema';
+import jobPosting from '@/sanity/schema/job-posting-schema';
+
 const schemas = [
   settings,
   homePage,
@@ -46,6 +49,8 @@ const schemas = [
   team,
   staffMember,
   boardMember,
+  jobsBoard,
+  jobPosting,
 ];
 
 export default schemas;

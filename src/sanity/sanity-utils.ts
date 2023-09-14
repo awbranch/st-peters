@@ -45,34 +45,20 @@ export function imageAttributes(image: Image) {
 }
 
 export async function getLunchMenus(): Promise<LunchMenu[]> {
-  return client.fetch(
-    groq`*[_type == "lunchMenu"]{
-    _id,
-    date,
-    menu
-  }`,
-  );
+  return client.fetch(groq`*[_type == "lunchMenu"]`);
 }
 
 export async function getHomePage(): Promise<HomePage> {
   return client.fetch(groq`*[_type == "homePage"]{
-    _id,
-    hero,
+    ...,
     lunchPlan {
       ...,
       "menus": *[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*2]{menu, date} | order(date asc)
     },
-    displayHighlight1,
-    highlight1,
-    impact,
     programGrid {
       ...,
       "programs": *[_type == "program"] | order(order asc)
-    },
-    displayHighlight2,
-    highlight2,
-    displayInstagram,
-    instagram
+    }
   }[0]`);
 }
 
@@ -84,10 +70,11 @@ export async function getProgram(slug: string): Promise<Program> {
 
 export async function getAboutPage(): Promise<AboutPage> {
   return client.fetch(groq`*[_type == "aboutPage"]{
-    _id,
-    history,
-    map,
-    team
+     ...,
+     jobsBoard {
+        ...,
+        "jobPostings": *[_type == "jobPosting"] | order(_updatedAt asc)
+     }
   }[0]`);
 }
 

@@ -34,7 +34,6 @@ export default function TeamBlock({ team }: Props) {
           </div>
         ))}
       </div>
-      <div className="h-24" />
     </Block>
   );
 }
