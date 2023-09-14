@@ -13,6 +13,7 @@ import {
   isWeekday,
   toMonthAndDate,
 } from '@/utils/date';
+import SimpleText from '@/components/SimpleText';
 
 interface Props {
   plan: LunchPlan;
@@ -66,9 +67,7 @@ export default function LunchPlanBlock({ plan }: Props) {
                 width={40}
                 alt="pink heart"
               />
-              {m.menu.split(/\n+/).map((mi, i) => (
-                <Para key={i}>{mi}</Para>
-              ))}
+              <SimpleText text={m.menu} />
             </Card>
           ))}
       </div>

@@ -1,5 +1,5 @@
 import { createClient, groq } from 'next-sanity';
-import { Image } from 'sanity';
+import { Image, File } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
 import { HomePage } from '@/types/HomePage';
@@ -18,6 +18,26 @@ const builder = imageUrlBuilder(client);
 
 export function urlFor(image: Image) {
   return builder.image(image);
+}
+
+export function urlForFile(file: File) {
+  const { id, format } = fileAttributes(file);
+  const config = client.config();
+  return `https://cdn.sanity.io/files/${config.projectId}/${config.dataset}/${id}.${format}`;
+}
+
+export function fileAttributes(file: File) {
+  const ref = file?.asset?._ref;
+  if (!ref) {
+    throw new Error(`File should have asset attribute`);
+  }
+  const [, id, format] = ref.split('-');
+
+  if (!id || !format) {
+    throw new Error(`Malformed asset _ref '${ref}'`);
+  }
+
+  return { id, format: format };
 }
 
 export function imageAttributes(image: Image) {
@@ -69,7 +89,13 @@ export async function getProgram(slug: string): Promise<Program> {
 }
 
 export async function getAboutPage(): Promise<AboutPage> {
-  return client.fetch(groq`*[_type == "aboutPage"][0]`);
+  return client.fetch(groq`*[_type == "aboutPage"]{
+  history,
+  map,
+  team,
+  jobOpenings,
+  "documents": dokuments { title, description, "documents": dokuments }
+}[0]`);
 }
 
 export async function getStaffMembers(): Promise<TeamMember[]> {

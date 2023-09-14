@@ -25,6 +25,8 @@ import boardMember from '@/sanity/schema/board-member-schema';
 
 import jobOpenings from '@/sanity/schema/job-openings-schema';
 import jobPosting from '@/sanity/schema/job-posting-schema';
+import dokuments from '@/sanity/schema/dokuments-schema';
+import dokument from '@/sanity/schema/dokument-schema';
 
 const schemas = [
   settings,
@@ -51,6 +53,8 @@ const schemas = [
   boardMember,
   jobOpenings,
   jobPosting,
+  dokuments,
+  dokument,
 ];
 
 export default schemas;

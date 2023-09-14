@@ -1,8 +1,8 @@
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { TeamMember } from '@/types/TeamMember';
-import Para from '@/components/Para';
 import Button from '@/components/Button';
+import SimpleText from '@/components/SimpleText';
 
 interface Props {
   member: TeamMember;
@@ -23,9 +23,7 @@ export default function TeamMemberCard({ member }: Props) {
         <h2 className="text-lg">{`${member.firstName} ${member.lastName}`}</h2>
         {member.title && <div className="text-sm">{member.title}</div>}
         <div className="mt-2">
-          {member.bio.split(/\n+/).map((mi, i) => (
-            <Para key={i}>{mi}</Para>
-          ))}
+          <SimpleText text={member.bio} />
         </div>
         {member.email && (
           <Button

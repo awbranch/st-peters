@@ -24,7 +24,7 @@ export default defineType({
       title: 'Jobs',
     },
     {
-      name: 'documents',
+      name: 'dokuments',
       title: 'Documents',
     },
   ],
@@ -52,6 +52,12 @@ export default defineType({
       title: 'Job Openings',
       type: 'jobOpenings',
       group: 'jobs',
+    }),
+    defineField({
+      name: 'dokuments',
+      title: 'Documents',
+      type: 'dokuments',
+      group: 'dokuments',
     }),
   ],
   preview: {

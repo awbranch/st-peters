@@ -4,6 +4,7 @@ import GoogleMapBlock from '@/components/GoogleMapBlock';
 import TeamBlock from '@/components/TeamBlock';
 import JobOpeningsBlock from '@/components/JobOpeningsBlock';
 import React from 'react';
+import DocumentsBlock from '@/components/DocumentsBlock';
 
 export default async function AboutUs() {
   const data = await getAboutPage();
@@ -24,6 +25,10 @@ export default async function AboutUs() {
 
       <section id="jobs">
         <JobOpeningsBlock jobOpenings={data.jobOpenings} />
+      </section>
+
+      <section id="documents">
+        <DocumentsBlock documents={data.documents} />
       </section>
 
       <div className="h-24" />
