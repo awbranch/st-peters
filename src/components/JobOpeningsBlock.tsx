@@ -3,7 +3,7 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { JobOpenings } from '@/types/JobOpenings';
 import Card from '@/components/Card';
-import Button from '@/components/Button';
+import LinkButton from '@/components/LinkButton';
 
 interface Props {
   jobOpenings: JobOpenings;
@@ -29,7 +29,8 @@ export default function JobOpeningsBlock({ jobOpenings }: Props) {
                 {j.subtitle && <h3 className="text-sm mt-1">{j.subtitle}</h3>}
                 <p className="mt-3">{j.description}</p>
               </div>
-              <Button
+              <LinkButton
+                href={j.applyLink}
                 className={'mt-3'}
                 size={'small'}
                 variant={'text'}
@@ -37,7 +38,7 @@ export default function JobOpeningsBlock({ jobOpenings }: Props) {
                 icon={'right'}
               >
                 APPLY
-              </Button>
+              </LinkButton>
             </Card>
           ))}
       </div>

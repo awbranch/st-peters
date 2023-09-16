@@ -1,10 +1,8 @@
-import React from 'react';
 import Block from '@/components/Block';
-import { FaArrowLeft } from 'react-icons/fa6';
-import Link from 'next/link';
 import { getBoardMembers } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { TeamMember } from '@/types/TeamMember';
+import LinkButton from '@/components/LinkButton';
 
 const TitleRank = {
   President: 1,
@@ -40,17 +38,14 @@ export default async function Staff() {
   return (
     <main>
       <Block color={'white'}>
-        <div className="inline-flex gap-1 items-center">
-          <FaArrowLeft className="inline-block" />
-          <Link
-            href={'/about#team'}
-            className={
-              'text-base font-bold hover:underline hover:underline-offset-4'
-            }
-          >
-            ABOUT
-          </Link>
-        </div>
+        <LinkButton
+          href="/about#team"
+          size={'small'}
+          icon={'left'}
+          variant={'text'}
+        >
+          ABOUT
+        </LinkButton>
         <h1 className="text-xl uppercase mb-4">Our Board</h1>
         {team.map((m, i) => (
           <TeamMemberCard member={m} key={i} />

@@ -7,7 +7,7 @@ import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
 import cn from 'classnames';
 import { Color } from '@/types/Color';
-import Link from 'next/link';
+import LinkButton from '@/components/LinkButton';
 
 interface Props {
   color: Color;
@@ -33,12 +33,9 @@ export default function HeroBlock({ color, href, hero }: Props) {
         >
           <h1 className="text-xl sm:text-2xl uppercase mb-4">{hero.title}</h1>
           <RichText document={hero.text} />
-          <Link
-            href={href}
-            className="text-lg hover:underline hover:underline-offset-4"
-          >
+          <LinkButton href={href} variant={'text'} size={'large'} icon={'down'}>
             {hero.buttonLabel}
-          </Link>
+          </LinkButton>
         </div>
         <div className={portrait ? 'lg:flex-1' : ''}>
           <ResponsiveImage

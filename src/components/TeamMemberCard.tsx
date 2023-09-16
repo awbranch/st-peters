@@ -1,8 +1,8 @@
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { TeamMember } from '@/types/TeamMember';
-import Button from '@/components/Button';
 import SimpleText from '@/components/SimpleText';
+import LinkButton from '@/components/LinkButton';
 
 interface Props {
   member: TeamMember;
@@ -26,14 +26,15 @@ export default function TeamMemberCard({ member }: Props) {
           <SimpleText text={member.bio} />
         </div>
         {member.email && (
-          <Button
+          <LinkButton
+            href={'/about/contact'}
             color={'blue'}
             variant={'outline'}
             size={'small'}
             icon={'right'}
           >
             Contact
-          </Button>
+          </LinkButton>
         )}
       </div>
     </div>

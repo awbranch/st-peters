@@ -3,9 +3,8 @@ import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import React from 'react';
-import Link from 'next/link';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
-import { FaArrowLeft } from 'react-icons/fa6';
+import LinkButton from '@/components/LinkButton';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const program = await getProgram(params.slug);
@@ -14,15 +13,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <main>
       <section id="program">
         <Block color={'white'}>
-          <div className="inline-flex gap-1 items-center">
-            <FaArrowLeft className="inline-block" />
-            <Link
-              href="/#programs"
-              className="text-base font-bold hover:underline hover:underline-offset-4"
-            >
-              PROGRAMS
-            </Link>
-          </div>
+          <LinkButton
+            href="/#programs"
+            size={'small'}
+            icon={'left'}
+            variant={'text'}
+          >
+            PROGRAMS
+          </LinkButton>
           <h1 className="text-xl uppercase mb-4">{program.title}</h1>
           <ResponsiveImage
             className="mb-4 w-full"

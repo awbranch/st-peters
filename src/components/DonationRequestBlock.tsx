@@ -5,7 +5,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import cn from 'classnames';
 import { Color } from '@/types/Color';
 import { DonationRequest } from '@/types/DonationRequest';
-import Button from '@/components/Button';
+import LinkButton from '@/components/LinkButton';
 
 interface Props {
   color: Color;
@@ -39,9 +39,14 @@ export default function DonationRequestBlock({
             <div className="inline-grid grid-cols-2 gap-3">
               {request.levels.map((l, i) => (
                 <div key={i} className="w-[220px] ">
-                  <Button className="w-full" color="blue" variant="outline">
+                  <LinkButton
+                    className="w-full"
+                    color="blue"
+                    variant="outline"
+                    href={'#'}
+                  >
                     ${l.amount}
-                  </Button>
+                  </LinkButton>
                   <div className="w-full text-blue uppercase text-center">
                     {l.label}
                   </div>
@@ -49,9 +54,14 @@ export default function DonationRequestBlock({
               ))}
               {request.otherLevel && (
                 <div>
-                  <Button className="w-full" color="blue" variant="outline">
+                  <LinkButton
+                    className="w-full"
+                    color="blue"
+                    variant="outline"
+                    href={'#'}
+                  >
                     Other
-                  </Button>
+                  </LinkButton>
                 </div>
               )}
             </div>

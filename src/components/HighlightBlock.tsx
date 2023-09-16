@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
 import { Color } from '@/types/Color';
 import { Highlight } from '@/types/Highlight';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import LinkButton from '@/components/LinkButton';
 
 interface Props {
   color: Color;
@@ -41,12 +41,14 @@ export default function HighlightBlock({
             {highlight.title}
           </h1>
           <RichText document={highlight.text} />
-          <Link
+          <LinkButton
             href={highlight.buttonLink}
-            className="text-lg block py-2 hover:underline hover:underline-offset-4"
+            variant={'text'}
+            size={'large'}
+            icon={'right'}
           >
             {highlight.buttonLabel}
-          </Link>
+          </LinkButton>
         </div>
         <div className="flex-1 basis-5/12">
           <ResponsiveImage
