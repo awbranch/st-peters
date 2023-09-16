@@ -42,7 +42,7 @@ export default function HighlightBlock({
           </h1>
           <RichText document={highlight.text} />
           <Link
-            href="#"
+            href={highlight.buttonLink}
             className="text-lg block py-2 hover:underline hover:underline-offset-4"
           >
             {highlight.buttonLabel}

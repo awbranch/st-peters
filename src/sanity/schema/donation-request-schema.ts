@@ -1,10 +1,10 @@
 import { defineField, defineType } from 'sanity';
-import { FaBolt as icon } from 'react-icons/fa6';
+import { FaHandHoldingDollar as icon } from 'react-icons/fa6';
 
 export default defineType({
   name: 'donationRequest',
   title: 'Donation Request',
-  type: 'object',
+  type: 'document',
   description:
     'A call to action for a donation with a photo and amounts if one or more levels.',
   icon,
@@ -14,6 +14,17 @@ export default defineType({
       title: 'Title',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Tracking Code',
+      type: 'slug',
+      description: 'Use to track the donation amount in Stripe',
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        source: 'title',
+        maxLength: 200,
+      },
     }),
     defineField({
       name: 'text',

@@ -20,16 +20,27 @@ export default defineType({
       type: 'string',
       description: 'Each amount can optionally have a label',
     }),
+    defineField({
+      name: 'recurring',
+      title: 'Is Recurring Amount',
+      type: 'boolean',
+      initialValue: false,
+      validation: (Rule: any) => Rule.required(),
+      options: {
+        layout: 'checkbox',
+      },
+    }),
   ],
   preview: {
     select: {
       amount: 'amount',
       label: 'label',
+      recurring: 'recurring',
     },
-    prepare({ amount, label }) {
+    prepare({ amount, label, recurring }) {
       return {
         title: `$${amount.toLocaleString()}`,
-        subtitle: label,
+        subtitle: label + (recurring ? ' (Recurring)' : ''),
         icon: icon,
       };
     },
