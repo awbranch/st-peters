@@ -76,3 +76,12 @@ export function toMonthAndDate(date: string) {
   const day = d.getUTCDate();
   return `${month} ${day}`;
 }
+
+export function toFullDate(date: string) {
+  const d = toUTCDate(date);
+  const weekday = getWeekday(date);
+  const month = months[d.getUTCMonth()];
+  const day = d.getUTCDate();
+  const year = d.getUTCFullYear();
+  return `${weekday}, ${month} ${day}, ${year}`;
+}

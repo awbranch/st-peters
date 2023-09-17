@@ -10,11 +10,10 @@ interface Props {
 
 export default function TeamMemberCard({ member }: Props) {
   return (
-    <div className="flex flex-row gap-3 mb-8">
+    <div className="flex flex-row gap-3">
       <div className="min-w-[250px]">
         <ResponsiveImage
           image={member.image}
-          priority={true}
           sizes={'100vw'}
           className={'object-cover w-[250px] h-[250px]'}
         />

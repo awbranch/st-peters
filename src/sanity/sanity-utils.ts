@@ -6,6 +6,7 @@ import { HomePage } from '@/types/HomePage';
 import { AboutPage } from '@/types/AboutPage';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
+import { Event } from '@/types/Event';
 
 export const client = createClient({
   projectId: 't6t8tv0q',
@@ -113,5 +114,29 @@ export async function getStaffMembers(): Promise<TeamMember[]> {
 export async function getBoardMembers(): Promise<TeamMember[]> {
   return client.fetch(
     groq`*[_type == "boardMember"] | order(lastName asc, firstName asc)`,
+  );
+}
+
+export async function getCurrentEvents(): Promise<Event[]> {
+  return client.fetch(
+    groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
+  );
+}
+
+export async function getPastEvents(): Promise<Event[]> {
+  return client.fetch(
+    groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
+  );
+}
+
+export async function getEvent(slug: string): Promise<Event> {
+  return client.fetch(
+    groq`*[_type == "event" && slug.current == $slug]{
+     ...,
+     donationRequest-> 
+  }[0]`,
+    {
+      slug,
+    },
   );
 }

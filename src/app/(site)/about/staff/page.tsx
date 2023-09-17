@@ -18,7 +18,9 @@ export default async function Staff() {
         </LinkButton>
         <h1 className="text-xl uppercase mb-4">Our Staff</h1>
         {team.map((m, i) => (
-          <TeamMemberCard member={m} key={i} />
+          <div key={i} className={'mb-8'}>
+            <TeamMemberCard member={m} />
+          </div>
         ))}
       </Block>
     </main>
