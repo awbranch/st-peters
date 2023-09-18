@@ -1,10 +1,17 @@
-import { getProgram } from '@/sanity/sanity-utils';
+import { getProgram, getPrograms } from '@/sanity/sanity-utils';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import LinkButton from '@/components/LinkButton';
+
+export async function generateStaticParams() {
+  const programs = await getPrograms();
+  return programs.map((p) => ({
+    slug: p.slug.current,
+  }));
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const program = await getProgram(params.slug);

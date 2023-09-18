@@ -11,7 +11,7 @@ interface Props {
 }
 
 export default function Block({
-  color,
+  color = 'white',
   center = false,
   className = '',
   children,

@@ -8,12 +8,25 @@ import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { Event } from '@/types/Event';
 
-export const client = createClient({
-  projectId: 't6t8tv0q',
-  dataset: 'production',
-  apiVersion: '2023-08-28',
+const projectId = 't6t8tv0q';
+const dataset = 'production';
+const apiVersion = '2023-08-28';
+
+const client = createClient({
+  projectId,
+  dataset,
+  apiVersion,
   useCdn: false,
 });
+
+const cdnClient = createClient({
+  projectId,
+  dataset,
+  apiVersion,
+  useCdn: true,
+});
+
+export const getClient = (cdn: boolean) => (cdn ? cdnClient : client);
 
 const builder = imageUrlBuilder(client);
 
@@ -23,7 +36,7 @@ export function urlFor(image: Image) {
 
 export function urlForFile(file: File) {
   const { id, format } = fileAttributes(file);
-  const config = client.config();
+  const config = getClient(false).config();
   return `https://cdn.sanity.io/files/${config.projectId}/${config.dataset}/${id}.${format}`;
 }
 
@@ -65,12 +78,12 @@ export function imageAttributes(image: Image) {
   return { id, width, height, format };
 }
 
-export async function getLunchMenus(): Promise<LunchMenu[]> {
-  return client.fetch(groq`*[_type == "lunchMenu"]`);
+export async function getLunchMenus(cdn = false): Promise<LunchMenu[]> {
+  return getClient(cdn).fetch(groq`*[_type == "lunchMenu"]`);
 }
 
-export async function getHomePage(): Promise<HomePage> {
-  return client.fetch(groq`*[_type == "homePage"]{
+export async function getHomePage(cdn = false): Promise<HomePage> {
+  return getClient(cdn).fetch(groq`*[_type == "homePage"]{
     ...,
     lunchPlan {
       ...,
@@ -83,8 +96,12 @@ export async function getHomePage(): Promise<HomePage> {
   }[0]`);
 }
 
-export async function getProgram(slug: string): Promise<Program> {
-  return client.fetch(
+export async function getPrograms(cdn = false) {
+  return getClient(cdn).fetch<Program[]>(groq`*[_type == "program"]`);
+}
+
+export async function getProgram(slug: string, cdn = false) {
+  return getClient(cdn).fetch<Program>(
     groq`*[_type == "program" && slug.current == $slug]{
      ...,
      donationRequest-> 
@@ -95,8 +112,8 @@ export async function getProgram(slug: string): Promise<Program> {
   );
 }
 
-export async function getAboutPage(): Promise<AboutPage> {
-  return client.fetch(groq`*[_type == "aboutPage"]{
+export async function getAboutPage(cdn = false) {
+  return getClient(cdn).fetch<AboutPage>(groq`*[_type == "aboutPage"]{
   history,
   map,
   team,
@@ -105,32 +122,34 @@ export async function getAboutPage(): Promise<AboutPage> {
 }[0]`);
 }
 
-export async function getStaffMembers(): Promise<TeamMember[]> {
-  return client.fetch(
+export async function getStaffMembers(cdn = false) {
+  return getClient(cdn).fetch<TeamMember[]>(
     groq`*[_type == "staffMember"] | order(lastName asc, firstName asc)`,
   );
 }
 
-export async function getBoardMembers(): Promise<TeamMember[]> {
-  return client.fetch(
+export async function getBoardMembers(cdn = false) {
+  return getClient(cdn).fetch<TeamMember[]>(
     groq`*[_type == "boardMember"] | order(lastName asc, firstName asc)`,
   );
 }
 
-export async function getCurrentEvents(): Promise<Event[]> {
-  return client.fetch(
+export async function getCurrentEvents(cdn = false) {
+  console.log('getCurrentEvents');
+  return getClient(cdn).fetch<Event[]>(
     groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
+    { next: { revalidate: 120 } },
   );
 }
 
-export async function getPastEvents(): Promise<Event[]> {
-  return client.fetch(
+export async function getPastEvents(cdn = false) {
+  return getClient(cdn).fetch<Event[]>(
     groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
   );
 }
 
-export async function getEvent(slug: string): Promise<Event> {
-  return client.fetch(
+export async function getEvent(slug: string, cdn = false) {
+  return getClient(cdn).fetch<Event>(
     groq`*[_type == "event" && slug.current == $slug]{
      ...,
      donationRequest-> 
@@ -138,5 +157,6 @@ export async function getEvent(slug: string): Promise<Event> {
     {
       slug,
     },
+    { next: { revalidate: 120 } },
   );
 }
