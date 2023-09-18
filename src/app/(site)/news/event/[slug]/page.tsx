@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             icon={'left'}
             variant={'text'}
           >
-            UPCOMING EVENTS
+            NEWS
           </LinkButton>
           <h1 className="text-xl uppercase">{event.title}</h1>
           <div className="text-sm">{toFullDate(event.date)}</div>

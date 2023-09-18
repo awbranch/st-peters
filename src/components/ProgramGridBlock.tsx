@@ -5,12 +5,15 @@ import { ProgramGrid } from '@/types/ProgramGrid';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
+import { getPrograms } from '@/sanity/sanity-utils';
 
 interface Props {
   programGrid: ProgramGrid;
 }
 
-export default function ProgramGridBlock({ programGrid }: Props) {
+export default async function ProgramGridBlock({ programGrid }: Props) {
+  const programs = await getPrograms();
+
   return (
     <Block color="white">
       <h1 className="text-xl uppercase">{programGrid.title}</h1>
@@ -18,7 +21,7 @@ export default function ProgramGridBlock({ programGrid }: Props) {
         <RichText document={programGrid.text} />
       </div>
       <div className="grid grid-cols-3 gap-4 mt-4">
-        {programGrid.programs.map((p, i) => (
+        {programs.map((p, i) => (
           <div key={i} style={{ width: '300px' }}>
             <div
               style={{

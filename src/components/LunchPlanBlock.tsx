@@ -1,5 +1,3 @@
-'use client';
-import React, { useState, useEffect } from 'react';
 import Block from '@/components/Block';
 import Card from '@/components/Card';
 import Para from '@/components/Para';
@@ -7,23 +5,24 @@ import Image from 'next/image';
 import { LunchPlan } from '@/types/LunchPlan';
 import RichText from '@/components/RichText';
 import {
-  getNewYorkNow,
+  getNow,
   getWeekday,
   getNextWeekdayDate,
   isWeekday,
   toMonthAndDate,
 } from '@/utils/date';
 import SimpleText from '@/components/SimpleText';
+import { getLunchMenus } from '@/sanity/sanity-utils';
 
 interface Props {
   plan: LunchPlan;
 }
 
-const calcMenus = (plan: LunchPlan, today: string) => {
-  // Get next three menus from today forward
-  const menus = plan.menus.filter((p) => p.date >= today).slice(0, 3);
+export default async function LunchPlanBlock({ plan }: Props) {
+  const menus = await getLunchMenus();
 
-  // Add on missing dates
+  // Fill in any missing dates
+  const today = getNow();
   while (menus.length < 3) {
     let nextDate =
       menus.length > 0
@@ -37,18 +36,6 @@ const calcMenus = (plan: LunchPlan, today: string) => {
       menu: plan.tbd,
     });
   }
-  return menus;
-};
-
-export default function LunchPlanBlock({ plan }: Props) {
-  const [today, setToday] = useState<string>(null);
-
-  useEffect(() => {
-    setToday(getNewYorkNow());
-  }, []);
-
-  // Once we know today on the client, we can calculate the upcoming menus from the lunchPlan
-  let menus = today ? calcMenus(plan, today) : null;
 
   return (
     <Block color="blue" center>

@@ -8,25 +8,12 @@ import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { Event } from '@/types/Event';
 
-const projectId = 't6t8tv0q';
-const dataset = 'production';
-const apiVersion = '2023-08-28';
-
 const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
+  projectId: 't6t8tv0q',
+  dataset: 'production',
+  apiVersion: '2023-08-28',
   useCdn: false,
 });
-
-const cdnClient = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  useCdn: true,
-});
-
-export const getClient = (cdn: boolean) => (cdn ? cdnClient : client);
 
 const builder = imageUrlBuilder(client);
 
@@ -36,7 +23,7 @@ export function urlFor(image: Image) {
 
 export function urlForFile(file: File) {
   const { id, format } = fileAttributes(file);
-  const config = getClient(false).config();
+  const config = client.config();
   return `https://cdn.sanity.io/files/${config.projectId}/${config.dataset}/${id}.${format}`;
 }
 
@@ -78,30 +65,26 @@ export function imageAttributes(image: Image) {
   return { id, width, height, format };
 }
 
-export async function getLunchMenus(cdn = false): Promise<LunchMenu[]> {
-  return getClient(cdn).fetch(groq`*[_type == "lunchMenu"]`);
+export async function getLunchMenus() {
+  return client.fetch<LunchMenu[]>(
+    groq`*[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1]{date, menu} | order(date asc)[0..2]`,
+    {},
+    { next: { revalidate: 60 * 60 } }, // Revalidate every hour
+  );
 }
 
-export async function getHomePage(cdn = false): Promise<HomePage> {
-  return getClient(cdn).fetch(groq`*[_type == "homePage"]{
-    ...,
-    lunchPlan {
-      ...,
-      "menus": *[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*2]{menu, date} | order(date asc)
-    },
-    programGrid {
-      ...,
-      "programs": *[_type == "program"] | order(order asc)
-    }
-  }[0]`);
+export async function getHomePage() {
+  return client.fetch<HomePage>(groq`*[_type == "homePage"][0]`);
 }
 
-export async function getPrograms(cdn = false) {
-  return getClient(cdn).fetch<Program[]>(groq`*[_type == "program"]`);
+export async function getPrograms() {
+  return client.fetch<Program[]>(
+    groq`*[_type == "program"] | order(order asc)`,
+  );
 }
 
-export async function getProgram(slug: string, cdn = false) {
-  return getClient(cdn).fetch<Program>(
+export async function getProgram(slug: string) {
+  return client.fetch<Program>(
     groq`*[_type == "program" && slug.current == $slug]{
      ...,
      donationRequest-> 
@@ -112,8 +95,8 @@ export async function getProgram(slug: string, cdn = false) {
   );
 }
 
-export async function getAboutPage(cdn = false) {
-  return getClient(cdn).fetch<AboutPage>(groq`*[_type == "aboutPage"]{
+export async function getAboutPage() {
+  return client.fetch<AboutPage>(groq`*[_type == "aboutPage"]{
   history,
   map,
   team,
@@ -122,34 +105,38 @@ export async function getAboutPage(cdn = false) {
 }[0]`);
 }
 
-export async function getStaffMembers(cdn = false) {
-  return getClient(cdn).fetch<TeamMember[]>(
+export async function getStaffMembers() {
+  return client.fetch<TeamMember[]>(
     groq`*[_type == "staffMember"] | order(lastName asc, firstName asc)`,
   );
 }
 
-export async function getBoardMembers(cdn = false) {
-  return getClient(cdn).fetch<TeamMember[]>(
+export async function getBoardMembers() {
+  return client.fetch<TeamMember[]>(
     groq`*[_type == "boardMember"] | order(lastName asc, firstName asc)`,
   );
 }
 
-export async function getCurrentEvents(cdn = false) {
+export async function getCurrentEvents() {
   console.log('getCurrentEvents');
-  return getClient(cdn).fetch<Event[]>(
+  return client.fetch<Event[]>(
     groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
-    { next: { revalidate: 120 } },
+    {},
+    { next: { revalidate: 60 * 60 * 4 } },
   );
 }
 
-export async function getPastEvents(cdn = false) {
-  return getClient(cdn).fetch<Event[]>(
+export async function getPastEvents() {
+  console.log('getPastEvents');
+  return client.fetch<Event[]>(
     groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
+    {},
+    { next: { revalidate: 60 * 60 * 4 } },
   );
 }
 
-export async function getEvent(slug: string, cdn = false) {
-  return getClient(cdn).fetch<Event>(
+export async function getEvent(slug: string) {
+  return client.fetch<Event>(
     groq`*[_type == "event" && slug.current == $slug]{
      ...,
      donationRequest-> 
@@ -157,6 +144,5 @@ export async function getEvent(slug: string, cdn = false) {
     {
       slug,
     },
-    { next: { revalidate: 120 } },
   );
 }

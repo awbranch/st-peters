@@ -37,11 +37,8 @@ export function toUTCDate(date: string): Date {
   return new Date(date + 'T00:00:00Z');
 }
 
-/**
- * Returns current New York date str, not accounting for daylight savings
- */
-export function getNewYorkNow() {
-  return toDate(new Date(Date.now() - 5 * 60 * 60 * 1000));
+export function getNow() {
+  return toDate(new Date());
 }
 
 /**
