@@ -26,7 +26,7 @@ export default function TeamMemberCard({ member }: Props) {
         </div>
         {member.email && (
           <LinkButton
-            href={'/about/contact'}
+            href={'/contact'}
             color={'blue'}
             variant={'outline'}
             size={'small'}

@@ -14,7 +14,7 @@ export default function StoryCard({ story }: Props) {
   return (
     <div className="flex flex-row gap-3">
       <div className="min-w-[255px]">
-        <Link href={`/news/event/${story.slug.current}`}>
+        <Link href={`/news/story/${story.slug.current}`}>
           <ResponsiveImage
             image={story.image}
             sizes={'100vw'}

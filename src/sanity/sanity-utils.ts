@@ -133,9 +133,18 @@ export async function getPastEvents() {
   );
 }
 
+export async function getTopNewsStories(count: number) {
+  return client.fetch<NewsStory[]>(
+    groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
+  );
+}
+
 export async function getNewsStories(category: string) {
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == $category] | order(date desc)`,
+    groq`*[_type == "newsStory" && category == $category]{
+     ...,
+     donationRequest->
+  }`,
     {
       category,
     },

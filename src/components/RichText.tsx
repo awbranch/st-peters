@@ -16,7 +16,14 @@ const RichText = ({ document }: Props) => {
       }: {
         children: React.ReactNode;
         value: any;
-      }) => <Link href={value.href}>{children}</Link>,
+      }) => (
+        <Link
+          href={value.href}
+          className={'text-blue underline underline-offset-4'}
+        >
+          {children}
+        </Link>
+      ),
     },
     block: {
       h1: ({ children }: { children: React.ReactNode }) => (

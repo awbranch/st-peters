@@ -14,7 +14,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
-      name: 'url',
+      name: 'link',
       title: 'Link',
       type: 'string',
       validation: (Rule: any) => Rule.required(),
@@ -23,13 +23,13 @@ export default defineType({
   preview: {
     select: {
       name: 'name',
-      url: 'url',
+      link: 'link',
     },
-    prepare(selection: { name: string; url: string }) {
-      const { name, url } = selection;
+    prepare(selection: { name: string; link: string }) {
+      const { name, link } = selection;
       return {
         title: name,
-        subtitle: url,
+        subtitle: link,
         icon: icon,
       };
     },

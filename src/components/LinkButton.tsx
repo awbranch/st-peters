@@ -20,6 +20,8 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 const classes = 'inline-flex items-center justify-center gap-1';
 
+// TODO: May want to consider using this library to manage the variants
+// https://cva.style/docs/getting-started/variants
 const variantClasses: { [V in Variant]: string } = {
   text: 'hover:underline hover:underline-offset-4',
   outline: 'rounded-xl',

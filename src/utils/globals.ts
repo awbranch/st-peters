@@ -17,23 +17,21 @@ export const breakpoints = {
 
 export const newsCategories: NewsCategory[] = [
   {
-    slug: 'upcoming-events',
     name: 'Upcoming Events',
-    value: 'event',
+    slug: 'upcoming-events',
+    sanityName: 'Event',
+    sanityCategory: 'event',
   },
   {
-    slug: 'past-events',
     name: 'Past Events',
-    value: 'event',
+    slug: 'past-events',
+    sanityName: 'Event',
+    sanityCategory: 'event',
   },
   {
-    slug: 'community-stories',
     name: 'Community Stories',
-    value: 'community-story',
+    slug: 'community-stories',
+    sanityName: 'Community Story',
+    sanityCategory: 'community-story',
   },
-];
-
-export const newsCategoryList = [
-  { title: 'Event', value: 'event' },
-  { title: 'Community Story', value: 'community-story' },
 ];

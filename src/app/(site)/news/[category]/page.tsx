@@ -25,7 +25,7 @@ export default async function NewsCategory({ params }: Props) {
   } else if (selectedCategory.slug === 'past-events') {
     stories = await getPastEvents();
   } else {
-    stories = await getNewsStories(selectedCategory.value);
+    stories = await getNewsStories(selectedCategory.sanityCategory);
   }
 
   return (

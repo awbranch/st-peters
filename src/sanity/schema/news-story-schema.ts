@@ -1,13 +1,34 @@
 import { defineField, defineType } from 'sanity';
-import { FaNewspaper as icon } from 'react-icons/fa6';
-import { newsCategoryList } from '@/utils/globals';
+import { newsCategories } from '@/utils/globals';
+import { FaNewspaper, FaCalendarDays, FaBookOpenReader } from 'react-icons/fa6';
+
+const iconSet = {
+  event: FaCalendarDays,
+  'community-story': FaBookOpenReader,
+};
+
+// Drop the upcoming-events and remap to title/value pairs for Sanity wants
+const newsCategoryList = newsCategories
+  .slice(1)
+  .map((s) => ({ title: s.sanityName, value: s.sanityCategory }));
 
 export default defineType({
   name: 'newsStory',
   title: 'News Story',
   type: 'document',
-  icon,
+  icon: FaNewspaper,
   fields: [
+    defineField({
+      title: 'Category',
+      name: 'category',
+      type: 'string',
+      options: {
+        list: newsCategoryList,
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'date',
       title: 'Date',
@@ -42,17 +63,6 @@ export default defineType({
           }
         },
       },
-    }),
-    defineField({
-      title: 'Category',
-      name: 'category',
-      type: 'string',
-      options: {
-        list: newsCategoryList,
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'description',
@@ -125,14 +135,13 @@ export default defineType({
     },
     prepare({ title, date, category }) {
       const parts = date.split('-');
-      let subtitle = `${parts[1]}/${parts[2]}/${parts[0]}`;
+      const subtitle = `${parts[1]}/${parts[2]}/${parts[0]}`;
       const cat = newsCategoryList.find((c) => c.value === category);
-      if (cat && cat.title) {
-        subtitle = cat.title + ' on ' + subtitle;
-      }
+      let icon = iconSet[cat?.value] || FaNewspaper;
       return {
         title,
         subtitle,
+        media: icon,
       };
     },
   },

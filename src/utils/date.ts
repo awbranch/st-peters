@@ -60,6 +60,10 @@ export function isWeekday(date: string) {
   return day > 0 && day < 6;
 }
 
+export function isPast(date: string) {
+  return toUTCDate(date) < new Date();
+}
+
 export function getNextWeekdayDate(date: string) {
   do {
     date = addDays(date, 1);

@@ -4,6 +4,7 @@ import { Image } from '@/types/Image';
 import { DonationRequest } from '@/types/DonationRequest';
 
 export type NewsStory = {
+  category: string;
   date: string;
   title: string;
   slug: Slug;
