@@ -56,7 +56,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <RichText document={story.text} />
 
           {story.actions && (
-            <div className="flex flex-row gap-2 mt-4">
+            <div className="flex flex-row gap-2 mt-8 justify-center">
               {story.actions.map((a, i) => (
                 <LinkButton
                   key={i}
