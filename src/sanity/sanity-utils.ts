@@ -6,7 +6,7 @@ import { HomePage } from '@/types/HomePage';
 import { AboutPage } from '@/types/AboutPage';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
-import { Event } from '@/types/Event';
+import { NewsStory } from '@/types/NewsStory';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -118,28 +118,35 @@ export async function getBoardMembers() {
 }
 
 export async function getCurrentEvents() {
-  console.log('getCurrentEvents');
-  return client.fetch<Event[]>(
-    groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
+  return client.fetch<NewsStory[]>(
+    groq`*[_type == "newsStory" && category == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
     {},
     { next: { revalidate: 60 * 60 * 4 } },
   );
 }
 
 export async function getPastEvents() {
-  console.log('getPastEvents');
-  return client.fetch<Event[]>(
-    groq`*[_type == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
+  return client.fetch<NewsStory[]>(
+    groq`*[_type == "newsStory" && category == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
     {},
     { next: { revalidate: 60 * 60 * 4 } },
   );
 }
 
-export async function getEvent(slug: string) {
-  return client.fetch<Event>(
-    groq`*[_type == "event" && slug.current == $slug]{
+export async function getNewsStories(category: string) {
+  return client.fetch<NewsStory[]>(
+    groq`*[_type == "newsStory" && category == $category] | order(date desc)`,
+    {
+      category,
+    },
+  );
+}
+
+export async function getNewsStory(slug: string) {
+  return client.fetch<NewsStory>(
+    groq`*[_type == "newsStory" && slug.current == $slug]{
      ...,
-     donationRequest-> 
+     donationRequest->
   }[0]`,
     {
       slug,

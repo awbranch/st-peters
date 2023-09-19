@@ -35,7 +35,7 @@ export default function ResponsiveImage({
 
   return (
     <img
-      alt={image.alt}
+      alt={image.alt || ''}
       fetchPriority={priority ? 'high' : undefined}
       width={width}
       height={height}

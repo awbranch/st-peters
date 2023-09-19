@@ -28,8 +28,8 @@ import jobPosting from '@/sanity/schema/job-posting-schema';
 import dokuments from '@/sanity/schema/dokuments-schema';
 import dokument from '@/sanity/schema/dokument-schema';
 
-import event from '@/sanity/schema/event-schema';
 import action from '@/sanity/schema/action-schema';
+import newsStory from '@/sanity/schema/news-story-schema';
 
 const schemas = [
   settings,
@@ -58,8 +58,8 @@ const schemas = [
   jobPosting,
   dokuments,
   dokument,
-  event,
   action,
+  newsStory,
 ];
 
 export default schemas;

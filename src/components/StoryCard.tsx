@@ -1,5 +1,5 @@
 import React from 'react';
-import { Event } from '@/types/Event';
+import { NewsStory } from '@/types/NewsStory';
 import LinkButton from '@/components/LinkButton';
 import { toFullDate } from '@/utils/date';
 import SimpleText from '@/components/SimpleText';
@@ -7,29 +7,29 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 
 interface Props {
-  event: Event;
+  story: NewsStory;
 }
 
-export default function EventCard({ event }: Props) {
+export default function StoryCard({ story }: Props) {
   return (
     <div className="flex flex-row gap-3">
       <div className="min-w-[255px]">
-        <Link href={`/news/event/${event.slug.current}`}>
+        <Link href={`/news/event/${story.slug.current}`}>
           <ResponsiveImage
-            image={event.image}
+            image={story.image}
             sizes={'100vw'}
             className={'object-cover w-[255px] h-[200px]'}
           />
         </Link>
       </div>
       <div>
-        <h2 className="text-lg">{event.title}</h2>
-        <div className="text-sm mt-1">{toFullDate(event.date)}</div>
+        <h2 className="text-lg">{story.title}</h2>
+        <div className="text-sm mt-1">{toFullDate(story.date)}</div>
         <div className="mt-2">
-          <SimpleText text={event.description}></SimpleText>
+          <SimpleText text={story.description}></SimpleText>
         </div>
         <LinkButton
-          href={`/news/event/${event.slug.current}`}
+          href={`/news/story/${story.slug.current}`}
           color={'pink'}
           size={'small'}
           variant={'text'}

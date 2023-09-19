@@ -1,4 +1,4 @@
-import { getEvent } from '@/sanity/sanity-utils';
+import { getNewsStory } from '@/sanity/sanity-utils';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
@@ -8,7 +8,7 @@ import LinkButton from '@/components/LinkButton';
 import { toFullDate } from '@/utils/date';
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const event = await getEvent(params.slug);
+  const story = await getNewsStory(params.slug);
 
   return (
     <main>
@@ -22,23 +22,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
           >
             NEWS
           </LinkButton>
-          <h1 className="text-xl uppercase">{event.title}</h1>
-          <div className="text-sm">{toFullDate(event.date)}</div>
+          <h1 className="text-xl uppercase">{story.title}</h1>
+          <div className="text-sm">{toFullDate(story.date)}</div>
           <ResponsiveImage
             className="w-full mt-2 mb-3"
-            image={event.image}
+            image={story.image}
             priority={true}
             sizes={'100vw'}
           />
-          <RichText document={event.text} />
+          <RichText document={story.text} />
         </Block>
       </section>
-      {event.donationRequest && (
+      {story.donationRequest && (
         <section id="donation-request">
           <DonationRequestBlock
             color="blue"
             orientation="right"
-            request={event.donationRequest}
+            request={story.donationRequest}
           />
         </section>
       )}

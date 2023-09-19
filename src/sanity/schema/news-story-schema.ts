@@ -1,9 +1,10 @@
 import { defineField, defineType } from 'sanity';
-import { FaCalendarDays as icon } from 'react-icons/fa6';
+import { FaNewspaper as icon } from 'react-icons/fa6';
+import { newsCategoryList } from '@/utils/globals';
 
 export default defineType({
-  name: 'event',
-  title: 'Event',
+  name: 'newsStory',
+  title: 'News Story',
   type: 'document',
   icon,
   fields: [
@@ -36,20 +37,29 @@ export default defineType({
             typeof doc.date === 'string'
           ) {
             return (
-              doc.title.toLowerCase().replace(/\s+/g, '-') +
-              '-' +
-              doc.date.split('-')[0]
+              doc.date + '-' + doc.title.toLowerCase().replace(/\s+/g, '-')
             );
           }
         },
       },
     }),
     defineField({
+      title: 'Category',
+      name: 'category',
+      type: 'string',
+      options: {
+        list: newsCategoryList,
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
       description:
-        'A short description that appears on the page listing all events.',
+        'A short description that appears on the page listing all stories.',
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
@@ -64,6 +74,7 @@ export default defineType({
           validation: (Rule: any) => Rule.required(),
         }),
       ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'text',
@@ -95,14 +106,14 @@ export default defineType({
       title: 'Actions',
       type: 'array',
       description:
-        'An event can have action buttons that are links to pages or sites, such as "Register to Play" or "Sponsor a Hole"',
+        'A story can have one or more action buttons such as "Help Support People Like Sue" that links to the donation page.',
       of: [{ type: 'action' }],
     }),
     defineField({
       name: 'donationRequest',
       title: 'Donation Request',
       type: 'reference',
-      description: 'An event can have a donation request to support it',
+      description: 'A story can have a donation request to support it',
       to: [{ type: 'donationRequest' }],
     }),
   ],
@@ -110,12 +121,18 @@ export default defineType({
     select: {
       title: 'title',
       date: 'date',
+      category: 'category',
     },
-    prepare({ title, date }) {
+    prepare({ title, date, category }) {
       const parts = date.split('-');
+      let subtitle = `${parts[1]}/${parts[2]}/${parts[0]}`;
+      const cat = newsCategoryList.find((c) => c.value === category);
+      if (cat && cat.title) {
+        subtitle = cat.title + ' on ' + subtitle;
+      }
       return {
-        title: title,
-        subtitle: `${parts[1]}/${parts[2]}/${parts[0]}`,
+        title,
+        subtitle,
       };
     },
   },

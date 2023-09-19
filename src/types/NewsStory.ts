@@ -3,7 +3,7 @@ import { Action } from '@/types/Action';
 import { Image } from '@/types/Image';
 import { DonationRequest } from '@/types/DonationRequest';
 
-export type Event = {
+export type NewsStory = {
   date: string;
   title: string;
   slug: Slug;

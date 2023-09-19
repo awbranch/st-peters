@@ -1,12 +1,6 @@
-import { getCurrentEvents } from '@/sanity/sanity-utils';
-import EventsBlock from '@/components/EventsBlock';
+import { redirect } from 'next/navigation';
+import { newsCategories } from '@/utils/globals';
 
 export default async function News() {
-  const events = await getCurrentEvents();
-
-  return (
-    <main>
-      <EventsBlock events={events} selected={'upcoming-events'} />
-    </main>
-  );
+  redirect(`/news/${newsCategories[0].slug}`);
 }
