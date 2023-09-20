@@ -9,6 +9,7 @@ const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
   homePage: '520e6364-71e8-41bb-82be-304e2bd545c9',
   aboutPage: '89aa297f-2aad-4555-a733-e4aaff0542ec',
+  volunteerPage: '569ecf64-794d-4eee-a3c9-d1199a2f0baa',
 };
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);

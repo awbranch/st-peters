@@ -1,14 +1,31 @@
-import { History } from '@/types/History';
-import { GoogleMap } from '@/types/GoogleMap';
-import { Team } from '@/types/Team';
-import { JobOpenings } from '@/types/JobOpenings';
-import { Documents } from '@/types/Documents';
+import { Image } from '@/types/Image';
+import { PortableTextBlock } from 'sanity';
+import { JobPosting } from '@/types/JobPosting';
+import { Document } from '@/types/Document';
 
 export type AboutPage = {
-  _id: string;
-  history: History;
-  map: GoogleMap;
-  team: Team;
-  jobOpenings: JobOpenings;
-  documents: Documents;
+  title: string;
+  image: Image;
+  text: PortableTextBlock[];
+
+  mapTitle: string;
+  mapText: PortableTextBlock[];
+  mapEmbedURL: string;
+
+  teamTitle: string;
+  teamText: PortableTextBlock[];
+  staffPhoto: Image;
+  staffLabel: string;
+  boardPhoto: Image;
+  boardLabel: string;
+
+  jobsTitle: string;
+  jobsText: PortableTextBlock[];
+  jobPostings: JobPosting[];
+  jobsEooText: PortableTextBlock[];
+  noJobsText: PortableTextBlock[];
+
+  docsTitle: string;
+  docsText: PortableTextBlock[];
+  docs: Document[];
 };

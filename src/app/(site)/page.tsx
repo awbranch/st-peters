@@ -1,42 +1,53 @@
-import HeroBlock from '@/components/HeroBlock';
-import LunchPlanBlock from '@/components/LunchPlanBlock';
+import React from 'react';
 import { getHomePage } from '@/sanity/sanity-utils';
+import HeroBlock from '@/components/HeroBlock';
+import LunchBlock from '@/components/LunchBlock';
 import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import ProgramGridBlock from '@/components/ProgramGridBlock';
 
 export default async function Home() {
-  const data = await getHomePage();
+  const page = await getHomePage();
 
   return (
     <main>
       <section id="hero">
-        <HeroBlock color="green" hero={data.hero} href="#lunch-menu" />
+        <HeroBlock color="green" hero={page.hero} href="#lunch-menu" />
       </section>
       <section id="lunch-menu">
-        <LunchPlanBlock plan={data.lunchPlan} />
+        <LunchBlock
+          title={page.lunchTitle}
+          text={page.lunchText}
+          tbd={page.lunchTbd}
+        />
       </section>
-      {data.displayHighlight1 && (
-        <section id={data.highlight1.slug.current}>
+      {page.displayHighlight1 && (
+        <section id={page.highlight1.slug.current}>
           <HighlightBlock
             color="white"
             orientation="right"
-            highlight={data.highlight1}
+            highlight={page.highlight1}
           />
         </section>
       )}
       <section id="impact">
-        <ImpactBlock statement={data.impact} />
+        <ImpactBlock
+          title={page.impactTitle}
+          text={page.impactText}
+          impacts={page.impacts}
+        />
       </section>
+
       <section id="programs">
-        <ProgramGridBlock programGrid={data.programGrid} />
+        <ProgramGridBlock title={page.programsTitle} text={page.programsText} />
       </section>
-      {data.displayHighlight2 && (
-        <section id={data.highlight2.slug.current}>
+
+      {page.displayHighlight2 && (
+        <section id={page.highlight2.slug.current}>
           <HighlightBlock
             color="blue"
             orientation="left"
-            highlight={data.highlight2}
+            highlight={page.highlight2}
           />
         </section>
       )}

@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaHome as icon } from 'react-icons/fa';
+import { createRichTextField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'homePage',
@@ -40,11 +41,24 @@ export default defineType({
       group: 'hero',
     }),
     defineField({
-      name: 'lunchPlan',
-      title: 'Lunch Plan',
-      type: 'lunchPlan',
+      name: 'lunchTitle',
+      title: 'Lunch Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'lunch',
     }),
+    createRichTextField('lunchText', 'Lunch Text', 'lunch'),
+
+    defineField({
+      name: 'lunchTbd',
+      title: 'Lunch TBD',
+      type: 'string',
+      description:
+        'Message to display when a days menu has not been decided yet.',
+      validation: (Rule: any) => Rule.required(),
+      group: 'lunch',
+    }),
+
     defineField({
       name: 'displayHighlight1',
       title: 'Display Highlight One',
@@ -58,18 +72,33 @@ export default defineType({
       group: 'highlights',
       hidden: ({ document }) => !document?.displayHighlight1,
     }),
+
     defineField({
-      name: 'impact',
-      title: 'Impact',
-      type: 'impactStatement',
+      name: 'impactTitle',
+      title: 'Impact Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'impact',
     }),
+    createRichTextField('impactText', 'Impact Text', 'impact'),
+
     defineField({
-      name: 'programGrid',
-      title: 'Program Grid',
-      type: 'programGrid',
+      name: 'impacts',
+      title: 'Impacts',
+      type: 'array',
+      of: [{ type: 'impact' }],
+      group: 'impact',
+    }),
+
+    defineField({
+      name: 'programsTitle',
+      title: 'Programs Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'programs',
     }),
+    createRichTextField('programsText', 'Programs Text', 'programs'),
+
     defineField({
       name: 'displayHighlight2',
       title: 'Display Highlight Two',

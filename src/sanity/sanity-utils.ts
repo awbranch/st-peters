@@ -7,6 +7,7 @@ import { AboutPage } from '@/types/AboutPage';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
+import { VolunteerPage } from '@/types/VolunteerPage';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -96,13 +97,7 @@ export async function getProgram(slug: string) {
 }
 
 export async function getAboutPage() {
-  return client.fetch<AboutPage>(groq`*[_type == "aboutPage"]{
-  history,
-  map,
-  team,
-  jobOpenings,
-  "documents": dokuments { title, description, "documents": dokuments }
-}[0]`);
+  return client.fetch<AboutPage>(groq`*[_type == "aboutPage"][0]`);
 }
 
 export async function getStaffMembers() {
@@ -136,6 +131,8 @@ export async function getPastEvents() {
 export async function getTopNewsStories(count: number) {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
+    {},
+    { next: { revalidate: 60 * 60 * 24 } },
   );
 }
 
@@ -148,6 +145,7 @@ export async function getNewsStories(category: string) {
     {
       category,
     },
+    { next: { revalidate: 60 * 60 * 24 } },
   );
 }
 
@@ -160,5 +158,10 @@ export async function getNewsStory(slug: string) {
     {
       slug,
     },
+    { next: { revalidate: 60 * 60 * 24 } },
   );
+}
+
+export async function getVolunteerPage() {
+  return client.fetch<VolunteerPage>(groq`*[_type == "volunteerPage"][0]`);
 }

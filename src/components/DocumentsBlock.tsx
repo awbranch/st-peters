@@ -1,24 +1,28 @@
 import React from 'react';
 import Block from '@/components/Block';
 import SimpleText from '@/components/SimpleText';
-import { Documents } from '@/types/Documents';
 import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
+import { PortableTextBlock } from 'sanity';
+import { Document } from '@/types/Document';
+import RichText from '@/components/RichText';
 
 interface Props {
-  documents: Documents;
+  title: string;
+  text: PortableTextBlock[];
+  documents: Document[];
 }
 
-export default function DocumentsBlock({ documents }: Props) {
+export default function DocumentsBlock({ title, text, documents }: Props) {
   return (
     <Block color="white">
       <div>
-        <h1 className="text-xl mb-3">{documents.title}</h1>
-        {documents.description && <SimpleText text={documents.description} />}
+        <h1 className="text-xl mb-3">{title}</h1>
+        <RichText document={text} />
       </div>
 
       <ul className="mt-4">
-        {documents.documents.map((d, i) => (
+        {documents.map((d, i) => (
           <li key={i}>
             <div className="flex flex-row gap-2 mb-3">
               <div>

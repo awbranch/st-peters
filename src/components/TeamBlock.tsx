@@ -1,23 +1,37 @@
 import React from 'react';
 import Block from '@/components/Block';
-import { Team } from '@/types/Team';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import { PortableTextBlock } from 'sanity';
+import { Image } from '@/types/Image';
+
 interface Props {
-  team: Team;
+  title: string;
+  text: PortableTextBlock[];
+  staffPhoto: Image;
+  staffLabel: string;
+  boardPhoto: Image;
+  boardLabel: string;
 }
 
-export default function TeamBlock({ team }: Props) {
+export default function TeamBlock({
+  title,
+  text,
+  staffPhoto,
+  staffLabel,
+  boardPhoto,
+  boardLabel,
+}: Props) {
   return (
     <Block color="white">
-      <h1 className="text-xl mb-3">{team.title}</h1>
-      <RichText document={team.text} />
+      <h1 className="text-xl mb-3">{title}</h1>
+      <RichText document={text} />
 
       <div className="grid grid-cols-2 gap-4 mt-4">
         {[
-          { photo: team.staffPhoto, label: team.staffLabel, slug: 'staff' },
-          { photo: team.boardPhoto, label: team.boardLabel, slug: 'board' },
+          { photo: staffPhoto, label: staffLabel, slug: 'staff' },
+          { photo: boardPhoto, label: boardLabel, slug: 'board' },
         ].map((g) => (
           <div key={g.slug}>
             <div className="h-[360px]">

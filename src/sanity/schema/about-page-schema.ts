@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaCircleInfo as icon } from 'react-icons/fa6';
+import { createImageField, createRichTextField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'aboutPage',
@@ -24,40 +25,94 @@ export default defineType({
       title: 'Jobs',
     },
     {
-      name: 'dokuments',
+      name: 'docs',
       title: 'Documents',
     },
   ],
   fields: [
     defineField({
-      name: 'history',
-      title: 'History',
-      type: 'history',
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'history',
     }),
+    createImageField('image', 'Image', 'history'),
+    createRichTextField('text', 'Text', 'history'),
     defineField({
-      name: 'map',
-      title: 'Map',
-      type: 'map',
+      name: 'mapTitle',
+      title: 'Google Map Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'map',
     }),
+    createRichTextField('mapText', 'Google Map Text', 'map'),
     defineField({
-      name: 'team',
-      title: 'Team',
-      type: 'team',
+      name: 'mapEmbedURL',
+      title: 'Google Maps Embed URL',
+      type: 'url',
+      validation: (Rule: any) => Rule.required(),
+      group: 'map',
+    }),
+
+    defineField({
+      name: 'teamTitle',
+      title: 'Team Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'team',
     }),
+    createRichTextField('teamText', 'Team Text', 'team'),
+
+    createImageField('staffPhoto', 'Staff Group Photo', 'team'),
     defineField({
-      name: 'jobOpenings',
-      title: 'Job Openings',
-      type: 'jobOpenings',
+      name: 'staffLabel',
+      title: 'Staff Label',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+      group: 'team',
+    }),
+    createImageField('boardPhoto', 'Board Group Photo', 'team'),
+    defineField({
+      name: 'boardLabel',
+      title: 'Board Label',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+      group: 'team',
+    }),
+
+    defineField({
+      name: 'jobsTitle',
+      title: 'Jobs Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
       group: 'jobs',
     }),
+    createRichTextField('jobsText', 'Jobs Text', 'jobs'),
     defineField({
-      name: 'dokuments',
+      name: 'jobPostings',
+      title: 'Jop Postings',
+      type: 'array',
+      of: [{ type: 'jobPosting' }],
+      group: 'jobs',
+    }),
+    createRichTextField('jobsEooText', 'Jobs EEO Text', 'jobs'),
+    createRichTextField('noJobsText', 'No Job Openings Text', 'jobs'),
+
+    defineField({
+      name: 'docsTitle',
+      title: 'Documents Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+      group: 'docs',
+    }),
+    createRichTextField('docsText', 'Documents Text', 'docs'),
+    defineField({
+      name: 'docs',
       title: 'Documents',
-      type: 'dokuments',
-      group: 'dokuments',
+      type: 'array',
+      of: [{ type: 'doc' }],
+      group: 'docs',
     }),
   ],
   preview: {

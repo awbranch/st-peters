@@ -2,7 +2,6 @@ import Block from '@/components/Block';
 import Card from '@/components/Card';
 import Para from '@/components/Para';
 import Image from 'next/image';
-import { LunchPlan } from '@/types/LunchPlan';
 import RichText from '@/components/RichText';
 import {
   getNow,
@@ -13,12 +12,15 @@ import {
 } from '@/utils/date';
 import SimpleText from '@/components/SimpleText';
 import { getLunchMenus } from '@/sanity/sanity-utils';
+import { PortableTextBlock } from 'sanity';
 
 interface Props {
-  plan: LunchPlan;
+  title: string;
+  text: PortableTextBlock[];
+  tbd: string;
 }
 
-export default async function LunchPlanBlock({ plan }: Props) {
+export default async function LunchBlock({ title, text, tbd }: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -33,14 +35,14 @@ export default async function LunchPlanBlock({ plan }: Props) {
 
     menus.push({
       date: nextDate,
-      menu: plan.tbd,
+      menu: tbd,
     });
   }
 
   return (
     <Block color="blue" center>
-      <h2 className="text-xl uppercase mb-1">{plan.title}</h2>
-      <RichText document={plan.text} />
+      <h2 className="text-xl uppercase mb-1">{title}</h2>
+      <RichText document={text} />
       <div className="mt-4 md:mt-8 flex flex-row justify-between min-h-[400px]">
         {menus &&
           menus.map((m, i) => (
