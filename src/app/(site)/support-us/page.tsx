@@ -4,27 +4,41 @@ import RichText from '@/components/RichText';
 import Link from 'next/link';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBookOpenReader,
+  faThumbsUp,
+  faTypewriter,
+  faCanFood,
+  faBackpack,
+  faShirt,
+  faHandHeart,
+  faCircleDollar,
+  faPeopleGroup,
+} from '@fortawesome/pro-solid-svg-icons';
 
 export default async function SupportUs() {
   const page = await getSupportPage();
 
   const categories = [
-    { icon: '', ...page.learn },
-    { icon: '', ...page.social },
-    { icon: '', ...page.newsletter },
-    { icon: '', ...page.food },
-    { icon: '', ...page.school },
-    { icon: '', ...page.merch },
-    { icon: '', ...page.volunteer },
-    { icon: '', ...page.donate },
-    { icon: '', ...page.join },
+    { icon: faBookOpenReader, ...page.learn },
+    { icon: faThumbsUp, ...page.social },
+    { icon: faTypewriter, ...page.newsletter },
+    { icon: faCanFood, ...page.food },
+    { icon: faBackpack, ...page.school },
+    { icon: faShirt, ...page.merch },
+    { icon: faHandHeart, ...page.volunteer },
+    { icon: faCircleDollar, ...page.donate },
+    { icon: faPeopleGroup, ...page.join },
   ];
 
   return (
     <main>
       <Block color={'pink'}>
-        <h1 className="text-xl uppercase mb-4">{page.title}</h1>
-        <RichText text={page.text} />
+        <div className={'max-w-[930px] mx-auto'}>
+          <h1 className="text-xl uppercase mb-4">{page.title}</h1>
+          <RichText text={page.text} />
+        </div>
         <div className="text-center">
           <div className="inline-grid grid-cols-3 gap-6 mt-4">
             {categories.map((c, i) => (
@@ -34,7 +48,11 @@ export default async function SupportUs() {
                     'bg-white text-center w-[270px] h-[270px] px-2 py-3 rounded'
                   }
                 >
-                  <h2 className={'text-pink text-lg leading-tight mb-1'}>
+                  <FontAwesomeIcon
+                    className={'h-[40px] text-pink mx-auto mb-1'}
+                    icon={c.icon}
+                  />
+                  <h2 className={'text-pink text-lg leading-tight mb-[15px]'}>
                     {c.title}
                   </h2>
                   <div className={'text-black'}>{c.text}</div>

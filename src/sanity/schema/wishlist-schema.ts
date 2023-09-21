@@ -50,4 +50,10 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      subtitle: 'slug.current',
+    },
+  },
 });

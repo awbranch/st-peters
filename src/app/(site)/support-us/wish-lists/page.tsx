@@ -28,22 +28,24 @@ export default async function WishLists() {
       </Block>
 
       {page.wishlists.map((w, i) => (
-        <Block key={i} color={isUrgent(w) ? 'blue' : 'white'}>
-          <div>
-            <h2
-              className={cn(
-                'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
-                isUrgent(w) ? 'border-white' : 'border-black',
-              )}
-            >
-              {w.title}
-            </h2>
-          </div>
-          {w.description && <SimpleText text={w.description} />}
-          <div className={cn({ 'columns-2': !isUrgent(w) })}>
-            <RichText text={w.text} />
-          </div>
-        </Block>
+        <section key={i} id={w.slug.current}>
+          <Block color={isUrgent(w) ? 'blue' : 'white'}>
+            <div>
+              <h2
+                className={cn(
+                  'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
+                  isUrgent(w) ? 'border-white' : 'border-black',
+                )}
+              >
+                {w.title}
+              </h2>
+            </div>
+            {w.description && <SimpleText text={w.description} />}
+            <div className={cn({ 'columns-2': !isUrgent(w) })}>
+              <RichText text={w.text} />
+            </div>
+          </Block>
+        </section>
       ))}
 
       <Block center>
