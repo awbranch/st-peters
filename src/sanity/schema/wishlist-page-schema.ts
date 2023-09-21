@@ -22,6 +22,12 @@ export default defineType({
       type: 'array',
       of: [{ type: 'wishlist' }],
     }),
+    defineField({
+      name: 'contactLabel',
+      title: 'Contact Label',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
   preview: {
     prepare() {

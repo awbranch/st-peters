@@ -47,10 +47,10 @@ const RichText = ({ text }: Props) => {
     },
     list: {
       bullet: ({ children }) => (
-        <ul className="list-disc my-2 ml-2">{children}</ul>
+        <ul className="list-disc mt-2 mb-3 ml-2">{children}</ul>
       ),
       number: ({ children }) => (
-        <ol className="list-decimal my-2 ml-2">{children}</ol>
+        <ol className="list-decimal mt-2 mb-3 ml-2">{children}</ol>
       ),
     },
   };

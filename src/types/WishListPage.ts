@@ -5,4 +5,5 @@ export type WishListPage = {
   title: string;
   text: PortableTextBlock[];
   wishlists: WishList[];
+  contactLabel: string;
 };
