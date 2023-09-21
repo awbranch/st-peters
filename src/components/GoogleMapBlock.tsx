@@ -12,7 +12,7 @@ export default function GoogleMapBlock({ title, text, embedURL }: Props) {
   return (
     <Block color="pink">
       <h1 className="text-xl mb-3">{title}</h1>
-      <RichText document={text} />
+      <RichText text={text} />
       <iframe
         className="mt-3"
         id="google-map"

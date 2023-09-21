@@ -42,7 +42,7 @@ export default async function LunchBlock({ title, text, tbd }: Props) {
   return (
     <Block color="blue" center>
       <h2 className="text-xl uppercase mb-1">{title}</h2>
-      <RichText document={text} />
+      <RichText text={text} />
       <div className="mt-4 md:mt-8 flex flex-row justify-between min-h-[400px]">
         {menus &&
           menus.map((m, i) => (

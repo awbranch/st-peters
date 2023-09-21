@@ -21,7 +21,7 @@ export default function HistoryBlock({ title, image, text }: Props) {
         priority={true}
         sizes={'100vw'}
       />
-      <RichText document={text} />
+      <RichText text={text} />
     </Block>
   );
 }

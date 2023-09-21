@@ -15,7 +15,7 @@ export default function ImpactBlock({ title, text, impacts }: Props) {
     <Block color="pink" center>
       <h1 className="text-xl uppercase">{title}</h1>
       <div className="max-w-lg mx-auto mt-4">
-        <RichText document={text} />
+        <RichText text={text} />
       </div>
 
       <ul className="flex flex-row mt-4 p-2">

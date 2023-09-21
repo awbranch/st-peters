@@ -17,7 +17,7 @@ export default async function ProgramGridBlock({ title, text }: Props) {
     <Block color="white">
       <h1 className="text-xl uppercase">{title}</h1>
       <div className="my-4">
-        <RichText document={text} />
+        <RichText text={text} />
       </div>
       <MediaGrid>
         {programs.map((p, i) => (

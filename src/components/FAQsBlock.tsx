@@ -16,7 +16,7 @@ export default function FAQsBlock({ title, faqs }: Props) {
         {faqs.map((faq, i) => (
           <li key={i}>
             <h2 className="text-lg mb-1">{faq.question}</h2>
-            <RichText document={faq.answer}></RichText>
+            <RichText text={faq.answer}></RichText>
           </li>
         ))}
       </ul>

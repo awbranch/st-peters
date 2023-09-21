@@ -1,5 +1,7 @@
 import homePage from '@/sanity/schema/home-page-schema';
 import aboutPage from '@/sanity/schema/about-page-schema';
+import supportPage from '@/sanity/schema/support-page-schema';
+import wishlistPage from '@/sanity/schema/wishlist-page-schema';
 import settings from '@/sanity/schema/settings-schema';
 
 import program from '@/sanity/schema/program-schema';
@@ -13,23 +15,23 @@ import impact from '@/sanity/schema/impact-schema';
 import instagramFeed from '@/sanity/schema/instagram-feed';
 import donationRequest from '@/sanity/schema/donation-request-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
-
 import staffMember from '@/sanity/schema/staff-member-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
 import jobPosting from '@/sanity/schema/job-posting-schema';
 import doc from '@/sanity/schema/doc-schema';
-
 import action from '@/sanity/schema/action-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
-
 import volunteerPage from '@/sanity/schema/volunteer-page-schema';
 import faq from '@/sanity/schema/faq-schema';
+import supportCategory from '@/sanity/schema/support-category-schema';
+import wishlist from '@/sanity/schema/wishlist-schema';
 
 const schemas = [
-  settings,
   homePage,
   aboutPage,
   volunteerPage,
+  supportPage,
+  wishlistPage,
   lunchMenu,
   program,
   hero,
@@ -48,6 +50,9 @@ const schemas = [
   action,
   newsStory,
   faq,
+  supportCategory,
+  settings,
+  wishlist,
 ];
 
 export default schemas;

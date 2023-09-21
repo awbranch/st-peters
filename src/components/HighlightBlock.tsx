@@ -40,7 +40,7 @@ export default function HighlightBlock({
           >
             {highlight.title}
           </h1>
-          <RichText document={highlight.text} />
+          <RichText text={highlight.text} />
           <LinkButton
             href={highlight.buttonLink}
             variant={'text'}

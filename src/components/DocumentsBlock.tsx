@@ -18,7 +18,7 @@ export default function DocumentsBlock({ title, text, documents }: Props) {
     <Block color="white">
       <div>
         <h1 className="text-xl mb-3">{title}</h1>
-        <RichText document={text} />
+        <RichText text={text} />
       </div>
 
       <ul className="mt-4">

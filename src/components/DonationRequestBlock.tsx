@@ -33,7 +33,7 @@ export default function DonationRequestBlock({
       >
         <div className="flex-1">
           <h1 className="text-xl sm:text-xl uppercase mb-3">{request.title}</h1>
-          <RichText document={request.text} />
+          <RichText text={request.text} />
           <h2 className={'text-lg mb-3'}>{request.levelsTitle}</h2>
           <div className="mt-3">
             <div className="inline-grid grid-cols-2 gap-3">

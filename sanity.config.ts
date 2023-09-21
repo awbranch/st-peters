@@ -10,6 +10,8 @@ const singletons = {
   homePage: '520e6364-71e8-41bb-82be-304e2bd545c9',
   aboutPage: '89aa297f-2aad-4555-a733-e4aaff0542ec',
   volunteerPage: '569ecf64-794d-4eee-a3c9-d1199a2f0baa',
+  supportPage: '5a001dd1-f313-470a-9b82-490a0519de00',
+  wishlistPage: 'a057b2ac-b49c-4f0b-89a5-b1aab445225f',
 };
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);

@@ -15,7 +15,7 @@ export default async function Volunteer() {
       </section>
       <section id="details">
         <Block>
-          <RichText document={page.details} />
+          <RichText text={page.details} />
         </Block>
       </section>
       <section id="faqs">

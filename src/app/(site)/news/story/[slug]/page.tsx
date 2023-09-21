@@ -53,7 +53,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             priority={true}
             sizes={'100vw'}
           />
-          <RichText document={story.text} />
+          <RichText text={story.text} />
 
           {story.actions && (
             <div className="flex flex-row gap-2 mt-8 justify-center">

@@ -26,7 +26,7 @@ export default function TeamBlock({
   return (
     <Block color="white">
       <h1 className="text-xl mb-3">{title}</h1>
-      <RichText document={text} />
+      <RichText text={text} />
 
       <div className="grid grid-cols-2 gap-4 mt-4">
         {[

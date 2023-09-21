@@ -8,6 +8,8 @@ import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
 import { VolunteerPage } from '@/types/VolunteerPage';
+import { SupportPage } from '@/types/SupportPage';
+import { WishListPage } from '@/types/WishListPage';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -164,4 +166,16 @@ export async function getNewsStory(slug: string) {
 
 export async function getVolunteerPage() {
   return client.fetch<VolunteerPage>(groq`*[_type == "volunteerPage"][0]`);
+}
+
+export async function getSupportPage() {
+  return client.fetch<SupportPage>(groq`*[_type == "supportPage"]{
+    ...,
+    singleDonation->,
+    recurringDonation->
+  }[0]`);
+}
+
+export async function getWishListsPage() {
+  return client.fetch<WishListPage>(groq`*[_type == "wishlistPage"][0]`);
 }

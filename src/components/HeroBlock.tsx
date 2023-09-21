@@ -32,7 +32,7 @@ export default function HeroBlock({ color, href, hero }: Props) {
           className={portrait ? 'max-w-md lg:flex-1 lg:max-w-full' : 'max-w-md'}
         >
           <h1 className="text-xl sm:text-2xl uppercase mb-4">{hero.title}</h1>
-          <RichText document={hero.text} />
+          <RichText text={hero.text} />
           <LinkButton href={href} variant={'text'} size={'large'} icon={'down'}>
             {hero.buttonLabel}
           </LinkButton>

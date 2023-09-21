@@ -4,10 +4,10 @@ import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
 
 interface Props {
-  document: PortableTextBlock[];
+  text: PortableTextBlock[];
 }
 
-const RichText = ({ document }: Props) => {
+const RichText = ({ text }: Props) => {
   const components = {
     marks: {
       link: ({
@@ -55,7 +55,7 @@ const RichText = ({ document }: Props) => {
     },
   };
 
-  return <PortableText value={document} components={components as any} />;
+  return <PortableText value={text} components={components as any} />;
 };
 
 export default RichText;

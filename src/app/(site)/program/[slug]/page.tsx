@@ -35,7 +35,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             priority={true}
             sizes={'100vw'}
           />
-          <RichText document={program.text} />
+          <RichText text={program.text} />
         </Block>
       </section>
       {program.donationRequest && (

@@ -9,6 +9,12 @@ import {
 import StoryCard from '@/components/StoryCard';
 import React from 'react';
 
+export function generateStaticParams() {
+  return newsCategories.map((c) => ({
+    category: c.slug,
+  }));
+}
+
 interface Props {
   params: {
     category: string;

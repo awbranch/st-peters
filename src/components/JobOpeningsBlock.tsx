@@ -25,7 +25,7 @@ export default function JobOpeningsBlock({
     <Block color="blue" center>
       <div className="max-w-screen-md mx-auto">
         <h1 className="text-xl mb-3">{title}</h1>
-        <RichText document={text} />
+        <RichText text={text} />
       </div>
 
       <div className="mt-4">
@@ -58,12 +58,12 @@ export default function JobOpeningsBlock({
               ))}
           </div>
         ) : (
-          <RichText document={noJobsText} />
+          <RichText text={noJobsText} />
         )}
       </div>
 
       <div className="max-w-screen-md mx-auto mt-4">
-        <RichText document={eooText} />
+        <RichText text={eooText} />
       </div>
     </Block>
   );
