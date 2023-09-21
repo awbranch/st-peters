@@ -7,7 +7,13 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Container({ children, ...props }: Props) {
   return (
-    <div {...props} className="mx-auto" style={{ maxWidth: maxScreenWidth }}>
+    <div
+      {...props}
+      style={{
+        margin: '0 auto 0 auto',
+        maxWidth: maxScreenWidth,
+      }}
+    >
       {children}
     </div>
   );

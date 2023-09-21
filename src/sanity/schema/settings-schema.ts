@@ -22,7 +22,12 @@ export default defineType({
           type: 'block',
           styles: [],
           lists: [],
-          marks: {},
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+            ],
+          },
         },
       ],
       hidden: ({ document }) => !document?.showNotification,

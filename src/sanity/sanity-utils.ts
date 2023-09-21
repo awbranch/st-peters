@@ -10,6 +10,7 @@ import { NewsStory } from '@/types/NewsStory';
 import { VolunteerPage } from '@/types/VolunteerPage';
 import { SupportPage } from '@/types/SupportPage';
 import { WishListPage } from '@/types/WishListPage';
+import { Settings } from '@/types/Settings';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -178,4 +179,8 @@ export async function getSupportPage() {
 
 export async function getWishListsPage() {
   return client.fetch<WishListPage>(groq`*[_type == "wishlistPage"][0]`);
+}
+
+export async function getSettings() {
+  return client.fetch<Settings>(groq`*[_type == "settings"][0]`);
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
-import { maxScreenWidth } from '@/utils/globals';
 import cn from 'classnames';
+import Container from '@/components/Container';
 
 interface Props {
   color?: Color;
@@ -29,9 +29,7 @@ export default function Block({
         className,
       )}
     >
-      <div className="mx-auto" style={{ maxWidth: maxScreenWidth }}>
-        {children}
-      </div>
+      <Container>{children}</Container>
     </div>
   );
 }

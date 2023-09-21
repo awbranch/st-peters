@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import cn from 'classnames';
 import NavBar from '@/components/NavBar';
+import { getSettings } from '@/sanity/sanity-utils';
+import NotificationBar from '@/components/NotificationBar';
 
 const montserrat = Montserrat({
   weight: ['400', '700', '800'],
@@ -19,14 +21,20 @@ export const metadata: Metadata = {
   description: "St. Peter's Kitchen serves lunch weekdays in Rochester, NY",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await getSettings();
+
   return (
     <html lang="en" className="scroll-smooth">
       <body className={cn(montserrat.className, 'text-black text-base')}>
+        {settings.showNotification && (
+          <NotificationBar message={settings.notificationMessage} />
+        )}
+
         <NavBar />
         {children}
       </body>
