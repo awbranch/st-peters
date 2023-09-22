@@ -67,7 +67,7 @@ export default async function Footer() {
           </div>
           <div>
             <div className={'border-white border-b-2 inline-block w-[400px]'}>
-              <section id={'social'} className={'inline-block my-5'}>
+              <section id={'follow-us'} className={'inline-block my-5'}>
                 <h2 className={'text-lg'}>{settings.socialTitle}</h2>
                 <ul className={'flex flex-row gap-6 mt-4'}>
                   {settings.social.map((s) => (
