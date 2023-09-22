@@ -11,6 +11,7 @@
     "prettier": "prettier './app/**/*.{tsx,ts}' --write"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/pro-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@portabletext/react": "^3.0.7",
@@ -24,8 +25,8 @@
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
-    "next": "13.4.19",
-    "next-sanity": "^5.4.6",
+    "next": "^13.5.2",
+    "next-sanity": "^5.5.4",
     "next-usequerystate": "^1.8.0",
     "postcss": "8.4.28",
     "prettier": "^3.0.2",

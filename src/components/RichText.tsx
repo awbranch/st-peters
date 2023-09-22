@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
+import { isFullyQualifiedURL } from '@/utils/globals';
 
 interface Props {
   text: PortableTextBlock[];
@@ -20,6 +21,9 @@ const RichText = ({ text }: Props) => {
         <Link
           href={value.href}
           className={'text-blue underline underline-offset-4'}
+          {...(isFullyQualifiedURL(value.href)
+            ? { target: '_blank', rel: 'noreferrer noopener' }
+            : {})}
         >
           {children}
         </Link>
@@ -35,6 +39,9 @@ const RichText = ({ text }: Props) => {
       ),
       h2: ({ children }: { children: React.ReactNode }) => (
         <h2 className="text-lg mb-2">{children}</h2>
+      ),
+      h6: ({ children }: { children: React.ReactNode }) => (
+        <div className="text-sm">{children}</div>
       ),
       normal: ({ children }: { children: React.ReactNode }) => (
         <p className="text-base mb-2">{children}</p>

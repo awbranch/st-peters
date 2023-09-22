@@ -1,7 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import Logo from '@/components/Logo';
 import Hamburger from '@/components/Hamburger';
-import Link from 'next/link';
 import Container from '@/components/Container';
 
 const menus = [
@@ -13,9 +13,9 @@ const menus = [
 
 export default function NavBar() {
   return (
-    <div className="bg-green text-white px-2 md:px-4 py-2">
+    <div className={'bg-green text-white px-2 md:px-4 py-2'}>
       <Container>
-        <nav className="mx-auto flex flex-wrap items-center">
+        <nav className="flex flex-wrap items-center">
           <div className="flex-1 flex">
             <Link href="/">
               <Logo color={'white'} />

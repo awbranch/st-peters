@@ -25,6 +25,7 @@ export default function Block({
         { 'bg-pink text-white': color === 'pink' },
         { 'bg-black text-white': color === 'black' },
         { 'bg-white text-black': color === 'white' },
+        { 'bg-gray-100 text-black': color === 'gray' },
         { 'text-center': center },
         className,
       )}

@@ -35,3 +35,8 @@ export const newsCategories: NewsCategory[] = [
     sanityCategory: 'community-story',
   },
 ];
+
+export function isFullyQualifiedURL(url: string) {
+  const pattern = /^(https?:\/\/).*$/i;
+  return pattern.test(url);
+}

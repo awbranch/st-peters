@@ -40,6 +40,7 @@ const config: Config = {
         },
       ],
       lg: [
+        // Used for H2
         toRem(26),
         {
           lineHeight: toRem(40),
@@ -48,6 +49,7 @@ const config: Config = {
         },
       ],
       xl: [
+        // Used for H1
         toRem(36),
         {
           lineHeight: toRem(50),
@@ -56,6 +58,7 @@ const config: Config = {
         },
       ],
       '2xl': [
+        // Used for Hero
         toRem(60),
         {
           lineHeight: toRem(70),

@@ -1,8 +1,8 @@
+import React from 'react';
 import Block from '@/components/Block';
 import { getSupportPage } from '@/sanity/sanity-utils';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
-import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

@@ -6,7 +6,11 @@ import { Link } from '@/types/Link';
 export type Settings = {
   showNotification: boolean;
   notificationMessage: PortableTextBlock[];
+  newsletterSignupTitle: string;
+  pastNewslettersMessage: PortableTextBlock[];
+  newsletterConfig: string;
   address: Address;
+  socialTitle: string;
   social: Social[];
   siteMap: Link[];
 };

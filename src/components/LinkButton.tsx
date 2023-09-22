@@ -50,6 +50,7 @@ const colorClasses: { [V in Variant]: { [C in Color]: string } } = {
     pink: 'text-pink',
     black: 'text-black',
     white: 'text-white',
+    gray: 'text-white',
   },
   outline: {
     green: 'text-green bg-white border-green',
@@ -57,6 +58,7 @@ const colorClasses: { [V in Variant]: { [C in Color]: string } } = {
     pink: 'text-pink bg-white border-pink',
     black: 'text-black bg-white border-black',
     white: 'text-white bg-black border-white',
+    gray: 'text-white bg-black border-white',
   },
   solid: {
     green: 'bg-green text-white',
@@ -64,6 +66,7 @@ const colorClasses: { [V in Variant]: { [C in Color]: string } } = {
     pink: 'bg-pink text-white',
     black: 'bg-black text-white',
     white: 'bg-white text-black',
+    gray: 'bg-white text-black',
   },
 };
 

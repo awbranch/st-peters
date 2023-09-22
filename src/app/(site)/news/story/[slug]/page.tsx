@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main>
-      <section id="program">
+      <section id="story">
         <Block color={'white'}>
           {parent && (
             <LinkButton

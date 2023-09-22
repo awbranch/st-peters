@@ -1,4 +1,6 @@
+import { SocialMediaService } from '@/types/SocialMediaService';
+
 export type Social = {
-  service: 'facebook' | 'instagram' | 'youtube' | 'twitter' | 'linkedin';
+  service: SocialMediaService;
   url: string;
 };

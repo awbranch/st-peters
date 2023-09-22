@@ -17,6 +17,7 @@ export default defineType({
           { title: 'YouTube', value: 'youtube' },
           { title: 'Twitter', value: 'twitter' },
           { title: 'LinkedIn', value: 'linkedin' },
+          { title: 'X', value: 'x' },
         ],
         layout: 'dropdown',
       },

@@ -34,5 +34,11 @@ export default defineType({
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: 'phone',
+      title: 'Phone',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
 });
