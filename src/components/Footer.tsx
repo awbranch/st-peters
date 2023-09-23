@@ -37,7 +37,7 @@ export default async function Footer() {
           <h2 className={'text-lg mb-2'}>{settings.newsletterSignupTitle}</h2>
           <div
             className={
-              'inline-block bg-white border-black border-4 rounded-xl w-[400px] h-4'
+              'inline-block bg-white border-black border-4 rounded-full w-[400px] h-4'
             }
           />
           <RichText text={settings.pastNewslettersMessage} />

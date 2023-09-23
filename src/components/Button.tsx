@@ -22,7 +22,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'px-3 rounded-xl',
+        'px-3 rounded-full',
         { 'py-1': variant === 'text' || variant === 'solid' },
         { 'py-[7px] border-[3px]': variant === 'outline' },
         { 'bg-green text-white': variant === 'solid' && color === 'green' },

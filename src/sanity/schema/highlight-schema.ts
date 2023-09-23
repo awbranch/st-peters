@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { GiStrong as icon } from 'react-icons/gi';
 
 export default defineType({
@@ -26,14 +26,14 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [],
           lists: [],
           marks: {
             decorators: [],
           },
-        },
+        }),
       ],
     }),
     defineField({

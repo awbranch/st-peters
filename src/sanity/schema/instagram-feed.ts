@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 
 export default defineType({
   name: 'instagramFeed',
@@ -17,14 +17,14 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [],
           lists: [],
           marks: {
             decorators: [],
           },
-        },
+        }),
       ],
     }),
     defineField({

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaHome as icon } from 'react-icons/fa';
 import { createRichTextField } from '@/sanity/schema/utils';
 
@@ -86,7 +86,7 @@ export default defineType({
       name: 'impacts',
       title: 'Impacts',
       type: 'array',
-      of: [{ type: 'impact' }],
+      of: [defineArrayMember({ type: 'impact' })],
       group: 'impact',
     }),
 

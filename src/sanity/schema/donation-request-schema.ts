@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaHandHoldingDollar as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -31,14 +31,14 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [],
           lists: [],
           marks: {
             decorators: [],
           },
-        },
+        }),
       ],
     }),
     defineField({
@@ -65,7 +65,7 @@ export default defineType({
       name: 'levels',
       title: 'Levels',
       type: 'array',
-      of: [{ type: 'donationLevel' }],
+      of: [defineArrayMember({ type: 'donationLevel' })],
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({

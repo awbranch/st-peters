@@ -56,7 +56,7 @@ export default function HighlightBlock({
             priority={true}
             sizes={'100vw'}
             className={cn(
-              'border-8 rounded-[20px]',
+              'border-8 rounded-lg',
               color === 'white' ? 'border-black' : 'border-white',
             )}
           />

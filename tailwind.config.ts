@@ -11,16 +11,37 @@ const config: Config = {
   ],
   theme: {
     colors: {
+      inherit: 'inherit',
+      current: 'currentColor',
+      transparent: 'transparent',
       black: '#111827',
       white: '#ffffff',
       gray: {
         100: '#e5e7eb',
         200: '#d1d4dc',
         300: '#babfca',
+        400: '#A3AAB8',
+        500: '#8c95a6',
+        600: '#757F95',
+        700: '#626B7F',
+        800: '#505768',
+        900: '#3E4451',
       },
-      green: '#14532d',
-      blue: '#1766b5',
-      pink: '#db2777',
+      green: {
+        light: '#249451',
+        DEFAULT: '#14532d',
+        dark: '#0C311B',
+      },
+      blue: {
+        light: '#388fe5',
+        DEFAULT: '#1766b5',
+        dark: '#0e3d6c',
+      },
+      pink: {
+        light: '#e773a8',
+        DEFAULT: '#db2777',
+        dark: '#9d1b55',
+      },
     },
     fontSize: {
       sm: [
@@ -69,9 +90,13 @@ const config: Config = {
     },
     spacing: {
       0: '0px',
+      '0.5': toGrid(0.5),
       1: toGrid(1),
+      '1.5': toGrid(1.5),
       2: toGrid(2),
+      '2.5': toGrid(2.5),
       3: toGrid(3),
+      '3.5': toGrid(3.5),
       4: toGrid(4),
       5: toGrid(5),
       6: toGrid(6),
@@ -88,8 +113,11 @@ const config: Config = {
     },
     borderRadius: {
       none: '0',
-      DEFAULT: '5px',
-      xl: '30px',
+      DEFAULT: toRem(5),
+      md: toRem(10),
+      lg: toRem(20),
+      xl: toRem(30),
+      full: toRem(9999),
     },
     fontWeight: {
       normal: '400',

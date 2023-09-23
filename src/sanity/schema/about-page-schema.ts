@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaCircleInfo as icon } from 'react-icons/fa6';
 import { createImageField, createRichTextField } from '@/sanity/schema/utils';
 
@@ -93,7 +93,7 @@ export default defineType({
       name: 'jobPostings',
       title: 'Jop Postings',
       type: 'array',
-      of: [{ type: 'jobPosting' }],
+      of: [defineArrayMember({ type: 'jobPosting' })],
       group: 'jobs',
     }),
     createRichTextField('jobsEooText', 'Jobs EEO Text', 'jobs'),
@@ -111,7 +111,7 @@ export default defineType({
       name: 'docs',
       title: 'Documents',
       type: 'array',
-      of: [{ type: 'doc' }],
+      of: [defineArrayMember({ type: 'doc' })],
       group: 'docs',
     }),
   ],

@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { newsCategories } from '@/utils/globals';
 import { FaNewspaper, FaCalendarDays, FaBookOpenReader } from 'react-icons/fa6';
 
@@ -91,7 +91,7 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [
             { title: 'Header', value: 'h2' },
@@ -108,7 +108,7 @@ export default defineType({
               { title: 'Italic', value: 'em' },
             ],
           },
-        },
+        }),
       ],
     }),
     defineField({
@@ -117,7 +117,7 @@ export default defineType({
       type: 'array',
       description:
         'A story can have one or more action buttons such as "Help Support People Like Sue" that links to the donation page.',
-      of: [{ type: 'action' }],
+      of: [defineArrayMember({ type: 'action' })],
     }),
     defineField({
       name: 'donationRequest',

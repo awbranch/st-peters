@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaCertificate as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -71,7 +71,7 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        {
+        defineArrayMember({
           type: 'block',
           styles: [
             { title: 'Header', value: 'h2' },
@@ -88,7 +88,7 @@ export default defineType({
               { title: 'Italic', value: 'em' },
             ],
           },
-        },
+        }),
       ],
     }),
     defineField({
