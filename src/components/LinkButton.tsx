@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
-import cn from 'classnames';
+import { twMerge } from 'tailwind-merge';
 import { FaArrowDown, FaArrowRight, FaArrowLeft } from 'react-icons/fa6';
 import Link from 'next/link';
 
@@ -9,13 +9,10 @@ type Icon = 'none' | 'down' | 'right' | 'left';
 type Variant = 'text' | 'outline' | 'solid';
 
 type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
-  href: string;
   size?: Size;
   color?: Color;
   icon?: Icon;
   variant?: Variant;
-  className?: string;
-  children?: React.ReactNode;
 };
 
 const classes = 'inline-flex items-center justify-center gap-1';
@@ -83,7 +80,7 @@ export default function LinkButton({
   return (
     <Link
       href={href}
-      className={cn(
+      className={twMerge(
         classes,
         variantClasses[variant],
         sizeClasses[variant][size],

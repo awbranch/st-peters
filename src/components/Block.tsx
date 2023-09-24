@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
-import cn from 'classnames';
+import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
 
 type Props = {
@@ -18,15 +18,15 @@ export default function Block({
 }: Props) {
   return (
     <div
-      className={cn(
+      className={twMerge(
         'px-2 md:px-4 py-4 md:py-8',
-        { 'bg-green text-white': color === 'green' },
-        { 'bg-blue text-white': color === 'blue' },
-        { 'bg-pink text-white': color === 'pink' },
-        { 'bg-black text-white': color === 'black' },
-        { 'bg-white text-black': color === 'white' },
-        { 'bg-gray-100 text-black': color === 'gray' },
-        { 'text-center': center },
+        color === 'green' && 'bg-green text-white',
+        color === 'blue' && 'bg-blue text-white',
+        color === 'pink' && 'bg-pink text-white',
+        color === 'black' && 'bg-black text-white',
+        color === 'white' && 'bg-white text-black',
+        color === 'gray' && 'bg-gray-100 text-black',
+        center && 'text-center',
         className,
       )}
     >

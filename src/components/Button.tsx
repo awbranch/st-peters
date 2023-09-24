@@ -1,13 +1,67 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
-import cn from 'classnames';
-import { FaArrowDown, FaArrowRight } from 'react-icons/fa6';
+import { FaArrowDown, FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
+import { twMerge } from 'tailwind-merge';
+
+type Size = 'small' | 'large';
+type Icon = 'none' | 'down' | 'right' | 'left';
+type Variant = 'text' | 'outline' | 'solid';
 
 type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  size?: 'small' | 'large';
+  size?: Size;
   color?: Color;
-  icon?: 'none' | 'down' | 'right';
-  variant?: 'text' | 'outline' | 'solid';
+  icon?: Icon;
+  variant?: Variant;
+};
+
+const classes = 'inline-flex items-center justify-center gap-1';
+
+const variantClasses: { [V in Variant]: string } = {
+  text: '',
+  outline: 'rounded-xl',
+  solid: 'rounded-xl',
+};
+
+const sizeClasses: { [V in Variant]: { [S in Size]: string } } = {
+  text: {
+    small: 'text-base font-bold py-[8px]',
+    large: 'text-lg py-1',
+  },
+  outline: {
+    small: 'text-base font-bold px-2 py-[5px] border-[3px]',
+    large: 'text-lg px-3 py-[7px] border-[3px]',
+  },
+  solid: {
+    small: 'text-base font-bold px-2 py-[8px]',
+    large: 'text-lg px-3 py-1',
+  },
+};
+
+const colorClasses: { [V in Variant]: { [C in Color]: string } } = {
+  text: {
+    green: 'text-green',
+    blue: 'text-blue',
+    pink: 'text-pink',
+    black: 'text-black',
+    white: 'text-white',
+    gray: 'text-white',
+  },
+  outline: {
+    green: 'text-green bg-white border-green',
+    blue: 'text-blue bg-white border-blue',
+    pink: 'text-pink bg-white border-pink',
+    black: 'text-black bg-white border-black',
+    white: 'text-white bg-black border-white',
+    gray: 'text-white bg-black border-white',
+  },
+  solid: {
+    green: 'bg-green text-white',
+    blue: 'bg-blue text-white',
+    pink: 'bg-pink text-white',
+    black: 'bg-black text-white',
+    white: 'bg-white text-black',
+    gray: 'bg-white text-black',
+  },
 };
 
 export default function Button({
@@ -21,50 +75,19 @@ export default function Button({
 }: Props) {
   return (
     <button
-      className={cn(
-        'px-3 rounded-full',
-        { 'py-1': variant === 'text' || variant === 'solid' },
-        { 'py-[7px] border-[3px]': variant === 'outline' },
-        { 'bg-green text-white': variant === 'solid' && color === 'green' },
-        { 'bg-blue text-white': variant === 'solid' && color === 'blue' },
-        { 'bg-pink text-white': variant === 'solid' && color === 'pink' },
-        { 'bg-black text-white': variant === 'solid' && color === 'black' },
-        { 'bg-white text-black': variant === 'solid' && color === 'white' },
-        {
-          'bg-white text-green border-green':
-            (variant === 'outline' || variant === 'text') && color === 'green',
-        },
-        {
-          'bg-white text-blue border-blue':
-            (variant === 'outline' || variant === 'text') && color === 'blue',
-        },
-        {
-          'bg-white text-pink border-pink':
-            (variant === 'outline' || variant === 'text') && color === 'pink',
-        },
-        {
-          'bg-white text-black border-black':
-            (variant === 'outline' || variant === 'text') && color === 'black',
-        },
-        {
-          'bg-black text-white border-white':
-            (variant === 'outline' || variant === 'text') && color === 'white',
-        },
-        { 'text-base font-bold': size === 'small' },
-        { 'text-lg': size === 'large' },
+      className={twMerge(
+        classes,
+        variantClasses[variant],
+        sizeClasses[variant][size],
+        colorClasses[variant][color],
         className,
       )}
       {...props}
     >
-      {icon ? (
-        <div className="inline-flex gap-1 items-center">
-          {children}
-          {icon === 'right' && <FaArrowRight className="inline-block" />}
-          {icon === 'down' && <FaArrowDown className="inline-block" />}
-        </div>
-      ) : (
-        children
-      )}
+      {icon === 'left' && <FaArrowLeft className="inline-block" />}
+      {children}
+      {icon === 'right' && <FaArrowRight className="inline-block" />}
+      {icon === 'down' && <FaArrowDown className="inline-block" />}
     </button>
   );
 }

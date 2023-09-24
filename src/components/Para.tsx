@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 export default function Para({
   className,
@@ -7,7 +7,7 @@ export default function Para({
   ...props
 }: React.ParamHTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={cn('text-base mb-2', className)} {...props}>
+    <p className={twMerge('text-base mb-2', className)} {...props}>
       {children}
     </p>
   );

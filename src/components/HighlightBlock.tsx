@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
 import { Highlight } from '@/types/Highlight';
 import Block from '@/components/Block';
@@ -21,19 +21,15 @@ export default function HighlightBlock({
   return (
     <Block color={color}>
       <div
-        className={cn(
+        className={twJoin(
           'flex gap-4',
-          {
-            'flex-row': orientation === 'right',
-          },
-          {
-            'flex-row-reverse': orientation === 'left',
-          },
+          orientation === 'right' && 'flex-row',
+          orientation === 'left' && 'flex-row-reverse',
         )}
       >
         <div className="flex-1 basis-7/12">
           <h1
-            className={cn(
+            className={twJoin(
               'text-xl sm:text-xl uppercase border-black border-b-4 pb-1 mb-3',
               color === 'white' ? 'border-black' : 'border-white',
             )}
@@ -55,7 +51,7 @@ export default function HighlightBlock({
             image={highlight.image}
             priority={true}
             sizes={'100vw'}
-            className={cn(
+            className={twJoin(
               'border-8 rounded-lg',
               color === 'white' ? 'border-black' : 'border-white',
             )}

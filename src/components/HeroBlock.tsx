@@ -5,7 +5,7 @@ import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import { imageAttributes } from '@/sanity/sanity-utils';
-import cn from 'classnames';
+import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
 import LinkButton from '@/components/LinkButton';
 
@@ -24,9 +24,10 @@ export default function HeroBlock({ color, href, hero }: Props) {
   return (
     <Block color={color}>
       <div
-        className={cn('flex flex-col-reverse gap-4', {
-          'lg:flex-row': portrait,
-        })}
+        className={twJoin(
+          'flex flex-col-reverse gap-4',
+          portrait && 'lg:flex-row',
+        )}
       >
         <div
           className={portrait ? 'max-w-md lg:flex-1 lg:max-w-full' : 'max-w-md'}

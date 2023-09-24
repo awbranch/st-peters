@@ -5,7 +5,7 @@ import LinkButton from '@/components/LinkButton';
 import React from 'react';
 import SimpleText from '@/components/SimpleText';
 import { WishList } from '@/types/WishList';
-import cn from 'classnames';
+import { twJoin } from 'tailwind-merge';
 
 const isUrgent = (w: WishList) => w.slug.current === 'urgent-needs';
 
@@ -32,7 +32,7 @@ export default async function WishLists() {
           <Block color={isUrgent(w) ? 'blue' : 'white'}>
             <div>
               <h2
-                className={cn(
+                className={twJoin(
                   'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
                   isUrgent(w) ? 'border-white' : 'border-black',
                 )}
@@ -41,7 +41,7 @@ export default async function WishLists() {
               </h2>
             </div>
             {w.description && <SimpleText text={w.description} />}
-            <div className={cn({ 'columns-2': !isUrgent(w) })}>
+            <div className={twJoin(!isUrgent(w) && 'columns-2')}>
               <RichText text={w.text} />
             </div>
           </Block>

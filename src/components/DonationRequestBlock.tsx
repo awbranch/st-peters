@@ -2,7 +2,7 @@ import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import cn from 'classnames';
+import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
 import { DonationRequest } from '@/types/DonationRequest';
 import LinkButton from '@/components/LinkButton';
@@ -21,14 +21,10 @@ export default function DonationRequestBlock({
   return (
     <Block color={color}>
       <div
-        className={cn(
+        className={twJoin(
           'flex gap-4',
-          {
-            'flex-row': orientation === 'right',
-          },
-          {
-            'flex-row-reverse': orientation === 'left',
-          },
+          orientation === 'right' && 'flex-row',
+          orientation === 'left' && 'flex-row-reverse',
         )}
       >
         <div className="flex-1">

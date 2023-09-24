@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import { twMerge } from 'tailwind-merge';
 
 export default function Card({
   className,
@@ -7,7 +7,7 @@ export default function Card({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div className={cn('bg-white rounded p-3', className)} {...props}>
+    <div className={twMerge('bg-white rounded p-3', className)} {...props}>
       {children}
     </div>
   );
