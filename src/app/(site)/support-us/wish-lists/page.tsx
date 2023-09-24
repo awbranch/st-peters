@@ -1,5 +1,6 @@
-import Block from '@/components/Block';
 import { getWishListsPage } from '@/sanity/sanity-utils';
+import Header from '@/components/Header';
+import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import LinkButton from '@/components/LinkButton';
 import React from 'react';
@@ -13,52 +14,55 @@ export default async function WishLists() {
   const page = await getWishListsPage();
 
   return (
-    <main>
-      <Block>
-        <LinkButton
-          href="/support-us"
-          size={'small'}
-          icon={'left'}
-          variant={'text'}
-        >
-          SUPPORT US
-        </LinkButton>
-        <h1 className="text-xl uppercase mb-4">{page.title}</h1>
-        <RichText text={page.text} />
-      </Block>
+    <>
+      <Header color={'white'} currentMenu={'support-us'} />
+      <main>
+        <Block>
+          <LinkButton
+            href="/support-us"
+            size={'small'}
+            icon={'left'}
+            variant={'text'}
+          >
+            SUPPORT US
+          </LinkButton>
+          <h1 className="text-xl uppercase mb-4">{page.title}</h1>
+          <RichText text={page.text} />
+        </Block>
 
-      {page.wishlists.map((w, i) => (
-        <section key={i} id={w.slug.current}>
-          <Block color={isUrgent(w) ? 'blue' : 'white'}>
-            <div>
-              <h2
-                className={twJoin(
-                  'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
-                  isUrgent(w) ? 'border-white' : 'border-black',
-                )}
-              >
-                {w.title}
-              </h2>
-            </div>
-            {w.description && <SimpleText text={w.description} />}
-            <div className={twJoin(!isUrgent(w) && 'columns-2')}>
-              <RichText text={w.text} />
-            </div>
-          </Block>
-        </section>
-      ))}
+        {page.wishlists.map((w, i) => (
+          <section key={i} id={w.slug.current}>
+            <Block color={isUrgent(w) ? 'blue' : 'white'}>
+              <div>
+                <h2
+                  className={twJoin(
+                    'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
+                    isUrgent(w) ? 'border-white' : 'border-black',
+                  )}
+                >
+                  {w.title}
+                </h2>
+              </div>
+              {w.description && <SimpleText text={w.description} />}
+              <div className={twJoin(!isUrgent(w) && 'columns-2')}>
+                <RichText text={w.text} />
+              </div>
+            </Block>
+          </section>
+        ))}
 
-      <Block center>
-        <LinkButton
-          href={'/contact'}
-          size={'small'}
-          variant={'outline'}
-          color={'blue'}
-          icon={'right'}
-        >
-          {page.contactLabel}
-        </LinkButton>
-      </Block>
-    </main>
+        <Block center>
+          <LinkButton
+            href={'/contact'}
+            size={'small'}
+            variant={'outline'}
+            color={'blue'}
+            icon={'right'}
+          >
+            {page.contactLabel}
+          </LinkButton>
+        </Block>
+      </main>
+    </>
   );
 }

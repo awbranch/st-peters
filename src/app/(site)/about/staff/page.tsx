@@ -1,3 +1,4 @@
+import React from 'react';
 import Block from '@/components/Block';
 import { getStaffMembers } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';

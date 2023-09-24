@@ -7,7 +7,6 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { twJoin } from 'tailwind-merge';
 import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 
 const montserrat = Montserrat({
   weight: ['400', '700', '800'],
@@ -28,7 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={twJoin(montserrat.className, 'text-black text-base')}>
-        <Header />
         {children}
         <Footer />
       </body>

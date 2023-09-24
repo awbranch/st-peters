@@ -5,52 +5,59 @@ import LunchBlock from '@/components/LunchBlock';
 import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import ProgramGridBlock from '@/components/ProgramGridBlock';
+import Header from '@/components/Header';
 
 export default async function Home() {
   const page = await getHomePage();
 
   return (
-    <main>
-      <section id="hero">
-        <HeroBlock color="green" hero={page.hero} href="#lunch-menu" />
-      </section>
-      <section id="lunch-menu">
-        <LunchBlock
-          title={page.lunchTitle}
-          text={page.lunchText}
-          tbd={page.lunchTbd}
-        />
-      </section>
-      {page.displayHighlight1 && (
-        <section id={page.highlight1.slug.current}>
-          <HighlightBlock
-            color="white"
-            orientation="right"
-            highlight={page.highlight1}
+    <>
+      <Header color={'green'} currentMenu={'home'} />
+      <main>
+        <section id="hero">
+          <HeroBlock color="green" hero={page.hero} href="#lunch-menu" />
+        </section>
+        <section id="lunch-menu">
+          <LunchBlock
+            title={page.lunchTitle}
+            text={page.lunchText}
+            tbd={page.lunchTbd}
           />
         </section>
-      )}
-      <section id="impact">
-        <ImpactBlock
-          title={page.impactTitle}
-          text={page.impactText}
-          impacts={page.impacts}
-        />
-      </section>
-
-      <section id="programs">
-        <ProgramGridBlock title={page.programsTitle} text={page.programsText} />
-      </section>
-
-      {page.displayHighlight2 && (
-        <section id={page.highlight2.slug.current}>
-          <HighlightBlock
-            color="blue"
-            orientation="left"
-            highlight={page.highlight2}
+        {page.displayHighlight1 && (
+          <section id={page.highlight1.slug.current}>
+            <HighlightBlock
+              color="white"
+              orientation="right"
+              highlight={page.highlight1}
+            />
+          </section>
+        )}
+        <section id="impact">
+          <ImpactBlock
+            title={page.impactTitle}
+            text={page.impactText}
+            impacts={page.impacts}
           />
         </section>
-      )}
-    </main>
+
+        <section id="programs">
+          <ProgramGridBlock
+            title={page.programsTitle}
+            text={page.programsText}
+          />
+        </section>
+
+        {page.displayHighlight2 && (
+          <section id={page.highlight2.slug.current}>
+            <HighlightBlock
+              color="blue"
+              orientation="left"
+              highlight={page.highlight2}
+            />
+          </section>
+        )}
+      </main>
+    </>
   );
 }
