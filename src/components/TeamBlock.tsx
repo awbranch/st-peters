@@ -6,14 +6,14 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   staffPhoto: Image;
   staffLabel: string;
   boardPhoto: Image;
   boardLabel: string;
-}
+};
 
 export default function TeamBlock({
   title,

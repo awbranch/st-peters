@@ -3,12 +3,12 @@ import type { Color } from '@/types/Color';
 import cn from 'classnames';
 import { FaArrowDown, FaArrowRight } from 'react-icons/fa6';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: 'small' | 'large';
   color?: Color;
   icon?: 'none' | 'down' | 'right';
   variant?: 'text' | 'outline' | 'solid';
-}
+};
 
 export default function Button({
   size = 'large',

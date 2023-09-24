@@ -15,11 +15,11 @@ export function generateStaticParams() {
   }));
 }
 
-interface Props {
+type Props = {
   params: {
     category: string;
   };
-}
+};
 
 export default async function NewsCategory({ params }: Props) {
   const { category } = params;

@@ -6,9 +6,9 @@ import SimpleText from '@/components/SimpleText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 
-interface Props {
+type Props = {
   story: NewsStory;
-}
+};
 
 export default function StoryCard({ story }: Props) {
   return (

@@ -6,9 +6,9 @@ import { PortableText } from '@portabletext/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMegaphone } from '@fortawesome/pro-solid-svg-icons';
 
-interface Props {
+type Props = {
   message: PortableTextBlock[];
-}
+};
 
 export default function NotificationBar({ message }: Props) {
   return (

@@ -3,10 +3,10 @@ import Block from '@/components/Block';
 import { FAQ } from '@/types/FAQ';
 import RichText from '@/components/RichText';
 
-interface Props {
+type Props = {
   title: string;
   faqs: FAQ[];
-}
+};
 
 export default function FAQsBlock({ title, faqs }: Props) {
   return (

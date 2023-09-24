@@ -4,9 +4,9 @@ import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
 import { isFullyQualifiedURL } from '@/utils/globals';
 
-interface Props {
+type Props = {
   text: PortableTextBlock[];
-}
+};
 
 const RichText = ({ text }: Props) => {
   const components = {

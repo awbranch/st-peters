@@ -5,11 +5,11 @@ import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   image: Image;
-}
+};
 
 export default function VolunteerFormBlock({ title, text, image }: Props) {
   return (

@@ -1,9 +1,9 @@
 import React from 'react';
 import Para from '@/components/Para';
 
-interface Props {
+type Props = {
   text: string;
-}
+};
 
 /**
  * Breaks a string delimited by newlines into a set of paragraphs

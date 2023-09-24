@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface TextInputProps {
+type TextInputProps = {
   name: string;
   title: string;
   type?: string;
-}
+};
 
 const inputClasses =
   'peer w-full py-1 px-1 rounded bg-white text-pink focus:outline-none border-l-4 border-white focus:border-gray-500 placeholder-transparent';

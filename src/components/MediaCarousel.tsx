@@ -3,19 +3,19 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { Image } from '@/types/Image';
 
-interface MediaCarouselProps {
+type MediaCarouselProps = {
   children: React.ReactNode;
-}
+};
 
 export function MediaCarousel({ children }: MediaCarouselProps) {
   return <div className="flex flex-row gap-4 mt-4">{children}</div>;
 }
 
-interface MediaCarouselItemProps {
+type MediaCarouselItemProps = {
   href: string;
   title: string;
   image: Image;
-}
+};
 
 export function MediaCarouselItem({
   href,

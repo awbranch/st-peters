@@ -7,11 +7,11 @@ import { Color } from '@/types/Color';
 import { DonationRequest } from '@/types/DonationRequest';
 import LinkButton from '@/components/LinkButton';
 
-interface Props {
+type Props = {
   color: Color;
   orientation: 'left' | 'right';
   request: DonationRequest;
-}
+};
 
 export default function DonationRequestBlock({
   color,

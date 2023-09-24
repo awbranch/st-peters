@@ -2,11 +2,11 @@ import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { PortableTextBlock } from 'sanity';
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   embedURL: string;
-}
+};
 
 export default function GoogleMapBlock({ title, text, embedURL }: Props) {
   return (

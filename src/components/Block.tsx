@@ -3,12 +3,12 @@ import type { Color } from '@/types/Color';
 import cn from 'classnames';
 import Container from '@/components/Container';
 
-interface Props {
+type Props = {
   color?: Color;
   center?: boolean;
   className?: string;
   children: React.ReactNode;
-}
+};
 
 export default function Block({
   color = 'white',

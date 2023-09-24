@@ -8,7 +8,7 @@ type Size = 'small' | 'large';
 type Icon = 'none' | 'down' | 'right' | 'left';
 type Variant = 'text' | 'outline' | 'solid';
 
-interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+type Props = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   size?: Size;
   color?: Color;
@@ -16,7 +16,7 @@ interface Props extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   variant?: Variant;
   className?: string;
   children?: React.ReactNode;
-}
+};
 
 const classes = 'inline-flex items-center justify-center gap-1';
 

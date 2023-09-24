@@ -1,10 +1,10 @@
 import React from 'react';
 import { TextColor } from '@/types/Color';
 
-interface Props {
+type Props = {
   color?: TextColor;
   orientation?: 'horizontal' | 'vertical';
-}
+};
 
 export default function Logo({
   color = 'white',

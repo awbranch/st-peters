@@ -3,12 +3,12 @@ import { maxScreenWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import React from 'react';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
+type Props = React.HTMLAttributes<HTMLElement> & {
   image: Image;
   sizes: string;
   priority?: boolean;
   className?: string;
-}
+};
 
 const widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
 

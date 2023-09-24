@@ -5,10 +5,10 @@ import { getPrograms } from '@/sanity/sanity-utils';
 import { MediaGrid, MediaGridItem } from '@/components/MediaGrid';
 import { PortableTextBlock } from 'sanity';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
-}
+};
 
 export default async function ProgramGridBlock({ title, text }: Props) {
   const programs = await getPrograms();

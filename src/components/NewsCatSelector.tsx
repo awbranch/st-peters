@@ -2,9 +2,9 @@ import React from 'react';
 import LinkButton from '@/components/LinkButton';
 import { newsCategories } from '@/utils/globals';
 
-interface Props {
+type Props = {
   selected: string;
-}
+};
 
 export default function NewsCatSelector({ selected }: Props) {
   return (

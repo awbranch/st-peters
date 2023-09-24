@@ -4,11 +4,11 @@ import RichText from '@/components/RichText';
 import { PortableTextBlock } from 'sanity';
 import { Impact } from '@/types/Impact';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   impacts: Impact[];
-}
+};
 
 export default function ImpactBlock({ title, text, impacts }: Props) {
   return (

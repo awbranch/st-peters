@@ -7,11 +7,11 @@ import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
 
-interface Props {
+type Props = {
   color: Color;
   orientation: 'left' | 'right';
   highlight: Highlight;
-}
+};
 
 export default function HighlightBlock({
   color,

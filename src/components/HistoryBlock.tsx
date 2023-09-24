@@ -5,11 +5,11 @@ import RichText from '@/components/RichText';
 import { Image } from '@/types/Image';
 import { PortableTextBlock } from 'sanity';
 
-interface Props {
+type Props = {
   title: string;
   image: Image;
   text: PortableTextBlock[];
-}
+};
 
 export default function HistoryBlock({ title, image, text }: Props) {
   return (

@@ -3,19 +3,19 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { Image } from '@/types/Image';
 
-interface MediaGridProps {
+type MediaGridProps = {
   children: React.ReactNode;
-}
+};
 
 export function MediaGrid({ children }: MediaGridProps) {
   return <div className="grid grid-cols-3 gap-4">{children}</div>;
 }
 
-interface MediaGridItemProps {
+type MediaGridItemProps = {
   href: string;
   title: string;
   image: Image;
-}
+};
 
 export function MediaGridItem({ href, title, image }: MediaGridItemProps) {
   return (

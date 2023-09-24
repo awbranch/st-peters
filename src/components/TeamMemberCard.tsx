@@ -4,9 +4,9 @@ import { TeamMember } from '@/types/TeamMember';
 import SimpleText from '@/components/SimpleText';
 import LinkButton from '@/components/LinkButton';
 
-interface Props {
+type Props = {
   member: TeamMember;
-}
+};
 
 export default function TeamMemberCard({ member }: Props) {
   return (

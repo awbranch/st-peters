@@ -9,11 +9,11 @@ import cn from 'classnames';
 import { Color } from '@/types/Color';
 import LinkButton from '@/components/LinkButton';
 
-interface Props {
+type Props = {
   color: Color;
   hero: Hero;
   href: string;
-}
+};
 
 export default function HeroBlock({ color, href, hero }: Props) {
   const { width, height } = imageAttributes(hero.image);

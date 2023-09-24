@@ -14,11 +14,11 @@ import SimpleText from '@/components/SimpleText';
 import { getLunchMenus } from '@/sanity/sanity-utils';
 import { PortableTextBlock } from 'sanity';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   tbd: string;
-}
+};
 
 export default async function LunchBlock({ title, text, tbd }: Props) {
   const menus = await getLunchMenus();

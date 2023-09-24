@@ -6,13 +6,13 @@ import LinkButton from '@/components/LinkButton';
 import { PortableTextBlock } from 'sanity';
 import { JobPosting } from '@/types/JobPosting';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   postings: JobPosting[];
   eooText: PortableTextBlock[];
   noJobsText: PortableTextBlock[];
-}
+};
 
 export default function JobOpeningsBlock({
   title,

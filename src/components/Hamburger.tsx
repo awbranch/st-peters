@@ -1,9 +1,9 @@
 import React from 'react';
 import { TextColor } from '@/types/Color';
 
-interface Props {
+type Props = {
   color: TextColor;
-}
+};
 
 export default function Hamburger({ color }: Props) {
   const rectClass = color === 'white' ? 'fill-white' : 'fill-black';

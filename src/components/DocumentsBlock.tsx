@@ -7,11 +7,11 @@ import { PortableTextBlock } from 'sanity';
 import { Document } from '@/types/Document';
 import RichText from '@/components/RichText';
 
-interface Props {
+type Props = {
   title: string;
   text: PortableTextBlock[];
   documents: Document[];
-}
+};
 
 export default function DocumentsBlock({ title, text, documents }: Props) {
   return (
