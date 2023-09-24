@@ -1,9 +1,11 @@
 import React from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type TextInputProps = {
   name: string;
   title: string;
   type?: string;
+  className?: string;
 };
 
 const inputClasses =
@@ -12,9 +14,14 @@ const inputClasses =
 const labelClasses =
   'absolute px-1.5 left-0 -top-2.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-pink-light peer-placeholder-shown:top-1 transition-all peer-focus:-top-2.5 peer-focus:text-white peer-focus:text-sm';
 
-export function TextInput({ name, title, type = 'text' }: TextInputProps) {
+export function TextInput({
+  name,
+  title,
+  type = 'text',
+  className,
+}: TextInputProps) {
   return (
-    <div className={'relative mt-3'}>
+    <div className={twMerge('relative mt-3', className)}>
       <input
         id={name}
         type={type}
@@ -28,15 +35,16 @@ export function TextInput({ name, title, type = 'text' }: TextInputProps) {
   );
 }
 
-interface TextAreaProps {
+type TextAreaProps = {
   name: string;
   title: string;
   rows?: number;
-}
+  className?: string;
+};
 
-export function TextArea({ name, title, rows = 5 }: TextAreaProps) {
+export function TextArea({ name, title, rows = 5, className }: TextAreaProps) {
   return (
-    <div className={'relative mt-3'}>
+    <div className={twMerge('relative mt-3', className)}>
       <textarea
         id={name}
         placeholder={title}
@@ -44,6 +52,38 @@ export function TextArea({ name, title, rows = 5 }: TextAreaProps) {
         rows={rows}
       />
       <label htmlFor={name} className={labelClasses}>
+        {title}
+      </label>
+    </div>
+  );
+}
+
+type RadioButtonProps = {
+  group: string;
+  name: string;
+  title: string;
+  className?: string;
+};
+
+export function RadioButton({
+  group,
+  name,
+  title,
+  className,
+}: RadioButtonProps) {
+  return (
+    <div className={twMerge('flex flex-row items-center', className)}>
+      <input
+        type={'radio'}
+        id={name}
+        name={group}
+        value={name}
+        className={'mr-1 accent-pink cursor-pointer'}
+      />
+      <label
+        htmlFor={name}
+        className={'text-white text-base cursor-pointer align-middle'}
+      >
         {title}
       </label>
     </div>
