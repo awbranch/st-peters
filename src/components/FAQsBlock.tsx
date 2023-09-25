@@ -12,11 +12,29 @@ export default function FAQsBlock({ title, faqs }: Props) {
   return (
     <Block>
       <h1 className="text-xl uppercase mb-3">{title}</h1>
-      <ul className={'disc'}>
+      <ul>
         {faqs.map((faq, i) => (
-          <li key={i}>
-            <h2 className="text-lg mb-1">{faq.question}</h2>
-            <RichText text={faq.answer}></RichText>
+          <li
+            key={i}
+            className={'list-none w-full border-b border-gray-300 mb-1 pb-1'}
+          >
+            <input
+              type={'radio'}
+              name={'accordion'}
+              id={`q${i}`}
+              className={'hidden peer'}
+            />
+            <label
+              htmlFor={`q${i}`}
+              className={
+                "flex items-start justify-between py-1 pr-1 text-lg text-black cursor-pointer after:content-['+'] after:text-[1.3em] peer-checked:text-blue hover:text-blue peer-checked:after:content-['-']"
+              }
+            >
+              {faq.question}
+            </label>
+            <div className={'max-h-0 overflow-hidden peer-checked:max-h-fit'}>
+              <RichText text={faq.answer}></RichText>
+            </div>
           </li>
         ))}
       </ul>
