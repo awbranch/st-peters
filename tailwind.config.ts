@@ -80,6 +80,15 @@ const config: Config = {
       ],
       '2xl': [
         // Used for Hero
+        toRem(44),
+        {
+          lineHeight: toRem(60),
+          letterSpacing: '0.060em',
+          fontWeight: '800',
+        },
+      ],
+      '3xl': [
+        // Used for Hero
         toRem(60),
         {
           lineHeight: toRem(70),
@@ -124,7 +133,7 @@ const config: Config = {
       bold: '700',
       'extra-bold': '800',
     },
-    breakpoints,
+    screens: breakpoints,
   },
   plugins: [require('@tailwindcss/forms')],
 };

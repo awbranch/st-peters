@@ -9,6 +9,7 @@ export const toRem = (px: number) => `${px / htmlFontSize}rem`;
 export const maxScreenWidth = 1280;
 
 export const breakpoints = {
+  xs: '480px',
   sm: '640px',
   md: '768px',
   lg: '1024px',

@@ -21,7 +21,7 @@ export default function ImpactBlock({ title, text, impacts }: Props) {
       <ul className="flex flex-row mt-4 p-2">
         {impacts.map((i, k) => (
           <li key={k} className="flex-1">
-            <div className="text-2xl">{i.value.toLocaleString('en-US')}</div>
+            <div className="text-3xl">{i.value.toLocaleString('en-US')}</div>
             <div className="text max-w-[150px] mx-auto mt-1">{i.category}</div>
           </li>
         ))}
