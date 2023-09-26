@@ -1,4 +1,5 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'instagramFeed',
@@ -16,16 +17,7 @@ export default defineType({
       name: 'text',
       title: 'Text',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          styles: [],
-          lists: [],
-          marks: {
-            decorators: [],
-          },
-        }),
-      ],
+      of: [createRichTextBlock('all')],
     }),
     defineField({
       name: 'config',

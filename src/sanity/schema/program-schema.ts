@@ -1,5 +1,6 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { FaCertificate as icon } from 'react-icons/fa6';
+import { createRichTextField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'program',
@@ -66,31 +67,7 @@ export default defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          styles: [
-            { title: 'Header', value: 'h2' },
-            { title: 'Subheader', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-          lists: [
-            { title: 'Bulleted List', value: 'bullet' },
-            { title: 'Numbered List', value: 'number' },
-          ],
-          marks: {
-            decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
-            ],
-          },
-        }),
-      ],
-    }),
+    createRichTextField('text', 'Text', 'all'),
     defineField({
       name: 'donationRequest',
       title: 'Donation Request',

@@ -1,6 +1,9 @@
-import { defineField, defineType, defineArrayMember } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { FaGear as icon } from 'react-icons/fa6';
-import { createRichTextField } from '@/sanity/schema/utils';
+import {
+  createRichTextBlock,
+  createRichTextField,
+} from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'settings',
@@ -44,23 +47,7 @@ export default defineType({
       name: 'notificationMessage',
       title: 'Notification Message',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          styles: [
-            { title: 'Header', value: 'h2' },
-            { title: 'Subheader', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-          lists: [],
-          marks: {
-            decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
-            ],
-          },
-        }),
-      ],
+      of: [createRichTextBlock('no-lists')],
       hidden: ({ document }) => !document?.showNotification,
       group: 'notification',
     }),
@@ -71,7 +58,7 @@ export default defineType({
       group: 'contact',
       validation: (Rule) => Rule.required(),
     }),
-    createRichTextField('contactUsText', 'Contact Us Text', 'contact'),
+    createRichTextField('contactUsText', 'Contact Us Text', 'all', 'contact'),
     defineField({
       name: 'newsletterSignupTitle',
       title: 'Newsletter Signup Title',

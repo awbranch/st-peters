@@ -22,40 +22,49 @@ export default function HighlightBlock({
     <Block color={color}>
       <div
         className={twJoin(
-          'flex gap-4',
-          orientation === 'right' && 'flex-row',
-          orientation === 'left' && 'flex-row-reverse',
+          'flex gap-4 flex-col',
+          orientation === 'right' && 'lg:flex-row',
+          orientation === 'left' && 'lg:flex-row-reverse',
         )}
       >
-        <div className="flex-1 basis-7/12">
+        <div className="flex-1">
           <h1
             className={twJoin(
-              'text-xl sm:text-xl uppercase border-black border-b-4 pb-1 mb-3',
+              'text-xl sm:text-xl uppercase border-b-4 pb-1 mb-3',
               color === 'white' ? 'border-black' : 'border-white',
             )}
           >
             {highlight.title}
           </h1>
           <RichText text={highlight.text} />
-          <LinkButton
-            href={highlight.buttonLink}
-            variant={'text'}
-            size={'large'}
-            icon={'right'}
-          >
-            {highlight.buttonLabel}
-          </LinkButton>
+          <div className={'hidden lg:block'}>
+            <LinkButton
+              href={highlight.buttonLink}
+              variant={'text'}
+              size={'large'}
+              icon={'right'}
+            >
+              {highlight.buttonLabel}
+            </LinkButton>
+          </div>
         </div>
-        <div className="flex-1 basis-5/12">
+        <div className="flex-1 lg:flex-none mx-0 sm:mx-auto lg:mx-0">
           <ResponsiveImage
             image={highlight.image}
             priority={true}
             sizes={'100vw'}
-            className={twJoin(
-              'border-8 rounded-lg',
-              color === 'white' ? 'border-black' : 'border-white',
-            )}
+            className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
           />
+          <div className={'block lg:hidden mt-2 text-center'}>
+            <LinkButton
+              href={highlight.buttonLink}
+              variant={'text'}
+              size={'large'}
+              icon={'right'}
+            >
+              {highlight.buttonLabel}
+            </LinkButton>
+          </div>
         </div>
       </div>
     </Block>

@@ -31,7 +31,7 @@ export default function HeroBlock({ color, href, hero }: Props) {
             image={hero.image}
             priority={true}
             sizes={'100vw'}
-            className={'object-cover object-top w-full h-[600px]'}
+            className={'h-[600px]'}
           />
         </div>
       </div>

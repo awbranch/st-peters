@@ -18,7 +18,7 @@ export default function ImpactBlock({ title, text, impacts }: Props) {
         <RichText text={text} />
       </div>
 
-      <ul className="flex flex-row mt-4 p-2">
+      <ul className="flex flex-col lg:flex-row mt-4 p-2 gap-6 lg:gap-2">
         {impacts.map((i, k) => (
           <li key={k} className="flex-1">
             <div className="text-3xl">{i.value.toLocaleString('en-US')}</div>

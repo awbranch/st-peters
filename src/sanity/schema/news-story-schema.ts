@@ -1,6 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { newsCategories } from '@/utils/globals';
 import { FaNewspaper, FaCalendarDays, FaBookOpenReader } from 'react-icons/fa6';
+import { createRichTextField } from '@/sanity/schema/utils';
 
 const iconSet = {
   event: FaCalendarDays,
@@ -86,31 +87,7 @@ export default defineType({
       ],
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          styles: [
-            { title: 'Header', value: 'h2' },
-            { title: 'Subheader', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-          lists: [
-            { title: 'Bulleted List', value: 'bullet' },
-            { title: 'Numbered List', value: 'number' },
-          ],
-          marks: {
-            decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
-            ],
-          },
-        }),
-      ],
-    }),
+    createRichTextField('text', 'Text', 'all'),
     defineField({
       name: 'actions',
       title: 'Actions',

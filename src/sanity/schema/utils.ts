@@ -1,4 +1,4 @@
-import { defineField } from 'sanity';
+import { defineField, defineArrayMember } from 'sanity';
 
 export function createImageField(name: string, title: string, group?: string) {
   return defineField({
@@ -21,9 +21,70 @@ export function createImageField(name: string, title: string, group?: string) {
   });
 }
 
+export type CRTLevel = 'all' | 'no-headers' | 'no-lists' | 'none';
+
+export function createRichTextBlock(level: CRTLevel) {
+  if (level === 'all') {
+    return defineArrayMember({
+      type: 'block',
+      styles: [
+        { title: 'Header', value: 'h2' },
+        { title: 'Quote', value: 'blockquote' },
+      ],
+      lists: [
+        { title: 'Bulleted List', value: 'bullet' },
+        { title: 'Numbered List', value: 'number' },
+      ],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+        ],
+      },
+    });
+  } else if (level === 'no-headers') {
+    return defineArrayMember({
+      type: 'block',
+      styles: [],
+      lists: [
+        { title: 'Bulleted List', value: 'bullet' },
+        { title: 'Numbered List', value: 'number' },
+      ],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+        ],
+      },
+    });
+  } else if (level === 'no-lists') {
+    return defineArrayMember({
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+        ],
+      },
+    });
+  } else {
+    return defineArrayMember({
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [],
+      },
+    });
+  }
+}
+
 export function createRichTextField(
   name: string,
   title: string,
+  level?: CRTLevel,
   group?: string,
 ) {
   return defineField({
@@ -31,26 +92,7 @@ export function createRichTextField(
     title,
     group,
     type: 'array',
-    of: [
-      {
-        type: 'block',
-        styles: [
-          { title: 'Header', value: 'h2' },
-          { title: 'Subheader', value: 'h3' },
-          { title: 'Quote', value: 'blockquote' },
-        ],
-        lists: [
-          { title: 'Bulleted List', value: 'bullet' },
-          { title: 'Numbered List', value: 'number' },
-        ],
-        marks: {
-          decorators: [
-            { title: 'Bold', value: 'strong' },
-            { title: 'Italic', value: 'em' },
-          ],
-        },
-      },
-    ],
+    of: [createRichTextBlock(level ?? 'all')],
     validation: (Rule: any) => Rule.required(),
   });
 }

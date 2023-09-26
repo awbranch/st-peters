@@ -47,7 +47,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'lunch',
     }),
-    createRichTextField('lunchText', 'Lunch Text', 'lunch'),
+    createRichTextField('lunchText', 'Lunch Text', 'no-headers', 'lunch'),
 
     defineField({
       name: 'lunchTbd',
@@ -80,7 +80,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'impact',
     }),
-    createRichTextField('impactText', 'Impact Text', 'impact'),
+    createRichTextField('impactText', 'Impact Text', 'all', 'impact'),
 
     defineField({
       name: 'impacts',
@@ -97,7 +97,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'programs',
     }),
-    createRichTextField('programsText', 'Programs Text', 'programs'),
+    createRichTextField('programsText', 'Programs Text', 'all', 'programs'),
 
     defineField({
       name: 'displayHighlight2',

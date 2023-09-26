@@ -134,6 +134,11 @@ const config: Config = {
       'extra-bold': '800',
     },
     screens: breakpoints,
+    extend: {
+      boxShadow: {
+        airy: '0 6px 24px 0 rgba(140, 152, 164, 0.125)',
+      },
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };

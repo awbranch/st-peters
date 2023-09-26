@@ -26,7 +26,7 @@ export default defineType({
       group: 'grid',
     }),
 
-    createRichTextField('text', 'Text', 'grid'),
+    createRichTextField('text', 'Text', 'all', 'grid'),
 
     defineField({
       name: 'learn',
@@ -87,12 +87,14 @@ export default defineType({
       title: 'Single Donation Request',
       type: 'reference',
       to: [{ type: 'donationRequest' }],
+      group: 'requests',
     }),
     defineField({
       name: 'recurringDonation',
       title: 'Recurring Donation Request',
       type: 'reference',
       to: [{ type: 'donationRequest' }],
+      group: 'requests',
     }),
   ],
   preview: {

@@ -20,7 +20,7 @@ const classes = 'inline-flex items-center justify-center gap-1';
 // TODO: May want to consider using this library to manage the variants
 // https://cva.style/docs/getting-started/variants
 const variantClasses: { [V in Variant]: string } = {
-  text: 'hover:underline hover:underline-offset-4',
+  text: 'hover:underline hover:underline-offset-8',
   outline: 'rounded-xl',
   solid: 'rounded-xl',
 };

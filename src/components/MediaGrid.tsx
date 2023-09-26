@@ -8,7 +8,13 @@ type MediaGridProps = {
 };
 
 export function MediaGrid({ children }: MediaGridProps) {
-  return <div className="grid grid-cols-3 gap-4">{children}</div>;
+  return (
+    <div className={'text-center'}>
+      <div className="inline-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {children}
+      </div>
+    </div>
+  );
 }
 
 type MediaGridItemProps = {
@@ -19,16 +25,20 @@ type MediaGridItemProps = {
 
 export function MediaGridItem({ href, title, image }: MediaGridItemProps) {
   return (
-    <div className="w-[300px]">
-      <Link className={'block'} href={href} title={title}>
-        <ResponsiveImage
-          image={image}
-          priority={false}
-          sizes={'33vw'}
-          className={'object-cover w-[300px] h-[280px]'}
-        />
-      </Link>
-      <h2 className="text-lg mt-1 text-center">{title}</h2>
-    </div>
+    <Link
+      className={'block w-[360px] group shadow-airy p-2 rounded-md'}
+      href={href}
+      title={title}
+    >
+      <ResponsiveImage
+        image={image}
+        priority={false}
+        sizes={'33vw'}
+        className={'w-full h-[260px] ease-in-out duration-200 hover:scale-105'}
+      />
+      <h2 className="text-base font-bold mt-2 text-center group-hover:underline group-hover:underline-offset-4">
+        {title}
+      </h2>
+    </Link>
   );
 }

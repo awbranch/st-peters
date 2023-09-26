@@ -1,6 +1,5 @@
 import { Hero } from '@/types/Hero';
 import { FAQ } from '@/types/FAQ';
-import { Image } from '@/types/Image';
 import { PortableTextBlock } from 'sanity';
 
 export type VolunteerPage = {
@@ -10,5 +9,4 @@ export type VolunteerPage = {
   faqs: FAQ[];
   formTitle: string;
   formText: PortableTextBlock[];
-  formImage: Image;
 };
