@@ -16,6 +16,7 @@ import {
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import Wave from '@/components/Wave';
+import NewsletterSignupForm from '@/components/NewsletterSignupForm';
 
 const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
   facebook: faFacebookF,
@@ -35,13 +36,12 @@ export default async function Footer() {
       <section id={'newsletter'}>
         <Block color={'gray'} center>
           <h2 className={'text-lg mb-2'}>{settings.newsletterSignupTitle}</h2>
-          <div
-            className={
-              'inline-block bg-white border-black border-4 rounded-full w-[400px] h-4'
-            }
-          />
-          <RichText text={settings.pastNewslettersMessage} />
+          <NewsletterSignupForm config={settings.newsletterConfig} />
+          <div className={'mt-1'}>
+            <RichText text={settings.pastNewslettersMessage} />
+          </div>
         </Block>
+
         <div className={'bg-gray-100'}>
           <Wave />
         </div>

@@ -126,6 +126,6 @@ const config: Config = {
     },
     breakpoints,
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
 export default config;

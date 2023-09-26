@@ -78,7 +78,9 @@ export function RadioButton({
         id={name}
         name={group}
         value={name}
-        className={'mr-1 accent-pink cursor-pointer'}
+        className={
+          'w-[15px] h-[15px] mr-1 text-black focus:ring-gray-300 cursor-pointer'
+        }
       />
       <label
         htmlFor={name}
