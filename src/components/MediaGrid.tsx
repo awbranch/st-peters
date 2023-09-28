@@ -36,7 +36,7 @@ export function MediaGridItem({ href, title, image }: MediaGridItemProps) {
         sizes={'33vw'}
         className={'w-full h-[260px] ease-in-out duration-200 hover:scale-105'}
       />
-      <h2 className="text-base font-bold mt-2 text-center group-hover:underline group-hover:underline-offset-4">
+      <h2 className="text-base font-bold mt-2 text-center group-hover:text-pink">
         {title}
       </h2>
     </Link>
