@@ -11,6 +11,7 @@ import { VolunteerPage } from '@/types/VolunteerPage';
 import { SupportPage } from '@/types/SupportPage';
 import { WishListPage } from '@/types/WishListPage';
 import { Settings } from '@/types/Settings';
+import { NewsCategory } from '@/types/NewsCategory';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -115,19 +116,18 @@ export async function getBoardMembers() {
   );
 }
 
-export async function getCurrentEvents() {
-  return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == "event" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1] | order(date asc)`,
-    {},
-    { next: { revalidate: 60 * 60 * 4 } },
+export async function getNewsCategories() {
+  return client.fetch<NewsCategory[]>(
+    groq`*[_type == "newsCategory"] | order(order asc)`,
   );
 }
 
-export async function getPastEvents() {
-  return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == "event" && dateTime(date + 'T00:00:00Z') <= dateTime(now()) - 60*60*24*1] | order(date desc)`,
-    {},
-    { next: { revalidate: 60 * 60 * 4 } },
+export async function getNewsCategory(name: string) {
+  return client.fetch<NewsCategory>(
+    groq`*[_type == "newsCategory" && name == $name] | order(order asc)`,
+    {
+      name,
+    },
   );
 }
 
@@ -139,12 +139,27 @@ export async function getTopNewsStories(count: number) {
   );
 }
 
-export async function getNewsStories(category: string) {
+export type NewsStoryTimeRange = 'all' | 'past' | 'future';
+
+export async function getNewsStories(
+  category: string,
+  timeRange: NewsStoryTimeRange = 'all',
+) {
+  const dateQuery =
+    timeRange === 'past'
+      ? "&& dateTime(date + 'T00:00:00Z') < dateTime(now())"
+      : timeRange === 'future'
+      ? "&& dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1"
+      : '';
+
+  const orderDir = timeRange === 'future' ? 'asc' : 'desc';
+
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == $category]{
+    groq`*[_type == "newsStory" && category->name.current == $category ${dateQuery}]{
      ...,
+     category->,
      donationRequest->
-  }`,
+  } | order(date ${orderDir})`,
     {
       category,
     },
@@ -156,6 +171,7 @@ export async function getNewsStory(slug: string) {
   return client.fetch<NewsStory>(
     groq`*[_type == "newsStory" && slug.current == $slug]{
      ...,
+     category->,
      donationRequest->
   }[0]`,
     {

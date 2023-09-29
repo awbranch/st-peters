@@ -1,6 +1,7 @@
+import { Slug } from 'sanity';
+
 export type NewsCategory = {
-  slug: string;
-  name: string;
-  sanityName: string;
-  sanityCategory: string;
+  title: string;
+  name: Slug;
+  order: number;
 };

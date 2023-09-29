@@ -6,20 +6,22 @@ import LinkButton from '@/components/LinkButton';
 import { isPast, toFullDate } from '@/utils/date';
 import { getNewsStory, getTopNewsStories } from '@/sanity/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
-import { NewsCategory } from '@/types/NewsCategory';
-import { newsCategories } from '@/utils/globals';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const story = await getNewsStory(params.slug);
-  let parent: NewsCategory;
-  if (story.category === 'event') {
+  let parentName: string;
+  let parentTitle: string;
+  if (story.category.name.current === 'events') {
     if (isPast(story.date)) {
-      parent = newsCategories.find((c) => c.slug === 'past-events');
+      parentName = 'past-events';
+      parentTitle = 'Past Events';
     } else {
-      parent = newsCategories.find((c) => c.slug === 'upcoming-events');
+      parentName = 'upcoming-events';
+      parentTitle = 'upcoming-Events';
     }
   } else {
-    parent = newsCategories.find((nc) => nc.sanityCategory === story.category);
+    parentName = story.category.name.current;
+    parentTitle = story.category.title;
   }
 
   // Get 13 most recent news stories
@@ -34,15 +36,15 @@ export default async function Page({ params }: { params: { slug: string } }) {
     <main>
       <section id="story">
         <Block color={'white'}>
-          {parent && (
+          {parentName && parentTitle && (
             <LinkButton
-              href={`/news/${parent.slug}`}
+              href={`/news?category=${parentName}`}
               size={'small'}
               icon={'left'}
               variant={'text'}
               className={'uppercase'}
             >
-              {parent.name}
+              {parentTitle}
             </LinkButton>
           )}
           <h1 className="text-xl uppercase">{story.title}</h1>
