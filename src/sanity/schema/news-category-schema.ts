@@ -1,5 +1,9 @@
 import { defineField, defineType } from 'sanity';
 import { FaRegBookmark as icon } from 'react-icons/fa6';
+import {
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list';
 
 export default defineType({
   name: 'newsCategory',
@@ -9,13 +13,7 @@ export default defineType({
     'A way to group news stories, like a section in a newspaper. e.g. "News", "Sports", "Business" etc.',
   icon,
   fields: [
-    defineField({
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-      initialValue: 0,
-      validation: (Rule: any) => Rule.required(),
-    }),
+    orderRankField({ type: 'string' }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -34,22 +32,5 @@ export default defineType({
       },
     }),
   ],
-  preview: {
-    select: {
-      title: 'title',
-      order: 'order',
-    },
-    prepare({ title, order }) {
-      return {
-        title: `${order}: ${title}`,
-      };
-    },
-  },
-  orderings: [
-    {
-      title: 'Display Order',
-      name: 'displayOrder',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
-  ],
+  orderings: [orderRankOrdering],
 });

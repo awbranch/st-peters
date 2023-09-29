@@ -1,6 +1,10 @@
 import { defineField, defineType } from 'sanity';
 import { FaCertificate as icon } from 'react-icons/fa6';
 import { createRichTextField } from '@/sanity/schema/utils';
+import {
+  orderRankField,
+  orderRankOrdering,
+} from '@sanity/orderable-document-list';
 
 export default defineType({
   name: 'program',
@@ -9,6 +13,7 @@ export default defineType({
   description: "One of programmatic services that St. Peter's provides.",
   icon,
   fields: [
+    orderRankField({ type: 'string' }),
     defineField({
       name: 'title',
       title: 'Title',
@@ -24,13 +29,6 @@ export default defineType({
         source: 'title',
         maxLength: 200,
       },
-    }),
-    defineField({
-      name: 'order',
-      title: 'Order',
-      type: 'number',
-      initialValue: 0,
-      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'introImage',
@@ -78,19 +76,7 @@ export default defineType({
   preview: {
     select: {
       title: 'title',
-      order: 'order',
-    },
-    prepare({ title, order }) {
-      return {
-        title: `${order}: ${title}`,
-      };
     },
   },
-  orderings: [
-    {
-      title: 'Display Order',
-      name: 'displayOrder',
-      by: [{ field: 'order', direction: 'asc' }],
-    },
-  ],
+  orderings: [orderRankOrdering],
 });

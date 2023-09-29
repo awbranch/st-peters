@@ -2,13 +2,11 @@ import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { PortableTextBlock } from 'sanity';
-import { Image } from '@/types/Image';
 import VolunteerForm from '@/components/VolunteerForm';
 
 type Props = {
   title: string;
   text: PortableTextBlock[];
-  image: Image;
 };
 
 export default function VolunteerFormBlock({ title, text }: Props) {

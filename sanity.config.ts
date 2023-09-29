@@ -2,8 +2,10 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { media } from 'sanity-plugin-media';
+import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
 import schemas from '@/sanity/schema';
+import { ComponentType } from 'react';
 
 const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
@@ -14,8 +16,11 @@ const singletons = {
   wishlistPage: 'a057b2ac-b49c-4f0b-89a5-b1aab445225f',
 };
 
+const orderable = ['program', 'newsCategory'];
+
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 const isSingleton = (schemaName: string) => !!singletons[schemaName];
+const isOrderable = (schemaName: string) => orderable.includes(schemaName);
 
 const config = defineConfig({
   projectId: 't6t8tv0q',
@@ -30,7 +35,7 @@ const config = defineConfig({
   basePath: '/admin',
   plugins: [
     deskTool({
-      structure: (S) =>
+      structure: (S, context) =>
         S.list()
           .title('Content')
           .items(
@@ -47,6 +52,14 @@ const config = defineConfig({
                           .schemaType(s.name)
                           .documentId(singletons[s.name]),
                       )
+                  : isOrderable(s.name)
+                  ? orderableDocumentListDeskItem({
+                      type: s.name,
+                      title: s.title,
+                      icon: s.icon as ComponentType,
+                      S,
+                      context,
+                    })
                   : S.documentTypeListItem(s.name).title(s.title),
               ),
           ),

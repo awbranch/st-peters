@@ -26,11 +26,7 @@ export default async function Volunteer() {
           <FAQsBlock title={page.faqsTitle} faqs={page.faqs} />
         </section>
         <section id="signup-form">
-          <VolunteerFormBlock
-            title={page.formTitle}
-            text={page.formText}
-            image={page.formImage}
-          />
+          <VolunteerFormBlock title={page.formTitle} text={page.formText} />
         </section>
       </main>
     </>

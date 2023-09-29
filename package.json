@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@portabletext/react": "^3.0.7",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/orderable-document-list": "^1.1.0",
     "@sanity/vision": "^3.16.1",
     "@tailwindcss/forms": "^0.5.6",
     "@types/node": "20.5.6",

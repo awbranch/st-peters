@@ -84,7 +84,7 @@ export async function getHomePage() {
 
 export async function getPrograms() {
   return client.fetch<Program[]>(
-    groq`*[_type == "program"] | order(order asc)`,
+    groq`*[_type == "program"] | order(orderRank asc)`,
   );
 }
 
@@ -118,7 +118,7 @@ export async function getBoardMembers() {
 
 export async function getNewsCategories() {
   return client.fetch<NewsCategory[]>(
-    groq`*[_type == "newsCategory"] | order(order asc)`,
+    groq`*[_type == "newsCategory"] | order(orderRank asc)`,
   );
 }
 
