@@ -1,11 +1,10 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { Action } from '@/types/Action';
 import { Image } from '@/types/Image';
-import { NewsCategory } from '@/types/NewsCategory';
 import { DonationRequest } from '@/types/DonationRequest';
 
 export type NewsStory = {
-  category: NewsCategory;
+  category: string;
   date: string;
   title: string;
   slug: Slug;

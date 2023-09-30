@@ -21,7 +21,6 @@ import jobPosting from '@/sanity/schema/job-posting-schema';
 import doc from '@/sanity/schema/doc-schema';
 import action from '@/sanity/schema/action-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
-import newsCategory from '@/sanity/schema/news-category-schema';
 import volunteerPage from '@/sanity/schema/volunteer-page-schema';
 import faq from '@/sanity/schema/faq-schema';
 import supportCategory from '@/sanity/schema/support-category-schema';
@@ -50,7 +49,6 @@ const schemas = [
   doc,
   action,
   newsStory,
-  newsCategory,
   faq,
   supportCategory,
   settings,

@@ -16,7 +16,7 @@ const singletons = {
   wishlistPage: 'a057b2ac-b49c-4f0b-89a5-b1aab445225f',
 };
 
-const orderable = ['program', 'newsCategory'];
+const orderable = ['program'];
 
 const singletonActions = new Set(['publish', 'discardChanges', 'restore']);
 const isSingleton = (schemaName: string) => !!singletons[schemaName];

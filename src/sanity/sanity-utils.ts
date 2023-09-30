@@ -11,7 +11,6 @@ import { VolunteerPage } from '@/types/VolunteerPage';
 import { SupportPage } from '@/types/SupportPage';
 import { WishListPage } from '@/types/WishListPage';
 import { Settings } from '@/types/Settings';
-import { NewsCategory } from '@/types/NewsCategory';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -116,21 +115,6 @@ export async function getBoardMembers() {
   );
 }
 
-export async function getNewsCategories() {
-  return client.fetch<NewsCategory[]>(
-    groq`*[_type == "newsCategory"] | order(orderRank asc)`,
-  );
-}
-
-export async function getNewsCategory(name: string) {
-  return client.fetch<NewsCategory>(
-    groq`*[_type == "newsCategory" && name == $name] | order(order asc)`,
-    {
-      name,
-    },
-  );
-}
-
 export async function getTopNewsStories(count: number) {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
@@ -155,9 +139,8 @@ export async function getNewsStories(
   const orderDir = timeRange === 'future' ? 'asc' : 'desc';
 
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category->name.current == $category ${dateQuery}]{
+    groq`*[_type == "newsStory" && category == $category ${dateQuery}]{
      ...,
-     category->,
      donationRequest->
   } | order(date ${orderDir})`,
     {
@@ -171,7 +154,6 @@ export async function getNewsStory(slug: string) {
   return client.fetch<NewsStory>(
     groq`*[_type == "newsStory" && slug.current == $slug]{
      ...,
-     category->,
      donationRequest->
   }[0]`,
     {
