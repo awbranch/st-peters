@@ -8,3 +8,44 @@ html {
     font-size: 18px;
   }
 }
+
+.slick-track {
+  display: flex;
+}
+
+.slick-slide {
+  height: unset;
+}
+
+.slick-slide > div {
+  height: 100%;
+}
+
+.slick-dots {
+  bottom: -50px;
+}
+
+.slick-dots > li {
+  margin: 0 10px;
+}
+
+.slick-dots > li > button::before {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.slick-dots > li.slick-active > button::before {
+  color: white;
+}
+
+button.slick-arrow {
+  width: 30px;
+  height: 30px;
+}
+
+button.slick-arrow::before {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+

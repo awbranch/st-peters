@@ -133,7 +133,10 @@ const config: Config = {
       bold: '700',
       'extra-bold': '800',
     },
-    screens: breakpoints,
+    screens: Object.entries(breakpoints).reduce((a, [k, v]) => {
+      a[k] = `${v}px`;
+      return a;
+    }, {}),
     extend: {
       boxShadow: {
         airy: '0 6px 24px 0 rgba(140, 152, 164, 0.125)',

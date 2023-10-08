@@ -9,11 +9,11 @@ export const toRem = (px: number) => `${px / htmlFontSize}rem`;
 export const maxScreenWidth = 1280;
 
 export const breakpoints = {
-  xs: '480px',
-  sm: '640px',
-  md: '768px',
-  lg: '1024px',
-  xl: '1280px',
+  xs: 480,
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
 };
 
 export const newsCategories: NewsCategory[] = [
