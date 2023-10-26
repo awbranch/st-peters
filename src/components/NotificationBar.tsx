@@ -13,8 +13,14 @@ type Props = {
 export default function NotificationBar({ message }: Props) {
   return (
     <div className="bg-black">
-      <Container className="flex text-white gap-1 justify-center items-center h-5">
-        <FontAwesomeIcon className={'w-[22px]'} icon={faMegaphone} />
+      <Container className="text-white px-2 md:px-4 py-0.5 flex flex-row justify-center gap-1">
+        <div className="mt-[3px] md:mt-[5px]">
+          <FontAwesomeIcon
+            className={'w-[18px] md:w-[22px]'}
+            icon={faMegaphone}
+          />
+        </div>
+
         <RichText message={message} />
       </Container>
     </div>

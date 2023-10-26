@@ -49,7 +49,11 @@ export default async function Footer() {
       <div>
         <Block color={'black'} center>
           <div>
-            <div className={'border-white border-b-2 inline-block w-[400px]'}>
+            <div
+              className={
+                'border-white border-b-2 inline-block w-full xs:w-[440px]'
+              }
+            >
               <div className={'inline-block'}>
                 <Link href="/">
                   <Logo color={'white'} orientation={'vertical'} />
@@ -66,7 +70,11 @@ export default async function Footer() {
             </div>
           </div>
           <div>
-            <div className={'border-white border-b-2 inline-block w-[400px]'}>
+            <div
+              className={
+                'border-white border-b-2 inline-block w-full xs:w-[440px]'
+              }
+            >
               <section id={'follow-us'} className={'inline-block my-5'}>
                 <h2 className={'text-lg'}>{settings.socialTitle}</h2>
                 <ul className={'flex flex-row gap-6 mt-4'}>

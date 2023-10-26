@@ -11,13 +11,13 @@ export default function NewsletterSignupForm({ config }: Props) {
         Email
       </label>
       <div>
-        <div className="relative inline-block">
+        <div className="relative block xs:inline-block">
           <input
             id={'email'}
             type={'email'}
             placeholder={'email address'}
             className={
-              'inline-block text-black font-normal m-0 px-1.5 py-[8px] text-sm bg-white border-black border-4 w-[400px] rounded-full focus:ring-0'
+              'inline-block w-full xs:inline-block xs:w-[440px] text-black font-normal m-0 px-1.5 py-[8px] text-sm bg-white border-black border-4 rounded-full focus:ring-0'
             }
           />
           <button
