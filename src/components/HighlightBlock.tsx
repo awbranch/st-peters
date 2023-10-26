@@ -6,6 +6,7 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
+import { breakpoints } from '@/utils/globals';
 
 type Props = {
   color: Color;
@@ -51,8 +52,8 @@ export default function HighlightBlock({
         <div className="flex-1 lg:flex-none mx-0 sm:mx-auto lg:mx-0">
           <ResponsiveImage
             image={highlight.image}
-            priority={true}
-            sizes={'100vw'}
+            priority={false}
+            sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
             className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
           />
           <div className={'block lg:hidden mt-2 text-center'}>

@@ -2,6 +2,7 @@ import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { Image } from '@/types/Image';
+import { breakpoints } from '@/utils/globals';
 
 type MediaGridProps = {
   children: React.ReactNode;
@@ -10,7 +11,7 @@ type MediaGridProps = {
 export function MediaGrid({ children }: MediaGridProps) {
   return (
     <div className={'text-center'}>
-      <div className="inline-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {children}
       </div>
     </div>
@@ -26,15 +27,15 @@ type MediaGridItemProps = {
 export function MediaGridItem({ href, title, image }: MediaGridItemProps) {
   return (
     <Link
-      className={'block w-[360px] group shadow-airy p-2 rounded-md'}
+      className={'block group shadow-airy p-2 rounded-md'}
       href={href}
       title={title}
     >
       <ResponsiveImage
         image={image}
         priority={false}
-        sizes={'33vw'}
-        className={'w-full h-[260px] ease-in-out duration-200 hover:scale-105'}
+        sizes={`(min-width: ${breakpoints.xl}px) 33vw, (min-width: ${breakpoints.lg}px) 50vw, 100vw`}
+        className={'w-full h-[300px] ease-in-out duration-200 hover:scale-105'}
       />
       <h2 className="text-base font-bold mt-2 text-center group-hover:text-pink">
         {title}

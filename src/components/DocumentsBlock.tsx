@@ -26,7 +26,7 @@ export default function DocumentsBlock({ title, text, documents }: Props) {
           <li key={i}>
             <div className="flex flex-row gap-2 mb-3">
               <div>
-                <div className="text-blue h-6 w-6">
+                <div className="text-blue h-4 w-4 md:h-6 md:w-6">
                   {fileAttributes(d.file).format === 'pdf' ? (
                     <FaFilePdf size="100%" />
                   ) : (

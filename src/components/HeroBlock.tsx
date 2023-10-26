@@ -6,6 +6,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
 import LinkButton from '@/components/LinkButton';
+import { breakpoints } from '@/utils/globals';
 
 type Props = {
   color: Color;
@@ -30,7 +31,7 @@ export default function HeroBlock({ color, href, hero }: Props) {
           <ResponsiveImage
             image={hero.image}
             priority={true}
-            sizes={'100vw'}
+            sizes={`(min-width: ${breakpoints.lg}px) 50vw, 100vw`}
             className={'h-[600px]'}
           />
         </div>
