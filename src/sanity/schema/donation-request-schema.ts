@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaHandHoldingDollar as icon } from 'react-icons/fa6';
-import { createRichTextField } from '@/sanity/schema/utils';
+import { createImageField, createRichTextField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'donationRequest',
@@ -28,20 +28,7 @@ export default defineType({
       },
     }),
     createRichTextField('text', 'Text', 'no-headers'),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      validation: (Rule: any) => Rule.required(),
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternate Text',
-          type: 'string',
-          validation: (Rule: any) => Rule.required(),
-        }),
-      ],
-    }),
+    createImageField('image', 'Image'),
     defineField({
       name: 'levelsTitle',
       title: 'Levels Title',

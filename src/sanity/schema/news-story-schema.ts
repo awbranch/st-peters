@@ -1,7 +1,7 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import { newsCategories } from '@/utils/globals';
 import { FaNewspaper, FaCalendarDays, FaBookOpenReader } from 'react-icons/fa6';
-import { createRichTextField } from '@/sanity/schema/utils';
+import { createImageField, createRichTextField } from '@/sanity/schema/utils';
 
 const iconSet = {
   event: FaCalendarDays,
@@ -73,20 +73,7 @@ export default defineType({
         'A short description that appears on the page listing all stories.',
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternate Text',
-          type: 'string',
-          validation: (Rule: any) => Rule.required(),
-        }),
-      ],
-      validation: (Rule: any) => Rule.required(),
-    }),
+    createImageField('image', 'Image'),
     createRichTextField('text', 'Text', 'all'),
     defineField({
       name: 'actions',

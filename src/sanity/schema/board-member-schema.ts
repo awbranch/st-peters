@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaPerson as icon } from 'react-icons/fa6';
+import { createImageField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'boardMember',
@@ -30,12 +31,7 @@ export default defineType({
       type: 'text',
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      validation: (Rule: any) => Rule.required(),
-    }),
+    createImageField('image', 'Image'),
   ],
   orderings: [
     {
