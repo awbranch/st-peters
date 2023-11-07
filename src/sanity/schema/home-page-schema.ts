@@ -100,6 +100,20 @@ export default defineType({
     createRichTextField('programsText', 'Programs Text', 'all', 'programs'),
 
     defineField({
+      name: 'otherProgramsTitle',
+      title: 'Other Programs Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+      group: 'programs',
+    }),
+    createRichTextField(
+      'otherProgramsText',
+      'Programs Text',
+      'all',
+      'programs',
+    ),
+
+    defineField({
       name: 'displayHighlight2',
       title: 'Display Highlight Two',
       type: 'boolean',

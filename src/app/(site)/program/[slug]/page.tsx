@@ -1,4 +1,4 @@
-import { getProgram, getPrograms } from '@/sanity/sanity-utils';
+import { getHomePage, getProgram, getPrograms } from '@/sanity/sanity-utils';
 import Header from '@/components/Header';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
@@ -6,6 +6,7 @@ import RichText from '@/components/RichText';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import LinkButton from '@/components/LinkButton';
+import OtherProgramsBlock from '@/components/OtherProgramsBlock';
 
 export async function generateStaticParams() {
   const programs = await getPrograms();
@@ -16,6 +17,7 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const program = await getProgram(params.slug);
+  const page = await getHomePage();
 
   return (
     <>
@@ -50,6 +52,13 @@ export default async function Page({ params }: { params: { slug: string } }) {
             />
           </section>
         )}
+        <section id="other-programs">
+          <OtherProgramsBlock
+            title={page.otherProgramsTitle}
+            text={page.otherProgramsText}
+            besides={params.slug}
+          />
+        </section>
       </main>
     </>
   );

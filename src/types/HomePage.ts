@@ -21,6 +21,9 @@ export type HomePage = {
   programsTitle: string;
   programsText: PortableTextBlock[];
 
+  otherProgramsTitle: string;
+  otherProgramsText: PortableTextBlock[];
+
   displayHighlight2: boolean;
   highlight2: Highlight;
   displayInstagram: boolean;

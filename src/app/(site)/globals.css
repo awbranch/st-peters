@@ -30,12 +30,16 @@ html {
 }
 
 .slick-dots > li > button::before {
-  color: #aaa;
+  color: #babfca;
   font-size: 12px;
 }
 
 .slick-dots > li.slick-active > button::before {
-  color: white;
+  color: #A3AAB8;
+}
+
+.slick-prev:before, .slick-next:before {
+  color: #A3AAB8;
 }
 
 button.slick-arrow {

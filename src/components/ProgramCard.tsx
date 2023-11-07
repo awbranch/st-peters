@@ -4,27 +4,13 @@ import Link from 'next/link';
 import { Image } from '@/types/Image';
 import { breakpoints } from '@/utils/globals';
 
-type MediaGridProps = {
-  children: React.ReactNode;
-};
-
-export function MediaGrid({ children }: MediaGridProps) {
-  return (
-    <div className={'text-center'}>
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-        {children}
-      </div>
-    </div>
-  );
-}
-
-type MediaGridItemProps = {
+type ProgramCardProps = {
   href: string;
   title: string;
   image: Image;
 };
 
-export function MediaGridItem({ href, title, image }: MediaGridItemProps) {
+export function ProgramCard({ href, title, image }: ProgramCardProps) {
   return (
     <Link
       className={'block group shadow-airy p-2 rounded-md'}
