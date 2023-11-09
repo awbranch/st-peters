@@ -6,6 +6,7 @@ import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
 import { DonationRequest } from '@/types/DonationRequest';
 import LinkButton from '@/components/LinkButton';
+import { breakpoints } from '@/utils/globals';
 
 type Props = {
   color: Color;
@@ -34,10 +35,8 @@ export default function DonationRequestBlock({
           <div className="block lg:hidden">
             <ResponsiveImage
               image={request.image}
-              sizes={'100vw'}
-              className={
-                'my-4 h-[450px] w-full mx-0 md:w-[450px] md:mx-auto lg:w-full lg:mx-0'
-              }
+              sizes={`(max-width: ${breakpoints.lg}px) 100vw, ${breakpoints.lg}px`}
+              className={'my-4 mx-0 w-full'}
             />
           </div>
           <h2 className={'text-lg mb-3 text-center lg:text-left'}>

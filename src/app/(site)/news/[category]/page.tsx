@@ -4,6 +4,7 @@ import { newsCategories } from '@/utils/globals';
 import { getNewsStories } from '@/sanity/sanity-utils';
 import StoryCard from '@/components/StoryCard';
 import React from 'react';
+import { NewsStory } from '@/types/NewsStory';
 
 export function generateStaticParams() {
   return newsCategories.map((c) => ({
@@ -21,7 +22,7 @@ export default async function NewsCategory({ params }: Props) {
   const { category } = params;
   const selectedCategory = newsCategories.find((c) => c.slug === category);
 
-  let stories;
+  let stories: NewsStory[];
   if (selectedCategory.slug === 'upcoming-events') {
     stories = await getNewsStories('event', 'future');
   } else if (selectedCategory.slug === 'past-events') {
