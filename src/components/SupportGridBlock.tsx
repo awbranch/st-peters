@@ -4,6 +4,7 @@ import RichText from '@/components/RichText';
 import { PortableTextBlock } from 'sanity';
 import { SupportItem } from '@/types/SupportItem';
 import { SupportItemCard } from '@/components/SupportItemCard';
+import NarrowContainer from '@/components/NarrowContainer';
 
 type Props = {
   title: string;
@@ -14,7 +15,7 @@ type Props = {
 export default async function SupportGridBlock({ title, text, items }: Props) {
   return (
     <Block color={'pink'}>
-      <div className={'max-w-[930px] mx-auto'}>
+      <NarrowContainer>
         <h1 className="text-xl uppercase mb-4">{title}</h1>
         <RichText text={text} />
         <div className={'text-center'}>
@@ -24,7 +25,7 @@ export default async function SupportGridBlock({ title, text, items }: Props) {
             ))}
           </div>
         </div>
-      </div>
+      </NarrowContainer>
     </Block>
   );
 }
