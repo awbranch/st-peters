@@ -1,11 +1,7 @@
 import React from 'react';
 import { getSupportPage } from '@/sanity/sanity-utils';
 import Header from '@/components/Header';
-import Block from '@/components/Block';
-import RichText from '@/components/RichText';
-import Link from 'next/link';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faBookOpenReader,
   faThumbsUp,
@@ -17,54 +13,32 @@ import {
   faCircleDollar,
   faPeopleGroup,
 } from '@fortawesome/pro-solid-svg-icons';
+import { SupportItem } from '@/types/SupportItem';
+import SupportGridBlock from '@/components/SupportGridBlock';
 
 export default async function SupportUs() {
   const page = await getSupportPage();
 
-  const categories = [
-    { icon: faBookOpenReader, ...page.learn },
-    { icon: faThumbsUp, ...page.social },
-    { icon: faTypewriter, ...page.newsletter },
-    { icon: faCanFood, ...page.food },
-    { icon: faBackpack, ...page.school },
-    { icon: faShirt, ...page.merch },
-    { icon: faHandHeart, ...page.volunteer },
-    { icon: faCircleDollar, ...page.donate },
-    { icon: faPeopleGroup, ...page.join },
+  const items: SupportItem[] = [
+    { ...page.learn, icon: faBookOpenReader },
+    { ...page.social, icon: faThumbsUp },
+    { ...page.newsletter, icon: faTypewriter },
+    { ...page.food, icon: faCanFood },
+    { ...page.school, icon: faBackpack },
+    { ...page.merch, icon: faShirt },
+    { ...page.volunteer, icon: faHandHeart },
+    { ...page.donate, icon: faCircleDollar },
+    { ...page.join, icon: faPeopleGroup },
   ];
 
   return (
     <>
       <Header color={'pink'} currentMenu={'support-us'} />
       <main>
-        <Block color={'pink'}>
-          <div className={'max-w-[930px] mx-auto'}>
-            <h1 className="text-xl uppercase mb-4">{page.title}</h1>
-            <RichText text={page.text} />
-          </div>
-          <div className="text-center">
-            <div className="inline-grid grid-cols-3 gap-6 mt-4">
-              {categories.map((c, i) => (
-                <Link key={i} href={c.url} title={c.title}>
-                  <div
-                    className={
-                      'bg-white text-center w-[270px] h-[270px] px-2 py-3 rounded'
-                    }
-                  >
-                    <FontAwesomeIcon
-                      className={'h-[40px] text-pink mx-auto mb-1'}
-                      icon={c.icon}
-                    />
-                    <h2 className={'text-pink text-lg leading-tight mb-[15px]'}>
-                      {c.title}
-                    </h2>
-                    <div className={'text-black'}>{c.text}</div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </Block>
+        <section id={'categories'}>
+          <SupportGridBlock title={page.title} text={page.text} items={items} />
+        </section>
+
         {page.singleDonation && (
           <section id="donate">
             <DonationRequestBlock

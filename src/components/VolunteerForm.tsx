@@ -11,9 +11,13 @@ type Props = {};
 export default function VolunteerForm({}: Props) {
   return (
     <form>
-      <div className={'flex flex-col gap-4 my-4'}>
+      <div className={'flex flex-col gap-2 md:gap-4 my-4'}>
         <TextInput name={'name'} title={'Name'} />
-        <div className={'flex flex-row gap-4 justify-between'}>
+        <div
+          className={
+            'flex flex-col md:flex-row gap-2 md:gap-4 md:justify-between'
+          }
+        >
           <TextInput
             name={'email'}
             title={'Email'}
@@ -25,7 +29,7 @@ export default function VolunteerForm({}: Props) {
         <TextInput name={'available'} title={'Available dates'} />
         <div>
           <p className={'mb-2'}>Volunteering individually or with a group?</p>
-          <div className={'flex flex-row gap-4'}>
+          <div className={'flex flex-col gap-2 sm:flex-row'}>
             <RadioButton
               group={'with'}
               name={'individual'}
