@@ -37,10 +37,7 @@ const RichText = ({ message }: Props) => {
         children: React.ReactNode;
         value: any;
       }) => (
-        <Link
-          href={value.href}
-          className={'hover:underline hover:underline-offset-4'}
-        >
+        <Link href={value.href} className={'underline underline-offset-4'}>
           {children}
         </Link>
       ),

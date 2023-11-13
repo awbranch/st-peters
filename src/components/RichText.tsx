@@ -20,7 +20,7 @@ const RichText = ({ text }: Props) => {
       }) => (
         <Link
           href={value.href}
-          className={'text-blue underline underline-offset-4'}
+          className={'underline underline-offset-4'}
           {...(isFullyQualifiedURL(value.href)
             ? { target: '_blank', rel: 'noreferrer noopener' }
             : {})}

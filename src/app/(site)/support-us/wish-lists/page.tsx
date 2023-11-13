@@ -4,7 +4,6 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import LinkButton from '@/components/LinkButton';
 import React from 'react';
-import SimpleText from '@/components/SimpleText';
 import { WishList } from '@/types/WishList';
 import { twJoin } from 'tailwind-merge';
 
@@ -43,8 +42,8 @@ export default async function WishLists() {
                   {w.title}
                 </h2>
               </div>
-              {w.description && <SimpleText text={w.description} />}
-              <div className={twJoin(!isUrgent(w) && 'columns-2')}>
+              {w.description && <RichText text={w.description} />}
+              <div className={twJoin(!isUrgent(w) && 'columns-1 sm:columns-2')}>
                 <RichText text={w.text} />
               </div>
             </Block>

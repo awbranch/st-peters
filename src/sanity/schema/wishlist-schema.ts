@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaRegRectangleList as icon } from 'react-icons/fa6';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'wishlist',
@@ -25,28 +26,14 @@ export default defineType({
     defineField({
       name: 'description',
       title: 'Optional Description',
-      type: 'text',
+      type: 'array',
+      of: [createRichTextBlock('no-lists')],
     }),
     defineField({
       name: 'text',
       title: 'Text',
       type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [],
-          lists: [
-            { title: 'Bulleted List', value: 'bullet' },
-            { title: 'Numbered List', value: 'number' },
-          ],
-          marks: {
-            decorators: [
-              { title: 'Bold', value: 'strong' },
-              { title: 'Italic', value: 'em' },
-            ],
-          },
-        },
-      ],
+      of: [createRichTextBlock('no-headers')],
       validation: (Rule: any) => Rule.required(),
     }),
   ],
