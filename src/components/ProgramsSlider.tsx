@@ -40,7 +40,7 @@ export default function ProgramsSlider({ programs }: Props) {
             key={i}
             href={`/program/${p.slug.current}`}
             title={p.title}
-            image={p.introImage}
+            image={p.image}
           />
         ))}
       </Slider>

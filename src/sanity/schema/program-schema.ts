@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaCertificate as icon } from 'react-icons/fa6';
-import { createRichTextField } from '@/sanity/schema/utils';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 import {
   orderRankField,
   orderRankOrdering,
@@ -30,42 +30,14 @@ export default defineType({
         maxLength: 200,
       },
     }),
+    createImageField('image', 'Image'),
     defineField({
-      name: 'introImage',
-      title: 'Intro Image',
-      description: 'The image that is displayed on the program grid.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternate Text',
-          type: 'string',
-          validation: (Rule: any) => Rule.required(),
-        }),
-      ],
-      validation: (Rule: any) => Rule.required(),
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [createRichTextBlock('all'), createImageField('image', 'Image')],
     }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main Image',
-      description: 'The image that is displayed on the top of the page.',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      fields: [
-        defineField({
-          name: 'alt',
-          title: 'Alternate Text',
-          type: 'string',
-          validation: (Rule: any) => Rule.required(),
-        }),
-      ],
-    }),
-    createRichTextField('text', 'Text', 'all'),
+
     defineField({
       name: 'donationRequest',
       title: 'Donation Request',

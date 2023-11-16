@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
 import { isFullyQualifiedURL } from '@/utils/globals';
+import { Image } from '@/types/Image';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 type Props = {
   text: PortableTextBlock[];
@@ -35,10 +37,10 @@ const RichText = ({ text }: Props) => {
     },
     block: {
       h1: ({ children }: { children: React.ReactNode }) => (
-        <h1 className="text-xl uppercase mb-2">{children}</h1>
+        <h1 className="text-xl uppercase py-2">{children}</h1>
       ),
       h2: ({ children }: { children: React.ReactNode }) => (
-        <h2 className="text-lg mb-2">{children}</h2>
+        <h2 className="text-lg py-2">{children}</h2>
       ),
       h6: ({ children }: { children: React.ReactNode }) => (
         <div className="text-sm">{children}</div>
@@ -59,6 +61,17 @@ const RichText = ({ text }: Props) => {
       number: ({ children }) => (
         <ol className="list-decimal mt-2 mb-3 ml-2">{children}</ol>
       ),
+    },
+    types: {
+      image: ({ value }: { value: Image }) => {
+        return (
+          <ResponsiveImage
+            className="mb-4 w-full"
+            image={value}
+            sizes={'100vw'}
+          />
+        );
+      },
     },
   };
 

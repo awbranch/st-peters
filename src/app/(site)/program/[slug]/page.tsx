@@ -1,7 +1,6 @@
 import { getHomePage, getProgram, getPrograms } from '@/sanity/sanity-utils';
 import Header from '@/components/Header';
 import Block from '@/components/Block';
-import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
@@ -34,12 +33,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
               PROGRAMS
             </LinkButton>
             <h1 className="text-xl uppercase mb-4">{program.title}</h1>
-            <ResponsiveImage
-              className="mb-4 w-full"
-              image={program.mainImage}
-              priority={true}
-              sizes={'100vw'}
-            />
             <RichText text={program.text} />
           </Block>
         </section>

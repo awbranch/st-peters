@@ -25,7 +25,7 @@ export default async function ProgramGridBlock({ title, text }: Props) {
             key={i}
             href={`/program/${p.slug.current}`}
             title={p.title}
-            image={p.introImage}
+            image={p.image}
           />
         ))}
       </div>

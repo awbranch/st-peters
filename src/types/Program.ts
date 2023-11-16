@@ -5,8 +5,7 @@ import { DonationRequest } from '@/types/DonationRequest';
 export type Program = {
   title: string;
   slug: Slug;
-  introImage: Image;
-  mainImage: Image;
+  image: Image;
   text: PortableTextBlock[];
   donationRequest?: DonationRequest;
 };
