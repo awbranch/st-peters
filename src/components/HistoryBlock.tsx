@@ -18,7 +18,7 @@ export default function HistoryBlock({ title, image, text }: Props) {
       <ResponsiveImage
         className="my-4 w-full"
         image={image}
-        priority={true}
+        priority={false}
         sizes={'100vw'}
       />
       <RichText text={text} />

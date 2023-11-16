@@ -50,7 +50,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <ResponsiveImage
             className="w-full mt-2 mb-3"
             image={story.image}
-            priority={true}
+            priority={false}
             sizes={'100vw'}
           />
           <RichText text={story.text} />
