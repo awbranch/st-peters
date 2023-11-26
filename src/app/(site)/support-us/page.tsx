@@ -1,6 +1,5 @@
 import React from 'react';
 import { getSupportPage } from '@/sanity/sanity-utils';
-import Header from '@/components/Header';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import {
   faBookOpenReader,

@@ -4,7 +4,6 @@ import RichText from '@/components/RichText';
 import Block from '@/components/Block';
 import FAQsBlock from '@/components/FAQsBlock';
 import VolunteerFormBlock from '@/components/VolunteerFormBlock';
-import Header from '@/components/Header';
 import React from 'react';
 
 export default async function Volunteer() {

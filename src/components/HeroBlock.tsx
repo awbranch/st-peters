@@ -3,10 +3,7 @@ import Block from '@/components/Block';
 import { Hero } from '@/types/Hero';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
-import LinkButton from '@/components/LinkButton';
-import { breakpoints } from '@/utils/globals';
 
 type Props = {
   color: Color;
@@ -14,7 +11,7 @@ type Props = {
   href: string;
 };
 
-export default function HeroBlock({ color, href, hero }: Props) {
+export default function HeroBlock({ color, hero }: Props) {
   return (
     <Block color={color}>
       <ResponsiveImage image={hero.image} priority={true} sizes={`100vw`} />

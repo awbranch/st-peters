@@ -5,10 +5,7 @@ import Slider from 'react-slick';
 import { getNow, getWeekday, toMonthAndDate } from '@/utils/date';
 import SimpleText from '@/components/SimpleText';
 import { LunchMenu } from '@/types/LunchMenu';
-import Card from '@/components/Card';
-import Para from '@/components/Para';
 import { breakpoints } from '@/utils/globals';
-import { FaHeart } from 'react-icons/fa6';
 
 type Props = {
   menus: LunchMenu[];
