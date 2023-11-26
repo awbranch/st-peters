@@ -42,7 +42,7 @@ export default function NavBar({
         <nav className="flex flex-wrap items-center">
           <div className="flex-1 flex">
             <Link href="/">
-              <Logo color={color === 'white' ? 'black' : 'white'} />
+              <Logo textColor={color === 'white' ? 'black' : 'white'} />
             </Link>
           </div>
           <Link href="/" className="lg:hidden block">

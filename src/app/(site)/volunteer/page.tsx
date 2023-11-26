@@ -12,7 +12,6 @@ export default async function Volunteer() {
 
   return (
     <>
-      <Header color={'blue'} currentMenu={'volunteer'} />
       <main>
         <section id="hero">
           <HeroBlock color="blue" hero={page.hero} href="#details" />

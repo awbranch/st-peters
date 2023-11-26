@@ -9,7 +9,7 @@ import { twJoin } from 'tailwind-merge';
 import Footer from '@/components/Footer';
 
 const montserrat = Montserrat({
-  weight: ['400', '700', '800'],
+  weight: ['400', '600', '700', '800'],
   subsets: ['latin'],
   display: 'swap',
 });

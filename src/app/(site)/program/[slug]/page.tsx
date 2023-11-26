@@ -1,5 +1,4 @@
 import { getHomePage, getProgram, getPrograms } from '@/sanity/sanity-utils';
-import Header from '@/components/Header';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import React from 'react';
@@ -20,7 +19,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <Header color={'white'} currentMenu={'home'} />
       <main>
         <section id="program">
           <Block color={'white'}>
@@ -32,7 +30,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             >
               PROGRAMS
             </LinkButton>
-            <h1 className="text-xl uppercase mb-4">{program.title}</h1>
+            <h1 className="text-xl mb-4">{program.title}</h1>
             <RichText text={program.text} />
           </Block>
         </section>

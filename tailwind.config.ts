@@ -15,6 +15,7 @@ const config: Config = {
       current: 'currentColor',
       transparent: 'transparent',
       black: '#111827',
+      'near-black': '#1F232B',
       white: '#ffffff',
       gray: {
         100: '#e5e7eb',
@@ -66,34 +67,25 @@ const config: Config = {
         {
           lineHeight: toRem(40),
           letterSpacing: '0.050em',
-          fontWeight: '700',
+          fontWeight: '600',
         },
       ],
       xl: [
         // Used for H1
-        toRem(36),
+        toRem(44),
         {
           lineHeight: toRem(50),
           letterSpacing: '0.050em',
-          fontWeight: '800',
+          fontWeight: '700',
         },
       ],
       '2xl': [
-        // Used for Hero
-        toRem(44),
-        {
-          lineHeight: toRem(60),
-          letterSpacing: '0.060em',
-          fontWeight: '800',
-        },
-      ],
-      '3xl': [
         // Used for Hero
         toRem(60),
         {
           lineHeight: toRem(70),
           letterSpacing: '0.075em',
-          fontWeight: '800',
+          fontWeight: '700',
         },
       ],
     },
@@ -130,8 +122,8 @@ const config: Config = {
     },
     fontWeight: {
       normal: '400',
-      bold: '700',
-      'extra-bold': '800',
+      bold: '600',
+      'extra-bold': '700',
     },
     screens: Object.entries(breakpoints).reduce((a, [k, v]) => {
       a[k] = `${v}px`;

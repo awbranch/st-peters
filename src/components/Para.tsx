@@ -7,7 +7,7 @@ export default function Para({
   ...props
 }: React.ParamHTMLAttributes<HTMLParagraphElement>) {
   return (
-    <p className={twMerge('text-base mb-2', className)} {...props}>
+    <p className={twMerge('text-base mb-1.5', className)} {...props}>
       {children}
     </p>
   );

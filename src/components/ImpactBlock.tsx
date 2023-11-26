@@ -12,8 +12,8 @@ type Props = {
 
 export default function ImpactBlock({ title, text, impacts }: Props) {
   return (
-    <Block color="pink" center>
-      <h1 className="text-xl uppercase">{title}</h1>
+    <Block color="black" center>
+      <h1 className="text-xl">{title}</h1>
       <div className="max-w-lg mx-auto mt-4">
         <RichText text={text} />
       </div>
@@ -21,7 +21,7 @@ export default function ImpactBlock({ title, text, impacts }: Props) {
       <ul className="flex flex-col lg:flex-row mt-4 p-2 gap-6 lg:gap-2">
         {impacts.map((i, k) => (
           <li key={k} className="flex-1">
-            <div className="text-3xl">{i.value.toLocaleString('en-US')}</div>
+            <div className="text-2xl">{i.value.toLocaleString('en-US')}</div>
             <div className="text max-w-[150px] mx-auto mt-1">{i.category}</div>
           </li>
         ))}

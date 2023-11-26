@@ -13,7 +13,9 @@ type ProgramCardProps = {
 export function ProgramCard({ href, title, image }: ProgramCardProps) {
   return (
     <Link
-      className={'block group shadow-airy p-2 rounded-md'}
+      className={
+        'block relative ease-in-out duration-200 grayscale hover:grayscale-0 hover:scale-105 '
+      }
       href={href}
       title={title}
     >
@@ -21,9 +23,15 @@ export function ProgramCard({ href, title, image }: ProgramCardProps) {
         image={image}
         priority={false}
         sizes={`(min-width: ${breakpoints.xl}px) 33vw, (min-width: ${breakpoints.lg}px) 50vw, 100vw`}
-        className={'w-full h-[300px] ease-in-out duration-200 hover:scale-105'}
+        className={'w-full h-[400px] rounded-md '}
       />
-      <h2 className="text-base font-bold mt-2 text-center group-hover:text-pink">
+      <div
+        className={
+          'absolute rounded-md bottom-0 left-0 right-0 top-[300px] bg-gradient-to-t from-near-black to-near-black/0'
+        }
+      ></div>
+
+      <h2 className="absolute bottom-2 left-0 right-0 text-white text-base font-bold mt-2 text-center">
         {title}
       </h2>
     </Link>

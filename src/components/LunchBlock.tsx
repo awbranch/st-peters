@@ -31,10 +31,10 @@ export default async function LunchBlock({ title, text, tbd }: Props) {
   }
 
   return (
-    <Block color="blue" center>
-      <h2 className="text-xl uppercase mb-1">{title}</h2>
+    <Block color="black" center>
+      <h2 className="text-xl mb-1">{title}</h2>
       <RichText text={text} />
-      <div className="mt-4">{menus && <LunchSlider menus={menus} />}</div>
+      <div className="my-4">{menus && <LunchSlider menus={menus} />}</div>
     </Block>
   );
 }

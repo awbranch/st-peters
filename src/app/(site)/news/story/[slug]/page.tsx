@@ -45,7 +45,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               {parent.name}
             </LinkButton>
           )}
-          <h1 className="text-xl uppercase">{story.title}</h1>
+          <h1 className="text-xl">{story.title}</h1>
           <div className="text-sm">{toFullDate(story.date)}</div>
           <ResponsiveImage
             className="w-full mt-2 mb-3"
@@ -84,7 +84,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       {stories && (
         <section>
           <Block>
-            <h1 className={'text-xl uppercase'}>More News</h1>
+            <h1 className={'text-xl'}>More News</h1>
             <MediaCarousel>
               {stories.slice(0, 3).map((s, i) => (
                 <MediaCarouselItem

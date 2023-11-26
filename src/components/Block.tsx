@@ -19,11 +19,11 @@ export default function Block({
   return (
     <div
       className={twMerge(
-        'px-2 md:px-4 py-8',
+        'px-2 md:px-4 py-12',
         color === 'green' && 'bg-green text-white',
         color === 'blue' && 'bg-blue text-white',
         color === 'pink' && 'bg-pink text-white',
-        color === 'black' && 'bg-black text-white',
+        color === 'black' && 'bg-near-black text-white',
         color === 'white' && 'bg-white text-black',
         color === 'gray' && 'bg-gray-100 text-black',
         center && 'text-center',

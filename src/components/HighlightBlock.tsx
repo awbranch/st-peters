@@ -29,12 +29,7 @@ export default function HighlightBlock({
         )}
       >
         <div className="flex-1">
-          <h1
-            className={twJoin(
-              'text-xl sm:text-xl uppercase border-b-4 pb-1 mb-3',
-              color === 'white' ? 'border-black' : 'border-white',
-            )}
-          >
+          <h1 className={twJoin('text-xl sm:text-xl mb-4')}>
             {highlight.title}
           </h1>
           <RichText text={highlight.text} />
@@ -53,8 +48,8 @@ export default function HighlightBlock({
           <ResponsiveImage
             image={highlight.image}
             priority={false}
-            sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
-            className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
+            sizes={`(min-width: ${breakpoints.sm}px) 500px, 100vw`}
+            className={twJoin('w-full sm:w-[500px]')}
           />
           <div className={'block lg:hidden mt-2 text-center'}>
             <LinkButton

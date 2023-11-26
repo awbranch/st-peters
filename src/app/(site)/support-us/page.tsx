@@ -33,7 +33,6 @@ export default async function SupportUs() {
 
   return (
     <>
-      <Header color={'pink'} currentMenu={'support-us'} />
       <main>
         <section id={'categories'}>
           <SupportGridBlock title={page.title} text={page.text} items={items} />

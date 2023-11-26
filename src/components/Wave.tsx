@@ -10,7 +10,7 @@ export default function Wave() {
     >
       <path
         d="M638.5,12.6c21.9,58.5,429.6,122.3,429.6,122.3H-5.9C-5.9,134.9,616.7-45.9,638.5,12.6z"
-        className={'fill-black'}
+        className={'fill-near-black'}
       />
     </svg>
   );

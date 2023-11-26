@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header currentMenu={'news'} />
+      <Header currentMenu={'support-us'} />
       {children}
     </>
   );

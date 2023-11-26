@@ -11,7 +11,7 @@ type Props = {
 export default function FAQsBlock({ title, faqs }: Props) {
   return (
     <Block>
-      <h1 className="text-xl uppercase mb-3">{title}</h1>
+      <h1 className="text-xl mb-3">{title}</h1>
       <ul>
         {faqs.map((faq, i) => (
           <li

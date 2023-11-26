@@ -17,25 +17,17 @@ type Props = {
 export default function HeroBlock({ color, href, hero }: Props) {
   return (
     <Block color={color}>
+      <ResponsiveImage image={hero.image} priority={true} sizes={`100vw`} />
       <div
-        className={twJoin('flex flex-col-reverse lg:flex-row gap-4 lg:gap-8')}
+        className={'my-4 max-w-[580px]'}
+        style={{
+          overflow: 'hidden',
+        }}
       >
-        <div className={'flex-1 max-w-full sm:max-w-md lg:max-w-full'}>
-          <h1 className="text-2xl xs:3xl uppercase mb-4">{hero.title}</h1>
-          <RichText text={hero.text} />
-          <LinkButton href={href} variant={'text'} size={'large'} icon={'down'}>
-            {hero.buttonLabel}
-          </LinkButton>
-        </div>
-        <div className={'flex-1'}>
-          <ResponsiveImage
-            image={hero.image}
-            priority={true}
-            sizes={`(min-width: ${breakpoints.lg}px) 50vw, 100vw`}
-            className={'h-[600px]'}
-          />
-        </div>
+        <h1 className="text-xl xs:text-2xl mb-4">{hero.title}</h1>
+        <RichText text={hero.text} />
       </div>
+      <div className={'flex-1'}></div>
     </Block>
   );
 }

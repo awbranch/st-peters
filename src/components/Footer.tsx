@@ -56,7 +56,11 @@ export default async function Footer() {
             >
               <div className={'inline-block'}>
                 <Link href="/">
-                  <Logo color={'white'} orientation={'vertical'} />
+                  <Logo
+                    logoColor={'white'}
+                    textColor={'white'}
+                    orientation={'vertical'}
+                  />
                 </Link>
                 <section id={'address'} className={'my-5'}>
                   <div className={'text-left'}>
