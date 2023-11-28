@@ -48,7 +48,7 @@ export default function TeamBlock({
                 'w-full h-[340px] ease-in-out duration-200 hover:scale-105'
               }
             />
-            <h2 className="text-base font-bold mt-2 text-center group-hover:text-pink">
+            <h2 className="text-base font-bold mt-2 text-center group-hover:text-sunset">
               {g.label}
             </h2>
           </Link>

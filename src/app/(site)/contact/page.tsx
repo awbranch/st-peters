@@ -14,9 +14,7 @@ export default async function Contact() {
       <main>
         <Block color={'pink'}>
           <NarrowContainer>
-            <h1 className="text-xl uppercase mb-4">
-              {settings.contactUsTitle}
-            </h1>
+            <h1 className="text-xl mb-4">{settings.contactUsTitle}</h1>
             <RichText text={settings.contactUsText} />
             <ContactForm />
           </NarrowContainer>

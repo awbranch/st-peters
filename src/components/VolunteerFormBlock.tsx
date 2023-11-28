@@ -14,7 +14,7 @@ export default function VolunteerFormBlock({ title, text }: Props) {
   return (
     <Block color={'pink'}>
       <NarrowContainer>
-        <h1 className="text-xl uppercase mb-3">{title}</h1>
+        <h1 className="text-xl mb-3">{title}</h1>
         <RichText text={text} />
         <VolunteerForm />
       </NarrowContainer>

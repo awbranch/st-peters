@@ -18,11 +18,11 @@ export function SupportItemCard({ item }: Props) {
     >
       <div className={'flex flex-row sm:flex-col gap-2 sm:gap-0'}>
         <FontAwesomeIcon
-          className={'h-[40px] min-w-[40px] text-pink sm:mx-auto mb-1'}
+          className={'h-[40px] min-w-[40px] text-sunset sm:mx-auto mb-1'}
           icon={item.icon}
         />
         <div className={'text-left sm:text-center'}>
-          <h2 className={'text-pink text-lg leading-tight sm:mb-[15px]'}>
+          <h2 className={'text-sunset text-lg leading-tight sm:mb-[15px]'}>
             {item.title}
           </h2>
           <div className={'text-black'}>{item.text}</div>

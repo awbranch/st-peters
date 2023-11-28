@@ -46,7 +46,7 @@ export default async function Staff() {
         >
           ABOUT
         </LinkButton>
-        <h1 className="text-xl uppercase mb-4">Our Board</h1>
+        <h1 className="text-xl mb-4">Our Board</h1>
         {team.map((m, i) => (
           <div key={i} className={'mb-8'}>
             <TeamMemberCard member={m} />

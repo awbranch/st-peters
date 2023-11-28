@@ -29,7 +29,7 @@ export default function DonationRequestBlock({
         )}
       >
         <div className="flex-1">
-          <h1 className="text-xl sm:text-xl uppercase mb-3">{request.title}</h1>
+          <h1 className="text-xl sm:text-xl mb-3">{request.title}</h1>
           <RichText text={request.text} />
 
           <div className="block lg:hidden">
@@ -54,9 +54,7 @@ export default function DonationRequestBlock({
                   >
                     ${l.amount}
                   </LinkButton>
-                  <div className="w-full text-blue uppercase text-center">
-                    {l.label}
-                  </div>
+                  <div className="w-full text-ocean text-center">{l.label}</div>
                 </div>
               ))}
               {request.otherLevel && (

@@ -1,12 +1,9 @@
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 import './globals.css';
 
 import React from 'react';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { twJoin } from 'tailwind-merge';
-import Footer from '@/components/Footer';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -26,9 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={twJoin(montserrat.className, 'text-black text-base')}>
+      <body
+        className={twJoin(montserrat.className, 'text-neutral-950 text-base')}
+      >
         {children}
-        <Footer />
       </body>
     </html>
   );

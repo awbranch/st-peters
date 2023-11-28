@@ -25,7 +25,7 @@ export default async function WishLists() {
           >
             SUPPORT US
           </LinkButton>
-          <h1 className="text-xl uppercase mb-4">{page.title}</h1>
+          <h1 className="text-xl mb-4">{page.title}</h1>
           <RichText text={page.text} />
         </Block>
 
@@ -35,7 +35,7 @@ export default async function WishLists() {
               <div>
                 <h2
                   className={twJoin(
-                    'inline-block text-lg uppercase border-b-4 pb-1 mb-3',
+                    'inline-block text-lg border-b-4 pb-1 mb-3',
                     isUrgent(w) ? 'border-white' : 'border-black',
                   )}
                 >

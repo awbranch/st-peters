@@ -23,7 +23,7 @@ export function ProgramCard({ href, title, image }: ProgramCardProps) {
         sizes={`(min-width: ${breakpoints.xl}px) 33vw, (min-width: ${breakpoints.lg}px) 50vw, 100vw`}
         className={'w-full h-[300px] ease-in-out duration-200 hover:scale-105'}
       />
-      <h2 className="text-base font-bold mt-2 text-center group-hover:text-pink">
+      <h2 className="text-base font-bold mt-2 text-center group-hover:text-sunset">
         {title}
       </h2>
     </Link>

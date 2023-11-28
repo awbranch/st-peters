@@ -21,7 +21,7 @@ export default function HeroBlock({ color, href, hero }: Props) {
         className={twJoin('flex flex-col-reverse lg:flex-row gap-4 lg:gap-8')}
       >
         <div className={'flex-1 max-w-full sm:max-w-md lg:max-w-full'}>
-          <h1 className="text-2xl xs:3xl uppercase mb-4">{hero.title}</h1>
+          <h1 className="text-2xl xs:3xl mb-4">{hero.title}</h1>
           <RichText text={hero.text} />
           <LinkButton href={href} variant={'text'} size={'large'} icon={'down'}>
             {hero.buttonLabel}

@@ -32,7 +32,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             >
               PROGRAMS
             </LinkButton>
-            <h1 className="text-xl uppercase mb-4">{program.title}</h1>
+            <h1 className="text-xl mb-4">{program.title}</h1>
             <RichText text={program.text} />
           </Block>
         </section>

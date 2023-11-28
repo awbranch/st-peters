@@ -47,7 +47,7 @@ export default function LunchSlider({ menus }: Props) {
           >
             <h3 className="text-lg mb-1">{getWeekday(m.date)}</h3>
             <Para>{m.date === today ? 'Today' : toMonthAndDate(m.date)}</Para>
-            <FaHeart className="inline-block text-pink w-[36px] h-[36px] mb-3" />
+            <FaHeart className="inline-block text-sunset w-[36px] h-[36px] mb-3" />
             <SimpleText text={m.menu} />
           </Card>
         ))}

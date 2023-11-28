@@ -31,9 +31,9 @@ export default function NavBar({
     <div
       className={twJoin(
         'px-2 md:px-4 py-2',
-        color === 'green' && 'bg-green text-white',
-        color === 'blue' && 'bg-blue text-white',
-        color === 'pink' && 'bg-pink text-white',
+        color === 'green' && 'bg-grass text-white',
+        color === 'blue' && 'bg-ocean text-white',
+        color === 'pink' && 'bg-sunset text-white',
         color === 'black' && 'bg-black text-white',
         color === 'white' && 'bg-white text-black',
       )}

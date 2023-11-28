@@ -11,7 +11,7 @@ type Props = {
 export default function FAQsBlock({ title, faqs }: Props) {
   return (
     <Block>
-      <h1 className="text-xl uppercase mb-3">{title}</h1>
+      <h1 className="text-xl mb-3">{title}</h1>
       <ul>
         {faqs.map((faq, i) => (
           <li
@@ -27,7 +27,7 @@ export default function FAQsBlock({ title, faqs }: Props) {
             <label
               htmlFor={`q${i}`}
               className={
-                "flex items-start justify-between py-1 pr-1 text-lg text-black cursor-pointer after:content-['+'] after:text-[1.3em] peer-checked:text-blue hover:text-blue peer-checked:after:content-['-']"
+                "flex items-start justify-between py-1 pr-1 text-lg text-black cursor-pointer after:content-['+'] after:text-[1.3em] peer-checked:text-ocean hover:text-ocean peer-checked:after:content-['-']"
               }
             >
               {faq.question}
