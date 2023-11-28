@@ -1,5 +1,4 @@
 import { getWishListsPage } from '@/sanity/sanity-utils';
-import Header from '@/components/Header';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import LinkButton from '@/components/LinkButton';
@@ -14,7 +13,6 @@ export default async function WishLists() {
 
   return (
     <>
-      <Header color={'white'} currentMenu={'support-us'} />
       <main>
         <Block>
           <LinkButton

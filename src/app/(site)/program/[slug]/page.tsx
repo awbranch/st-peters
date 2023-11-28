@@ -1,5 +1,4 @@
 import { getHomePage, getProgram, getPrograms } from '@/sanity/sanity-utils';
-import Header from '@/components/Header';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import React from 'react';
@@ -20,7 +19,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <>
-      <Header color={'white'} currentMenu={'home'} />
       <main>
         <section id="program">
           <Block color={'white'}>

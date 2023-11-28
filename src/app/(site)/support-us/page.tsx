@@ -1,6 +1,5 @@
 import React from 'react';
 import { getSupportPage } from '@/sanity/sanity-utils';
-import Header from '@/components/Header';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import {
   faBookOpenReader,
@@ -33,7 +32,6 @@ export default async function SupportUs() {
 
   return (
     <>
-      <Header color={'pink'} currentMenu={'support-us'} />
       <main>
         <section id={'categories'}>
           <SupportGridBlock title={page.title} text={page.text} items={items} />

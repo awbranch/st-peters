@@ -4,7 +4,6 @@ import RichText from '@/components/RichText';
 import Block from '@/components/Block';
 import FAQsBlock from '@/components/FAQsBlock';
 import VolunteerFormBlock from '@/components/VolunteerFormBlock';
-import Header from '@/components/Header';
 import React from 'react';
 
 export default async function Volunteer() {
@@ -12,7 +11,6 @@ export default async function Volunteer() {
 
   return (
     <>
-      <Header color={'blue'} currentMenu={'volunteer'} />
       <main>
         <section id="hero">
           <HeroBlock color="blue" hero={page.hero} href="#details" />

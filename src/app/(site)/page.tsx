@@ -5,17 +5,15 @@ import LunchBlock from '@/components/LunchBlock';
 import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import ProgramGridBlock from '@/components/ProgramGridBlock';
-import Header from '@/components/Header';
 
 export default async function Home() {
   const page = await getHomePage();
 
   return (
     <>
-      <Header color={'green'} currentMenu={'home'} />
       <main>
         <section id="hero">
-          <HeroBlock color="green" hero={page.hero} href="#lunch-menu" />
+          <HeroBlock color="white" hero={page.hero} href="#lunch-menu" />
         </section>
         <section id="lunch-menu">
           <LunchBlock
@@ -28,7 +26,7 @@ export default async function Home() {
           <section id={page.highlight1.slug.current}>
             <HighlightBlock
               color="white"
-              orientation="right"
+              orientation="left"
               highlight={page.highlight1}
             />
           </section>
@@ -51,8 +49,8 @@ export default async function Home() {
         {page.displayHighlight2 && (
           <section id={page.highlight2.slug.current}>
             <HighlightBlock
-              color="blue"
-              orientation="left"
+              color="white"
+              orientation="right"
               highlight={page.highlight2}
             />
           </section>

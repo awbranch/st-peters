@@ -12,8 +12,8 @@ type Props = {
 
 export default function ImpactBlock({ title, text, impacts }: Props) {
   return (
-    <Block color="pink" center>
-      <h1 className="text-xl uppercase">{title}</h1>
+    <Block color="black" center>
+      <h1 className="text-xl">{title}</h1>
       <div className="max-w-lg mx-auto mt-4">
         <RichText text={text} />
       </div>

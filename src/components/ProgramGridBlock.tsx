@@ -15,7 +15,7 @@ export default async function ProgramGridBlock({ title, text }: Props) {
 
   return (
     <Block color="white">
-      <h1 className="text-xl uppercase">{title}</h1>
+      <h1 className="text-xl">{title}</h1>
       <div className="mt-4 mb-6">
         <RichText text={text} />
       </div>
