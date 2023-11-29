@@ -8,6 +8,7 @@ const config: Config = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/preline/preline.js',
   ],
   theme: {
     extend: {
@@ -37,6 +38,7 @@ const config: Config = {
       return a;
     }, {}),
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('preline/plugin')],
+  darkMode: 'class',
 };
 export default config;

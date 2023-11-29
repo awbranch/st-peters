@@ -8,6 +8,7 @@ import { Montserrat } from 'next/font/google';
 import { twJoin } from 'tailwind-merge';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import PrelineScript from '@/components/PrelineScript';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -32,6 +33,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      <PrelineScript />
     </html>
   );
 }
