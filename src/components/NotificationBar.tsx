@@ -1,57 +1,42 @@
-import React from 'react';
-import Container from '@/components/Container';
-import Link from 'next/link';
+'use client';
+import React, { useState } from 'react';
 import { PortableTextBlock } from 'sanity';
-import { PortableText } from '@portabletext/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMegaphone } from '@fortawesome/pro-solid-svg-icons';
+import { faXmark } from '@fortawesome/pro-regular-svg-icons';
+import NotificationRichText from '@/components/NotificationRichText';
+import { twJoin } from 'tailwind-merge';
 
 type Props = {
   message: PortableTextBlock[];
 };
 
 export default function NotificationBar({ message }: Props) {
-  return (
-    <div className="bg-black">
-      <Container className="text-white px-2 md:px-4 py-0.5 flex flex-row justify-center gap-1">
-        <div className="mt-[3px] md:mt-[5px]">
-          <FontAwesomeIcon
-            className={'w-[18px] md:w-[22px]'}
-            icon={faMegaphone}
-          />
-        </div>
+  const [barVisible, setBarVisible] = useState(true);
 
-        <RichText message={message} />
-      </Container>
+  return (
+    <div
+      className={twJoin(
+        barVisible ? 'flex' : 'hidden',
+        'items-center gap-x-6 bg-black px-6 py-2.5 sm:px-3.5 sm:before:flex-1',
+      )}
+    >
+      <div className="text-sm leading-6 text-white">
+        <NotificationRichText message={message}></NotificationRichText>
+      </div>
+      <div className="flex flex-1 justify-end">
+        <button
+          type="button"
+          className="-m-3 p-3 focus-visible:outline-offset-[-4px]"
+          onClick={() => setBarVisible(false)}
+        >
+          <span className="sr-only">Dismiss</span>
+          <FontAwesomeIcon
+            className={'h-4 w-4 text-white'}
+            icon={faXmark}
+            aria-hidden="true"
+          />
+        </button>
+      </div>
     </div>
   );
 }
-
-const RichText = ({ message }: Props) => {
-  const components = {
-    marks: {
-      link: ({
-        children,
-        value,
-      }: {
-        children: React.ReactNode;
-        value: any;
-      }) => (
-        <Link href={value.href} className={'underline underline-offset-4'}>
-          {children}
-        </Link>
-      ),
-      em: ({ children }) => <em>{children}</em>,
-      strong: ({ children }) => (
-        <strong className="font-bold">{children}</strong>
-      ),
-    },
-    block: {
-      normal: ({ children }: { children: React.ReactNode }) => (
-        <p className="text-base">{children}</p>
-      ),
-    },
-  };
-
-  return <PortableText value={message} components={components as any} />;
-};

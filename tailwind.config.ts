@@ -15,6 +15,7 @@ const config: Config = {
         airy: '0 6px 24px 0 rgba(140, 152, 164, 0.125)',
       },
       colors: {
+        black: '#111827',
         grass: {
           light: '#249451',
           DEFAULT: '#14532d',
@@ -37,6 +38,6 @@ const config: Config = {
       return a;
     }, {}),
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [],
 };
 export default config;
