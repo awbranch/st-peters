@@ -35,7 +35,7 @@ export default defineType({
       name: 'text',
       title: 'Text',
       type: 'array',
-      of: [createRichTextBlock('all'), createImageField('image', 'Image')],
+      of: [createRichTextBlock(), createImageField('image', 'Image')],
     }),
 
     defineField({

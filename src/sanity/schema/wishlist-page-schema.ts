@@ -15,7 +15,7 @@ export default defineType({
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
-    createRichTextField('text', 'Text', 'all'),
+    createRichTextField('text', 'Text', ['all']),
     defineField({
       name: 'wishlists',
       title: 'Wish Lists',

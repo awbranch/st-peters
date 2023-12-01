@@ -22,7 +22,7 @@ export default defineType({
       type: 'slug',
       validation: (Rule: any) => Rule.required(),
     }),
-    createRichTextField('text', 'Text', 'no-headers'),
+    createRichTextField('text', 'Text', ['lists', 'decorators']),
     createImageField('image', 'Image'),
     defineField({
       name: 'buttonLabel',

@@ -17,7 +17,7 @@ export default defineType({
       name: 'text',
       title: 'Text',
       type: 'array',
-      of: [createRichTextBlock('all')],
+      of: [createRichTextBlock(['all'])],
     }),
     defineField({
       name: 'config',

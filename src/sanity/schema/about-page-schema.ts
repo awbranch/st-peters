@@ -38,7 +38,7 @@ export default defineType({
       group: 'history',
     }),
     createImageField('image', 'Image', 'history'),
-    createRichTextField('text', 'Text', 'all', 'history'),
+    createRichTextField('text', 'Text', ['all'], 'history'),
     defineField({
       name: 'mapTitle',
       title: 'Google Map Title',
@@ -46,7 +46,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'map',
     }),
-    createRichTextField('mapText', 'Google Map Text', 'all', 'map'),
+    createRichTextField('mapText', 'Google Map Text', ['all'], 'map'),
     defineField({
       name: 'mapEmbedURL',
       title: 'Google Maps Embed URL',
@@ -62,7 +62,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'team',
     }),
-    createRichTextField('teamText', 'Team Text', 'all', 'team'),
+    createRichTextField('teamText', 'Team Text', ['all'], 'team'),
 
     createImageField('staffPhoto', 'Staff Group Photo', 'team'),
     defineField({
@@ -88,7 +88,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'jobs',
     }),
-    createRichTextField('jobsText', 'Jobs Text', 'all', 'jobs'),
+    createRichTextField('jobsText', 'Jobs Text', ['all'], 'jobs'),
     defineField({
       name: 'jobPostings',
       title: 'Jop Postings',
@@ -96,8 +96,8 @@ export default defineType({
       of: [defineArrayMember({ type: 'jobPosting' })],
       group: 'jobs',
     }),
-    createRichTextField('jobsEooText', 'Jobs EEO Text', 'all', 'jobs'),
-    createRichTextField('noJobsText', 'No Job Openings Text', 'all', 'jobs'),
+    createRichTextField('jobsEooText', 'Jobs EEO Text', ['all'], 'jobs'),
+    createRichTextField('noJobsText', 'No Job Openings Text', ['all'], 'jobs'),
 
     defineField({
       name: 'docsTitle',
@@ -106,7 +106,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'docs',
     }),
-    createRichTextField('docsText', 'Documents Text', 'all', 'docs'),
+    createRichTextField('docsText', 'Documents Text', ['all'], 'docs'),
     defineField({
       name: 'docs',
       title: 'Documents',

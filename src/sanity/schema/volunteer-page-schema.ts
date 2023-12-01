@@ -28,7 +28,7 @@ export default defineType({
       type: 'hero',
       group: 'hero',
     }),
-    createRichTextField('details', 'Details', 'no-headers', 'hero'),
+    createRichTextField('details', 'Details', ['lists', 'decorators'], 'hero'),
 
     defineField({
       name: 'faqsTitle',
@@ -51,7 +51,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
       group: 'form',
     }),
-    createRichTextField('formText', 'Form Text', 'all', 'form'),
+    createRichTextField('formText', 'Form Text', ['all'], 'form'),
   ],
   preview: {
     prepare() {

@@ -74,7 +74,7 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     createImageField('image', 'Image'),
-    createRichTextField('text', 'Text', 'all'),
+    createRichTextField('text', 'Text', ['all']),
     defineField({
       name: 'actions',
       title: 'Actions',

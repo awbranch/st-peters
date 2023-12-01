@@ -26,7 +26,7 @@ export default defineType({
       group: 'grid',
     }),
 
-    createRichTextField('text', 'Text', 'all', 'grid'),
+    createRichTextField('text', 'Text', ['all'], 'grid'),
 
     defineField({
       name: 'learn',

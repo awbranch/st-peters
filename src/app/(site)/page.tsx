@@ -13,7 +13,7 @@ export default async function Home() {
     <>
       <main>
         <section id="hero">
-          <HeroBlock color="white" hero={page.hero} href="#lunch-menu" />
+          <HeroBlock color="white" hero={page.hero} />
         </section>
         <section id="lunch-menu">
           <LunchBlock

@@ -1,7 +1,6 @@
-import React from 'react';
-import Container from '@/components/Container';
+import Block from '@/components/Block';
+import LinkButton from '@/components/LinkButton';
 import ResponsiveImage from '@/components/ResponsiveImage';
-
 import { Image } from '@/types/Image';
 
 const heroImage: Image = {
@@ -27,48 +26,45 @@ const heroImage: Image = {
   },
 };
 
-export default async function Hero() {
+export default function Example() {
   return (
-    <Container>
-      <main className={'px-10'}>
-        <div></div>
-
-        <div className="bg-gray-50">
-          <div className="lg:relative">
-            <div className="mx-auto w-full max-w-7xl pb-20 pt-16 text-center lg:py-48 lg:text-left">
-              <div className="px-6 sm:px-8 lg:w-1/2 xl:pr-16">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-                  <span className="block">Nourishment.</span>
-                  <span className="block">Community.</span>
-                  <span className="block text-pink-600">Hope.</span>
-                </h1>
-                <p className="mx-auto mt-3 max-w-md text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl [text-wrap:balance]">
-                  At St. Peter’s Kitchen, we are a community-centered
-                  environment geared towards sharing hope and fighting hunger in
-                  downtown Rochester, New York.
-                </p>
-                <div className="mt-10 sm:flex sm:justify-center lg:justify-start">
-                  <div className="rounded-full shadow">
-                    <a
-                      href="#"
-                      className="flex w-full items-center justify-center rounded-full border border-transparent bg-pink-600 px-8 py-3 text-base font-medium text-white hover:bg-pink-800 md:px-10 md:py-4 md:text-lg"
-                    >
-                      Learn more
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="h-[400px] w-full lg:h-full lg:w-1/2">
-              <ResponsiveImage
-                image={heroImage}
-                sizes={'100vw'}
-                className={'h-full'}
-              />
-            </div>
+    <Block color={'white'}>
+      <div
+        className={
+          'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 lg:gap-8 max-w-2xl lg:max-w-full mx-auto'
+        }
+      >
+        <div className={'max-w-lg lg:max-w-full'}>
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight">
+            <div>Nourishment.</div>
+            <div>Community.</div>
+            <div className={'text-sunset'}>Hope.</div>
+          </h1>
+          <div className={'mt-8 text-lg leading-8 text-gray-500'}>
+            At St. Peter’s Kitchen, we are a community-centered environment
+            geared towards sharing hope and fighting hunger in downtown
+            Rochester, New York.
           </div>
+          <LinkButton
+            className={'mt-8'}
+            href={'#'}
+            color={'pink'}
+            variant={'solid'}
+            size={'large'}
+            icon={'down'}
+          >
+            Learn More
+          </LinkButton>
         </div>
-      </main>
-    </Container>
+        <div className={'max-w-lg lg:max-w-full'}>
+          <ResponsiveImage
+            image={heroImage}
+            priority={true}
+            sizes={`100vw`}
+            className={'rounded-2xl'}
+          />
+        </div>
+      </div>
+    </Block>
   );
 }

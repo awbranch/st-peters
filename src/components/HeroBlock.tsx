@@ -1,38 +1,79 @@
 import React from 'react';
-import Block from '@/components/Block';
 import { Hero } from '@/types/Hero';
-import RichText from '@/components/RichText';
-import ResponsiveImage from '@/components/ResponsiveImage';
-import { twJoin } from 'tailwind-merge';
 import { Color } from '@/types/Color';
+import Block from '@/components/Block';
+import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
-import { breakpoints } from '@/utils/globals';
+import Link from 'next/link';
+import { PortableText } from '@portabletext/react';
 
 type Props = {
   color: Color;
   hero: Hero;
-  href: string;
 };
 
-export default function HeroBlock({ color, href, hero }: Props) {
+export default function HeroBlock({ color, hero }: Props) {
   return (
     <Block color={color}>
       <div
-        className={twJoin('flex flex-col-reverse lg:flex-row gap-4 lg:gap-8')}
+        className={
+          'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 lg:gap-8 max-w-2xl lg:max-w-full mx-auto'
+        }
       >
-        <div className={'flex-1 max-w-full sm:max-w-md lg:max-w-full'}>
-          <h1 className="text-2xl xs:3xl mb-4">{hero.title}</h1>
-          <RichText text={hero.text} />
-          <LinkButton href={href} variant={'text'} size={'large'} icon={'down'}>
-            {hero.buttonLabel}
-          </LinkButton>
+        <div className={'max-w-lg lg:max-w-full'}>
+          <PortableText
+            value={hero.text}
+            components={
+              {
+                marks: {
+                  link: ({
+                    children,
+                    value,
+                  }: {
+                    children: React.ReactNode;
+                    value: any;
+                  }) => <Link href={value.href}>{children}</Link>,
+                  em: ({ children }) => (
+                    <span className={'text-sunset'}>{children}</span>
+                  ),
+                  strong: ({ children }) => (
+                    <strong className="font-semibold">{children}</strong>
+                  ),
+                },
+                block: {
+                  h1: ({ children }: { children: React.ReactNode }) => (
+                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-8 [text-wrap:balance]">
+                      {children}
+                    </h1>
+                  ),
+                  normal: ({ children }: { children: React.ReactNode }) => (
+                    <p className="text-base leading-relaxed text-gray-500">
+                      {children}
+                    </p>
+                  ),
+                },
+              } as any
+            }
+          />
+          {hero.buttonLabel && hero.buttonLink && (
+            <LinkButton
+              className={'mt-8'}
+              href={hero.buttonLink}
+              color={'pink'}
+              variant={'solid'}
+              size={'large'}
+              icon={'down'}
+            >
+              {hero.buttonLabel}
+            </LinkButton>
+          )}
         </div>
-        <div className={'flex-1'}>
+        <div className={'max-w-lg lg:max-w-full'}>
           <ResponsiveImage
             image={hero.image}
             priority={true}
-            sizes={`(min-width: ${breakpoints.lg}px) 50vw, 100vw`}
-            className={'h-[600px]'}
+            sizes={`100vw`}
+            className={'rounded-2xl'}
           />
         </div>
       </div>

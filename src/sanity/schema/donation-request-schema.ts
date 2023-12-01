@@ -27,7 +27,7 @@ export default defineType({
         maxLength: 200,
       },
     }),
-    createRichTextField('text', 'Text', 'no-headers'),
+    createRichTextField('text', 'Text', ['lists', 'decorators']),
     createImageField('image', 'Image'),
     defineField({
       name: 'levelsTitle',

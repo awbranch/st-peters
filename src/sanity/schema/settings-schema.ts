@@ -47,7 +47,7 @@ export default defineType({
       name: 'notificationMessage',
       title: 'Notification Message',
       type: 'array',
-      of: [createRichTextBlock('no-lists')],
+      of: [createRichTextBlock(['decorators'])],
       hidden: ({ document }) => !document?.showNotification,
       group: 'notification',
     }),
@@ -58,7 +58,7 @@ export default defineType({
       group: 'contact',
       validation: (Rule) => Rule.required(),
     }),
-    createRichTextField('contactUsText', 'Contact Us Text', 'all', 'contact'),
+    createRichTextField('contactUsText', 'Contact Us Text', ['all'], 'contact'),
     defineField({
       name: 'newsletterSignupTitle',
       title: 'Newsletter Signup Title',

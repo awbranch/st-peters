@@ -8,17 +8,16 @@ export default defineType({
   description:
     'A hero an large image and block of text that appears at the top of a webpage.',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    createRichTextField('text', 'Text', 'no-headers'),
+    createRichTextField('text', 'Text', ['h1', 'decorators']),
     createImageField('image', 'Image'),
     defineField({
       name: 'buttonLabel',
       title: 'Button Label',
+      type: 'string',
+    }),
+    defineField({
+      name: 'buttonLink',
+      title: 'Button Link',
       type: 'string',
     }),
   ],
