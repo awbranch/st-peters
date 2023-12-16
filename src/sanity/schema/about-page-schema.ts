@@ -1,9 +1,6 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineType } from 'sanity';
 import { FaCircleInfo as icon } from 'react-icons/fa6';
-import {
-  createBlocksArrayField,
-  createRichTextField,
-} from '@/sanity/schema/utils';
+import { createBlocksArrayField } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'aboutPage',

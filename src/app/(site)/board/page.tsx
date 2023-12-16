@@ -2,7 +2,6 @@ import Block from '@/components/Block';
 import { getBoardMembers } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { TeamMember } from '@/types/TeamMember';
-import LinkButton from '@/components/LinkButton';
 
 const TitleRank = {
   President: 1,
