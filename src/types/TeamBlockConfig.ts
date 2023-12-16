@@ -1,11 +1,15 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { ColorStruct } from '@/types/Color';
+import { Image } from '@/types/Image';
 
-export type LunchBlockConfig = {
-  _type: 'lunchBlock';
+export type TeamBlockConfig = {
+  _type: 'teamBlock';
   _key: string;
   slug: Slug;
   background: ColorStruct;
   text: PortableTextBlock[];
-  tbd: string;
+  staffPhoto: Image;
+  staffLabel: string;
+  boardPhoto: Image;
+  boardLabel: string;
 };

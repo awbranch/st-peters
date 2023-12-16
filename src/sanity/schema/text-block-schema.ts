@@ -21,4 +21,14 @@ export default defineType({
       of: [createRichTextBlock(), createImageField('image', 'Image')],
     }),
   ],
+  preview: {
+    select: { slug: 'slug' },
+    prepare({ slug }) {
+      return {
+        title: 'Text Block',
+        subtitle: `#${slug?.current}`,
+        media: icon,
+      };
+    },
+  },
 });

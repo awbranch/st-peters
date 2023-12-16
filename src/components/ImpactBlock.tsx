@@ -6,14 +6,12 @@ import { ImpactBlockConfig } from '@/types/ImpactBlockConfig';
 export default function ImpactBlock({
   slug,
   background,
-  title,
   text,
   impacts,
 }: ImpactBlockConfig) {
   return (
     <Block slug={slug.current} color={background.label} center>
-      <h1 className="text-xl">{title}</h1>
-      <div className="max-w-lg mx-auto mt-4">
+      <div className="max-w-lg mx-auto">
         <RichText text={text} />
       </div>
 

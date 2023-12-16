@@ -1,17 +1,16 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { PortableTextBlock } from 'sanity';
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-  embedURL: string;
-};
+import { GoogleMapBlockConfig } from '@/types/GoogleMapBlockConfig';
 
-export default function GoogleMapBlock({ title, text, embedURL }: Props) {
+export default function GoogleMapBlock({
+  slug,
+  background,
+  text,
+  embedURL,
+}: GoogleMapBlockConfig) {
   return (
-    <Block color="pink">
-      <h1 className="text-xl mb-3">{title}</h1>
+    <Block slug={slug.current} color={background.label}>
       <RichText text={text} />
       <iframe
         className="mt-3"

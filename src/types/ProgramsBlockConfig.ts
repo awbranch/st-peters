@@ -6,6 +6,5 @@ export type ProgramsBlockConfig = {
   _key: string;
   slug: Slug;
   background: ColorStruct;
-  title: string;
   text: PortableTextBlock[];
 };

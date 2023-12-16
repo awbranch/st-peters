@@ -8,7 +8,6 @@ export type HighlightBlockConfig = {
   slug: Slug;
   background: ColorStruct;
   alignment: 'left' | 'right';
-  title: string;
   text: PortableTextBlock[];
   image: Image;
   buttonLabel: string;

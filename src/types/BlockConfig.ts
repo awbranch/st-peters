@@ -4,6 +4,11 @@ import { HighlightBlockConfig } from '@/types/HighlightBlockConfig';
 import { ImpactBlockConfig } from '@/types/ImpactBlockConfig';
 import { ProgramsBlockConfig } from '@/types/ProgramsBlockConfig';
 import { InstagramBlockConfig } from '@/types/InstagramBlockConfig';
+import { TextBlockConfig } from '@/types/TextBlockConfig';
+import { GoogleMapBlockConfig } from '@/types/GoogleMapBlockConfig';
+import { TeamBlockConfig } from '@/types/TeamBlockConfig';
+import { JobsBlockConfig } from '@/types/JobsBlockConfig';
+import { DocumentsBlockConfig } from '@/types/DocumentsBlockConfig';
 
 export type BlockConfig =
   | HeroBlockConfig
@@ -11,4 +16,9 @@ export type BlockConfig =
   | HighlightBlockConfig
   | ImpactBlockConfig
   | ProgramsBlockConfig
-  | InstagramBlockConfig;
+  | InstagramBlockConfig
+  | TextBlockConfig
+  | GoogleMapBlockConfig
+  | TeamBlockConfig
+  | JobsBlockConfig
+  | DocumentsBlockConfig;

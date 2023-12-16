@@ -3,21 +3,18 @@ import Block from '@/components/Block';
 import SimpleText from '@/components/SimpleText';
 import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
-import { PortableTextBlock } from 'sanity';
-import { Document } from '@/types/Document';
 import RichText from '@/components/RichText';
+import { DocumentsBlockConfig } from '@/types/DocumentsBlockConfig';
 
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-  documents: Document[];
-};
-
-export default function DocumentsBlock({ title, text, documents }: Props) {
+export default function DocumentsBlock({
+  slug,
+  background,
+  text,
+  documents,
+}: DocumentsBlockConfig) {
   return (
-    <Block color="white">
+    <Block slug={slug.current} color={background.label}>
       <div>
-        <h1 className="text-xl mb-3">{title}</h1>
         <RichText text={text} />
       </div>
 

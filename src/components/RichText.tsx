@@ -40,10 +40,10 @@ const RichText = ({ text }: Props) => {
     },
     block: {
       h1: ({ children }: { children: React.ReactNode }) => (
-        <h1 className="text-xl py-2">{children}</h1>
+        <h1 className="text-2xl font-semibold py-2">{children}</h1>
       ),
       h2: ({ children }: { children: React.ReactNode }) => (
-        <h2 className="text-lg py-2">{children}</h2>
+        <h2 className="text-xl font-semibold py-2">{children}</h2>
       ),
       h6: ({ children }: { children: React.ReactNode }) => (
         <div className="text-sm">{children}</div>

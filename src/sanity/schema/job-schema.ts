@@ -2,8 +2,8 @@ import { defineField, defineType } from 'sanity';
 import { FaPersonDigging as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'jobPosting',
-  title: 'Job Posting',
+  name: 'job',
+  title: 'Job',
   type: 'object',
   icon,
   fields: [

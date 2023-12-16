@@ -1,16 +1,16 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import {
   createRichTextField,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
-import { FaCertificate as icon } from 'react-icons/fa6';
+import { FaFile as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'programsBlock',
-  title: 'Programs Block',
+  name: 'docsBlock',
+  title: 'Documents Block',
   type: 'object',
   icon,
-  description: 'A block that displays a grid of programs.',
+  description: 'List documents',
   fields: [
     ...createStockBlockFields(),
     createRichTextField('text', 'Text', [
@@ -20,12 +20,18 @@ export default defineType({
       'lists',
       'textColor',
     ]),
+    defineField({
+      name: 'documents',
+      title: 'Documents',
+      type: 'array',
+      of: [defineArrayMember({ type: 'doc' })],
+    }),
   ],
   preview: {
     select: { slug: 'slug' },
     prepare({ slug }) {
       return {
-        title: 'Programs Block',
+        title: 'Documents Block',
         subtitle: `#${slug?.current}`,
         media: icon,
       };

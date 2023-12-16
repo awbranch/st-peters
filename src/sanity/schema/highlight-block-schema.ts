@@ -29,13 +29,13 @@ export default defineType({
       },
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    createRichTextField('text', 'Text', ['lists', 'decorators']),
+    createRichTextField('text', 'Text', [
+      'h1',
+      'decorators',
+      'links',
+      'lists',
+      'textColor',
+    ]),
     createImageField('image', 'Image'),
     defineField({
       name: 'buttonLabel',
@@ -49,15 +49,12 @@ export default defineType({
     }),
   ],
   preview: {
-    select: {
-      slug: 'slug',
-      image: 'image',
-    },
-    prepare({ slug, image }) {
+    select: { slug: 'slug' },
+    prepare({ slug }) {
       return {
         title: 'Highlight Block',
-        subtitle: `#${slug.current}`,
-        media: image,
+        subtitle: `#${slug?.current}`,
+        media: icon,
       };
     },
   },

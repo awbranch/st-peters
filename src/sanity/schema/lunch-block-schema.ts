@@ -14,13 +14,13 @@ export default defineType({
     'A block that displays the upcoming lunch menus, pulled from the global list of Lunches.',
   fields: [
     ...createStockBlockFields(),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    createRichTextField('text', 'Text', ['lists', 'decorators']),
+    createRichTextField('text', 'Text', [
+      'h1',
+      'decorators',
+      'links',
+      'lists',
+      'textColor',
+    ]),
     defineField({
       name: 'tbd',
       title: 'TBD',
@@ -35,7 +35,7 @@ export default defineType({
     prepare({ slug }) {
       return {
         title: 'Lunch Menu Block',
-        subtitle: `#${slug.current}`,
+        subtitle: `#${slug?.current}`,
         media: icon,
       };
     },

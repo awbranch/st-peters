@@ -7,7 +7,6 @@ export type ImpactBlockConfig = {
   _key: string;
   slug: Slug;
   background: ColorStruct;
-  title: string;
   text: PortableTextBlock[];
   impacts: Impact[];
 };

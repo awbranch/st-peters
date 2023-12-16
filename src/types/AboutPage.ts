@@ -1,31 +1,9 @@
 import { Image } from '@/types/Image';
 import { PortableTextBlock } from 'sanity';
-import { JobPosting } from '@/types/JobPosting';
+import { Job } from '@/types/Job';
 import { Document } from '@/types/Document';
+import { BlockConfig } from '@/types/BlockConfig';
 
 export type AboutPage = {
-  title: string;
-  image: Image;
-  text: PortableTextBlock[];
-
-  mapTitle: string;
-  mapText: PortableTextBlock[];
-  mapEmbedURL: string;
-
-  teamTitle: string;
-  teamText: PortableTextBlock[];
-  staffPhoto: Image;
-  staffLabel: string;
-  boardPhoto: Image;
-  boardLabel: string;
-
-  jobsTitle: string;
-  jobsText: PortableTextBlock[];
-  jobPostings: JobPosting[];
-  jobsEooText: PortableTextBlock[];
-  noJobsText: PortableTextBlock[];
-
-  docsTitle: string;
-  docsText: PortableTextBlock[];
-  docs: Document[];
+  blocks: Array<BlockConfig>;
 };

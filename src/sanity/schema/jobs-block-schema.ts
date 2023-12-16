@@ -3,14 +3,14 @@ import {
   createRichTextField,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
-import { FaFistRaised as icon } from 'react-icons/fa';
+import { FaPersonDigging as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'impactBlock',
-  title: 'Impact Block',
+  name: 'jobsBlock',
+  title: 'Jobs Block',
   type: 'object',
   icon,
-  description: 'List impactful data',
+  description: 'A block that displays job openings.',
   fields: [
     ...createStockBlockFields(),
     createRichTextField('text', 'Text', [
@@ -21,17 +21,29 @@ export default defineType({
       'textColor',
     ]),
     defineField({
-      name: 'impacts',
-      title: 'Impacts',
+      name: 'jobs',
+      title: 'Jobs',
       type: 'array',
-      of: [defineArrayMember({ type: 'impact' })],
+      of: [defineArrayMember({ type: 'job' })],
     }),
+    createRichTextField('eooStatement', 'EEO Statement', [
+      'h2',
+      'decorators',
+      'links',
+      'textColor',
+    ]),
+    createRichTextField('noOpenings', 'No Job Openings', [
+      'h2',
+      'decorators',
+      'links',
+      'textColor',
+    ]),
   ],
   preview: {
     select: { slug: 'slug' },
     prepare({ slug }) {
       return {
-        title: 'Impact Block',
+        title: 'Jobs Block',
         subtitle: `#${slug?.current}`,
         media: icon,
       };

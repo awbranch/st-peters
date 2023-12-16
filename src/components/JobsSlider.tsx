@@ -4,14 +4,14 @@ import Slider from 'react-slick';
 
 import Card from '@/components/Card';
 import LinkButton from '@/components/LinkButton';
-import { JobPosting } from '@/types/JobPosting';
+import { Job } from '@/types/Job';
 import { breakpoints } from '@/utils/globals';
 
 type Props = {
-  postings: JobPosting[];
+  jobs: Job[];
 };
 
-export default function JobOpeningsSlider({ postings }: Props) {
+export default function JobsSlider({ jobs }: Props) {
   return (
     <>
       <Slider
@@ -36,7 +36,7 @@ export default function JobOpeningsSlider({ postings }: Props) {
           },
         ]}
       >
-        {postings.map((j, i) => (
+        {jobs.map((j, i) => (
           <Card
             key={i}
             className="text-black rounded w-[230px] max-w-[230px] xs:w-[300px] xs:max-w-[300px] mx-auto h-full"

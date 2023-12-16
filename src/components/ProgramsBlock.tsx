@@ -8,15 +8,13 @@ import { ProgramsBlockConfig } from '@/types/ProgramsBlockConfig';
 export default async function ProgramsBlock({
   slug,
   background,
-  title,
   text,
 }: ProgramsBlockConfig) {
   const programs = await getPrograms();
 
   return (
     <Block slug={slug.current} color={background.label}>
-      <h1 className="text-xl">{title}</h1>
-      <div className="mt-4 mb-6">
+      <div className="mb-6">
         <RichText text={text} />
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">

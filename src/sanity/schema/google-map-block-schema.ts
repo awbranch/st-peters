@@ -1,38 +1,31 @@
 import { defineField, defineType } from 'sanity';
 import {
-  createImageField,
   createRichTextField,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
-import { FaCircleExclamation as icon } from 'react-icons/fa6';
+import { FaMapMarkerAlt as icon } from 'react-icons/fa';
 
 export default defineType({
-  name: 'heroBlock',
-  title: 'Hero Block',
+  name: 'googleMapBlock',
+  title: 'Google Map Block',
   type: 'object',
   icon,
-  description:
-    'A block with a large image and text that typically appears at the top of a webpage.',
+  description: 'A block that contains an embedded google map.',
   fields: [
     ...createStockBlockFields(),
     createRichTextField('text', 'Text', ['h1', 'decorators', 'textColor']),
-    createImageField('image', 'Image'),
     defineField({
-      name: 'buttonLabel',
-      title: 'Button Label',
-      type: 'string',
-    }),
-    defineField({
-      name: 'buttonLink',
-      title: 'Button Link',
-      type: 'string',
+      name: 'embedURL',
+      title: 'Google Maps Embed URL',
+      type: 'url',
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
   preview: {
     select: { slug: 'slug' },
     prepare({ slug }) {
       return {
-        title: 'Hero Block',
+        title: 'Google Map Block',
         subtitle: `#${slug?.current}`,
         media: icon,
       };

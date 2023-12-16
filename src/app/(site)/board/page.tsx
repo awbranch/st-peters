@@ -38,14 +38,6 @@ export default async function Staff() {
   return (
     <main>
       <Block color={'white'}>
-        <LinkButton
-          href="/about#team"
-          size={'small'}
-          icon={'left'}
-          variant={'text'}
-        >
-          ABOUT
-        </LinkButton>
         <h1 className="text-xl mb-4">Our Board</h1>
         {team.map((m, i) => (
           <div key={i} className={'mb-8'}>

@@ -123,11 +123,15 @@ export function createBlocksArrayField(name: string, title: string) {
     of: [
       defineArrayMember({ type: 'textBlock' }),
       defineArrayMember({ type: 'heroBlock' }),
-      defineArrayMember({ type: 'lunchBlock' }),
       defineArrayMember({ type: 'highlightBlock' }),
+      defineArrayMember({ type: 'googleMapBlock' }),
       defineArrayMember({ type: 'impactBlock' }),
+      defineArrayMember({ type: 'lunchBlock' }),
       defineArrayMember({ type: 'programsBlock' }),
       defineArrayMember({ type: 'instagramBlock' }),
+      defineArrayMember({ type: 'teamBlock' }),
+      defineArrayMember({ type: 'jobsBlock' }),
+      defineArrayMember({ type: 'docsBlock' }),
     ],
   });
 }

@@ -11,7 +11,6 @@ export default function HighlightBlock({
   slug,
   background,
   alignment,
-  title,
   text,
   image,
   buttonLabel,
@@ -28,14 +27,6 @@ export default function HighlightBlock({
         )}
       >
         <div className="flex-1">
-          <h1
-            className={twJoin(
-              'text-xl sm:text-xl border-b-4 pb-1 mb-3',
-              color === 'white' ? 'border-black' : 'border-white',
-            )}
-          >
-            {title}
-          </h1>
           <RichText text={text} />
           <div className={'hidden lg:block'}>
             <LinkButton

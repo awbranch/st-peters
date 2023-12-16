@@ -1,38 +1,44 @@
 import { defineField, defineType } from 'sanity';
+import { FaUsers as icon } from 'react-icons/fa';
+
 import {
   createImageField,
   createRichTextField,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
-import { FaCircleExclamation as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'heroBlock',
-  title: 'Hero Block',
+  name: 'teamBlock',
+  title: 'Team Block',
   type: 'object',
   icon,
-  description:
-    'A block with a large image and text that typically appears at the top of a webpage.',
+  description: 'A block that allows you to select the staff or board.',
   fields: [
     ...createStockBlockFields(),
     createRichTextField('text', 'Text', ['h1', 'decorators', 'textColor']),
-    createImageField('image', 'Image'),
+
+    createImageField('staffPhoto', 'Staff Group Photo'),
     defineField({
-      name: 'buttonLabel',
-      title: 'Button Label',
+      name: 'staffLabel',
+      title: 'Staff Label',
       type: 'string',
+      validation: (Rule: any) => Rule.required(),
     }),
+    createImageField('boardPhoto', 'Board Group Photo'),
     defineField({
-      name: 'buttonLink',
-      title: 'Button Link',
+      name: 'boardLabel',
+      title: 'Board Label',
       type: 'string',
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
   preview: {
-    select: { slug: 'slug' },
+    select: {
+      slug: 'slug',
+    },
     prepare({ slug }) {
       return {
-        title: 'Hero Block',
+        title: 'Team Block',
         subtitle: `#${slug?.current}`,
         media: icon,
       };

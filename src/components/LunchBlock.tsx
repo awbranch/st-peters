@@ -8,7 +8,6 @@ import { LunchBlockConfig } from '@/types/LunchBlockConfig';
 export default async function LunchBlock({
   slug,
   background,
-  title,
   text,
   tbd,
 }: LunchBlockConfig) {
@@ -32,7 +31,6 @@ export default async function LunchBlock({
 
   return (
     <Block slug={slug.current} color={background.label} center>
-      <h2 className="text-5xl font-semibold mb-1">{title}</h2>
       <RichText text={text} />
       <div className="my-4">{menus && <LunchSlider menus={menus} />}</div>
     </Block>

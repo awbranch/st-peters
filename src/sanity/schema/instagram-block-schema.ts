@@ -38,7 +38,7 @@ export default defineType({
     prepare({ slug }) {
       return {
         title: 'Instagram Block',
-        subtitle: `#${slug.current}`,
+        subtitle: `#${slug?.current}`,
         media: icon,
       };
     },

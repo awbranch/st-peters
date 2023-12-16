@@ -3,30 +3,20 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { PortableTextBlock } from 'sanity';
-import { Image } from '@/types/Image';
 import { breakpoints } from '@/utils/globals';
-
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-  staffPhoto: Image;
-  staffLabel: string;
-  boardPhoto: Image;
-  boardLabel: string;
-};
+import { TeamBlockConfig } from '@/types/TeamBlockConfig';
 
 export default function TeamBlock({
-  title,
+  slug,
+  background,
   text,
   staffPhoto,
   staffLabel,
   boardPhoto,
   boardLabel,
-}: Props) {
+}: TeamBlockConfig) {
   return (
-    <Block color="white">
-      <h1 className="text-xl mb-3">{title}</h1>
+    <Block slug={slug.current} color={background.label}>
       <RichText text={text} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
@@ -37,7 +27,7 @@ export default function TeamBlock({
           <Link
             key={g.slug}
             className={'block group shadow-airy p-2 rounded-md'}
-            href={`/about/${g.slug}`}
+            href={`/${g.slug}`}
             title={g.label}
           >
             <ResponsiveImage
