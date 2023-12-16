@@ -9,6 +9,8 @@ import { GoogleMapBlockConfig } from '@/types/GoogleMapBlockConfig';
 import { TeamBlockConfig } from '@/types/TeamBlockConfig';
 import { JobsBlockConfig } from '@/types/JobsBlockConfig';
 import { DocumentsBlockConfig } from '@/types/DocumentsBlockConfig';
+import { FAQsBlockConfig } from '@/types/FAQsBlockConfig';
+import { VolunteerFormBlockConfig } from '@/types/VolunteerFormBlockConfig';
 
 export type BlockConfig =
   | HeroBlockConfig
@@ -21,4 +23,6 @@ export type BlockConfig =
   | GoogleMapBlockConfig
   | TeamBlockConfig
   | JobsBlockConfig
-  | DocumentsBlockConfig;
+  | DocumentsBlockConfig
+  | FAQsBlockConfig
+  | VolunteerFormBlockConfig;

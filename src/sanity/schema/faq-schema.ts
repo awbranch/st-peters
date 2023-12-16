@@ -14,6 +14,11 @@ export default defineType({
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
-    createRichTextField('answer', 'Answer', ['lists', 'decorators']),
+    createRichTextField('answer', 'Answer', [
+      'lists',
+      'decorators',
+      'links',
+      'textColor',
+    ]),
   ],
 });

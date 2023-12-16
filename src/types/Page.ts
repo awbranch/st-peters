@@ -1,5 +1,5 @@
 import { BlockConfig } from '@/types/BlockConfig';
 
-export type AboutPage = {
+export type Page = {
   blocks: Array<BlockConfig>;
 };

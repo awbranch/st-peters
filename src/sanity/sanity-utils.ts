@@ -2,12 +2,10 @@ import { createClient, groq } from 'next-sanity';
 import { Image, File } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
-import { HomePage } from '@/types/HomePage';
-import { AboutPage } from '@/types/AboutPage';
+import { Page } from '@/types/Page';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
-import { VolunteerPage } from '@/types/VolunteerPage';
 import { SupportPage } from '@/types/SupportPage';
 import { WishListPage } from '@/types/WishListPage';
 import { Settings } from '@/types/Settings';
@@ -78,7 +76,7 @@ export async function getLunchMenus() {
 }
 
 export async function getHomePage() {
-  return client.fetch<HomePage>(groq`*[_type == "homePage"][0]`);
+  return client.fetch<Page>(groq`*[_type == "homePage"][0]`);
 }
 
 export async function getPrograms() {
@@ -100,7 +98,7 @@ export async function getProgram(slug: string) {
 }
 
 export async function getAboutPage() {
-  return client.fetch<AboutPage>(groq`*[_type == "aboutPage"][0]`);
+  return client.fetch<Page>(groq`*[_type == "aboutPage"][0]`);
 }
 
 export async function getStaffMembers() {
@@ -164,7 +162,7 @@ export async function getNewsStory(slug: string) {
 }
 
 export async function getVolunteerPage() {
-  return client.fetch<VolunteerPage>(groq`*[_type == "volunteerPage"][0]`);
+  return client.fetch<Page>(groq`*[_type == "volunteerPage"][0]`);
 }
 
 export async function getSupportPage() {

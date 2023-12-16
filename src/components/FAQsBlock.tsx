@@ -1,17 +1,17 @@
 import React from 'react';
 import Block from '@/components/Block';
-import { FAQ } from '@/types/FAQ';
 import RichText from '@/components/RichText';
+import { FAQsBlockConfig } from '@/types/FAQsBlockConfig';
 
-type Props = {
-  title: string;
-  faqs: FAQ[];
-};
-
-export default function FAQsBlock({ title, faqs }: Props) {
+export default function FAQsBlock({
+  slug,
+  background,
+  text,
+  faqs,
+}: FAQsBlockConfig) {
   return (
-    <Block>
-      <h1 className="text-xl mb-3">{title}</h1>
+    <Block slug={slug.current} color={background.label}>
+      <RichText text={text} />
       <ul>
         {faqs.map((faq, i) => (
           <li
