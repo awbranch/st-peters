@@ -33,12 +33,15 @@ export type CRTLevel =
   | 'h2'
   | 'blockquote'
   | 'lists'
-  | 'decorators';
+  | 'decorators'
+  | 'links'
+  | 'textColor';
 
 export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
   const styles: BlockStyleDefinition[] = [];
   const lists: BlockListDefinition[] = [];
   const decorators: BlockDecoratorDefinition[] = [];
+  const annotations = [];
 
   if (levels.includes('all') || levels.includes('h1')) {
     styles.push({ title: 'Header', value: 'h1' });
@@ -62,12 +65,36 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
     decorators.push({ title: 'Italic', value: 'em' });
   }
 
+  if (levels.includes('all') || levels.includes('links')) {
+    annotations.push({
+      name: 'link',
+      type: 'object',
+      title: 'Link',
+      fields: [
+        {
+          name: 'href',
+          type: 'url',
+          validation: (Rule) =>
+            Rule.uri({
+              allowRelative: true,
+              scheme: ['http', 'https', 'mailto', 'tel'],
+            }),
+        },
+      ],
+    });
+  }
+
+  if (levels.includes('all') || levels.includes('textColor')) {
+    annotations.push({ type: 'textColor' });
+  }
+
   return defineArrayMember({
     type: 'block',
     styles,
     lists,
     marks: {
-      decorators,
+      decorators: decorators,
+      annotations: annotations,
     },
   });
 }
@@ -86,4 +113,40 @@ export function createRichTextField(
     of: [createRichTextBlock(level)],
     validation: (Rule: any) => Rule.required(),
   });
+}
+
+export function createBlocksArrayField(name: string, title: string) {
+  return defineField({
+    name,
+    title,
+    type: 'array',
+    of: [
+      defineArrayMember({ type: 'textBlock' }),
+      defineArrayMember({ type: 'heroBlock' }),
+      defineArrayMember({ type: 'lunchBlock' }),
+      defineArrayMember({ type: 'highlightBlock' }),
+      defineArrayMember({ type: 'impactBlock' }),
+      defineArrayMember({ type: 'programsBlock' }),
+      defineArrayMember({ type: 'instagramBlock' }),
+    ],
+  });
+}
+
+export function createStockBlockFields() {
+  return [
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      description: 'Used to link to this block in the page.',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'background',
+      title: 'Background',
+      type: 'simplerColor',
+      description: 'The background color for the block.',
+      validation: (Rule: any) => Rule.required(),
+    }),
+  ];
 }

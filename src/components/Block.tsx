@@ -4,6 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
 
 type Props = {
+  slug?: string;
   color?: Color;
   center?: boolean;
   className?: string;
@@ -11,13 +12,15 @@ type Props = {
 };
 
 export default function Block({
+  slug,
   color = 'white',
   center = false,
   className = '',
   children,
 }: Props) {
   return (
-    <div
+    <section
+      id={slug}
       className={twMerge(
         'px-4 md:px-10 py-20',
         color === 'green' && 'bg-grass text-white',
@@ -31,6 +34,6 @@ export default function Block({
       )}
     >
       <Container>{children}</Container>
-    </div>
+    </section>
   );
 }

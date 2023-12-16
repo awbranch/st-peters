@@ -13,7 +13,7 @@ export default async function Volunteer() {
     <>
       <main>
         <section id="hero">
-          <HeroBlock color="white" hero={page.hero} />
+          <HeroBlock {...page.hero} />
         </section>
         <section id="details">
           <Block>

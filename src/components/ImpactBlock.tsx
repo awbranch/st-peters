@@ -1,18 +1,17 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { PortableTextBlock } from 'sanity';
-import { Impact } from '@/types/Impact';
+import { ImpactBlockConfig } from '@/types/ImpactBlockConfig';
 
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-  impacts: Impact[];
-};
-
-export default function ImpactBlock({ title, text, impacts }: Props) {
+export default function ImpactBlock({
+  slug,
+  background,
+  title,
+  text,
+  impacts,
+}: ImpactBlockConfig) {
   return (
-    <Block color="black" center>
+    <Block slug={slug.current} color={background.label} center>
       <h1 className="text-xl">{title}</h1>
       <div className="max-w-lg mx-auto mt-4">
         <RichText text={text} />

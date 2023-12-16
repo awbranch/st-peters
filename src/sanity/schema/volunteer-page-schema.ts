@@ -25,7 +25,7 @@ export default defineType({
     defineField({
       name: 'hero',
       title: 'Hero',
-      type: 'hero',
+      type: 'heroBlock',
       group: 'hero',
     }),
     createRichTextField('details', 'Details', ['lists', 'decorators'], 'hero'),

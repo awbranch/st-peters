@@ -1,28 +1,29 @@
 import React from 'react';
-import { Hero } from '@/types/Hero';
-import { Color } from '@/types/Color';
+import { HeroBlockConfig } from '@/types/HeroBlockConfig';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
 
-type Props = {
-  color: Color;
-  hero: Hero;
-};
-
-export default function HeroBlock({ color, hero }: Props) {
+export default function HeroBlock({
+  slug,
+  background,
+  text,
+  image,
+  buttonLabel,
+  buttonLink,
+}: HeroBlockConfig) {
   return (
-    <Block color={color}>
+    <Block slug={slug.current} color={background.label}>
       <div
         className={
-          'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 lg:gap-8 max-w-2xl lg:max-w-full mx-auto'
+          'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 max-w-2xl lg:max-w-full mx-auto'
         }
       >
         <div className={'max-w-lg lg:max-w-full'}>
           <PortableText
-            value={hero.text}
+            value={text}
             components={
               {
                 marks: {
@@ -33,21 +34,21 @@ export default function HeroBlock({ color, hero }: Props) {
                     children: React.ReactNode;
                     value: any;
                   }) => <Link href={value.href}>{children}</Link>,
-                  em: ({ children }) => (
-                    <span className={'text-sunset'}>{children}</span>
-                  ),
                   strong: ({ children }) => (
                     <strong className="font-semibold">{children}</strong>
+                  ),
+                  textColor: ({ children, value }) => (
+                    <span style={{ color: value.value }}>{children}</span>
                   ),
                 },
                 block: {
                   h1: ({ children }: { children: React.ReactNode }) => (
-                    <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-8 [text-wrap:balance]">
+                    <h1 className="text-4xl xs:text-5xl sm:text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]">
                       {children}
                     </h1>
                   ),
                   normal: ({ children }: { children: React.ReactNode }) => (
-                    <p className="text-base leading-relaxed text-gray-500">
+                    <p className="text-lg leading-relaxed text-gray-500">
                       {children}
                     </p>
                   ),
@@ -55,22 +56,22 @@ export default function HeroBlock({ color, hero }: Props) {
               } as any
             }
           />
-          {hero.buttonLabel && hero.buttonLink && (
+          {buttonLabel && buttonLink && (
             <LinkButton
               className={'mt-8'}
-              href={hero.buttonLink}
+              href={buttonLink}
               color={'pink'}
               variant={'solid'}
               size={'large'}
               icon={'down'}
             >
-              {hero.buttonLabel}
+              {buttonLabel}
             </LinkButton>
           )}
         </div>
         <div className={'max-w-lg lg:max-w-full'}>
           <ResponsiveImage
-            image={hero.image}
+            image={image}
             priority={true}
             sizes={`100vw`}
             className={'rounded-2xl'}

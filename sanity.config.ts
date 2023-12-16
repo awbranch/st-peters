@@ -2,6 +2,7 @@ import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
 import { visionTool } from '@sanity/vision';
 import { media } from 'sanity-plugin-media';
+import { simplerColorInput } from 'sanity-plugin-simpler-color-input';
 import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 
 import schemas from '@/sanity/schema';
@@ -69,6 +70,17 @@ const config = defineConfig({
       defaultApiVersion: 'v2021-10-21',
     }),
     media(),
+    simplerColorInput({
+      defaultColorFormat: 'rgba',
+      defaultColorList: [
+        { label: 'green', value: '#14532d' },
+        { label: 'blue', value: '#1766b5' },
+        { label: 'pink', value: '#db2777' },
+        { label: 'black', value: '#111827' },
+        { label: 'white', value: '#ffffff' },
+        { label: 'gray', value: '#f3f4f6' },
+      ],
+    }),
   ],
   schema: {
     types: schemas,

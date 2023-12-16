@@ -4,15 +4,18 @@ import supportPage from '@/sanity/schema/support-page-schema';
 import wishlistPage from '@/sanity/schema/wishlist-page-schema';
 import settings from '@/sanity/schema/settings-schema';
 
+import programsBlock from '@/sanity/schema/programs-block-schema';
 import program from '@/sanity/schema/program-schema';
+import lunchBlock from '@/sanity/schema/lunch-block-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
-import hero from '@/sanity/schema/hero-schema';
-import highlight from '@/sanity/schema/highlight-schema';
+import heroBlock from '@/sanity/schema/hero-block-schema';
+import highlightBlock from '@/sanity/schema/highlight-block-schema';
 import address from '@/sanity/schema/address-schema';
 import social from '@/sanity/schema/social-schema';
 import link from '@/sanity/schema/link-schema';
+import impactBlock from '@/sanity/schema/impact-block-schema';
 import impact from '@/sanity/schema/impact-schema';
-import instagramFeed from '@/sanity/schema/instagram-feed';
+import instagramBlock from '@/sanity/schema/instagram-block-schema';
 import donationRequest from '@/sanity/schema/donation-request-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
@@ -25,6 +28,7 @@ import volunteerPage from '@/sanity/schema/volunteer-page-schema';
 import faq from '@/sanity/schema/faq-schema';
 import supportCategory from '@/sanity/schema/support-category-schema';
 import wishlist from '@/sanity/schema/wishlist-schema';
+import textBlock from '@/sanity/schema/text-block-schema';
 
 const schemas = [
   homePage,
@@ -32,15 +36,18 @@ const schemas = [
   volunteerPage,
   supportPage,
   wishlistPage,
+  lunchBlock,
   lunchMenu,
+  programsBlock,
   program,
-  hero,
-  highlight,
+  heroBlock,
+  highlightBlock,
   address,
   social,
   link,
+  impactBlock,
   impact,
-  instagramFeed,
+  instagramBlock,
   donationRequest,
   donationLevel,
   staffMember,
@@ -53,6 +60,7 @@ const schemas = [
   supportCategory,
   settings,
   wishlist,
+  textBlock,
 ];
 
 export default schemas;

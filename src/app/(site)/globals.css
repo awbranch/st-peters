@@ -2,13 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  font-size: 15px;
-  @screen md {
-    font-size: 18px;
-  }
-}
-
 .slick-track  {
   display: flex !important;
 }

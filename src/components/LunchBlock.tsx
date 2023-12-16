@@ -2,16 +2,16 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { getNow, getNextWeekdayDate, isWeekday } from '@/utils/date';
 import { getLunchMenus } from '@/sanity/sanity-utils';
-import { PortableTextBlock } from 'sanity';
 import LunchSlider from '@/components/LunchSlider';
+import { LunchBlockConfig } from '@/types/LunchBlockConfig';
 
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-  tbd: string;
-};
-
-export default async function LunchBlock({ title, text, tbd }: Props) {
+export default async function LunchBlock({
+  slug,
+  background,
+  title,
+  text,
+  tbd,
+}: LunchBlockConfig) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -31,10 +31,10 @@ export default async function LunchBlock({ title, text, tbd }: Props) {
   }
 
   return (
-    <Block color="blue" center>
-      <h2 className="text-xl mb-1">{title}</h2>
+    <Block slug={slug.current} color={background.label} center>
+      <h2 className="text-5xl font-semibold mb-1">{title}</h2>
       <RichText text={text} />
-      <div className="mt-4">{menus && <LunchSlider menus={menus} />}</div>
+      <div className="my-4">{menus && <LunchSlider menus={menus} />}</div>
     </Block>
   );
 }

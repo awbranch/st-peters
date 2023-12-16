@@ -1,31 +1,30 @@
 import React from 'react';
 import { twJoin } from 'tailwind-merge';
-import { Color } from '@/types/Color';
-import { Highlight } from '@/types/Highlight';
+import { HighlightBlockConfig } from '@/types/HighlightBlockConfig';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
 import { breakpoints } from '@/utils/globals';
 
-type Props = {
-  color: Color;
-  orientation: 'left' | 'right';
-  highlight: Highlight;
-};
-
 export default function HighlightBlock({
-  color,
-  orientation,
-  highlight,
-}: Props) {
+  slug,
+  background,
+  alignment,
+  title,
+  text,
+  image,
+  buttonLabel,
+  buttonLink,
+}: HighlightBlockConfig) {
+  let color = background.label;
   return (
-    <Block color={color}>
+    <Block slug={slug.current} color={color}>
       <div
         className={twJoin(
           'flex gap-4 flex-col',
-          orientation === 'right' && 'lg:flex-row',
-          orientation === 'left' && 'lg:flex-row-reverse',
+          alignment === 'right' && 'lg:flex-row',
+          alignment === 'left' && 'lg:flex-row-reverse',
         )}
       >
         <div className="flex-1">
@@ -35,35 +34,35 @@ export default function HighlightBlock({
               color === 'white' ? 'border-black' : 'border-white',
             )}
           >
-            {highlight.title}
+            {title}
           </h1>
-          <RichText text={highlight.text} />
+          <RichText text={text} />
           <div className={'hidden lg:block'}>
             <LinkButton
-              href={highlight.buttonLink}
+              href={buttonLink}
               variant={'text'}
               size={'large'}
               icon={'right'}
             >
-              {highlight.buttonLabel}
+              {buttonLabel}
             </LinkButton>
           </div>
         </div>
         <div className="flex-1 lg:flex-none mx-0 sm:mx-auto lg:mx-0">
           <ResponsiveImage
-            image={highlight.image}
+            image={image}
             priority={false}
             sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
             className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
           />
           <div className={'block lg:hidden mt-2 text-center'}>
             <LinkButton
-              href={highlight.buttonLink}
+              href={buttonLink}
               variant={'text'}
               size={'large'}
               icon={'right'}
             >
-              {highlight.buttonLabel}
+              {buttonLabel}
             </LinkButton>
           </div>
         </div>

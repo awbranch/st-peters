@@ -1,9 +1,9 @@
-import { Hero } from '@/types/Hero';
+import { HeroBlockConfig } from '@/types/HeroBlockConfig';
 import { FAQ } from '@/types/FAQ';
 import { PortableTextBlock } from 'sanity';
 
 export type VolunteerPage = {
-  hero: Hero;
+  hero: HeroBlockConfig;
   details: PortableTextBlock[];
   faqsTitle: string;
   faqs: FAQ[];

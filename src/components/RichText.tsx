@@ -34,6 +34,9 @@ const RichText = ({ text }: Props) => {
       strong: ({ children }) => (
         <strong className="font-bold">{children}</strong>
       ),
+      textColor: ({ children, value }) => (
+        <span style={{ color: value.value }}>{children}</span>
+      ),
     },
     block: {
       h1: ({ children }: { children: React.ReactNode }) => (

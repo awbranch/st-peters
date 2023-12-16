@@ -11,6 +11,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        body: 'var(--body-font)',
+      },
       boxShadow: {
         airy: '0 6px 24px 0 rgba(140, 152, 164, 0.125)',
       },

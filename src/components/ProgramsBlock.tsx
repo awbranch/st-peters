@@ -3,18 +3,18 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { getPrograms } from '@/sanity/sanity-utils';
 import { ProgramCard } from '@/components/ProgramCard';
-import { PortableTextBlock } from 'sanity';
+import { ProgramsBlockConfig } from '@/types/ProgramsBlockConfig';
 
-type Props = {
-  title: string;
-  text: PortableTextBlock[];
-};
-
-export default async function ProgramGridBlock({ title, text }: Props) {
+export default async function ProgramsBlock({
+  slug,
+  background,
+  title,
+  text,
+}: ProgramsBlockConfig) {
   const programs = await getPrograms();
 
   return (
-    <Block color="white">
+    <Block slug={slug.current} color={background.label}>
       <h1 className="text-xl">{title}</h1>
       <div className="mt-4 mb-6">
         <RichText text={text} />
