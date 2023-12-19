@@ -5,6 +5,7 @@ import wishlistPage from '@/sanity/schema/wishlist-page-schema';
 import settings from '@/sanity/schema/settings-schema';
 
 import docsBlock from '@/sanity/schema/docs-block-schema';
+import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
 import googleMapBlock from '@/sanity/schema/google-map-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
@@ -21,6 +22,8 @@ import volunteerFormBlock from '@/sanity/schema/volunteer-form-block-schema';
 import action from '@/sanity/schema/action-schema';
 import address from '@/sanity/schema/address-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
+import buttonTileGrid from '@/sanity/schema/button-tile-grid-schema';
+import buttonTile from '@/sanity/schema/button-tile-schema';
 import doc from '@/sanity/schema/doc-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
 import donationRequest from '@/sanity/schema/donation-request-schema';
@@ -45,6 +48,7 @@ const schemas = [
   wishlistPage,
 
   docsBlock,
+  donationRequestBlock,
   faqsBlock,
   googleMapBlock,
   heroBlock,
@@ -61,6 +65,8 @@ const schemas = [
   action,
   address,
   boardMember,
+  buttonTileGrid,
+  buttonTile,
   doc,
   donationLevel,
   donationRequest,

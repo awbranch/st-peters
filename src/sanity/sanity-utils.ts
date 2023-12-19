@@ -6,9 +6,9 @@ import { Page } from '@/types/Page';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
-import { SupportPage } from '@/types/SupportPage';
 import { WishListPage } from '@/types/WishListPage';
 import { Settings } from '@/types/Settings';
+import { DonationRequest } from '@/types/DonationRequest';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -166,7 +166,7 @@ export async function getVolunteerPage() {
 }
 
 export async function getSupportPage() {
-  return client.fetch<SupportPage>(groq`*[_type == "supportPage"]{
+  return client.fetch<Page>(groq`*[_type == "supportPage"]{
     ...,
     singleDonation->,
     recurringDonation->
@@ -179,4 +179,13 @@ export async function getWishListsPage() {
 
 export async function getSettings() {
   return client.fetch<Settings>(groq`*[_type == "settings"][0]`);
+}
+
+export async function getDonationRequest(id: string) {
+  return client.fetch<DonationRequest>(
+    groq`*[_type == "donationRequest" && _id == $id][0]`,
+    {
+      id,
+    },
+  );
 }

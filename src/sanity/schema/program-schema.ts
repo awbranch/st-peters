@@ -39,10 +39,9 @@ export default defineType({
     }),
 
     defineField({
-      name: 'donationRequest',
+      name: 'donationRequestBlock',
       title: 'Donation Request',
-      type: 'reference',
-      to: [{ type: 'donationRequest' }],
+      type: 'donationRequestBlock',
     }),
   ],
   preview: {

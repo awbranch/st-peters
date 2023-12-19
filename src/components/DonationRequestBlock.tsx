@@ -3,48 +3,45 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { twJoin } from 'tailwind-merge';
-import { Color } from '@/types/Color';
-import { DonationRequest } from '@/types/DonationRequest';
 import LinkButton from '@/components/LinkButton';
 import { breakpoints } from '@/utils/globals';
+import { DonationRequestBlockConfig } from '@/types/DonationRequestBlockConfig';
+import { getDonationRequest } from '@/sanity/sanity-utils';
 
-type Props = {
-  color: Color;
-  orientation: 'left' | 'right';
-  request: DonationRequest;
-};
-
-export default function DonationRequestBlock({
-  color,
-  orientation,
+export default async function DonationRequestBlock({
+  slug,
+  background,
+  alignment,
   request,
-}: Props) {
+}: DonationRequestBlockConfig) {
+  const donationRequest = await getDonationRequest(request._ref);
+
   return (
-    <Block color={color}>
+    <Block slug={slug.current} color={background.label}>
       <div
         className={twJoin(
           'flex gap-4',
-          orientation === 'right' && 'flex-row',
-          orientation === 'left' && 'flex-row-reverse',
+          alignment === 'right' && 'flex-row',
+          alignment === 'left' && 'flex-row-reverse',
         )}
       >
         <div className="flex-1">
-          <h1 className="text-xl sm:text-xl mb-3">{request.title}</h1>
-          <RichText text={request.text} />
+          <h1 className="text-xl sm:text-xl mb-3">{donationRequest.title}</h1>
+          <RichText text={donationRequest.text} />
 
           <div className="block lg:hidden">
             <ResponsiveImage
-              image={request.image}
+              image={donationRequest.image}
               sizes={`(max-width: ${breakpoints.lg}px) 100vw, ${breakpoints.lg}px`}
               className={'my-4 mx-0 w-full'}
             />
           </div>
           <h2 className={'text-lg mb-3 text-center lg:text-left'}>
-            {request.levelsTitle}
+            {donationRequest.levelsTitle}
           </h2>
           <div className="mt-3 mx-auto lg:mx-0 max-w-fit">
             <div className="inline-grid grid-cols-1 xs:grid-cols-2 gap-3">
-              {request.levels.map((l, i) => (
+              {donationRequest.levels.map((l, i) => (
                 <div key={i} className="w-[200px]">
                   <LinkButton
                     className="w-full"
@@ -57,7 +54,7 @@ export default function DonationRequestBlock({
                   <div className="w-full text-ocean text-center">{l.label}</div>
                 </div>
               ))}
-              {request.otherLevel && (
+              {donationRequest.otherLevel && (
                 <div>
                   <LinkButton
                     className="w-[200px]"
@@ -75,7 +72,7 @@ export default function DonationRequestBlock({
 
         <div className="flex-1 hidden lg:block">
           <ResponsiveImage
-            image={request.image}
+            image={donationRequest.image}
             sizes={'50vw'}
             className={'h-[700px]'}
           />

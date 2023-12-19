@@ -124,6 +124,7 @@ export function createBlocksArrayField(name: string, title: string) {
       defineArrayMember({ type: 'textBlock' }),
       defineArrayMember({ type: 'heroBlock' }),
       defineArrayMember({ type: 'highlightBlock' }),
+      defineArrayMember({ type: 'donationRequestBlock' }),
       defineArrayMember({ type: 'googleMapBlock' }),
       defineArrayMember({ type: 'impactBlock' }),
       defineArrayMember({ type: 'lunchBlock' }),

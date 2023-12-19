@@ -13,6 +13,7 @@ import JobsBlock from '@/components/JobsBlock';
 import DocumentsBlock from '@/components/DocumentsBlock';
 import FAQsBlock from '@/components/FAQsBlock';
 import VolunteerFormBlock from '@/components/VolunteerFormBlock';
+import DonationRequestBlock from '@/components/DonationRequestBlock';
 
 type Props = {
   blocks: BlockConfig[];
@@ -44,6 +45,8 @@ export default function BlockSectionList({ blocks }: Props) {
       <FAQsBlock key={config._key} {...config} />
     ) : config._type === 'volunteerFormBlock' ? (
       <VolunteerFormBlock key={config._key} {...config} />
+    ) : config._type === 'donationRequestBlock' ? (
+      <DonationRequestBlock key={config._key} {...config} />
     ) : (
       <Block key={config._key} color={'blue'}>
         <h1 className={'text-3xl text-center font-semibold'}>

@@ -11,18 +11,20 @@ import { JobsBlockConfig } from '@/types/JobsBlockConfig';
 import { DocumentsBlockConfig } from '@/types/DocumentsBlockConfig';
 import { FAQsBlockConfig } from '@/types/FAQsBlockConfig';
 import { VolunteerFormBlockConfig } from '@/types/VolunteerFormBlockConfig';
+import { DonationRequestBlockConfig } from '@/types/DonationRequestBlockConfig';
 
 export type BlockConfig =
+  | DocumentsBlockConfig
+  | DonationRequestBlockConfig
+  | FAQsBlockConfig
+  | GoogleMapBlockConfig
   | HeroBlockConfig
-  | LunchBlockConfig
   | HighlightBlockConfig
   | ImpactBlockConfig
-  | ProgramsBlockConfig
   | InstagramBlockConfig
-  | TextBlockConfig
-  | GoogleMapBlockConfig
-  | TeamBlockConfig
   | JobsBlockConfig
-  | DocumentsBlockConfig
-  | FAQsBlockConfig
+  | LunchBlockConfig
+  | ProgramsBlockConfig
+  | TeamBlockConfig
+  | TextBlockConfig
   | VolunteerFormBlockConfig;

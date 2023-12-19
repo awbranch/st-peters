@@ -1,4 +1,4 @@
-import { getHomePage, getProgram, getPrograms } from '@/sanity/sanity-utils';
+import { getProgram, getPrograms } from '@/sanity/sanity-utils';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import React from 'react';
@@ -15,7 +15,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const program = await getProgram(params.slug);
-  const page = await getHomePage();
 
   return (
     <>
@@ -34,21 +33,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <RichText text={program.text} />
           </Block>
         </section>
-        {program.donationRequest && (
-          <section id="donation-request">
-            <DonationRequestBlock
-              color="white"
-              orientation="right"
-              request={program.donationRequest}
-            />
-          </section>
+        {program.donationRequestBlock && (
+          <DonationRequestBlock {...program.donationRequestBlock} />
         )}
         <section id="other-programs">
-          <OtherProgramsBlock
-            title={page.otherProgramsTitle}
-            text={page.otherProgramsText}
-            besides={params.slug}
-          />
+          <OtherProgramsBlock title="Other Programs" besides={params.slug} />
         </section>
       </main>
     </>
