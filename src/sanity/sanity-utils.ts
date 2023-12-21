@@ -6,7 +6,6 @@ import { Page } from '@/types/Page';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
-import { WishListPage } from '@/types/WishListPage';
 import { Settings } from '@/types/Settings';
 import { DonationRequest } from '@/types/DonationRequest';
 
@@ -174,7 +173,7 @@ export async function getSupportPage() {
 }
 
 export async function getWishListsPage() {
-  return client.fetch<WishListPage>(groq`*[_type == "wishlistPage"][0]`);
+  return client.fetch<Page>(groq`*[_type == "wishlistPage"][0]`);
 }
 
 export async function getSettings() {

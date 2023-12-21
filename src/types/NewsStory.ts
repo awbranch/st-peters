@@ -1,7 +1,7 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { Action } from '@/types/Action';
 import { Image } from '@/types/Image';
-import { DonationRequest } from '@/types/DonationRequest';
+import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 
 export type NewsStory = {
   category: string;
@@ -12,5 +12,5 @@ export type NewsStory = {
   image: Image;
   text: PortableTextBlock[];
   actions?: Action[];
-  donationRequest?: DonationRequest;
+  donationRequestBlock?: DonationRequestBlock;
 };

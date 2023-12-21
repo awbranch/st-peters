@@ -4,14 +4,14 @@ import SimpleText from '@/components/SimpleText';
 import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
 import RichText from '@/components/RichText';
-import { DocumentsBlockConfig } from '@/types/DocumentsBlockConfig';
+import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
 
 export default function DocumentsBlock({
   slug,
   background,
   text,
   documents,
-}: DocumentsBlockConfig) {
+}: Props) {
   return (
     <Block slug={slug.current} color={background.label}>
       <div>

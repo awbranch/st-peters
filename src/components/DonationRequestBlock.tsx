@@ -5,7 +5,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { twJoin } from 'tailwind-merge';
 import LinkButton from '@/components/LinkButton';
 import { breakpoints } from '@/utils/globals';
-import { DonationRequestBlockConfig } from '@/types/DonationRequestBlockConfig';
+import { DonationRequestBlock as Props } from '@/types/DonationRequestBlock';
 import { getDonationRequest } from '@/sanity/sanity-utils';
 
 export default async function DonationRequestBlock({
@@ -13,7 +13,7 @@ export default async function DonationRequestBlock({
   background,
   alignment,
   request,
-}: DonationRequestBlockConfig) {
+}: Props) {
   const donationRequest = await getDonationRequest(request._ref);
 
   return (

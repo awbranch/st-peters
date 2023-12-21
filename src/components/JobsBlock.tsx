@@ -2,7 +2,7 @@ import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import JobsSlider from '@/components/JobsSlider';
-import { JobsBlockConfig } from '@/types/JobsBlockConfig';
+import { JobsBlock as Props } from '@/types/JobsBlock';
 
 export default function JobsBlock({
   slug,
@@ -11,7 +11,7 @@ export default function JobsBlock({
   jobs,
   eeoStatement,
   noOpenings,
-}: JobsBlockConfig) {
+}: Props) {
   return (
     <Block slug={slug.current} color={background.label} center>
       <div className="max-w-screen-md mx-auto">

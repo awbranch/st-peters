@@ -1,6 +1,6 @@
 import { Image } from '@/types/Image';
 
-export type ButtonTileConfig = {
+export type ButtonTile = {
   _type: 'buttonTile';
   _key: string;
   icon: Image;

@@ -2,7 +2,7 @@ import { PortableTextBlock, Slug } from 'sanity';
 import { Image } from '@/types/Image';
 import { ColorStruct } from '@/types/Color';
 
-export type HighlightBlockConfig = {
+export type HighlightBlock = {
   _type: 'highlightBlock';
   _key: string;
   slug: Slug;

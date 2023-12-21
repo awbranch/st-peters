@@ -4,7 +4,7 @@ import RichText from '@/components/RichText';
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
-import { TeamBlockConfig } from '@/types/TeamBlockConfig';
+import { TeamBlock } from '@/types/TeamBlock';
 
 export default function TeamBlock({
   slug,
@@ -14,7 +14,7 @@ export default function TeamBlock({
   staffLabel,
   boardPhoto,
   boardLabel,
-}: TeamBlockConfig) {
+}: TeamBlock) {
   return (
     <Block slug={slug.current} color={background.label}>
       <RichText text={text} />

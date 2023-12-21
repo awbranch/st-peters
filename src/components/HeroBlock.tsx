@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroBlockConfig } from '@/types/HeroBlockConfig';
+import { HeroBlock as Props } from '@/types/HeroBlock';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
@@ -13,7 +13,7 @@ export default function HeroBlock({
   image,
   buttonLabel,
   buttonLink,
-}: HeroBlockConfig) {
+}: Props) {
   return (
     <Block slug={slug.current} color={background.label}>
       <div

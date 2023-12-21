@@ -1,6 +1,6 @@
 import React from 'react';
 import { twJoin } from 'tailwind-merge';
-import { HighlightBlockConfig } from '@/types/HighlightBlockConfig';
+import { HighlightBlock as Props } from '@/types/HighlightBlock';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import ResponsiveImage from '@/components/ResponsiveImage';
@@ -15,7 +15,7 @@ export default function HighlightBlock({
   image,
   buttonLabel,
   buttonLink,
-}: HighlightBlockConfig) {
+}: Props) {
   let color = background.label;
   return (
     <Block slug={slug.current} color={color}>

@@ -84,11 +84,9 @@ export default defineType({
       of: [defineArrayMember({ type: 'action' })],
     }),
     defineField({
-      name: 'donationRequest',
+      name: 'donationRequestBlock',
       title: 'Donation Request',
-      type: 'reference',
-      description: 'A story can have a donation request to support it',
-      to: [{ type: 'donationRequest' }],
+      type: 'donationRequestBlock',
     }),
   ],
   preview: {

@@ -1,5 +1,5 @@
-import { BlockConfig } from '@/types/BlockConfig';
+import { Block } from '@/types/Block';
 
 export type Page = {
-  blocks: Array<BlockConfig>;
+  blocks: Array<Block>;
 };

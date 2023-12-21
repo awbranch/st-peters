@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import { ButtonTileConfig } from '@/types/ButtonTileConfig';
+import { ButtonTile } from '@/types/ButtonTile';
 import { urlFor } from '@/sanity/sanity-utils';
 
-export function ButtonTile({ icon, title, text, url }: ButtonTileConfig) {
+export function ButtonTile({ icon, title, text, url }: ButtonTile) {
   return (
     <Link
       className={

@@ -18,10 +18,13 @@ import programsBlock from '@/sanity/schema/programs-block-schema';
 import teamBlock from '@/sanity/schema/team-block-schema';
 import textBlock from '@/sanity/schema/text-block-schema';
 import volunteerFormBlock from '@/sanity/schema/volunteer-form-block-schema';
+import wishListBlock from '@/sanity/schema/wishlist-block-schema';
 
 import action from '@/sanity/schema/action-schema';
 import address from '@/sanity/schema/address-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
+import button from '@/sanity/schema/button-schema';
+import buttonRow from '@/sanity/schema/button-row-schema';
 import buttonTileGrid from '@/sanity/schema/button-tile-grid-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
 import doc from '@/sanity/schema/doc-schema';
@@ -36,9 +39,7 @@ import newsStory from '@/sanity/schema/news-story-schema';
 import program from '@/sanity/schema/program-schema';
 import social from '@/sanity/schema/social-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
-import supportCategory from '@/sanity/schema/support-category-schema';
 import volunteerPage from '@/sanity/schema/volunteer-page-schema';
-import wishlist from '@/sanity/schema/wishlist-schema';
 
 const schemas = [
   homePage,
@@ -61,10 +62,13 @@ const schemas = [
   teamBlock,
   textBlock,
   volunteerFormBlock,
+  wishListBlock,
 
   action,
   address,
   boardMember,
+  button,
+  buttonRow,
   buttonTileGrid,
   buttonTile,
   doc,
@@ -80,8 +84,6 @@ const schemas = [
   settings,
   social,
   staffMember,
-  supportCategory,
-  wishlist,
 ];
 
 export default schemas;

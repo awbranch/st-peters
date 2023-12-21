@@ -1,7 +1,7 @@
 import { Reference, Slug } from 'sanity';
 import { ColorStruct } from '@/types/Color';
 
-export type DonationRequestBlockConfig = {
+export type DonationRequestBlock = {
   _type: 'donationRequestBlock';
   _key: string;
   slug: Slug;

@@ -1,12 +1,14 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { ColorStruct } from '@/types/Color';
-import { FAQ } from '@/types/FAQ';
+import { Job } from '@/types/Job';
 
-export type FAQsBlockConfig = {
-  _type: 'faqsBlock';
+export type JobsBlock = {
+  _type: 'jobsBlock';
   _key: string;
   slug: Slug;
   background: ColorStruct;
   text: PortableTextBlock[];
-  faqs: FAQ[];
+  jobs: Job[];
+  eeoStatement: PortableTextBlock[];
+  noOpenings: PortableTextBlock[];
 };

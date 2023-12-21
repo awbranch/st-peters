@@ -22,6 +22,7 @@ export default defineType({
         createRichTextBlock(),
         createImageField('image', 'Image'),
         { type: 'buttonTileGrid' },
+        { type: 'buttonRow' },
       ],
     }),
   ],

@@ -3,14 +3,14 @@ import RichText from '@/components/RichText';
 import { getNow, getNextWeekdayDate, isWeekday } from '@/utils/date';
 import { getLunchMenus } from '@/sanity/sanity-utils';
 import LunchSlider from '@/components/LunchSlider';
-import { LunchBlockConfig } from '@/types/LunchBlockConfig';
+import { LunchBlock as Props } from '@/types/LunchBlock';
 
 export default async function LunchBlock({
   slug,
   background,
   text,
   tbd,
-}: LunchBlockConfig) {
+}: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates

@@ -3,13 +3,9 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { getPrograms } from '@/sanity/sanity-utils';
 import { ProgramCard } from '@/components/ProgramCard';
-import { ProgramsBlockConfig } from '@/types/ProgramsBlockConfig';
+import { ProgramsBlock as Props } from '@/types/ProgramsBlock';
 
-export default async function ProgramsBlock({
-  slug,
-  background,
-  text,
-}: ProgramsBlockConfig) {
+export default async function ProgramsBlock({ slug, background, text }: Props) {
   const programs = await getPrograms();
 
   return (

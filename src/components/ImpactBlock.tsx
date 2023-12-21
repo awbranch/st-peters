@@ -1,14 +1,14 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { ImpactBlockConfig } from '@/types/ImpactBlockConfig';
+import { ImpactBlock as Props } from '@/types/ImpactBlock';
 
 export default function ImpactBlock({
   slug,
   background,
   text,
   impacts,
-}: ImpactBlockConfig) {
+}: Props) {
   return (
     <Block slug={slug.current} color={background.label} center>
       <div className="max-w-lg mx-auto">

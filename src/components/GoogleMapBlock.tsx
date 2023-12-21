@@ -1,14 +1,14 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { GoogleMapBlockConfig } from '@/types/GoogleMapBlockConfig';
+import { GoogleMapBlock as Props } from '@/types/GoogleMapBlock';
 
 export default function GoogleMapBlock({
   slug,
   background,
   text,
   embedURL,
-}: GoogleMapBlockConfig) {
+}: Props) {
   return (
     <Block slug={slug.current} color={background.label}>
       <RichText text={text} />

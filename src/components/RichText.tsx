@@ -5,8 +5,10 @@ import { PortableText } from '@portabletext/react';
 import { isFullyQualifiedURL } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { ButtonTileGridConfig } from '@/types/ButtonTileGridConfig';
 import ButtonTileGrid from '@/components/ButtonTileGrid';
+import ButtonRow from '@/components/ButtonRow';
+import { ButtonTileGrid as ButtonTileGridConfig } from '@/types/ButtonTileGrid';
+import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
 
 type Props = {
   text: PortableTextBlock[];
@@ -79,6 +81,9 @@ const RichText = ({ text }: Props) => {
       },
       buttonTileGrid: ({ value }: { value: ButtonTileGridConfig }) => {
         return <ButtonTileGrid {...value} />;
+      },
+      buttonRow: ({ value }: { value: ButtonRowConfig }) => {
+        return <ButtonRow {...value} />;
       },
     },
   };

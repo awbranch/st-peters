@@ -135,6 +135,7 @@ export function createBlocksArrayField(name: string, title: string) {
       defineArrayMember({ type: 'docsBlock' }),
       defineArrayMember({ type: 'faqsBlock' }),
       defineArrayMember({ type: 'volunteerFormBlock' }),
+      defineArrayMember({ type: 'wishListBlock' }),
     ],
   });
 }

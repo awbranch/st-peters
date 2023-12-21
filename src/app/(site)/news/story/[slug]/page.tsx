@@ -71,14 +71,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           )}
         </Block>
       </section>
-      {story.donationRequest && (
-        <section id="donation-request">
-          <DonationRequestBlock
-            color="blue"
-            orientation="right"
-            request={story.donationRequest}
-          />
-        </section>
+      {story.donationRequestBlock && (
+        <DonationRequestBlock {...story.donationRequestBlock} />
       )}
       {stories && (
         <section>

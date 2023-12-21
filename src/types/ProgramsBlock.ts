@@ -1,8 +1,8 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { ColorStruct } from '@/types/Color';
 
-export type VolunteerFormBlockConfig = {
-  _type: 'volunteerFormBlock';
+export type ProgramsBlock = {
+  _type: 'programsBlock';
   _key: string;
   slug: Slug;
   background: ColorStruct;

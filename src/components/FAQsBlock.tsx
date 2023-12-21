@@ -1,14 +1,9 @@
 import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
-import { FAQsBlockConfig } from '@/types/FAQsBlockConfig';
+import { FAQsBlock as Props } from '@/types/FAQsBlock';
 
-export default function FAQsBlock({
-  slug,
-  background,
-  text,
-  faqs,
-}: FAQsBlockConfig) {
+export default function FAQsBlock({ slug, background, text, faqs }: Props) {
   return (
     <Block slug={slug.current} color={background.label}>
       <RichText text={text} />
