@@ -3,7 +3,7 @@ import { FaUsers as icon } from 'react-icons/fa';
 
 import {
   createImageField,
-  createRichTextField,
+  createRichTextBlock,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 
@@ -15,8 +15,13 @@ export default defineType({
   description: 'A block that allows you to select the staff or board.',
   fields: [
     ...createStockBlockFields(),
-    createRichTextField('text', 'Text', ['h1', 'decorators', 'textColor']),
-
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [createRichTextBlock(['h1', 'decorators', 'textColor'])],
+      validation: (Rule: any) => Rule.required(),
+    }),
     createImageField('staffPhoto', 'Staff Group Photo'),
     defineField({
       name: 'staffLabel',

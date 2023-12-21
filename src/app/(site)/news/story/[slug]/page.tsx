@@ -53,22 +53,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
             sizes={'100vw'}
           />
           <RichText text={story.text} />
-
-          {story.actions && (
-            <div className="flex flex-row gap-2 mt-8 justify-center">
-              {story.actions.map((a, i) => (
-                <LinkButton
-                  key={i}
-                  href={a.link}
-                  color={'pink'}
-                  size={'small'}
-                  variant={i === 0 ? 'solid' : 'outline'}
-                >
-                  {a.name}
-                </LinkButton>
-              ))}
-            </div>
-          )}
         </Block>
       </section>
       {story.donationRequestBlock && (

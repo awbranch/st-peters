@@ -1,9 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaGear as icon } from 'react-icons/fa6';
-import {
-  createRichTextBlock,
-  createRichTextField,
-} from '@/sanity/schema/utils';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'settings',
@@ -58,7 +55,14 @@ export default defineType({
       group: 'contact',
       validation: (Rule) => Rule.required(),
     }),
-    createRichTextField('contactUsText', 'Contact Us Text', ['all'], 'contact'),
+    defineField({
+      name: 'contactUsText',
+      title: 'Contact Us Text',
+      type: 'array',
+      of: [createRichTextBlock()],
+      validation: (Rule: any) => Rule.required(),
+      group: 'contact',
+    }),
     defineField({
       name: 'newsletterSignupTitle',
       title: 'Newsletter Signup Title',

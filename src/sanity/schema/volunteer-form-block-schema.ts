@@ -1,6 +1,6 @@
-import { defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import {
-  createRichTextField,
+  createRichTextBlock,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 import { FaRegWindowMaximize as icon } from 'react-icons/fa';
@@ -13,13 +13,21 @@ export default defineType({
   description: 'A block that displays the volunteering form.',
   fields: [
     ...createStockBlockFields(),
-    createRichTextField('text', 'Text', [
-      'h1',
-      'decorators',
-      'links',
-      'lists',
-      'textColor',
-    ]),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [
+        createRichTextBlock([
+          'h1',
+          'decorators',
+          'links',
+          'lists',
+          'textColor',
+        ]),
+      ],
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
   preview: {
     select: { slug: 'slug' },

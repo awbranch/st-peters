@@ -7,7 +7,6 @@ export default defineType({
   title: 'Wish List Page',
   type: 'document',
   icon,
-  groups: [],
   fields: [createBlocksArrayField('blocks', 'Blocks')],
   preview: {
     prepare() {

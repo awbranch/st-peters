@@ -1,7 +1,7 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { newsCategories } from '@/utils/globals';
-import { FaNewspaper, FaCalendarDays, FaBookOpenReader } from 'react-icons/fa6';
-import { createImageField, createRichTextField } from '@/sanity/schema/utils';
+import { FaBookOpenReader, FaCalendarDays, FaNewspaper } from 'react-icons/fa6';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 
 const iconSet = {
   event: FaCalendarDays,
@@ -74,14 +74,17 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     createImageField('image', 'Image'),
-    createRichTextField('text', 'Text', ['all']),
     defineField({
-      name: 'actions',
-      title: 'Actions',
+      name: 'text',
+      title: 'Text',
       type: 'array',
-      description:
-        'A story can have one or more action buttons such as "Help Support People Like Sue" that links to the donation page.',
-      of: [defineArrayMember({ type: 'action' })],
+      of: [
+        createRichTextBlock(),
+        createImageField('image', 'Image'),
+        { type: 'buttonTileGrid' },
+        { type: 'buttonRow' },
+      ],
+      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'donationRequestBlock',

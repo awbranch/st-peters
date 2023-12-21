@@ -1,9 +1,9 @@
 import {
-  defineField,
-  defineArrayMember,
-  BlockStyleDefinition,
-  BlockListDefinition,
   BlockDecoratorDefinition,
+  BlockListDefinition,
+  BlockStyleDefinition,
+  defineArrayMember,
+  defineField,
 } from 'sanity';
 
 export function createImageField(name: string, title: string, group?: string) {
@@ -96,22 +96,6 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
       decorators: decorators,
       annotations: annotations,
     },
-  });
-}
-
-export function createRichTextField(
-  name: string,
-  title: string,
-  level?: Array<CRTLevel>,
-  group?: string,
-) {
-  return defineField({
-    name,
-    title,
-    group,
-    type: 'array',
-    of: [createRichTextBlock(level)],
-    validation: (Rule: any) => Rule.required(),
   });
 }
 

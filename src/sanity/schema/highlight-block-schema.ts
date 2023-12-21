@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 import {
   createImageField,
-  createRichTextField,
+  createRichTextBlock,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 import { IoFlashlight as icon } from 'react-icons/io5';
@@ -29,13 +29,21 @@ export default defineType({
       },
       validation: (Rule: any) => Rule.required(),
     }),
-    createRichTextField('text', 'Text', [
-      'h1',
-      'decorators',
-      'links',
-      'lists',
-      'textColor',
-    ]),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [
+        createRichTextBlock([
+          'h1',
+          'decorators',
+          'links',
+          'lists',
+          'textColor',
+        ]),
+      ],
+      validation: (Rule: any) => Rule.required(),
+    }),
     createImageField('image', 'Image'),
     defineField({
       name: 'buttonLabel',

@@ -12,8 +12,7 @@ export default function HeroBlock({
   narrow,
   text,
   image,
-  buttonLabel,
-  buttonLink,
+  button,
 }: Props) {
   return (
     <Block slug={slug.current} color={background?.label} narrow={narrow}>
@@ -57,16 +56,15 @@ export default function HeroBlock({
               } as any
             }
           />
-          {buttonLabel && buttonLink && (
+          {button && (
             <LinkButton
               className={'mt-8'}
-              href={buttonLink}
-              color={'pink'}
-              variant={'solid'}
+              href={button.link}
+              color={button.color.label}
               size={'large'}
-              icon={'down'}
+              variant={button.variant === 'primary' ? 'solid' : 'outline'}
             >
-              {buttonLabel}
+              {button.label}
             </LinkButton>
           )}
         </div>

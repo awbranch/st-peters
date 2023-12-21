@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaQuestionCircle as icon } from 'react-icons/fa';
-import { createRichTextField } from '@/sanity/schema/utils';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'faq',
@@ -14,11 +14,12 @@ export default defineType({
       type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
-    createRichTextField('answer', 'Answer', [
-      'lists',
-      'decorators',
-      'links',
-      'textColor',
-    ]),
+    defineField({
+      name: 'answer',
+      title: 'Answer',
+      type: 'array',
+      of: [createRichTextBlock(['lists', 'decorators', 'links', 'textColor'])],
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
 });

@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import {
-  createRichTextField,
+  createRichTextBlock,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 import { FaClipboardList as icon } from 'react-icons/fa';
@@ -14,13 +14,21 @@ export default defineType({
     'A block that displays the upcoming lunch menus, pulled from the global list of Lunches.',
   fields: [
     ...createStockBlockFields(),
-    createRichTextField('text', 'Text', [
-      'h1',
-      'decorators',
-      'links',
-      'lists',
-      'textColor',
-    ]),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [
+        createRichTextBlock([
+          'h1',
+          'decorators',
+          'links',
+          'lists',
+          'textColor',
+        ]),
+      ],
+      validation: (Rule: any) => Rule.required(),
+    }),
     defineField({
       name: 'tbd',
       title: 'TBD',

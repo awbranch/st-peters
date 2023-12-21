@@ -5,8 +5,6 @@ import BlockSectionList from '@/components/BlockSectionList';
 export default async function Home() {
   const page = await getHomePage();
 
-  console.log(page);
-
   return (
     <>
       <main>
