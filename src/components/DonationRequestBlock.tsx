@@ -11,13 +11,14 @@ import { getDonationRequest } from '@/sanity/sanity-utils';
 export default async function DonationRequestBlock({
   slug,
   background,
+  narrow,
   alignment,
   request,
 }: Props) {
   const donationRequest = await getDonationRequest(request._ref);
 
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <div
         className={twJoin(
           'flex gap-4',

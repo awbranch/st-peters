@@ -13,6 +13,8 @@ import { FAQsBlock } from '@/types/FAQsBlock';
 import { VolunteerFormBlock } from '@/types/VolunteerFormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { WishListBlock } from '@/types/WishListBlock';
+import { Slug } from 'sanity';
+import { ColorStruct } from '@/types/Color';
 
 export type Block =
   | DocumentsBlock
@@ -30,3 +32,10 @@ export type Block =
   | TextBlock
   | VolunteerFormBlock
   | WishListBlock;
+
+export type BlockProps = {
+  _key: string;
+  slug: Slug;
+  background?: ColorStruct;
+  narrow?: boolean;
+};

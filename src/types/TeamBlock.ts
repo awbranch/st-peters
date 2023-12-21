@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
 
-export type TeamBlock = {
+export type TeamBlock = BlockProps & {
   _type: 'teamBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
   staffPhoto: Image;
   staffLabel: string;

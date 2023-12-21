@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 import { Impact } from '@/types/Impact';
-import { ColorStruct } from '@/types/Color';
 
-export type ImpactBlock = {
+export type ImpactBlock = BlockProps & {
   _type: 'impactBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
   impacts: Impact[];
 };

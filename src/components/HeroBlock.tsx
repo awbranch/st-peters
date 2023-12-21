@@ -9,13 +9,14 @@ import { PortableText } from '@portabletext/react';
 export default function HeroBlock({
   slug,
   background,
+  narrow,
   text,
   image,
   buttonLabel,
   buttonLink,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <div
         className={
           'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 max-w-2xl lg:max-w-full mx-auto'

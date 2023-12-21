@@ -7,13 +7,14 @@ import { JobsBlock as Props } from '@/types/JobsBlock';
 export default function JobsBlock({
   slug,
   background,
+  narrow,
   text,
   jobs,
   eeoStatement,
   noOpenings,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background.label} center>
+    <Block slug={slug.current} color={background?.label} center narrow={narrow}>
       <div className="max-w-screen-md mx-auto">
         <RichText text={text} />
       </div>

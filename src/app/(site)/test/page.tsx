@@ -1,5 +1,5 @@
 import { getLunchMenus } from '@/sanity/sanity-utils';
-import NarrowContainer from '@/components/NarrowContainer';
+import Container from '@/components/Container';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
 
@@ -12,7 +12,7 @@ export default async function Test() {
   return (
     <div>
       <main>
-        <NarrowContainer>
+        <Container narrow={true}>
           {menus.map((m, i) => (
             <div key={i}>
               <>
@@ -21,7 +21,7 @@ export default async function Test() {
               </>
             </div>
           ))}
-        </NarrowContainer>
+        </Container>
       </main>
     </div>
   );

@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
-import { ColorStruct } from '@/types/Color';
 
-export type HighlightBlock = {
+export type HighlightBlock = BlockProps & {
   _type: 'highlightBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   alignment: 'left' | 'right';
   text: PortableTextBlock[];
   image: Image;

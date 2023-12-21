@@ -9,6 +9,7 @@ import { TeamBlock } from '@/types/TeamBlock';
 export default function TeamBlock({
   slug,
   background,
+  narrow,
   text,
   staffPhoto,
   staffLabel,
@@ -16,7 +17,7 @@ export default function TeamBlock({
   boardLabel,
 }: TeamBlock) {
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <RichText text={text} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">

@@ -5,11 +5,16 @@ import { getPrograms } from '@/sanity/sanity-utils';
 import { ProgramCard } from '@/components/ProgramCard';
 import { ProgramsBlock as Props } from '@/types/ProgramsBlock';
 
-export default async function ProgramsBlock({ slug, background, text }: Props) {
+export default async function ProgramsBlock({
+  slug,
+  background,
+  text,
+  narrow,
+}: Props) {
   const programs = await getPrograms();
 
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <div className="mb-6">
         <RichText text={text} />
       </div>

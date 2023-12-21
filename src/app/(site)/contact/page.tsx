@@ -3,7 +3,7 @@ import Block from '@/components/Block';
 import { getSettings } from '@/sanity/sanity-utils';
 import RichText from '@/components/RichText';
 import ContactForm from '@/components/ContactForm';
-import NarrowContainer from '@/components/NarrowContainer';
+import Container from '@/components/Container';
 
 export default async function Contact() {
   const settings = await getSettings();
@@ -11,11 +11,11 @@ export default async function Contact() {
     <>
       <main>
         <Block color={'pink'}>
-          <NarrowContainer>
+          <Container narrow={true}>
             <h1 className="text-xl mb-4">{settings.contactUsTitle}</h1>
             <RichText text={settings.contactUsText} />
             <ContactForm />
-          </NarrowContainer>
+          </Container>
         </Block>
       </main>
     </>

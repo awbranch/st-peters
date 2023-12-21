@@ -7,6 +7,7 @@ type Props = {
   slug?: string;
   color?: Color;
   center?: boolean;
+  narrow?: boolean;
   className?: string;
   children: React.ReactNode;
 };
@@ -15,6 +16,7 @@ export default function Block({
   slug,
   color = 'white',
   center = false,
+  narrow = false,
   className = '',
   children,
 }: Props) {
@@ -33,7 +35,7 @@ export default function Block({
         className,
       )}
     >
-      <Container>{children}</Container>
+      <Container narrow={narrow}>{children}</Container>
     </section>
   );
 }

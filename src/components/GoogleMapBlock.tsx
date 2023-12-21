@@ -6,11 +6,12 @@ import { GoogleMapBlock as Props } from '@/types/GoogleMapBlock';
 export default function GoogleMapBlock({
   slug,
   background,
+  narrow,
   text,
   embedURL,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <RichText text={text} />
       <iframe
         className="mt-3"

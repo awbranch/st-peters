@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 import { Job } from '@/types/Job';
 
-export type JobsBlock = {
+export type JobsBlock = BlockProps & {
   _type: 'jobsBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
   jobs: Job[];
   eeoStatement: PortableTextBlock[];

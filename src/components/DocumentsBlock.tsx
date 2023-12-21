@@ -9,11 +9,12 @@ import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
 export default function DocumentsBlock({
   slug,
   background,
+  narrow,
   text,
   documents,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <div>
         <RichText text={text} />
       </div>

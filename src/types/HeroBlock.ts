@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
+import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
 
-export type HeroBlock = {
+export type HeroBlock = BlockProps & {
   _type: 'heroBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
   image: Image;
   buttonLabel?: string;

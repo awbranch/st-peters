@@ -1,10 +1,7 @@
-import { PortableTextBlock, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 
-export type ProgramsBlock = {
+export type ProgramsBlock = BlockProps & {
   _type: 'programsBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
 };

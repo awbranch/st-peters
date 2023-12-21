@@ -1,12 +1,9 @@
-import { PortableTextBlock, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 import { Document } from '@/types/Document';
 
-export type DocumentsBlock = {
+export type DocumentsBlock = BlockProps & {
   _type: 'docsBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   text: PortableTextBlock[];
   documents: Document[];
 };

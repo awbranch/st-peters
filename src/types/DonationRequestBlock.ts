@@ -1,11 +1,8 @@
-import { Reference, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { Reference } from 'sanity';
 
-export type DonationRequestBlock = {
+export type DonationRequestBlock = BlockProps & {
   _type: 'donationRequestBlock';
-  _key: string;
-  slug: Slug;
   alignment: 'left' | 'right';
-  background: ColorStruct;
   request: Reference;
 };

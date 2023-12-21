@@ -10,15 +10,15 @@ import { breakpoints } from '@/utils/globals';
 export default function HighlightBlock({
   slug,
   background,
+  narrow,
   alignment,
   text,
   image,
   buttonLabel,
   buttonLink,
 }: Props) {
-  let color = background.label;
   return (
-    <Block slug={slug.current} color={color}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <div
         className={twJoin(
           'flex gap-4 flex-col',

@@ -153,8 +153,14 @@ export function createStockBlockFields() {
       name: 'background',
       title: 'Background',
       type: 'simplerColor',
-      description: 'The background color for the block.',
-      validation: (Rule: any) => Rule.required(),
+      description:
+        'The background color for the block, if not set it defaults to white.',
+    }),
+    defineField({
+      name: 'narrow',
+      title: 'Narrow Width',
+      type: 'boolean',
+      description: 'Looks best for blocks containing forms or mostly text',
     }),
   ];
 }

@@ -6,11 +6,12 @@ import { ImpactBlock as Props } from '@/types/ImpactBlock';
 export default function ImpactBlock({
   slug,
   background,
+  narrow,
   text,
   impacts,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background.label} center>
+    <Block slug={slug.current} color={background?.label} center narrow={narrow}>
       <div className="max-w-lg mx-auto">
         <RichText text={text} />
       </div>

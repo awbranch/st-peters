@@ -1,11 +1,8 @@
-import { PortableTextBlock, Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { BlockProps } from '@/types/Block';
+import { PortableTextBlock } from 'sanity';
 
-export type InstagramBlock = {
+export type InstagramBlock = BlockProps & {
   _type: 'instagramBlock';
-  _key: string;
-  slug: Slug;
-  background: ColorStruct;
   title: string;
   text: PortableTextBlock[];
   config: string;

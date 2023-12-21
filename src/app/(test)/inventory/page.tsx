@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import NarrowContainer from '@/components/NarrowContainer';
+import Container from '@/components/Container';
 import { Disclosure } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
@@ -18,7 +18,7 @@ export default function Inventory() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <NarrowContainer>
+    <Container narrow={true}>
       <main className={'px-10'}>
         <section id={'headers'} className={'mt-20'}>
           <h1 className="text-5xl">Headers</h1>
@@ -199,6 +199,6 @@ export default function Inventory() {
           <h1 className="text-5xl">Combobox</h1>
         </section>
       </main>
-    </NarrowContainer>
+    </Container>
   );
 }

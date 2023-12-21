@@ -8,6 +8,7 @@ import { LunchBlock as Props } from '@/types/LunchBlock';
 export default async function LunchBlock({
   slug,
   background,
+  narrow,
   text,
   tbd,
 }: Props) {
@@ -30,7 +31,7 @@ export default async function LunchBlock({
   }
 
   return (
-    <Block slug={slug.current} color={background.label} center>
+    <Block slug={slug.current} color={background?.label} center narrow={narrow}>
       <RichText text={text} />
       <div className="my-4">{menus && <LunchSlider menus={menus} />}</div>
     </Block>

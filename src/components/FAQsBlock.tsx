@@ -3,9 +3,15 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { FAQsBlock as Props } from '@/types/FAQsBlock';
 
-export default function FAQsBlock({ slug, background, text, faqs }: Props) {
+export default function FAQsBlock({
+  slug,
+  background,
+  narrow,
+  text,
+  faqs,
+}: Props) {
   return (
-    <Block slug={slug.current} color={background.label}>
+    <Block slug={slug.current} color={background?.label} narrow={narrow}>
       <RichText text={text} />
       <ul>
         {faqs.map((faq, i) => (
