@@ -12,7 +12,7 @@ import TeamBlock from '@/components/TeamBlock';
 import JobsBlock from '@/components/JobsBlock';
 import DocumentsBlock from '@/components/DocumentsBlock';
 import FAQsBlock from '@/components/FAQsBlock';
-import VolunteerFormBlock from '@/components/VolunteerFormBlock';
+import FormBlock from '@/components/FormBlock';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import WishListBlock from '@/components/WishListBlock';
 
@@ -44,8 +44,8 @@ export default function BlockSectionList({ blocks }: Props) {
       <DocumentsBlock key={config._key} {...config} />
     ) : config._type === 'faqsBlock' ? (
       <FAQsBlock key={config._key} {...config} />
-    ) : config._type === 'volunteerFormBlock' ? (
-      <VolunteerFormBlock key={config._key} {...config} />
+    ) : config._type === 'formBlock' ? (
+      <FormBlock key={config._key} {...config} />
     ) : config._type === 'donationRequestBlock' ? (
       <DonationRequestBlock key={config._key} {...config} />
     ) : config._type === 'wishListBlock' ? (

@@ -10,7 +10,7 @@ import { TeamBlock } from '@/types/TeamBlock';
 import { JobsBlock } from '@/types/JobsBlock';
 import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
-import { VolunteerFormBlock } from '@/types/VolunteerFormBlock';
+import { FormBlock } from '@/types/FormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { WishListBlock } from '@/types/WishListBlock';
 import { Slug } from 'sanity';
@@ -20,6 +20,7 @@ export type Block =
   | DocumentsBlock
   | DonationRequestBlock
   | FAQsBlock
+  | FormBlock
   | GoogleMapBlock
   | HeroBlock
   | HighlightBlock
@@ -30,7 +31,6 @@ export type Block =
   | ProgramsBlock
   | TeamBlock
   | TextBlock
-  | VolunteerFormBlock
   | WishListBlock;
 
 export type BlockProps = {

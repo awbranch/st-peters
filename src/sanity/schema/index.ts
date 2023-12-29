@@ -4,6 +4,7 @@ import settings from '@/sanity/schema/settings-schema';
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
+import formBlock from '@/sanity/schema/form-block-schema';
 import googleMapBlock from '@/sanity/schema/google-map-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
 import highlightBlock from '@/sanity/schema/highlight-block-schema';
@@ -14,7 +15,6 @@ import jobsBlock from '@/sanity/schema/jobs-block-schema';
 import programsBlock from '@/sanity/schema/programs-block-schema';
 import teamBlock from '@/sanity/schema/team-block-schema';
 import textBlock from '@/sanity/schema/text-block-schema';
-import volunteerFormBlock from '@/sanity/schema/volunteer-form-block-schema';
 import wishListBlock from '@/sanity/schema/wishlist-block-schema';
 
 import action from '@/sanity/schema/action-schema';
@@ -41,6 +41,7 @@ const schemas = [
   docsBlock,
   donationRequestBlock,
   faqsBlock,
+  formBlock,
   googleMapBlock,
   heroBlock,
   highlightBlock,
@@ -51,7 +52,6 @@ const schemas = [
   programsBlock,
   teamBlock,
   textBlock,
-  volunteerFormBlock,
   wishListBlock,
 
   action,

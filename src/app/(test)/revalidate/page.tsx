@@ -7,7 +7,6 @@ export const revalidate = 20;
 
 export default async function Test() {
   const menus = await getLunchMenus();
-  console.log('test get lunch menus');
 
   return (
     <div>

@@ -19,7 +19,7 @@ export default async function GenericPage({ params }: Props) {
 
   return (
     <>
-      <main>{<BlockSectionList blocks={page.blocks} />}</main>
+      <main>{page?.blocks && <BlockSectionList blocks={page.blocks} />}</main>
     </>
   );
 }
