@@ -10,6 +10,8 @@ import { noteField } from 'sanity-plugin-note-field';
 
 const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
+  header: 'da00c098-883a-4597-bf69-b06f7443dd3c',
+  footer: 'bb015db2-386d-470e-b35f-c1d994640dc3',
 };
 
 const orderable = ['program'];

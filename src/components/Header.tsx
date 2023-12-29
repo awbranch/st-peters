@@ -1,15 +1,15 @@
 import React from 'react';
-import { getSettings } from '@/sanity/sanity-utils';
+import { getHeader } from '@/sanity/sanity-utils';
 import NotificationBar from '@/components/NotificationBar';
 import NavBar from '@/components/NavBar';
 
 export default async function Header() {
-  const settings = await getSettings();
+  const props = await getHeader();
 
   return (
     <header>
-      {settings.showNotification && (
-        <NotificationBar message={settings.notificationMessage} />
+      {props.showNotification && (
+        <NotificationBar message={props.notificationMessage} />
       )}
       <NavBar />
     </header>

@@ -1,5 +1,6 @@
 import page from '@/sanity/schema/page-schema';
-import settings from '@/sanity/schema/settings-schema';
+import footer from '@/sanity/schema/footer-schema';
+import header from '@/sanity/schema/header-schema';
 
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
@@ -38,6 +39,10 @@ import social from '@/sanity/schema/social-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
 
 const schemas = [
+  header,
+  footer,
+  page,
+
   docsBlock,
   donationRequestBlock,
   faqsBlock,
@@ -70,9 +75,7 @@ const schemas = [
   link,
   lunchMenu,
   newsStory,
-  page,
   program,
-  settings,
   social,
   staffMember,
 ];

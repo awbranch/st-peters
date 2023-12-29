@@ -3,17 +3,17 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
 import Logo from '@/components/Logo';
-import { getSettings } from '@/sanity/sanity-utils';
+import { getFooter } from '@/sanity/sanity-utils';
 import { SocialMediaService } from '@/types/SocialMediaService';
 import { IconDefinition } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebookF,
   faInstagram,
-  faYoutube,
-  faTwitter,
   faLinkedinIn,
+  faTwitter,
   faXTwitter,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import Wave from '@/components/Wave';
 import NewsletterSignupForm from '@/components/NewsletterSignupForm';
@@ -28,17 +28,17 @@ const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
 };
 
 export default async function Footer() {
-  const settings = await getSettings();
-  const { address } = settings;
+  const props = await getFooter();
+  const { address } = props;
 
   return (
     <footer>
       <section id={'newsletter'}>
         <Block color={'gray'} center>
-          <h2 className={'text-lg mb-2'}>{settings.newsletterSignupTitle}</h2>
-          <NewsletterSignupForm config={settings.newsletterConfig} />
+          <h2 className={'text-lg mb-2'}>{props.newsletterSignupTitle}</h2>
+          <NewsletterSignupForm config={props.newsletterConfig} />
           <div className={'mt-1'}>
-            <RichText text={settings.pastNewslettersMessage} />
+            <RichText text={props.pastNewslettersMessage} />
           </div>
         </Block>
 
@@ -80,9 +80,9 @@ export default async function Footer() {
               }
             >
               <section id={'follow-us'} className={'inline-block my-5'}>
-                <h2 className={'text-lg'}>{settings.socialTitle}</h2>
+                <h2 className={'text-lg'}>{props.socialTitle}</h2>
                 <ul className={'flex flex-row gap-6 mt-4'}>
-                  {settings.social.map((s) => (
+                  {props.social.map((s) => (
                     <li key={s.service}>
                       <Link
                         href={s.url}
@@ -109,7 +109,7 @@ export default async function Footer() {
                 }
               >
                 <ul>
-                  {settings.siteMap.map((s) => (
+                  {props.siteMap.map((s) => (
                     <li key={s.name} className={'mb-2'}>
                       <Link
                         className={'hover:underline hover:underline-offset-4'}

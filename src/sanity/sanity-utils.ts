@@ -6,7 +6,8 @@ import { Page } from '@/types/Page';
 import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
-import { Settings } from '@/types/Settings';
+import { Footer } from '@/types/Footer';
+import { Header } from '@/types/Header';
 import { DonationRequest } from '@/types/DonationRequest';
 
 const client = createClient({
@@ -167,8 +168,12 @@ export async function getNewsStory(slug: string) {
   );
 }
 
-export async function getSettings() {
-  return client.fetch<Settings>(groq`*[_type == "settings"][0]`);
+export async function getHeader() {
+  return client.fetch<Header>(groq`*[_type == "header"][0]`);
+}
+
+export async function getFooter() {
+  return client.fetch<Footer>(groq`*[_type == "footer"][0]`);
 }
 
 export async function getDonationRequest(id: string) {

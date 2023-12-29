@@ -1,21 +1,12 @@
 import { defineField, defineType } from 'sanity';
-import { FaGear as icon } from 'react-icons/fa6';
-import { createRichTextBlock } from '@/sanity/schema/utils';
+import { FaArrowsDownToLine as icon } from 'react-icons/fa6';
 
 export default defineType({
-  name: 'settings',
-  title: 'Settings',
+  name: 'footer',
+  title: 'Footer',
   type: 'document',
   icon,
   groups: [
-    {
-      name: 'notification',
-      title: 'Notifications',
-    },
-    {
-      name: 'contact',
-      title: 'Contact Us',
-    },
     {
       name: 'newsletter',
       title: 'Newsletter',
@@ -34,35 +25,6 @@ export default defineType({
     },
   ],
   fields: [
-    defineField({
-      name: 'showNotification',
-      title: 'Show Notification',
-      type: 'boolean',
-      group: 'notification',
-    }),
-    defineField({
-      name: 'notificationMessage',
-      title: 'Notification Message',
-      type: 'array',
-      of: [createRichTextBlock(['decorators'])],
-      hidden: ({ document }) => !document?.showNotification,
-      group: 'notification',
-    }),
-    defineField({
-      name: 'contactUsTitle',
-      title: 'Contact Us Title',
-      type: 'string',
-      group: 'contact',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'contactUsText',
-      title: 'Contact Us Text',
-      type: 'array',
-      of: [createRichTextBlock()],
-      validation: (Rule: any) => Rule.required(),
-      group: 'contact',
-    }),
     defineField({
       name: 'newsletterSignupTitle',
       title: 'Newsletter Signup Title',
@@ -129,7 +91,7 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Global Settings',
+        title: 'Footer',
       };
     },
   },

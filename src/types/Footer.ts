@@ -3,11 +3,7 @@ import { Address } from '@/types/Address';
 import { Social } from '@/types/Social';
 import { Link } from '@/types/Link';
 
-export type Settings = {
-  showNotification: boolean;
-  notificationMessage: PortableTextBlock[];
-  contactUsTitle: string;
-  contactUsText: PortableTextBlock[];
+export type Footer = {
   newsletterSignupTitle: string;
   pastNewslettersMessage: PortableTextBlock[];
   newsletterConfig: string;

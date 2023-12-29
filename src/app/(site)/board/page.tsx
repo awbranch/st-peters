@@ -1,7 +1,9 @@
 import Block from '@/components/Block';
-import { getBoardMembers } from '@/sanity/sanity-utils';
+import { getBoardMembers, getPageByPath } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { TeamMember } from '@/types/TeamMember';
+import RichText from '@/components/RichText';
+import React from 'react';
 
 const TitleRank = {
   President: 1,
@@ -20,7 +22,8 @@ const getTitleRank = (m: TeamMember) => {
     : TitleRank['None'];
 };
 
-export default async function Staff() {
+export default async function Board() {
+  const page = await getPageByPath(['board']);
   const team = await getBoardMembers();
 
   team.sort((a, b) => {
@@ -37,7 +40,12 @@ export default async function Staff() {
   return (
     <main>
       <Block color={'white'}>
-        <h1 className="text-xl mb-4">Our Board</h1>
+        <h1 className="text-xl mb-4">{page.title}</h1>
+        {page.text && (
+          <div className={'mb-8'}>
+            <RichText text={page.text} />
+          </div>
+        )}
         {team.map((m, i) => (
           <div key={i} className={'mb-8'}>
             <TeamMemberCard member={m} />
