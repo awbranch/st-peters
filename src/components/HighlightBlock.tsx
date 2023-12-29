@@ -28,16 +28,18 @@ export default function HighlightBlock({
       >
         <div className="flex-1">
           <RichText text={text} />
-          <div className={'hidden lg:block'}>
-            <LinkButton
-              href={buttonLink}
-              variant={'text'}
-              size={'large'}
-              icon={'right'}
-            >
-              {buttonLabel}
-            </LinkButton>
-          </div>
+          {buttonLink && buttonLabel && (
+            <div className={'hidden lg:block'}>
+              <LinkButton
+                href={buttonLink}
+                variant={'text'}
+                size={'large'}
+                icon={'right'}
+              >
+                {buttonLabel}
+              </LinkButton>
+            </div>
+          )}
         </div>
         <div className="flex-1 lg:flex-none mx-0 sm:mx-auto lg:mx-0">
           <ResponsiveImage
@@ -46,16 +48,18 @@ export default function HighlightBlock({
             sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
             className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
           />
-          <div className={'block lg:hidden mt-2 text-center'}>
-            <LinkButton
-              href={buttonLink}
-              variant={'text'}
-              size={'large'}
-              icon={'right'}
-            >
-              {buttonLabel}
-            </LinkButton>
-          </div>
+          {buttonLink && buttonLabel && (
+            <div className={'block lg:hidden mt-2 text-center'}>
+              <LinkButton
+                href={buttonLink}
+                variant={'text'}
+                size={'large'}
+                icon={'right'}
+              >
+                {buttonLabel}
+              </LinkButton>
+            </div>
+          )}
         </div>
       </div>
     </Block>

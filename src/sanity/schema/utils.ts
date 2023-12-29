@@ -144,6 +144,7 @@ export function createStockBlockFields() {
       name: 'narrow',
       title: 'Narrow Width',
       type: 'boolean',
+      initialValue: false,
       description: 'Looks best for blocks containing forms or mostly text',
     }),
   ];

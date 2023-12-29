@@ -1,7 +1,4 @@
-import homePage from '@/sanity/schema/home-page-schema';
-import aboutPage from '@/sanity/schema/about-page-schema';
-import supportPage from '@/sanity/schema/support-page-schema';
-import wishlistPage from '@/sanity/schema/wishlist-page-schema';
+import page from '@/sanity/schema/page-schema';
 import settings from '@/sanity/schema/settings-schema';
 
 import docsBlock from '@/sanity/schema/docs-block-schema';
@@ -39,15 +36,8 @@ import newsStory from '@/sanity/schema/news-story-schema';
 import program from '@/sanity/schema/program-schema';
 import social from '@/sanity/schema/social-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
-import volunteerPage from '@/sanity/schema/volunteer-page-schema';
 
 const schemas = [
-  homePage,
-  aboutPage,
-  volunteerPage,
-  supportPage,
-  wishlistPage,
-
   docsBlock,
   donationRequestBlock,
   faqsBlock,
@@ -80,6 +70,7 @@ const schemas = [
   link,
   lunchMenu,
   newsStory,
+  page,
   program,
   settings,
   social,

@@ -1,5 +1,5 @@
 import { createClient, groq } from 'next-sanity';
-import { Image, File } from 'sanity';
+import { File, Image } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
 import { Page } from '@/types/Page';
@@ -74,8 +74,19 @@ export async function getLunchMenus() {
   );
 }
 
-export async function getHomePage() {
-  return client.fetch<Page>(groq`*[_type == "homePage"][0]`);
+export async function getPagesByType(pageType: string) {
+  return client.fetch<Page[]>(
+    groq`*[_type == "page" && pageType == $pageType]`,
+    {
+      pageType: pageType,
+    },
+  );
+}
+
+export async function getPageByPath(path: string[]) {
+  return client.fetch<Page>(groq`*[_type == "page" && path == $path][0]`, {
+    path: '/' + path.join('/'),
+  });
 }
 
 export async function getPrograms() {
@@ -94,10 +105,6 @@ export async function getProgram(slug: string) {
       slug,
     },
   );
-}
-
-export async function getAboutPage() {
-  return client.fetch<Page>(groq`*[_type == "aboutPage"][0]`);
 }
 
 export async function getStaffMembers() {
@@ -158,22 +165,6 @@ export async function getNewsStory(slug: string) {
     },
     { next: { revalidate: 60 * 60 * 24 } },
   );
-}
-
-export async function getVolunteerPage() {
-  return client.fetch<Page>(groq`*[_type == "volunteerPage"][0]`);
-}
-
-export async function getSupportPage() {
-  return client.fetch<Page>(groq`*[_type == "supportPage"]{
-    ...,
-    singleDonation->,
-    recurringDonation->
-  }[0]`);
-}
-
-export async function getWishListsPage() {
-  return client.fetch<Page>(groq`*[_type == "wishlistPage"][0]`);
 }
 
 export async function getSettings() {
