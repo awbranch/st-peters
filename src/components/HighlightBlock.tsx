@@ -14,8 +14,7 @@ export default function HighlightBlock({
   alignment,
   text,
   image,
-  buttonLabel,
-  buttonLink,
+  button,
 }: Props) {
   return (
     <Block slug={slug.current} color={background?.label} narrow={narrow}>
@@ -28,15 +27,16 @@ export default function HighlightBlock({
       >
         <div className="flex-1">
           <RichText text={text} />
-          {buttonLink && buttonLabel && (
+          {button && (
             <div className={'hidden lg:block'}>
               <LinkButton
-                href={buttonLink}
-                variant={'text'}
+                href={button.link}
+                color={button.color.label}
+                variant={button.variant === 'primary' ? 'solid' : 'outline'}
                 size={'large'}
                 icon={'right'}
               >
-                {buttonLabel}
+                {button.label}
               </LinkButton>
             </div>
           )}
@@ -48,15 +48,16 @@ export default function HighlightBlock({
             sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
             className={twJoin('w-full sm:w-[450px] h-[450px] rounded-lg')}
           />
-          {buttonLink && buttonLabel && (
+          {button && (
             <div className={'block lg:hidden mt-2 text-center'}>
               <LinkButton
-                href={buttonLink}
-                variant={'text'}
+                href={button.link}
+                color={button.color.label}
+                variant={button.variant === 'primary' ? 'solid' : 'outline'}
                 size={'large'}
                 icon={'right'}
               >
-                {buttonLabel}
+                {button.label}
               </LinkButton>
             </div>
           )}

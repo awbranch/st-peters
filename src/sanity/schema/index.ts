@@ -16,7 +16,6 @@ import jobsBlock from '@/sanity/schema/jobs-block-schema';
 import programsBlock from '@/sanity/schema/programs-block-schema';
 import teamBlock from '@/sanity/schema/team-block-schema';
 import textBlock from '@/sanity/schema/text-block-schema';
-import wishListBlock from '@/sanity/schema/wishlist-block-schema';
 
 import action from '@/sanity/schema/action-schema';
 import address from '@/sanity/schema/address-schema';
@@ -57,7 +56,6 @@ const schemas = [
   programsBlock,
   teamBlock,
   textBlock,
-  wishListBlock,
 
   action,
   address,

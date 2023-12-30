@@ -32,6 +32,12 @@ export default defineType({
       hidden: ({ document }) => !document?.showNotification,
       group: 'notification',
     }),
+    defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      validation: (Rule: any) => Rule.required(),
+    }),
   ],
   preview: {
     prepare() {

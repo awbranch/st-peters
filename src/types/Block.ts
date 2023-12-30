@@ -12,7 +12,6 @@ import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
 import { FormBlock } from '@/types/FormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
-import { WishListBlock } from '@/types/WishListBlock';
 import { Slug } from 'sanity';
 import { ColorStruct } from '@/types/Color';
 
@@ -30,8 +29,7 @@ export type Block =
   | LunchBlock
   | ProgramsBlock
   | TeamBlock
-  | TextBlock
-  | WishListBlock;
+  | TextBlock;
 
 export type BlockProps = {
   _key: string;

@@ -46,14 +46,9 @@ export default defineType({
     }),
     createImageField('image', 'Image'),
     defineField({
-      name: 'buttonLabel',
-      title: 'Button Label',
-      type: 'string',
-    }),
-    defineField({
-      name: 'buttonLink',
-      title: 'Button Link',
-      type: 'string',
+      name: 'button',
+      title: 'Button',
+      type: 'button',
     }),
   ],
   preview: {

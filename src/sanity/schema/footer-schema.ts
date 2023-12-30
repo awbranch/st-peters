@@ -12,6 +12,10 @@ export default defineType({
       title: 'Newsletter',
     },
     {
+      name: 'logo',
+      title: 'Logo',
+    },
+    {
       name: 'address',
       title: 'Address',
     },
@@ -59,6 +63,13 @@ export default defineType({
       rows: 10,
       validation: (Rule: any) => Rule.required(),
       group: 'newsletter',
+    }),
+    defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      validation: (Rule: any) => Rule.required(),
+      group: 'logo',
     }),
     defineField({
       name: 'address',

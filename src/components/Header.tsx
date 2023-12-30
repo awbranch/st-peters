@@ -11,7 +11,7 @@ export default async function Header() {
       {props.showNotification && (
         <NotificationBar message={props.notificationMessage} />
       )}
-      <NavBar />
+      <NavBar logo={props.logo} />
     </header>
   );
 }

@@ -7,6 +7,8 @@ import { Dialog } from '@headlessui/react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/pro-solid-svg-icons';
+import { urlFor } from '@/sanity/sanity-utils';
+import { Image } from '@/types/Image';
 
 type Menu = {
   name: string;
@@ -28,7 +30,11 @@ const mobileMenus: Menu[] = [
   { name: 'Support Us', href: '/support-us' },
 ];
 
-export default function NavBar() {
+type Props = {
+  logo: Image;
+};
+
+export default function NavBar({ logo }: Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
@@ -42,7 +48,7 @@ export default function NavBar() {
               <span className="sr-only">St. Peter&apos;s Kitchen</span>
               <img
                 className="h-12 w-auto"
-                src="/logo-text-horiz.svg"
+                src={urlFor(logo).url()}
                 alt="St. Peter's Kitchen"
               />
             </Link>
@@ -90,7 +96,11 @@ export default function NavBar() {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">St. Peter&amp;s Kitchen</span>
-              <img className="h-10 w-auto" src="/logo.svg" alt="" />
+              <img
+                className="h-10 w-auto"
+                src={urlFor(logo).url()}
+                alt="St. Peter's Kitchen"
+              />
             </Link>
             <button
               type="button"

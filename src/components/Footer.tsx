@@ -2,8 +2,7 @@ import React from 'react';
 import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
-import Logo from '@/components/Logo';
-import { getFooter } from '@/sanity/sanity-utils';
+import { getFooter, urlFor } from '@/sanity/sanity-utils';
 import { SocialMediaService } from '@/types/SocialMediaService';
 import { IconDefinition } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -55,21 +54,23 @@ export default async function Footer() {
               }
             >
               <div className={'inline-block'}>
-                <Link href="/">
-                  <Logo
-                    logoColor={'white'}
-                    textColor={'white'}
-                    orientation={'vertical'}
-                  />
-                </Link>
-                <section id={'address'} className={'my-5'}>
-                  <div className={'text-left'}>
-                    <div>{address.street}</div>
-                    {address.street2 && <div>{address.street2}</div>}
-                    <div>{`${address.city}, ${address.state} ${address.zip}`}</div>
-                    <div className={'mt-2'}>{address.phone}</div>
-                  </div>
-                </section>
+                <div className={'text-center'}>
+                  <Link href="/">
+                    <img
+                      className="h-auto w-64"
+                      src={urlFor(props.logo).url()}
+                      alt="St. Peter's Kitchen"
+                    />
+                  </Link>
+                  <section id={'address'} className={'my-5 inline-block'}>
+                    <div className={'text-left'}>
+                      <div>{address.street}</div>
+                      {address.street2 && <div>{address.street2}</div>}
+                      <div>{`${address.city}, ${address.state} ${address.zip}`}</div>
+                      <div className={'mt-2'}>{address.phone}</div>
+                    </div>
+                  </section>
+                </div>
               </div>
             </div>
           </div>
