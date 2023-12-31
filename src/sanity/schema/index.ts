@@ -32,6 +32,7 @@ import impact from '@/sanity/schema/impact-schema';
 import job from '@/sanity/schema/job-schema';
 import link from '@/sanity/schema/link-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
+import menuItem from '@/sanity/schema/menu-item-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
 import program from '@/sanity/schema/program-schema';
 import social from '@/sanity/schema/social-schema';
@@ -72,6 +73,7 @@ const schemas = [
   job,
   link,
   lunchMenu,
+  menuItem,
   newsStory,
   program,
   social,

@@ -75,13 +75,10 @@ export async function getLunchMenus() {
   );
 }
 
-export async function getPagesByType(pageType: string) {
-  return client.fetch<Page[]>(
-    groq`*[_type == "page" && pageType == $pageType]`,
-    {
-      pageType: pageType,
-    },
-  );
+export async function getPagesByVariant(variant: string) {
+  return client.fetch<Page[]>(groq`*[_type == "page" && variant == variant]`, {
+    variant: variant,
+  });
 }
 
 export async function getPageByPath(path: string[]) {

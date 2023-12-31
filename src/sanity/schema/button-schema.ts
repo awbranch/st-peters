@@ -1,5 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaRegHandPointer as icon } from 'react-icons/fa';
+import { buttonColorList } from '@/utils/globals';
 
 export default defineType({
   name: 'button',
@@ -11,6 +12,9 @@ export default defineType({
       title: 'Color',
       type: 'simplerColor',
       validation: (Rule: any) => Rule.required(),
+      options: {
+        colorList: buttonColorList,
+      },
     }),
     defineField({
       name: 'variant',

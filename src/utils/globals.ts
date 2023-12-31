@@ -1,11 +1,5 @@
 import { NewsCategory } from '@/types/NewsCategory';
 
-export const htmlFontSize = 18;
-export const baselinePx = 10;
-
-export const toGrid = (mx: number) => `${toRem(baselinePx * mx)}`;
-export const toRem = (px: number) => `${px / htmlFontSize}rem`;
-
 export const maxScreenWidth = 1280;
 
 export const breakpoints = {
@@ -41,3 +35,38 @@ export function isFullyQualifiedURL(url: string) {
   const pattern = /^(https?:\/\/).*$/i;
   return pattern.test(url);
 }
+
+export const themeColors = {
+  black: '#111827',
+  grass: {
+    light: '#1C733F',
+    DEFAULT: '#14532d',
+    dark: '#0C311B',
+  },
+  ocean: {
+    light: '#1C7AD9',
+    DEFAULT: '#1766b5',
+    dark: '#135290',
+  },
+  sunset: {
+    light: '#E15192',
+    DEFAULT: '#db2777',
+    dark: '#C02168',
+  },
+};
+
+export const textColorList = [
+  { label: 'green', value: themeColors.grass.DEFAULT },
+  { label: 'blue', value: themeColors.ocean.DEFAULT },
+  { label: 'pink', value: themeColors.sunset.DEFAULT },
+  { label: 'black', value: themeColors.black },
+  { label: 'white', value: '#ffffff' },
+  { label: 'gray', value: '#f3f4f6' },
+];
+
+export const buttonColorList = [
+  { label: 'green', value: themeColors.grass.DEFAULT },
+  { label: 'blue', value: themeColors.ocean.DEFAULT },
+  { label: 'pink', value: themeColors.sunset.DEFAULT },
+  { label: 'black', value: themeColors.black },
+];

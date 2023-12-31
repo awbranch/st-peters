@@ -11,7 +11,12 @@ export default async function Header() {
       {props.showNotification && (
         <NotificationBar message={props.notificationMessage} />
       )}
-      <NavBar logo={props.logo} />
+      <NavBar
+        logo={props.logo}
+        wideLogo={props.wideLogo}
+        menuItems={props.menuItems}
+        actionButtons={props.actionButtons}
+      />
     </header>
   );
 }

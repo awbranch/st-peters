@@ -13,8 +13,8 @@ export default defineType({
       title: 'Notification Bar',
     },
     {
-      name: 'menu',
-      title: 'Main Menu',
+      name: 'navigation',
+      title: 'Navigation Bar',
     },
   ],
   fields: [
@@ -37,6 +37,28 @@ export default defineType({
       title: 'Logo',
       type: 'image',
       validation: (Rule: any) => Rule.required(),
+      group: 'navigation',
+    }),
+    defineField({
+      name: 'wideLogo',
+      title: 'wideLogo',
+      type: 'image',
+      group: 'navigation',
+    }),
+    defineField({
+      name: 'menuItems',
+      title: 'Menu Items',
+      type: 'array',
+      of: [{ type: 'menuItem' }],
+      group: 'navigation',
+    }),
+    defineField({
+      name: 'actionButtons',
+      title: 'Action Buttons',
+      type: 'array',
+      of: [{ type: 'button' }],
+      group: 'navigation',
+      validation: (Rule: any) => Rule.max(1),
     }),
   ],
   preview: {

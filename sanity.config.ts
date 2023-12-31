@@ -7,6 +7,7 @@ import { orderableDocumentListDeskItem } from '@sanity/orderable-document-list';
 import schemas from '@/sanity/schema';
 import { ComponentType } from 'react';
 import { noteField } from 'sanity-plugin-note-field';
+import { textColorList } from '@/utils/globals';
 
 const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
@@ -69,14 +70,7 @@ const config = defineConfig({
     media(),
     simplerColorInput({
       defaultColorFormat: 'rgba',
-      defaultColorList: [
-        { label: 'green', value: '#14532d' },
-        { label: 'blue', value: '#1766b5' },
-        { label: 'pink', value: '#db2777' },
-        { label: 'black', value: '#111827' },
-        { label: 'white', value: '#ffffff' },
-        { label: 'gray', value: '#f3f4f6' },
-      ],
+      defaultColorList: textColorList,
     }),
     noteField(),
   ],

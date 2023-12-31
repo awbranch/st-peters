@@ -13,8 +13,8 @@ export default defineType({
   icon,
   fields: [
     defineField({
-      name: 'pageType',
-      title: 'Page Type',
+      name: 'variant',
+      title: 'Variant',
       type: 'string',
       initialValue: 'generic',
       options: {
@@ -75,12 +75,12 @@ export default defineType({
             return result.length === 0 ? true : 'Paths must be unique';
           });
         }),
-      readOnly: ({ document }) => document?.pageType === 'collection',
+      readOnly: ({ document }) => document?.variant === 'collection',
     }),
 
     defineField({
       ...createBlocksArrayField('blocks', 'Blocks'),
-      hidden: ({ document }) => document?.pageType === 'collection',
+      hidden: ({ document }) => document?.variant === 'collection',
     }),
 
     defineField({
@@ -97,7 +97,7 @@ export default defineType({
           'textColor',
         ]),
       ],
-      hidden: ({ document }) => document?.pageType !== 'collection',
+      hidden: ({ document }) => document?.variant !== 'collection',
     }),
   ],
   preview: {
