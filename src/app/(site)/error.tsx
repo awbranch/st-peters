@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Block from '@/components/Block';
 import Button from '@/components/Button';
-import Para from '@/components/Para';
+import { Para } from '@/components/Typography';
 
 export default function Error({
   error,

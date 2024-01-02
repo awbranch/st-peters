@@ -22,8 +22,8 @@ export default defineType({
       type: 'string',
       options: {
         list: [
-          { title: 'Primary', value: 'primary' },
-          { title: 'Secondary', value: 'secondary' },
+          { title: 'Solid', value: 'solid' },
+          { title: 'Outline', value: 'outline' },
         ],
         layout: 'radio',
         direction: 'horizontal',

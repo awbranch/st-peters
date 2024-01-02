@@ -1,8 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createStockBlockFields } from '@/sanity/schema/utils';
 import { FaFistRaised as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -14,18 +11,21 @@ export default defineType({
   fields: [
     ...createStockBlockFields(),
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
+      type: 'text',
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({

@@ -42,14 +42,6 @@ export default defineType({
     // }),
 
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      description: 'The displayed title of the page.',
-      validation: (Rule: any) => Rule.required(),
-    }),
-
-    defineField({
       name: 'path',
       title: 'Path',
       type: 'string',
@@ -102,13 +94,11 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'title',
       path: 'path',
     },
-    prepare({ title, path }) {
+    prepare({ path }) {
       return {
-        title,
-        subtitle: path,
+        title: path,
         media: icon,
       };
     },

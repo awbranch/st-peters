@@ -2,9 +2,11 @@ import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
 import { maxScreenWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
-type Props = React.HTMLAttributes<HTMLElement> & {
+import { twMerge } from 'tailwind-merge';
+import { ImgPropsWithoutRef } from 'react-html-props';
+
+type Props = ImgPropsWithoutRef & {
   image: Image;
   sizes: string;
   priority?: boolean;

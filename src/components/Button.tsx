@@ -1,13 +1,14 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
 import { FaArrowDown, FaArrowLeft, FaArrowRight } from 'react-icons/fa6';
+import { ButtonProps } from 'react-html-props';
 import { twMerge } from 'tailwind-merge';
 
 type Size = 'small' | 'large';
 type Icon = 'none' | 'down' | 'right' | 'left';
 type Variant = 'text' | 'outline' | 'solid';
 
-type Props = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+type Props = ButtonProps & {
   size?: Size;
   color?: Color;
   icon?: Icon;

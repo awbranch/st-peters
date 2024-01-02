@@ -3,8 +3,8 @@ import { HeroBlock as Props } from '@/types/HeroBlock';
 import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
-import Link from 'next/link';
 import { PortableText } from '@portabletext/react';
+import { Link, Strong, Subtitle, Title } from '@/components/Typography';
 
 export default function HeroBlock({
   slug,
@@ -34,23 +34,17 @@ export default function HeroBlock({
                     children: React.ReactNode;
                     value: any;
                   }) => <Link href={value.href}>{children}</Link>,
-                  strong: ({ children }) => (
-                    <strong className="font-semibold">{children}</strong>
-                  ),
+                  strong: ({ children }) => <Strong>{children}</Strong>,
                   textColor: ({ children, value }) => (
                     <span style={{ color: value.value }}>{children}</span>
                   ),
                 },
                 block: {
                   h1: ({ children }: { children: React.ReactNode }) => (
-                    <h1 className="text-4xl xs:text-5xl sm:text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]">
-                      {children}
-                    </h1>
+                    <Title>{children}</Title>
                   ),
                   normal: ({ children }: { children: React.ReactNode }) => (
-                    <p className="text-lg leading-relaxed text-gray-500">
-                      {children}
-                    </p>
+                    <Subtitle>{children}</Subtitle>
                   ),
                 },
               } as any
@@ -62,7 +56,8 @@ export default function HeroBlock({
               href={button.link}
               color={button.color.label}
               size={'large'}
-              variant={button.variant === 'primary' ? 'solid' : 'outline'}
+              variant={button.variant}
+              icon={'down'}
             >
               {button.label}
             </LinkButton>

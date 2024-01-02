@@ -1,7 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import {
   createImageField,
-  createRichTextBlock,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 import { IoFlashlight as icon } from 'react-icons/io5';
@@ -30,18 +29,21 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
+      name: 'subtitle',
+      title: 'Subtitle',
+      type: 'string',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    defineField({
       name: 'text',
       title: 'Text',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
+      type: 'text',
       validation: (Rule: any) => Rule.required(),
     }),
     createImageField('image', 'Image'),
@@ -52,10 +54,10 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { slug: 'slug' },
-    prepare({ slug }) {
+    select: { title: 'title', slug: 'slug' },
+    prepare({ title, slug }) {
       return {
-        title: 'Highlight Block',
+        title: title || 'Highlight Block',
         subtitle: `#${slug?.current}`,
         media: icon,
       };

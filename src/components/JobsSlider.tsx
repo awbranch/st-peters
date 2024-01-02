@@ -48,7 +48,7 @@ export default function JobsSlider({ jobs }: Props) {
               href={j.applyLink}
               className={'mt-3'}
               size={'small'}
-              variant={'text'}
+              variant={'outline'}
               color={'blue'}
               icon={'right'}
             >

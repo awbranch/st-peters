@@ -11,7 +11,7 @@ export default async function ButtonRow({ buttons }: Props) {
           href={b.link}
           color={b.color.label}
           size={'small'}
-          variant={b.variant === 'primary' ? 'solid' : 'outline'}
+          variant={b.variant}
         >
           {b.label}
         </LinkButton>

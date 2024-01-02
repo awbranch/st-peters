@@ -13,6 +13,7 @@ import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
 import { twJoin } from 'tailwind-merge';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import LinkButton from '@/components/LinkButton';
 
 type Props = {
   logo: Image;
@@ -41,12 +42,12 @@ export default function NavBar({
               <img
                 className="h-12 w-auto hidden xs:inline-block"
                 src={urlFor(wideLogo || logo).url()}
-                alt="St. Peter's Kitchen"
+                alt={logo.alt}
               />
               <img
                 className="h-12 w-auto inline-block xs:hidden"
                 src={urlFor(logo).url()}
-                alt="St. Peter's Kitchen"
+                alt={logo.alt}
               />
             </Link>
             <div className="flex items-center gap-x-6">
@@ -99,23 +100,15 @@ export default function NavBar({
               </Popover.Group>
               <div className="flex gap-x-6">
                 {actionButtons.map((b, i) => (
-                  <Link
+                  <LinkButton
                     key={i}
-                    className={twJoin(
-                      'text-base font-medium leading-6 rounded-md px-3 py-2 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-white ',
-                      b.color.label === 'pink' &&
-                        'bg-sunset hover:bg-sunset-light focus-visible:outline-sunset',
-                      b.color.label === 'blue' &&
-                        'bg-ocean hover:bg-ocean-light focus-visible:outline-ocean',
-                      b.color.label === 'green' &&
-                        'bg-grass hover:bg-grass-light focus-visible:outline-grass',
-                      b.color.label === 'black' &&
-                        'bg-black text-white hover:bg-gray-700 focus-visible:outline-black',
-                    )}
+                    size={'large'}
                     href={b.link}
+                    color={b.color.label}
+                    variant={b.variant}
                   >
                     {b.label}
-                  </Link>
+                  </LinkButton>
                 ))}
               </div>
               <div className="flex lg:hidden">

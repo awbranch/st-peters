@@ -1,7 +1,8 @@
 import React from 'react';
 import { maxScreenWidth } from '@/utils/globals';
+import { DivProps } from 'react-html-props';
 
-type Props = React.HTMLAttributes<HTMLDivElement> & {
+type Props = DivProps & {
   children: React.ReactNode;
   narrow?: boolean;
 };

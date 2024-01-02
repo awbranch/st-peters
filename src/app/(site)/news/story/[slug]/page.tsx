@@ -39,7 +39,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               href={`/news/${parent.slug}`}
               size={'small'}
               icon={'left'}
-              variant={'text'}
+              variant={'solid'}
             >
               {parent.name}
             </LinkButton>

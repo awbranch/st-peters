@@ -1,5 +1,5 @@
 import React from 'react';
-import Para from '@/components/Para';
+import { Para } from '@/components/Typography';
 
 type Props = {
   text: string;

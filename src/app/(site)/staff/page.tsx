@@ -10,7 +10,6 @@ export default async function Staff() {
   return (
     <main>
       <Block color={'white'}>
-        <h1 className="text-xl mb-4">{page.title}</h1>
         {page.text && (
           <div className={'mb-8'}>
             <RichText text={page.text} />
