@@ -3,8 +3,8 @@ import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
-import LinkButton from '@/components/LinkButton';
 import OtherProgramsBlock from '@/components/OtherProgramsBlock';
+import { H1 } from '@/components/Typography';
 
 export async function generateStaticParams() {
   const programs = await getPrograms();
@@ -21,21 +21,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       <main>
         <section id="program">
           <Block color={'white'}>
-            <LinkButton
-              href="/#programs"
-              size={'small'}
-              icon={'left'}
-              variant={'text'}
-            >
-              PROGRAMS
-            </LinkButton>
-            <h1 className="text-xl mb-4">{program.title}</h1>
+            <H1>{program.title}</H1>
             <RichText text={program.text} />
           </Block>
         </section>
-        {program.donationRequestBlock && (
-          <DonationRequestBlock {...program.donationRequestBlock} />
-        )}
+        {program.donationRequests &&
+          program.donationRequests.map((d) => (
+            <DonationRequestBlock key={d.slug.current} {...d} />
+          ))}
         <section id="other-programs">
           <OtherProgramsBlock title="Other Programs" besides={params.slug} />
         </section>

@@ -59,7 +59,7 @@ export const H1 = ({
     as || 'h1',
     {
       className: twMerge(
-        'text-3xl xs:text-4xl sm:text-5xl font-bold mb-6',
+        'text-3xl xs:text-4xl sm:text-5xl font-bold mt-8 mb-6',
         className,
       ),
       ...rest,
@@ -92,7 +92,7 @@ export const H2 = ({
     as || 'h2',
     {
       className: twMerge(
-        'text-2xl xs:text-3xl sm:text-4xl font-bold tracking-tight mb-4',
+        'text-2xl xs:text-3xl sm:text-4xl font-bold tracking-tight mt-8 mb-6',
         className,
       ),
       ...rest,
@@ -109,7 +109,7 @@ export const Para = ({
   React.createElement(
     as || 'p',
     {
-      className: twMerge('text-base mb-2', className),
+      className: twMerge('text-base leading-relaxed mb-6', className),
       ...rest,
     },
     children,

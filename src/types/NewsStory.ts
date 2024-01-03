@@ -10,5 +10,5 @@ export type NewsStory = {
   description: string;
   image: Image;
   text: PortableTextBlock[];
-  donationRequestBlock?: DonationRequestBlock;
+  donationRequests: DonationRequestBlock[];
 };

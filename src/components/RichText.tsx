@@ -1,14 +1,23 @@
 import React from 'react';
-import Link from 'next/link';
 import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
-import { isFullyQualifiedURL } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonTileGrid from '@/components/ButtonTileGrid';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonTileGrid as ButtonTileGridConfig } from '@/types/ButtonTileGrid';
 import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
+import {
+  BlockQuote,
+  Em,
+  H1,
+  H2,
+  Link,
+  OL,
+  Para,
+  Strong,
+  UL,
+} from '@/components/Typography';
 
 type Props = {
   text: PortableTextBlock[];
@@ -23,51 +32,24 @@ const RichText = ({ text }: Props) => {
       }: {
         children: React.ReactNode;
         value: any;
-      }) => (
-        <Link
-          href={value.href}
-          className={'underline underline-offset-4'}
-          {...(isFullyQualifiedURL(value.href)
-            ? { target: '_blank', rel: 'noreferrer noopener' }
-            : {})}
-        >
-          {children}
-        </Link>
-      ),
-      em: ({ children }) => <em>{children}</em>,
-      strong: ({ children }) => (
-        <strong className="font-bold">{children}</strong>
-      ),
+      }) => <Link href={value.href}>{children}</Link>,
+      em: ({ children }) => <Em>{children}</Em>,
+      strong: ({ children }) => <Strong>{children}</Strong>,
       textColor: ({ children, value }) => (
         <span style={{ color: value.value }}>{children}</span>
       ),
     },
     block: {
-      h1: ({ children }: { children: React.ReactNode }) => (
-        <h1 className="text-2xl font-semibold py-2">{children}</h1>
-      ),
-      h2: ({ children }: { children: React.ReactNode }) => (
-        <h2 className="text-xl font-semibold py-2">{children}</h2>
-      ),
-      h6: ({ children }: { children: React.ReactNode }) => (
-        <div className="text-sm">{children}</div>
-      ),
+      h1: ({ children }: { children: React.ReactNode }) => <H1>{children}</H1>,
+      h2: ({ children }: { children: React.ReactNode }) => <H2>{children}</H2>,
       normal: ({ children }: { children: React.ReactNode }) => (
-        <p className="text-base mb-2">{children}</p>
+        <Para>{children}</Para>
       ),
-      blockquote: ({ children }) => (
-        <blockquote className="border-l-black border-l-4 pl-1">
-          {children}
-        </blockquote>
-      ),
+      blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     },
     list: {
-      bullet: ({ children }) => (
-        <ul className="list-disc mt-2 mb-3 ml-2">{children}</ul>
-      ),
-      number: ({ children }) => (
-        <ol className="list-decimal mt-2 mb-3 ml-2">{children}</ol>
-      ),
+      bullet: ({ children }) => <UL>{children}</UL>,
+      number: ({ children }) => <OL>{children}</OL>,
     },
     types: {
       image: ({ value }: { value: Image }) => {

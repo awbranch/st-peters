@@ -55,9 +55,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <RichText text={story.text} />
         </Block>
       </section>
-      {story.donationRequestBlock && (
-        <DonationRequestBlock {...story.donationRequestBlock} />
-      )}
+      {story.donationRequests &&
+        story.donationRequests.map((d) => (
+          <DonationRequestBlock key={d.slug.current} {...d} />
+        ))}
       {stories && (
         <section>
           <Block>

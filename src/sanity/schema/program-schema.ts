@@ -37,11 +37,11 @@ export default defineType({
       type: 'array',
       of: [createRichTextBlock(), createImageField('image', 'Image')],
     }),
-
     defineField({
-      name: 'donationRequestBlock',
-      title: 'Donation Request',
-      type: 'donationRequestBlock',
+      name: 'donationRequests',
+      title: 'Donation Requests',
+      type: 'array',
+      of: [{ type: 'donationRequestBlock' }],
     }),
   ],
   preview: {

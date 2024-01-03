@@ -7,5 +7,5 @@ export type Program = {
   slug: Slug;
   image: Image;
   text: PortableTextBlock[];
-  donationRequestBlock?: DonationRequestBlock;
+  donationRequests: DonationRequestBlock[];
 };

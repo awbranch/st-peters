@@ -32,7 +32,7 @@ export default function StoryCard({ story }: Props) {
           href={`/news/story/${story.slug.current}`}
           color={'pink'}
           size={'small'}
-          variant={'text'}
+          variant={'outline'}
           icon={'right'}
         >
           Find Out More
