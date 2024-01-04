@@ -24,17 +24,18 @@ export default defineType({
     }),
     createImageField('image', 'Image'),
     defineField({
-      name: 'button',
-      title: 'Button',
-      type: 'button',
+      name: 'buttons',
+      title: 'Buttons',
+      type: 'array',
+      of: [{ type: 'button' }],
     }),
   ],
   preview: {
-    select: { slug: 'slug' },
-    prepare({ slug }) {
+    select: { id: 'id' },
+    prepare({ id }) {
       return {
         title: 'Hero Block',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

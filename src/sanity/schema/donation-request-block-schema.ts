@@ -34,11 +34,11 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { request: 'request', slug: 'slug' },
-    prepare({ slug }) {
+    select: { id: 'id' },
+    prepare({ id }) {
       return {
         title: 'Donation Request',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

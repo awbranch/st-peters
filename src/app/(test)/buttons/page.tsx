@@ -1,10 +1,10 @@
-import Block from '@/components/Block';
 import type { Color } from '@/types/Color';
 import LinkButton, { Icon, Size } from '@/components/LinkButton';
 import { twJoin } from 'tailwind-merge';
 import Link from 'next/link';
 import React from 'react';
 import { ButtonVariant } from '@/types/ButtonVariant';
+import Section from '@/components/Section';
 
 const variants: ButtonVariant[] = ['solid', 'outline'];
 const icons: Icon[] = ['none', 'down', 'right', 'left'];
@@ -13,7 +13,7 @@ const sizes: Size[] = ['small', 'medium', 'large'];
 
 export default function TextExample() {
   return (
-    <Block>
+    <Section>
       <span className={'p-3'}>
         <Link
           className={twJoin(
@@ -60,6 +60,6 @@ export default function TextExample() {
           ))}
         </div>
       ))}
-    </Block>
+    </Section>
   );
 }

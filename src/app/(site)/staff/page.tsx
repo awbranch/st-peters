@@ -1,15 +1,15 @@
 import React from 'react';
-import Block from '@/components/Block';
 import { getPageByPath, getStaffMembers } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import RichText from '@/components/RichText';
+import Section from '@/components/Section';
 
 export default async function Staff() {
   const page = await getPageByPath(['staff']);
   let team = await getStaffMembers();
   return (
     <main>
-      <Block color={'white'}>
+      <Section>
         {page.text && (
           <div className={'mb-8'}>
             <RichText text={page.text} />
@@ -20,7 +20,7 @@ export default async function Staff() {
             <TeamMemberCard member={m} />
           </div>
         ))}
-      </Block>
+      </Section>
     </main>
   );
 }

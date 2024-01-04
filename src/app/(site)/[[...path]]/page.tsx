@@ -1,6 +1,7 @@
 import { getPageByPath, getPagesByVariant } from '@/sanity/sanity-utils';
 import React from 'react';
-import BlockSectionList from '@/components/BlockSectionList';
+import BlockList from '@/components/BlockList';
+import Section from '@/components/Section';
 
 export const dynamicParams = false;
 
@@ -19,7 +20,19 @@ export default async function GenericPage({ params }: Props) {
 
   return (
     <>
-      <main>{page?.blocks && <BlockSectionList blocks={page.blocks} />}</main>
+      <main>
+        {page?.sections &&
+          page.sections.map((s) => (
+            <Section
+              key={s.id?.current}
+              id={s.id?.current}
+              narrow={s?.narrow}
+              color={s?.background?.label}
+            >
+              {s.blocks && <BlockList blocks={s.blocks} />}
+            </Section>
+          ))}
+      </main>
     </>
   );
 }

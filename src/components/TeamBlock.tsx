@@ -1,5 +1,4 @@
 import React from 'react';
-import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
 import ResponsiveImage from '@/components/ResponsiveImage';
@@ -7,9 +6,7 @@ import { breakpoints } from '@/utils/globals';
 import { TeamBlock } from '@/types/TeamBlock';
 
 export default function TeamBlock({
-  slug,
-  background,
-  narrow,
+  id,
   text,
   staffPhoto,
   staffLabel,
@@ -17,7 +14,7 @@ export default function TeamBlock({
   boardLabel,
 }: TeamBlock) {
   return (
-    <Block slug={slug.current} color={background?.label} narrow={narrow}>
+    <div id={id?.current}>
       <RichText text={text} />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
@@ -45,6 +42,6 @@ export default function TeamBlock({
           </Link>
         ))}
       </div>
-    </Block>
+    </div>
   );
 }

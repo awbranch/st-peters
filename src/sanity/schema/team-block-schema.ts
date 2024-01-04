@@ -39,12 +39,12 @@ export default defineType({
   ],
   preview: {
     select: {
-      slug: 'slug',
+      id: 'id',
     },
-    prepare({ slug }) {
+    prepare({ id }) {
       return {
         title: 'Team Block',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

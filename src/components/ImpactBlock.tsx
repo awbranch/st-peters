@@ -1,19 +1,16 @@
 import React from 'react';
-import Block from '@/components/Block';
 import { ImpactBlock as Props } from '@/types/ImpactBlock';
 import { H1, H1Mini, Subtitle } from '@/components/Typography';
 
 export default function ImpactBlock({
-  slug,
-  background,
-  narrow,
+  id,
   title,
   subtitle,
   text,
   impacts,
 }: Props) {
   return (
-    <Block slug={slug.current} color={background?.label} center narrow={narrow}>
+    <div id={id?.current}>
       <div className="mx-auto max-w-4xl text-center">
         <H1Mini>{title}</H1Mini>
         <H1 as="p">{subtitle}</H1>
@@ -38,6 +35,6 @@ export default function ImpactBlock({
           ))}
         </dl>
       </div>
-    </Block>
+    </div>
   );
 }

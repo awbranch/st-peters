@@ -7,16 +7,13 @@ import {
 } from '@/utils/date';
 import { getLunchMenus } from '@/sanity/sanity-utils';
 import { LunchBlock as Props } from '@/types/LunchBlock';
-import Block from '@/components/Block';
 import { H1, H1Mini, Subtitle } from '@/components/Typography';
 import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
 
 export default async function LunchBlock({
-  slug,
-  background,
-  narrow,
+  id,
   title,
   subtitle,
   text,
@@ -41,7 +38,7 @@ export default async function LunchBlock({
   }
 
   return (
-    <Block slug={slug.current} color={background?.label} narrow={narrow}>
+    <div id={id?.current}>
       <div className="mx-auto max-w-4xl text-center">
         <H1Mini>{title}</H1Mini>
         <H1 as="p">{subtitle}</H1>
@@ -80,6 +77,6 @@ export default async function LunchBlock({
           </div>
         ))}
       </div>
-    </Block>
+    </div>
   );
 }

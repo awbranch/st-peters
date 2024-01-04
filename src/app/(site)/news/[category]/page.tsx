@@ -1,10 +1,10 @@
-import Block from '@/components/Block';
 import NewsCatSelector from '@/components/NewsCatSelector';
 import { newsCategories } from '@/utils/globals';
 import { getNewsStories } from '@/sanity/sanity-utils';
 import StoryCard from '@/components/StoryCard';
 import React from 'react';
 import { NewsStory } from '@/types/NewsStory';
+import Section from '@/components/Section';
 
 export function generateStaticParams() {
   return newsCategories.map((c) => ({
@@ -33,7 +33,7 @@ export default async function NewsCategory({ params }: Props) {
 
   return (
     <main>
-      <Block>
+      <Section>
         <NewsCatSelector selected={category} />
         <div className="mt-3">
           {stories &&
@@ -46,7 +46,7 @@ export default async function NewsCategory({ params }: Props) {
               </div>
             ))}
         </div>
-      </Block>
+      </Section>
     </main>
   );
 }

@@ -7,5 +7,5 @@ export type HeroBlock = BlockProps & {
   _type: 'heroBlock';
   text: PortableTextBlock[];
   image: Image;
-  button?: Button;
+  buttons?: Button[];
 };

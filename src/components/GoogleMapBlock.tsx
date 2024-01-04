@@ -1,17 +1,10 @@
 import React from 'react';
-import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { GoogleMapBlock as Props } from '@/types/GoogleMapBlock';
 
-export default function GoogleMapBlock({
-  slug,
-  background,
-  narrow,
-  text,
-  embedURL,
-}: Props) {
+export default function GoogleMapBlock({ id, text, embedURL }: Props) {
   return (
-    <Block slug={slug.current} color={background?.label} narrow={narrow}>
+    <div id={id?.current}>
       <RichText text={text} />
       <iframe
         className="mt-3"
@@ -23,6 +16,6 @@ export default function GoogleMapBlock({
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />
-    </Block>
+    </div>
   );
 }

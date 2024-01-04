@@ -13,12 +13,13 @@ import { FAQsBlock } from '@/types/FAQsBlock';
 import { FormBlock } from '@/types/FormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { Slug } from 'sanity';
-import { ColorStruct } from '@/types/Color';
+import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 
 export type Block =
   | DocumentsBlock
   | DonationRequestBlock
   | FAQsBlock
+  | ButtonTileGridBlock
   | FormBlock
   | GoogleMapBlock
   | HeroBlock
@@ -33,7 +34,5 @@ export type Block =
 
 export type BlockProps = {
   _key: string;
-  slug: Slug;
-  background?: ColorStruct;
-  narrow?: boolean;
+  id?: Slug;
 };

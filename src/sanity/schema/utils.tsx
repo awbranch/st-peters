@@ -5,6 +5,7 @@ import {
   defineArrayMember,
   defineField,
 } from 'sanity';
+import { PiCircleDashed } from 'react-icons/pi';
 
 export function createImageField(name: string, title: string, group?: string) {
   return defineField({
@@ -31,6 +32,8 @@ export type CRTLevel =
   | 'all'
   | 'h1'
   | 'h2'
+  | 'large'
+  | 'small'
   | 'blockquote'
   | 'lists'
   | 'decorators'
@@ -44,11 +47,31 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
   const annotations = [];
 
   if (levels.includes('all') || levels.includes('h1')) {
-    styles.push({ title: 'Header', value: 'h1' });
+    styles.push({ title: 'Heading 1', value: 'h1' });
   }
 
   if (levels.includes('all') || levels.includes('h2')) {
-    styles.push({ title: 'Subheader', value: 'h2' });
+    styles.push({ title: 'Heading 2', value: 'h2' });
+  }
+
+  if (levels.includes('all') || levels.includes('large')) {
+    styles.push({
+      title: 'Large',
+      value: 'large',
+      component: ({ children }) => (
+        <span style={{ fontSize: '1.2rem' }}>{children}</span>
+      ),
+    });
+  }
+
+  if (levels.includes('all') || levels.includes('small')) {
+    styles.push({
+      title: 'Small',
+      value: 'small',
+      component: ({ children }) => (
+        <span style={{ fontSize: '0.8rem' }}>{children}</span>
+      ),
+    });
   }
 
   if (levels.includes('all') || levels.includes('blockquote')) {
@@ -56,13 +79,29 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
   }
 
   if (levels.includes('all') || levels.includes('lists')) {
-    lists.push({ title: 'Bulleted List', value: 'bullet' });
-    lists.push({ title: 'Numbered List', value: 'number' });
+    lists.push(
+      ...[
+        { title: 'Bulleted List', value: 'bullet' },
+        { title: 'Numbered List', value: 'number' },
+      ],
+    );
   }
 
   if (levels.includes('all') || levels.includes('decorators')) {
-    decorators.push({ title: 'Bold', value: 'strong' });
-    decorators.push({ title: 'Italic', value: 'em' });
+    decorators.push(
+      ...[
+        { title: 'Bold', value: 'strong' },
+        { title: 'Italic', value: 'em' },
+        {
+          title: 'Lighten',
+          value: 'lighten',
+          component: ({ children }) => (
+            <span style={{ opacity: 0.5 }}>{children}</span>
+          ),
+          icon: PiCircleDashed,
+        },
+      ],
+    );
   }
 
   if (levels.includes('all') || levels.includes('links')) {
@@ -108,6 +147,7 @@ export function createBlocksArrayField(name: string, title: string) {
       defineArrayMember({ type: 'textBlock' }),
       defineArrayMember({ type: 'heroBlock' }),
       defineArrayMember({ type: 'highlightBlock' }),
+      defineArrayMember({ type: 'buttonTileGridBlock' }),
       defineArrayMember({ type: 'donationRequestBlock' }),
       defineArrayMember({ type: 'googleMapBlock' }),
       defineArrayMember({ type: 'impactBlock' }),
@@ -126,25 +166,10 @@ export function createBlocksArrayField(name: string, title: string) {
 export function createStockBlockFields() {
   return [
     defineField({
-      name: 'slug',
-      title: 'Slug',
+      name: 'id',
+      title: 'ID',
       type: 'slug',
-      description: 'Used to link to this block in the page.',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'background',
-      title: 'Background',
-      type: 'simplerColor',
-      description:
-        'The background color for the block, if not set it defaults to white.',
-    }),
-    defineField({
-      name: 'narrow',
-      title: 'Narrow Width',
-      type: 'boolean',
-      initialValue: false,
-      description: 'Looks best for blocks containing forms or mostly text',
+      description: 'Optional id sto link to this block in the section.',
     }),
   ];
 }

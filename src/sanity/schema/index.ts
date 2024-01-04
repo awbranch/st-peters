@@ -2,6 +2,8 @@ import page from '@/sanity/schema/page-schema';
 import footer from '@/sanity/schema/footer-schema';
 import header from '@/sanity/schema/header-schema';
 
+import section from '@/sanity/schema/section-schema';
+
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
@@ -22,7 +24,7 @@ import address from '@/sanity/schema/address-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
 import button from '@/sanity/schema/button-schema';
 import buttonRow from '@/sanity/schema/button-row-schema';
-import buttonTileGrid from '@/sanity/schema/button-tile-grid-schema';
+import buttonTileGridBlock from '@/sanity/schema/button-tile-grid-block-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
 import doc from '@/sanity/schema/doc-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
@@ -44,6 +46,8 @@ const schemas = [
   footer,
   page,
 
+  section,
+
   docsBlock,
   donationRequestBlock,
   faqsBlock,
@@ -64,7 +68,7 @@ const schemas = [
   boardMember,
   button,
   buttonRow,
-  buttonTileGrid,
+  buttonTileGridBlock,
   buttonTile,
   doc,
   donationLevel,

@@ -21,18 +21,17 @@ export default defineType({
       of: [
         createRichTextBlock(),
         createImageField('image', 'Image'),
-        { type: 'buttonTileGrid' },
         { type: 'buttonRow' },
         { type: 'newspaperText' },
       ],
     }),
   ],
   preview: {
-    select: { slug: 'slug' },
-    prepare({ slug }) {
+    select: { id: 'id' },
+    prepare({ id }) {
       return {
         title: 'Text Block',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

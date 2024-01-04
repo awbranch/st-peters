@@ -1,7 +1,7 @@
-import Block from '@/components/Block';
 import LinkButton from '@/components/LinkButton';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { Image } from '@/types/Image';
+import Section from '@/components/Section';
 
 const heroImage: Image = {
   crop: {
@@ -28,7 +28,7 @@ const heroImage: Image = {
 
 export default function Example() {
   return (
-    <Block color={'white'}>
+    <Section>
       <div
         className={
           'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 lg:gap-8 max-w-2xl lg:max-w-full mx-auto'
@@ -65,6 +65,6 @@ export default function Example() {
           />
         </div>
       </div>
-    </Block>
+    </Section>
   );
 }

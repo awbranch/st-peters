@@ -1,10 +1,5 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
 import { FaFile as icon } from 'react-icons/fa';
-
-import {
-  createBlocksArrayField,
-  createRichTextBlock,
-} from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'page',
@@ -12,35 +7,6 @@ export default defineType({
   type: 'document',
   icon,
   fields: [
-    defineField({
-      name: 'variant',
-      title: 'Variant',
-      type: 'string',
-      initialValue: 'generic',
-      options: {
-        list: [
-          { title: 'Generic', value: 'generic' },
-          { title: 'Collection', value: 'collection' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
-      },
-      hidden: false,
-      validation: (Rule: any) => Rule.required(),
-    }),
-
-    // defineField({
-    //   title: 'Important!',
-    //   description: 'a custom Message...',
-    //   name: 'myCustomNote',
-    //   type: 'note',
-    //   hidden: true,
-    //   options: {
-    //     icon: () => <Warning size={20} />,
-    //     tone: 'caution',
-    //   },
-    // }),
-
     defineField({
       name: 'path',
       title: 'Path',
@@ -71,25 +37,10 @@ export default defineType({
     }),
 
     defineField({
-      ...createBlocksArrayField('blocks', 'Blocks'),
-      hidden: ({ document }) => document?.variant === 'collection',
-    }),
-
-    defineField({
-      name: 'text',
-      title: 'Text',
-      description: 'Optional text that appears above the collection.',
+      name: 'sections',
+      title: 'Sections',
       type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
-      hidden: ({ document }) => document?.variant !== 'collection',
+      of: [defineArrayMember({ type: 'section' })],
     }),
   ],
   preview: {

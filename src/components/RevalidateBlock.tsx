@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import Block from '@/components/Block';
+import Section from '@/components/Section';
 
 export default function RevalidateBlock() {
   const handleClick = async () => {
@@ -14,12 +14,12 @@ export default function RevalidateBlock() {
   };
 
   return (
-    <Block color="pink" center>
-      <div className="mt-4">
+    <Section color="pink">
+      <div className="mt-4 text-center">
         <button className="border-2 p-2" onClick={handleClick}>
           Revalidate
         </button>
       </div>
-    </Block>
+    </Section>
   );
 }

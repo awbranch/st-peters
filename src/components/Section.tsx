@@ -1,28 +1,26 @@
 import React from 'react';
-import type { Color } from '@/types/Color';
 import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
+import { Color } from '@/types/Color';
 
 type Props = {
-  slug?: string;
+  id?: string;
   color?: Color;
-  center?: boolean;
   narrow?: boolean;
   className?: string;
   children: React.ReactNode;
 };
 
-export default function Block({
-  slug,
+export default function Section({
+  id,
   color = 'white',
-  center = false,
   narrow = false,
-  className = '',
+  className,
   children,
 }: Props) {
   return (
     <section
-      id={slug}
+      id={id}
       className={twMerge(
         'px-4 md:px-10 py-20 md:py-24',
         color === 'green' && 'bg-grass text-white',
@@ -31,7 +29,6 @@ export default function Block({
         color === 'black' && 'bg-black text-white',
         color === 'white' && 'bg-white text-black',
         color === 'gray' && 'bg-gray-100 text-black',
-        center && 'text-center',
         className,
       )}
     >

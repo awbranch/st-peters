@@ -1,24 +1,12 @@
 import React from 'react';
-import Block from '@/components/Block';
 import SimpleText from '@/components/SimpleText';
 import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
-import RichText from '@/components/RichText';
 import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
 
-export default function DocumentsBlock({
-  slug,
-  background,
-  narrow,
-  text,
-  documents,
-}: Props) {
+export default function DocumentsBlock({ id, documents }: Props) {
   return (
-    <Block slug={slug.current} color={background?.label} narrow={narrow}>
-      <div>
-        <RichText text={text} />
-      </div>
-
+    <div id={id?.current}>
       <ul className="mt-4">
         {documents.map((d, i) => (
           <li key={i}>
@@ -48,6 +36,6 @@ export default function DocumentsBlock({
           </li>
         ))}
       </ul>
-    </Block>
+    </div>
   );
 }

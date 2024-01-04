@@ -1,5 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import { FaArrowsDownToLine as icon } from 'react-icons/fa6';
+import { FaWindowMinimize as icon } from 'react-icons/fa';
 
 export default defineType({
   name: 'footer',

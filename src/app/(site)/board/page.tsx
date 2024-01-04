@@ -1,9 +1,9 @@
-import Block from '@/components/Block';
 import { getBoardMembers, getPageByPath } from '@/sanity/sanity-utils';
 import TeamMemberCard from '@/components/TeamMemberCard';
 import { TeamMember } from '@/types/TeamMember';
 import RichText from '@/components/RichText';
 import React from 'react';
+import Section from '@/components/Section';
 
 const TitleRank = {
   President: 1,
@@ -39,7 +39,7 @@ export default async function Board() {
 
   return (
     <main>
-      <Block color={'white'}>
+      <Section>
         {page.text && (
           <div className={'mb-8'}>
             <RichText text={page.text} />
@@ -50,7 +50,7 @@ export default async function Board() {
             <TeamMemberCard member={m} />
           </div>
         ))}
-      </Block>
+      </Section>
     </main>
   );
 }

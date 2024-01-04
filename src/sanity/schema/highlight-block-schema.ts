@@ -54,11 +54,11 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { title: 'title', slug: 'slug' },
-    prepare({ title, slug }) {
+    select: { title: 'title', id: 'id' },
+    prepare({ title, id }) {
       return {
         title: title || 'Highlight Block',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

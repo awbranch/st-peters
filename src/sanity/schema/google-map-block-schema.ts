@@ -1,8 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createStockBlockFields } from '@/sanity/schema/utils';
 import { FaMapMarkerAlt as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -14,21 +11,6 @@ export default defineType({
   fields: [
     ...createStockBlockFields(),
     defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
       name: 'embedURL',
       title: 'Google Maps Embed URL',
       type: 'url',
@@ -36,11 +18,11 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { slug: 'slug' },
-    prepare({ slug }) {
+    select: { id: 'id' },
+    prepare({ id }) {
       return {
         title: 'Google Map Block',
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

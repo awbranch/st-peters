@@ -32,6 +32,22 @@ export default defineType({
     }),
 
     defineField({
+      name: 'icon',
+      title: 'Icon',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'None', value: 'none' },
+          { title: 'Left Arrow', value: 'left' },
+          { title: 'Right Arrow', value: 'right' },
+          { title: 'Down Arrow', value: 'down' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    }),
+
+    defineField({
       name: 'label',
       title: 'Label',
       type: 'string',
@@ -47,12 +63,12 @@ export default defineType({
   preview: {
     select: {
       label: 'label',
-      variant: 'variant',
+      link: 'link',
     },
-    prepare({ label, variant }) {
+    prepare({ label, link }) {
       return {
         title: label,
-        subtitle: variant,
+        subtitle: link,
         icon: icon,
       };
     },

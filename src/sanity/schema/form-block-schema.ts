@@ -1,8 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createStockBlockFields } from '@/sanity/schema/utils';
 import { FaRegWindowMaximize as icon } from 'react-icons/fa';
 
 const formTypes = [
@@ -30,32 +27,16 @@ export default defineType({
       },
       validation: (Rule: any) => Rule.required(),
     }),
-
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
-      validation: (Rule: any) => Rule.required(),
-    }),
   ],
   preview: {
-    select: { type: 'formType', slug: 'slug' },
-    prepare({ type, slug }) {
+    select: { type: 'formType', id: 'id' },
+    prepare({ type, id }) {
       let title =
         formTypes.find((t) => t.value === type)?.title || 'Form Block';
 
       return {
         title: title,
-        subtitle: `#${slug?.current}`,
+        subtitle: id ? `#${id.current}` : '',
         media: icon,
       };
     },

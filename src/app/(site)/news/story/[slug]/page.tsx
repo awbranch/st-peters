@@ -1,4 +1,3 @@
-import Block from '@/components/Block';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
@@ -8,6 +7,7 @@ import { getNewsStory, getTopNewsStories } from '@/sanity/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
 import { NewsCategory } from '@/types/NewsCategory';
 import { newsCategories } from '@/utils/globals';
+import Section from '@/components/Section';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const story = await getNewsStory(params.slug);
@@ -32,49 +32,45 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main>
-      <section id="story">
-        <Block color={'white'}>
-          {parent && (
-            <LinkButton
-              href={`/news/${parent.slug}`}
-              size={'small'}
-              icon={'left'}
-              variant={'solid'}
-            >
-              {parent.name}
-            </LinkButton>
-          )}
-          <h1 className="text-xl">{story.title}</h1>
-          <div className="text-sm">{toFullDate(story.date)}</div>
-          <ResponsiveImage
-            className="w-full mt-2 mb-3"
-            image={story.image}
-            priority={false}
-            sizes={'100vw'}
-          />
-          <RichText text={story.text} />
-        </Block>
-      </section>
+      <Section id="story">
+        {parent && (
+          <LinkButton
+            href={`/news/${parent.slug}`}
+            size={'small'}
+            icon={'left'}
+            variant={'solid'}
+          >
+            {parent.name}
+          </LinkButton>
+        )}
+        <h1 className="text-xl">{story.title}</h1>
+        <div className="text-sm">{toFullDate(story.date)}</div>
+        <ResponsiveImage
+          className="w-full mt-2 mb-3"
+          image={story.image}
+          priority={false}
+          sizes={'100vw'}
+        />
+        <RichText text={story.text} />
+      </Section>
       {story.donationRequests &&
         story.donationRequests.map((d) => (
           <DonationRequestBlock key={d.slug.current} {...d} />
         ))}
       {stories && (
-        <section>
-          <Block>
-            <h1 className={'text-xl'}>More News</h1>
-            <MediaCarousel>
-              {stories.slice(0, 3).map((s, i) => (
-                <MediaCarouselItem
-                  key={i}
-                  href={`/news/story/${s.slug.current}`}
-                  title={s.title}
-                  image={s.image}
-                ></MediaCarouselItem>
-              ))}
-            </MediaCarousel>
-          </Block>
-        </section>
+        <Section>
+          <h1 className={'text-xl'}>More News</h1>
+          <MediaCarousel>
+            {stories.slice(0, 3).map((s, i) => (
+              <MediaCarouselItem
+                key={i}
+                href={`/news/story/${s.slug.current}`}
+                title={s.title}
+                image={s.image}
+              ></MediaCarouselItem>
+            ))}
+          </MediaCarousel>
+        </Section>
       )}
     </main>
   );

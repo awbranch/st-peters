@@ -1,18 +1,10 @@
 import React from 'react';
-import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import { FAQsBlock as Props } from '@/types/FAQsBlock';
 
-export default function FAQsBlock({
-  slug,
-  background,
-  narrow,
-  text,
-  faqs,
-}: Props) {
+export default function FAQsBlock({ id, faqs }: Props) {
   return (
-    <Block slug={slug.current} color={background?.label} narrow={narrow}>
-      <RichText text={text} />
+    <div id={id?.current}>
       <ul>
         {faqs.map((faq, i) => (
           <li
@@ -39,6 +31,6 @@ export default function FAQsBlock({
           </li>
         ))}
       </ul>
-    </Block>
+    </div>
   );
 }

@@ -1,9 +1,9 @@
 'use client';
 
 import { useEffect } from 'react';
-import Block from '@/components/Block';
 import Button from '@/components/Button';
 import { Para } from '@/components/Typography';
+import Section from '@/components/Section';
 
 export default function Error({
   error,
@@ -19,7 +19,7 @@ export default function Error({
 
   return (
     <main>
-      <Block color={'white'} center>
+      <Section className={'text-center'}>
         <h1 className="text-xl mb-4">Something went wrong!</h1>
         <Button
           color={'black'}
@@ -36,7 +36,7 @@ export default function Error({
         <div className={'mt-4 text-left'}>
           <Para>{error.stack}</Para>
         </div>
-      </Block>
+      </Section>
     </main>
   );
 }

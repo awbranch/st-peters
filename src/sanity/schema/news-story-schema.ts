@@ -81,7 +81,6 @@ export default defineType({
       of: [
         createRichTextBlock(),
         createImageField('image', 'Image'),
-        { type: 'buttonTileGrid' },
         { type: 'buttonRow' },
       ],
       validation: (Rule: any) => Rule.required(),

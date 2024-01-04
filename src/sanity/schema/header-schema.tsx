@@ -1,6 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { createRichTextBlock } from '@/sanity/schema/utils';
-import { FaArrowsUpToLine as icon } from 'react-icons/fa6';
+import { FaWindowMaximize as icon } from 'react-icons/fa';
 
 export default defineType({
   name: 'header',

@@ -1,10 +1,10 @@
 import { getProgram, getPrograms } from '@/sanity/sanity-utils';
-import Block from '@/components/Block';
 import RichText from '@/components/RichText';
 import React from 'react';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import OtherProgramsBlock from '@/components/OtherProgramsBlock';
 import { H1 } from '@/components/Typography';
+import Section from '@/components/Section';
 
 export async function generateStaticParams() {
   const programs = await getPrograms();
@@ -19,19 +19,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <main>
-        <section id="program">
-          <Block color={'white'}>
-            <H1>{program.title}</H1>
-            <RichText text={program.text} />
-          </Block>
-        </section>
-        {program.donationRequests &&
-          program.donationRequests.map((d) => (
-            <DonationRequestBlock key={d.slug.current} {...d} />
-          ))}
-        <section id="other-programs">
+        <Section id="program">
+          <H1>{program.title}</H1>
+          <RichText text={program.text} />
+          {program.donationRequests &&
+            program.donationRequests.map((d) => (
+              <DonationRequestBlock key={d.slug.current} {...d} />
+            ))}
+        </Section>
+        <Section id="other-programs">
           <OtherProgramsBlock title="Other Programs" besides={params.slug} />
-        </section>
+        </Section>
       </main>
     </>
   );

@@ -1,5 +1,4 @@
 import React from 'react';
-import Block from '@/components/Block';
 import { getPrograms } from '@/sanity/sanity-utils';
 import ProgramsSlider from '@/components/ProgramsSlider';
 
@@ -14,9 +13,9 @@ export default async function OtherProgramsBlock({ title, besides }: Props) {
   );
 
   return (
-    <Block color="white">
+    <div>
       <h1 className="text-xl">{title}</h1>
       <ProgramsSlider programs={programs} />
-    </Block>
+    </div>
   );
 }
