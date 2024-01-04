@@ -23,6 +23,7 @@ export default defineType({
         createImageField('image', 'Image'),
         { type: 'buttonTileGrid' },
         { type: 'buttonRow' },
+        { type: 'newspaperText' },
       ],
     }),
   ],

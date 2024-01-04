@@ -33,6 +33,7 @@ import job from '@/sanity/schema/job-schema';
 import link from '@/sanity/schema/link-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
 import menuItem from '@/sanity/schema/menu-item-schema';
+import newspaperText from '@/sanity/schema/newspaper-text-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
 import program from '@/sanity/schema/program-schema';
 import social from '@/sanity/schema/social-schema';
@@ -74,6 +75,7 @@ const schemas = [
   link,
   lunchMenu,
   menuItem,
+  newspaperText,
   newsStory,
   program,
   social,

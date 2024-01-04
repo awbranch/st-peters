@@ -7,6 +7,7 @@ import ButtonTileGrid from '@/components/ButtonTileGrid';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonTileGrid as ButtonTileGridConfig } from '@/types/ButtonTileGrid';
 import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
+import { NewspaperText as NewspaperTextConfig } from '@/types/NewspaperText';
 import {
   BlockQuote,
   Em,
@@ -18,6 +19,7 @@ import {
   Strong,
   UL,
 } from '@/components/Typography';
+import NewspaperText from '@/components/NewspaperText';
 
 type Props = {
   text: PortableTextBlock[];
@@ -66,6 +68,9 @@ const RichText = ({ text }: Props) => {
       },
       buttonRow: ({ value }: { value: ButtonRowConfig }) => {
         return <ButtonRow {...value} />;
+      },
+      newspaperText: ({ value }: { value: NewspaperTextConfig }) => {
+        return <NewspaperText {...value} />;
       },
     },
   };

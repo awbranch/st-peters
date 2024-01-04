@@ -33,6 +33,14 @@ export default defineType({
       group: 'notification',
     }),
     defineField({
+      name: 'notificationBackground',
+      title: 'Notification Background',
+      type: 'simplerColor',
+      description:
+        'The background color for the bar, if not set it defaults to black.',
+      group: 'notification',
+    }),
+    defineField({
       name: 'logo',
       title: 'Logo',
       type: 'image',

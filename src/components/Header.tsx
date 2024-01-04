@@ -9,7 +9,10 @@ export default async function Header() {
   return (
     <header>
       {props.showNotification && (
-        <NotificationBar message={props.notificationMessage} />
+        <NotificationBar
+          message={props.notificationMessage}
+          background={props.notificationBackground?.label}
+        />
       )}
       <NavBar
         logo={props.logo}
