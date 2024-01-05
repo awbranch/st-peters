@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <RichText text={program.text} />
           {program.donationRequests &&
             program.donationRequests.map((d) => (
-              <DonationRequestBlock key={d.id.current} {...d} />
+              <DonationRequestBlock key={d._key} {...d} />
             ))}
         </Section>
         <Section id="other-programs">
