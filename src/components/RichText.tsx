@@ -3,9 +3,7 @@ import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
 import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import ButtonTileGridBlock from '@/components/ButtonTileGridBlock';
 import ButtonRow from '@/components/ButtonRow';
-import { ButtonTileGridBlock as ButtonTileGridConfig } from '@/types/ButtonTileGridBlock';
 import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
 import { NewspaperText as NewspaperTextConfig } from '@/types/NewspaperText';
 import {
@@ -62,9 +60,6 @@ const RichText = ({ text }: Props) => {
             sizes={'100vw'}
           />
         );
-      },
-      buttonTileGrid: ({ value }: { value: ButtonTileGridConfig }) => {
-        return <ButtonTileGridBlock {...value} />;
       },
       buttonRow: ({ value }: { value: ButtonRowConfig }) => {
         return <ButtonRow {...value} />;

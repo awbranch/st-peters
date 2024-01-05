@@ -1,36 +1,51 @@
+'use client';
 import React from 'react';
 import RichText from '@/components/RichText';
 import { FAQsBlock as Props } from '@/types/FAQsBlock';
+import { Disclosure } from '@headlessui/react';
+import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
 
 export default function FAQsBlock({ id, faqs }: Props) {
   return (
     <div id={id?.current}>
-      <ul>
-        {faqs.map((faq, i) => (
-          <li
-            key={i}
-            className={'list-none w-full border-b border-gray-300 mb-1 pb-1'}
-          >
-            <input
-              type={'radio'}
-              name={'accordion'}
-              id={`q${i}`}
-              className={'hidden peer'}
-            />
-            <label
-              htmlFor={`q${i}`}
-              className={
-                "flex items-start justify-between py-1 pr-1 text-lg text-black cursor-pointer after:content-['+'] after:text-[1.3em] peer-checked:text-ocean hover:text-ocean peer-checked:after:content-['-']"
-              }
-            >
-              {faq.question}
-            </label>
-            <div className={'max-h-0 overflow-hidden peer-checked:max-h-fit'}>
-              <RichText text={faq.answer}></RichText>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+        <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+          {faqs.map((faq) => (
+            <Disclosure as="div" key={faq.question} className="pt-6">
+              {({ open }) => (
+                <>
+                  <dt>
+                    <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                      <span className="text-base font-semibold leading-7">
+                        {faq.question}
+                      </span>
+                      <span className="ml-6 flex h-7 items-center">
+                        {open ? (
+                          <MinusSmallIcon
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <PlusSmallIcon
+                            className="h-6 w-6"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </dt>
+                  <Disclosure.Panel
+                    as="dd"
+                    className="mt-2 pr-12 text-gray-600"
+                  >
+                    <RichText text={faq.answer} />
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          ))}
+        </dl>
+      </div>
     </div>
   );
 }
