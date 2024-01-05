@@ -12,14 +12,14 @@ export const breakpoints = {
 
 export const newsCategories: NewsCategory[] = [
   {
-    name: 'Upcoming Events',
-    slug: 'upcoming-events',
+    name: 'Past Events',
+    slug: 'past-events',
     sanityName: 'Event',
     sanityCategory: 'event',
   },
   {
-    name: 'Past Events',
-    slug: 'past-events',
+    name: 'Upcoming Events',
+    slug: 'upcoming-events',
     sanityName: 'Event',
     sanityCategory: 'event',
   },

@@ -55,7 +55,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </Section>
       {story.donationRequests &&
         story.donationRequests.map((d) => (
-          <DonationRequestBlock key={d.id.current} {...d} />
+          <DonationRequestBlock key={d._key} {...d} />
         ))}
       {stories && (
         <Section>
