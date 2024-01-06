@@ -3,7 +3,6 @@ import { File, Image } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
 import { Page } from '@/types/Page';
-import { Program } from '@/types/Program';
 import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
@@ -85,24 +84,6 @@ export async function getPageByPath(path: string[]) {
   return client.fetch<Page>(groq`*[_type == "page" && path == $path][0]`, {
     path: '/' + path.join('/'),
   });
-}
-
-export async function getPrograms() {
-  return client.fetch<Program[]>(
-    groq`*[_type == "program"] | order(orderRank asc)`,
-  );
-}
-
-export async function getProgram(slug: string) {
-  return client.fetch<Program>(
-    groq`*[_type == "program" && slug.current == $slug]{
-     ...,
-     donationRequest-> 
-  }[0]`,
-    {
-      slug,
-    },
-  );
 }
 
 export async function getStaffMembers() {

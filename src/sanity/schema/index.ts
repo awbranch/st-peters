@@ -4,6 +4,7 @@ import header from '@/sanity/schema/header-schema';
 
 import section from '@/sanity/schema/section-schema';
 
+import buttonTileGridBlock from '@/sanity/schema/button-tile-grid-block-schema';
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
@@ -11,11 +12,11 @@ import formBlock from '@/sanity/schema/form-block-schema';
 import googleMapBlock from '@/sanity/schema/google-map-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
 import highlightBlock from '@/sanity/schema/highlight-block-schema';
+import imageTileGridBlock from '@/sanity/schema/image-tile-grid-block-schema';
 import impactBlock from '@/sanity/schema/impact-block-schema';
 import instagramBlock from '@/sanity/schema/instagram-block-schema';
 import lunchBlock from '@/sanity/schema/lunch-block-schema';
 import jobsBlock from '@/sanity/schema/jobs-block-schema';
-import programsBlock from '@/sanity/schema/programs-block-schema';
 import teamBlock from '@/sanity/schema/team-block-schema';
 import textBlock from '@/sanity/schema/text-block-schema';
 
@@ -24,12 +25,12 @@ import address from '@/sanity/schema/address-schema';
 import boardMember from '@/sanity/schema/board-member-schema';
 import button from '@/sanity/schema/button-schema';
 import buttonRow from '@/sanity/schema/button-row-schema';
-import buttonTileGridBlock from '@/sanity/schema/button-tile-grid-block-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
 import doc from '@/sanity/schema/doc-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
 import donationRequest from '@/sanity/schema/donation-request-schema';
 import faq from '@/sanity/schema/faq-schema';
+import imageTile from '@/sanity/schema/image-tile-schema';
 import impact from '@/sanity/schema/impact-schema';
 import job from '@/sanity/schema/job-schema';
 import link from '@/sanity/schema/link-schema';
@@ -37,7 +38,6 @@ import lunchMenu from '@/sanity/schema/lunch-menu-schema';
 import menuItem from '@/sanity/schema/menu-item-schema';
 import newspaperText from '@/sanity/schema/newspaper-text-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
-import program from '@/sanity/schema/program-schema';
 import social from '@/sanity/schema/social-schema';
 import staffMember from '@/sanity/schema/staff-member-schema';
 
@@ -48,6 +48,7 @@ const schemas = [
 
   section,
 
+  buttonTileGridBlock,
   docsBlock,
   donationRequestBlock,
   faqsBlock,
@@ -55,11 +56,11 @@ const schemas = [
   googleMapBlock,
   heroBlock,
   highlightBlock,
+  imageTileGridBlock,
   impactBlock,
   instagramBlock,
   jobsBlock,
   lunchBlock,
-  programsBlock,
   teamBlock,
   textBlock,
 
@@ -68,12 +69,12 @@ const schemas = [
   boardMember,
   button,
   buttonRow,
-  buttonTileGridBlock,
   buttonTile,
   doc,
   donationLevel,
   donationRequest,
   faq,
+  imageTile,
   impact,
   job,
   link,
@@ -81,7 +82,6 @@ const schemas = [
   menuItem,
   newspaperText,
   newsStory,
-  program,
   social,
   staffMember,
 ];

@@ -1,11 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { FaArrowUpRightFromSquare as icon } from 'react-icons/fa6';
 
 export default defineType({
   name: 'buttonTile',
   title: 'Button Tile',
   type: 'object',
-  icon,
   fields: [
     defineField({
       name: 'icon',

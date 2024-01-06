@@ -148,11 +148,11 @@ export function createBlocksArrayField(name: string, title: string) {
       defineArrayMember({ type: 'heroBlock' }),
       defineArrayMember({ type: 'highlightBlock' }),
       defineArrayMember({ type: 'buttonTileGridBlock' }),
+      defineArrayMember({ type: 'imageTileGridBlock' }),
       defineArrayMember({ type: 'donationRequestBlock' }),
       defineArrayMember({ type: 'googleMapBlock' }),
       defineArrayMember({ type: 'impactBlock' }),
       defineArrayMember({ type: 'lunchBlock' }),
-      defineArrayMember({ type: 'programsBlock' }),
       defineArrayMember({ type: 'instagramBlock' }),
       defineArrayMember({ type: 'teamBlock' }),
       defineArrayMember({ type: 'jobsBlock' }),
@@ -169,7 +169,7 @@ export function createStockBlockFields() {
       name: 'id',
       title: 'ID',
       type: 'slug',
-      description: 'Optional id sto link to this block in the section.',
+      description: 'Optional id to link to this block in the section.',
     }),
   ];
 }

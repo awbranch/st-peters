@@ -4,7 +4,6 @@ import HeroBlock from '@/components/HeroBlock';
 import LunchBlock from '@/components/LunchBlock';
 import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
-import ProgramsBlock from '@/components/ProgramsBlock';
 import TextBlock from '@/components/TextBlock';
 import GoogleMapBlock from '@/components/GoogleMapBlock';
 import TeamBlock from '@/components/TeamBlock';
@@ -14,6 +13,7 @@ import FAQsBlock from '@/components/FAQsBlock';
 import FormBlock from '@/components/FormBlock';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import ButtonTileGridBlock from '@/components/ButtonTileGridBlock';
+import ImageTileGridBlock from '@/components/ImageTileGridBlock';
 
 type Props = {
   blocks: BlockConfig[];
@@ -31,8 +31,6 @@ export default function BlockList({ blocks }: Props) {
           <HighlightBlock key={config._key} {...config} />
         ) : config._type === 'impactBlock' ? (
           <ImpactBlock key={config._key} {...config} />
-        ) : config._type === 'programsBlock' ? (
-          <ProgramsBlock key={config._key} {...config} />
         ) : config._type === 'textBlock' ? (
           <TextBlock key={config._key} {...config} />
         ) : config._type === 'googleMapBlock' ? (
@@ -51,8 +49,10 @@ export default function BlockList({ blocks }: Props) {
           <DonationRequestBlock key={config._key} {...config} />
         ) : config._type === 'buttonTileGridBlock' ? (
           <ButtonTileGridBlock key={config._key} {...config} />
+        ) : config._type === 'imageTileGridBlock' ? (
+          <ImageTileGridBlock key={config._key} {...config} />
         ) : (
-          <div key={config._key} className={'bg-blue text-white p-10'}>
+          <div key={config._key} className={'bg-red-700 text-white p-10'}>
             <h1 className={'text-3xl text-center font-semibold'}>
               Unknown Block: {config._type}
             </h1>
