@@ -3,7 +3,6 @@ import { File, Image } from 'sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import { LunchMenu } from '@/types/LunchMenu';
 import { Page } from '@/types/Page';
-import { TeamMember } from '@/types/TeamMember';
 import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
@@ -84,18 +83,6 @@ export async function getPageByPath(path: string[]) {
   return client.fetch<Page>(groq`*[_type == "page" && path == $path][0]`, {
     path: '/' + path.join('/'),
   });
-}
-
-export async function getStaffMembers() {
-  return client.fetch<TeamMember[]>(
-    groq`*[_type == "staffMember"] | order(lastName asc, firstName asc)`,
-  );
-}
-
-export async function getBoardMembers() {
-  return client.fetch<TeamMember[]>(
-    groq`*[_type == "boardMember"] | order(lastName asc, firstName asc)`,
-  );
 }
 
 export async function getTopNewsStories(count: number) {

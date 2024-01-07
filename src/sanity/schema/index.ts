@@ -17,7 +17,8 @@ import impactBlock from '@/sanity/schema/impact-block-schema';
 import instagramBlock from '@/sanity/schema/instagram-block-schema';
 import lunchBlock from '@/sanity/schema/lunch-block-schema';
 import jobsBlock from '@/sanity/schema/jobs-block-schema';
-import teamBlock from '@/sanity/schema/team-block-schema';
+import teamGridBlock from '@/sanity/schema/team-grid-block-schema';
+import teamListBlock from '@/sanity/schema/team-list-block-schema';
 import textBlock from '@/sanity/schema/text-block-schema';
 
 import action from '@/sanity/schema/action-schema';
@@ -39,7 +40,8 @@ import menuItem from '@/sanity/schema/menu-item-schema';
 import newspaperText from '@/sanity/schema/newspaper-text-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
 import social from '@/sanity/schema/social-schema';
-import staffMember from '@/sanity/schema/staff-member-schema';
+import teamGridMember from '@/sanity/schema/team-grid-member-schema';
+import teamListMember from '@/sanity/schema/team-list-member-schema';
 
 const schemas = [
   header,
@@ -61,7 +63,8 @@ const schemas = [
   instagramBlock,
   jobsBlock,
   lunchBlock,
-  teamBlock,
+  teamGridBlock,
+  teamListBlock,
   textBlock,
 
   action,
@@ -83,7 +86,8 @@ const schemas = [
   newspaperText,
   newsStory,
   social,
-  staffMember,
+  teamGridMember,
+  teamListMember,
 ];
 
 export default schemas;

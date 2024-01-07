@@ -2,29 +2,11 @@ import React from 'react';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
 import { getFooter, urlFor } from '@/sanity/sanity-utils';
-import { SocialMediaService } from '@/types/SocialMediaService';
-import { IconDefinition } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedinIn,
-  faTwitter,
-  faXTwitter,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
 import Wave from '@/components/Wave';
 import NewsletterSignupForm from '@/components/NewsletterSignupForm';
 import Section from '@/components/Section';
-
-const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
-  facebook: faFacebookF,
-  instagram: faInstagram,
-  youtube: faYoutube,
-  twitter: faTwitter,
-  x: faXTwitter,
-  linkedin: faLinkedinIn,
-};
+import { socialIcons } from '@/utils/globals';
 
 export default async function Footer() {
   const props = await getFooter();

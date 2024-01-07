@@ -1,4 +1,15 @@
 import { NewsCategory } from '@/types/NewsCategory';
+import { SocialMediaService } from '@/types/SocialMediaService';
+import { faEnvelope, IconDefinition } from '@fortawesome/pro-solid-svg-icons';
+
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+  faXTwitter,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
 export const maxScreenWidth = 1280;
 
@@ -70,3 +81,13 @@ export const buttonColorList = [
   { label: 'pink', value: themeColors.sunset.DEFAULT },
   { label: 'black', value: themeColors.black },
 ];
+
+export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
+  email: faEnvelope,
+  facebook: faFacebookF,
+  instagram: faInstagram,
+  youtube: faYoutube,
+  twitter: faTwitter,
+  x: faXTwitter,
+  linkedin: faLinkedin,
+};

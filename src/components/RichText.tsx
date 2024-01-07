@@ -55,7 +55,7 @@ const RichText = ({ text }: Props) => {
       image: ({ value }: { value: Image }) => {
         return (
           <ResponsiveImage
-            className="mb-4 w-full"
+            className="mb-4 my-12 w-full"
             image={value}
             sizes={'100vw'}
           />

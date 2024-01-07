@@ -5,7 +5,6 @@ import { ImpactBlock } from '@/types/ImpactBlock';
 import { InstagramBlock } from '@/types/InstagramBlock';
 import { TextBlock } from '@/types/TextBlock';
 import { GoogleMapBlock } from '@/types/GoogleMapBlock';
-import { TeamBlock } from '@/types/TeamBlock';
 import { JobsBlock } from '@/types/JobsBlock';
 import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
@@ -14,6 +13,8 @@ import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { Slug } from 'sanity';
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
+import { TeamGridBlock } from '@/types/TeamGridBlock';
+import { TeamListBlock } from '@/types/TeamListBlock';
 
 export type Block =
   | DocumentsBlock
@@ -29,7 +30,8 @@ export type Block =
   | InstagramBlock
   | JobsBlock
   | LunchBlock
-  | TeamBlock
+  | TeamGridBlock
+  | TeamListBlock
   | TextBlock;
 
 export type BlockProps = {

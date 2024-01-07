@@ -43,7 +43,7 @@ export const Subtitle = ({
   React.createElement(
     as || 'p',
     {
-      className: twMerge('text-lg leading-relaxed opacity-60', className),
+      className: twMerge('text-lg leading-relaxed opacity-80', className),
       ...rest,
     },
     children,

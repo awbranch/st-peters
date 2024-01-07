@@ -6,7 +6,6 @@ import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import TextBlock from '@/components/TextBlock';
 import GoogleMapBlock from '@/components/GoogleMapBlock';
-import TeamBlock from '@/components/TeamBlock';
 import JobsBlock from '@/components/JobsBlock';
 import DocumentsBlock from '@/components/DocumentsBlock';
 import FAQsBlock from '@/components/FAQsBlock';
@@ -14,6 +13,8 @@ import FormBlock from '@/components/FormBlock';
 import DonationRequestBlock from '@/components/DonationRequestBlock';
 import ButtonTileGridBlock from '@/components/ButtonTileGridBlock';
 import ImageTileGridBlock from '@/components/ImageTileGridBlock';
+import TeamGridBlock from '@/components/TeamGridBlock';
+import TeamListBlock from '@/components/TeamListBlock';
 
 type Props = {
   blocks: BlockConfig[];
@@ -21,7 +22,7 @@ type Props = {
 
 export default function BlockList({ blocks }: Props) {
   return (
-    <div className={'space-y-8'}>
+    <div className={'space-y-20'}>
       {blocks.map((config) =>
         config._type === 'heroBlock' ? (
           <HeroBlock key={config._key} {...config} />
@@ -35,8 +36,10 @@ export default function BlockList({ blocks }: Props) {
           <TextBlock key={config._key} {...config} />
         ) : config._type === 'googleMapBlock' ? (
           <GoogleMapBlock key={config._key} {...config} />
-        ) : config._type === 'teamBlock' ? (
-          <TeamBlock key={config._key} {...config} />
+        ) : config._type === 'teamListBlock' ? (
+          <TeamListBlock key={config._key} {...config} />
+        ) : config._type === 'teamGridBlock' ? (
+          <TeamGridBlock key={config._key} {...config} />
         ) : config._type === 'jobsBlock' ? (
           <JobsBlock key={config._key} {...config} />
         ) : config._type === 'docsBlock' ? (
