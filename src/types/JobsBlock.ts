@@ -1,11 +1,13 @@
 import { BlockProps } from '@/types/Block';
-import { PortableTextBlock } from 'sanity';
 import { Job } from '@/types/Job';
+import { Image } from '@/types/Image';
 
 export type JobsBlock = BlockProps & {
   _type: 'jobsBlock';
-  text: PortableTextBlock[];
+  title: string;
+  text: string;
+  image: Image;
   jobs: Job[];
-  eeoStatement: PortableTextBlock[];
-  noOpenings: PortableTextBlock[];
+  eooStatement: string;
+  noOpenings: string;
 };

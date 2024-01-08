@@ -34,7 +34,7 @@ export default defineType({
       description:
         'A short description of the job, the full job description should be in the job posting.',
       type: 'url',
-      validation: (Rule: any) => Rule.required().max(160),
+      validation: (Rule: any) => Rule.required(),
     }),
   ],
 });

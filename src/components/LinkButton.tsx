@@ -28,19 +28,19 @@ const variantClasses: { [V in ButtonVariant]: string } = {
 };
 
 const sizeClasses: { [S in Size]: string } = {
-  small: 'gap-x-1.5 px-2 py-1 text-sm ',
-  medium: 'gap-x-1.5 px-2.5 py-1.5 text-sm ',
-  large: 'gap-x-2 px-3 py-2 text-base',
+  small: 'gap-x-1.5 px-3 py-1 text-sm ',
+  medium: 'gap-x-1.5 px-3 py-1.5 text-sm ',
+  large: 'gap-x-2 px-3.5 py-2 text-base',
 };
 
 const colorClasses: { [V in ButtonVariant]: { [C in Color]: string } } = {
   outline: {
-    green: 'text-grass bg-white ring-grass hover:bg-gray-100',
-    blue: 'text-ocean bg-white ring-ocean hover:bg-gray-100',
-    pink: 'text-sunset bg-white ring-sunset hover:bg-gray-100',
-    black: 'text-black bg-white ring-black hover:bg-gray-100',
-    white: 'text-white bg-black ring-white hover:bg-gray-700',
-    gray: 'text-gray-400 bg-white ring-gray-400 hover:bg-gray-100',
+    green: 'text-grass ring-grass hover:bg-grass/20',
+    blue: 'text-ocean ring-ocean hover:bg-ocean/20',
+    pink: 'text-sunset ring-sunset hover:bg-sunset/20',
+    black: 'text-black ring-black hover:bg-black/20',
+    white: 'text-white ring-white hover:bg-white/20',
+    gray: 'text-gray-400 ring-gray-400 hover:bg-gray-100',
   },
   solid: {
     green:

@@ -32,6 +32,7 @@ export default async function LunchBlock({
         : getNextWeekdayDate(today);
 
     menus.push({
+      _key: nextDate,
       date: nextDate,
       menu: tbd,
     });

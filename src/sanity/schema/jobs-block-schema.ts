@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
 import {
-  createRichTextBlock,
+  createImageField,
   createStockBlockFields,
 } from '@/sanity/schema/utils';
 import { FaPersonDigging as icon } from 'react-icons/fa6';
@@ -14,20 +14,18 @@ export default defineType({
   fields: [
     ...createStockBlockFields(),
     defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
+      name: 'title',
+      title: 'Title',
+      type: 'string',
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'text',
+      validation: (Rule: any) => Rule.required(),
+    }),
+    createImageField('image', 'Image'),
     defineField({
       name: 'jobs',
       title: 'Jobs',
@@ -37,31 +35,13 @@ export default defineType({
     defineField({
       name: 'eooStatement',
       title: 'EEO Statement',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h1',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
+      type: 'text',
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'noOpenings',
       title: 'No Job Openings',
-      type: 'array',
-      of: [
-        createRichTextBlock([
-          'h2',
-          'decorators',
-          'links',
-          'lists',
-          'textColor',
-        ]),
-      ],
+      type: 'text',
       validation: (Rule: any) => Rule.required(),
     }),
   ],
