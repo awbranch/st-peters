@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImpactBlock as Props } from '@/types/ImpactBlock';
 import { H1, H1Mini, Subtitle } from '@/components/Typography';
+import TextSplit from '@/components/TextSplit';
 
 export default function ImpactBlock({
   id,
@@ -14,11 +15,11 @@ export default function ImpactBlock({
       <div className="mx-auto max-w-4xl text-center">
         <H1Mini>{title}</H1Mini>
         <H1 as="p">{subtitle}</H1>
-        {text.split(/\n+/).map((p, i) => (
-          <Subtitle className={'mb-4'} key={i}>
-            {p}
-          </Subtitle>
-        ))}
+        <TextSplit
+          className={'space-y-10'}
+          text={text}
+          render={(p) => <Subtitle>{p}</Subtitle>}
+        />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-12">

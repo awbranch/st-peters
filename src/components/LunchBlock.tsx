@@ -11,6 +11,7 @@ import { H1, H1Mini, Subtitle } from '@/components/Typography';
 import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
+import TextSplit from '@/components/TextSplit';
 
 export default async function LunchBlock({
   id,
@@ -45,11 +46,11 @@ export default async function LunchBlock({
         <H1 as="p">{subtitle}</H1>
       </div>
       <div className={'text-center'}>
-        {text.split(/\n+/).map((p, i) => (
-          <Subtitle className={'mb-4'} key={i}>
-            {p}
-          </Subtitle>
-        ))}
+        <TextSplit
+          className={'space-y-4'}
+          text={text}
+          render={(p) => <Subtitle>{p}</Subtitle>}
+        />
       </div>
       <div className="mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {menus.map((menu, i) => (

@@ -10,10 +10,12 @@ type Props = {
  */
 export default function SimpleText({ text }: Props) {
   return (
-    <>
+    <div className={'space-y-4'}>
       {text.split(/\n+/).map((p, i) => (
-        <Para key={i}>{p}</Para>
+        <Para key={i} className={'m-0'}>
+          {p}
+        </Para>
       ))}
-    </>
+    </div>
   );
 }

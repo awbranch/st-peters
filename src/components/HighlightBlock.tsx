@@ -5,6 +5,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import LinkButton from '@/components/LinkButton';
 import { H1, H1Mini, Subtitle } from '@/components/Typography';
+import TextSplit from '@/components/TextSplit';
 
 export default function HighlightBlock({
   id,
@@ -41,11 +42,11 @@ export default function HighlightBlock({
         >
           <H1Mini>{title}</H1Mini>
           <H1 as="p">{subtitle}</H1>
-          {text.split(/\n+/).map((p, i) => (
-            <Subtitle className={'mb-4'} key={i}>
-              {p}
-            </Subtitle>
-          ))}
+          <TextSplit
+            className={'space-y-4'}
+            text={text}
+            render={(p) => <Subtitle>{p}</Subtitle>}
+          />
           <div className="mt-8">
             <LinkButton
               size={'large'}

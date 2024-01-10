@@ -3,6 +3,7 @@ import { JobsBlock as Props } from '@/types/JobsBlock';
 import { H1, Subtitle } from '@/components/Typography';
 import LinkButton from '@/components/LinkButton';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import TextSplit from '@/components/TextSplit';
 
 export default function JobsBlock({
   id,
@@ -22,11 +23,11 @@ export default function JobsBlock({
       >
         <div>
           <H1 className={'mt-0'}>{title}</H1>
-          {text.split(/\n+/).map((p, i) => (
-            <Subtitle className={'mb-4'} key={i}>
-              {p}
-            </Subtitle>
-          ))}
+          <TextSplit
+            className={'space-y-4'}
+            text={text}
+            render={(p) => <Subtitle>{p}</Subtitle>}
+          />
         </div>
         <div className={'row-start-2'}>
           <ResponsiveImage
@@ -70,11 +71,11 @@ export default function JobsBlock({
           )}
         </div>
         <div className={'row-start-4 lg:row-start-3'}>
-          {eooStatement.split(/\n+/).map((p, i) => (
-            <p className={'mb-4 text-sm opacity-70'} key={i}>
-              {p}
-            </p>
-          ))}
+          <TextSplit
+            className={'space-y-4'}
+            text={eooStatement}
+            render={(p) => <p className={'text-sm opacity-70'}>{p}</p>}
+          />
         </div>
       </div>
     </div>

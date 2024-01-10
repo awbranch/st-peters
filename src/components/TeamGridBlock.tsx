@@ -5,6 +5,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
 import Link from 'next/link';
+import TextSplit from '@/components/TextSplit';
 
 export default async function TeamGridBlock({
   id,
@@ -17,13 +18,11 @@ export default async function TeamGridBlock({
       <div className="mx-auto max-w-4xl text-center">
         <H1>{title}</H1>
       </div>
-      <div className={'text-center'}>
-        {text.split(/\n+/).map((p, i) => (
-          <Subtitle className={'mb-4'} key={i}>
-            {p}
-          </Subtitle>
-        ))}
-      </div>
+      <TextSplit
+        className={'space-y-4 text-center'}
+        text={text}
+        render={(p) => <Subtitle>{p}</Subtitle>}
+      />
 
       <ul
         role="list"
