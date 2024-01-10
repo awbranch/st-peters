@@ -23,6 +23,21 @@ export const months = [
   'December',
 ];
 
+export const mons = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sept',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
 /**
  * Returns the UTC date in YYYY-MM-DD format
  */
@@ -76,6 +91,14 @@ export function toMonthAndDate(date: string) {
   const month = months[d.getUTCMonth()];
   const day = d.getUTCDate();
   return `${month} ${day}`;
+}
+
+export function toShortDate(date: string) {
+  const d = toUTCDate(date);
+  const month = mons[d.getUTCMonth()];
+  const day = d.getUTCDate();
+  const year = d.getUTCFullYear();
+  return `${month} ${day}, ${year}`;
 }
 
 export function toFullDate(date: string) {

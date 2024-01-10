@@ -69,31 +69,47 @@ export async function getLunchMenus() {
   return client.fetch<LunchMenu[]>(
     groq`*[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1]{date, menu} | order(date asc)[0..2]`,
     {},
-    { next: { revalidate: 60 * 60 } }, // Revalidate every hour
+    { next: { revalidate: 5 } },
   );
 }
 
 export async function getPagesByVariant(variant: string) {
-  return client.fetch<Page[]>(groq`*[_type == "page" && variant == variant]`, {
-    variant: variant,
-  });
+  return client.fetch<Page[]>(
+    groq`*[_type == "page" && variant == variant]`,
+    {
+      variant: variant,
+    },
+    { next: { revalidate: 5 } },
+  );
 }
 
 export async function getPageByPath(path: string[]) {
-  return client.fetch<Page>(groq`*[_type == "page" && path == $path][0]`, {
-    path: '/' + path.join('/'),
-  });
+  return client.fetch<Page>(
+    groq`*[_type == "page" && path == $path][0]`,
+    {
+      path: '/' + path.join('/'),
+    },
+    { next: { revalidate: 5 } },
+  );
 }
 
 export async function getTopNewsStories(count: number) {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
     {},
-    { next: { revalidate: 60 * 60 * 24 } },
+    { next: { revalidate: 5 } },
   );
 }
 
 export type NewsStoryTimeRange = 'all' | 'past' | 'future';
+
+export async function getAllNewsStories() {
+  return client.fetch<NewsStory[]>(
+    groq`*[_type == "newsStory"] | order(date desc)`,
+    {},
+    { next: { revalidate: 5 } },
+  );
+}
 
 export async function getNewsStories(
   category: string,
@@ -116,7 +132,7 @@ export async function getNewsStories(
     {
       category,
     },
-    { next: { revalidate: 60 * 60 * 24 } },
+    { next: { revalidate: 5 } },
   );
 }
 
@@ -129,16 +145,24 @@ export async function getNewsStory(slug: string) {
     {
       slug,
     },
-    { next: { revalidate: 60 * 60 * 24 } },
+    { next: { revalidate: 5 } },
   );
 }
 
 export async function getHeader() {
-  return client.fetch<Header>(groq`*[_type == "header"][0]`);
+  return client.fetch<Header>(
+    groq`*[_type == "header"][0]`,
+    {},
+    { next: { revalidate: 5 } },
+  );
 }
 
 export async function getFooter() {
-  return client.fetch<Footer>(groq`*[_type == "footer"][0]`);
+  return client.fetch<Footer>(
+    groq`*[_type == "footer"][0]`,
+    {},
+    { next: { revalidate: 5 } },
+  );
 }
 
 export async function getDonationRequest(id: string) {
@@ -147,5 +171,6 @@ export async function getDonationRequest(id: string) {
     {
       id,
     },
+    { next: { revalidate: 5 } },
   );
 }

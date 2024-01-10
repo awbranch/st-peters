@@ -1,7 +1,8 @@
-'use client';
-import { redirect } from 'next/navigation';
-import { newsCategories } from '@/utils/globals';
+import NewsBlock from '@/components/NewsBlock';
+import { getAllNewsStories } from '@/sanity/sanity-utils';
 
-export default function News() {
-  redirect(`/news/${newsCategories[0].slug}`);
+export default async function News() {
+  const stories = await getAllNewsStories();
+
+  return <NewsBlock stories={stories} />;
 }

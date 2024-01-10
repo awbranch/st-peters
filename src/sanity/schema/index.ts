@@ -23,7 +23,6 @@ import textBlock from '@/sanity/schema/text-block-schema';
 
 import action from '@/sanity/schema/action-schema';
 import address from '@/sanity/schema/address-schema';
-import boardMember from '@/sanity/schema/board-member-schema';
 import button from '@/sanity/schema/button-schema';
 import buttonRow from '@/sanity/schema/button-row-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
@@ -69,7 +68,6 @@ const schemas = [
 
   action,
   address,
-  boardMember,
   button,
   buttonRow,
   buttonTile,
