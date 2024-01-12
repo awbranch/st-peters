@@ -7,19 +7,13 @@ import {
 } from '@/utils/date';
 import { getLunchMenus } from '@/sanity/sanity-utils';
 import { LunchBlock as Props } from '@/types/LunchBlock';
-import { H1, H1Mini, Subtitle } from '@/components/Typography';
+import { H1 } from '@/components/Typography';
 import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
-import TextSplit from '@/components/TextSplit';
+import RichText from '@/components/RichText';
 
-export default async function LunchBlock({
-  id,
-  title,
-  subtitle,
-  text,
-  tbd,
-}: Props) {
+export default async function LunchBlock({ id, title, text, tbd }: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -41,18 +35,13 @@ export default async function LunchBlock({
 
   return (
     <div id={id?.current}>
-      <div className="mx-auto max-w-4xl text-center">
-        <H1Mini>{title}</H1Mini>
-        <H1 as="p">{subtitle}</H1>
-      </div>
-      <div className={'text-center'}>
-        <TextSplit
-          className={'space-y-4'}
-          text={text}
-          render={(p) => <Subtitle>{p}</Subtitle>}
-        />
-      </div>
-      <div className="mx-auto mt-14 grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      {(title || text) && (
+        <div className="mx-auto max-w-4xl text-center mb-12">
+          {title && <H1>{title}</H1>}
+          {text && <RichText variant={'title'} text={text} />}
+        </div>
+      )}
+      <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {menus.map((menu, i) => (
           <div
             key={i}

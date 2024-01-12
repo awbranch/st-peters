@@ -2,8 +2,7 @@ import React from 'react';
 import { HeroBlock as Props } from '@/types/HeroBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
-import { PortableText } from '@portabletext/react';
-import { Link, Strong, Subtitle, Title } from '@/components/Typography';
+import RichText from '@/components/RichText';
 
 export default function HeroBlock({ id, text, image, buttons }: Props) {
   return (
@@ -14,34 +13,7 @@ export default function HeroBlock({ id, text, image, buttons }: Props) {
       }
     >
       <div className={'max-w-lg lg:max-w-full'}>
-        <PortableText
-          value={text}
-          components={
-            {
-              marks: {
-                link: ({
-                  children,
-                  value,
-                }: {
-                  children: React.ReactNode;
-                  value: any;
-                }) => <Link href={value.href}>{children}</Link>,
-                strong: ({ children }) => <Strong>{children}</Strong>,
-                textColor: ({ children, value }) => (
-                  <span style={{ color: value.value }}>{children}</span>
-                ),
-              },
-              block: {
-                h1: ({ children }: { children: React.ReactNode }) => (
-                  <Title>{children}</Title>
-                ),
-                normal: ({ children }: { children: React.ReactNode }) => (
-                  <Subtitle>{children}</Subtitle>
-                ),
-              },
-            } as any
-          }
-        />
+        <RichText text={text} variant={'hero'} />
         {buttons && (
           <div className={'mt-8 flex flex-row gap-4'}>
             {buttons.map((b) => (

@@ -136,7 +136,7 @@ export default function News({ stories }: Props) {
                 className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                 sizes={'100vw'}
               />
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
+              {/*<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />*/}
             </div>
             <div>
               <div className="flex items-center gap-x-4 text-xs">
@@ -151,13 +151,13 @@ export default function News({ stories }: Props) {
                 </a>
               </div>
               <div className="group relative max-w-xl">
-                <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                <h3 className="mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                   <a href={`/news/story/${story.slug.current}`}>
                     <span className="absolute inset-0" />
                     {story.title}
                   </a>
                 </h3>
-                <p className="mt-5 text-sm leading-6 text-gray-600">
+                <p className="mt-5 text-base leading-relaxed text-gray-600">
                   {story.description}
                 </p>
               </div>

@@ -6,7 +6,7 @@ type Props = {};
 export default function ContactForm({}: Props) {
   return (
     <form>
-      <div className={'flex flex-col gap-2 md:gap-4 my-4'}>
+      <div className={'flex flex-col gap-2 md:gap-4 mb-4'}>
         <TextInput name={'subject'} title={'Subject'} />
         <div
           className={'flex flex-col md:flex-row gap-2 md:gap-4 justify-between'}

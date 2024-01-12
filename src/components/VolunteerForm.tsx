@@ -11,7 +11,7 @@ type Props = {};
 export default function VolunteerForm({}: Props) {
   return (
     <form>
-      <div className={'flex flex-col gap-2 md:gap-4 my-4'}>
+      <div className={'flex flex-col gap-2 md:gap-4 mb-4'}>
         <TextInput name={'name'} title={'Name'} />
         <div
           className={

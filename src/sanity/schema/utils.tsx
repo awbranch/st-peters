@@ -5,7 +5,6 @@ import {
   defineArrayMember,
   defineField,
 } from 'sanity';
-import { PiCircleDashed } from 'react-icons/pi';
 
 export function createImageField(name: string, title: string, group?: string) {
   return defineField({
@@ -92,14 +91,14 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
       ...[
         { title: 'Bold', value: 'strong' },
         { title: 'Italic', value: 'em' },
-        {
-          title: 'Lighten',
-          value: 'lighten',
-          component: ({ children }) => (
-            <span style={{ opacity: 0.5 }}>{children}</span>
-          ),
-          icon: PiCircleDashed,
-        },
+        // {
+        //   title: 'Lighten',
+        //   value: 'lighten',
+        //   component: ({ children }) => (
+        //     <span style={{ opacity: 0.5 }}>{children}</span>
+        //   ),
+        //   icon: PiCircleDashed,
+        // },
       ],
     );
   }

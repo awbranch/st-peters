@@ -4,14 +4,13 @@ import { HighlightBlock as Props } from '@/types/HighlightBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import LinkButton from '@/components/LinkButton';
-import { H1, H1Mini, Subtitle } from '@/components/Typography';
-import TextSplit from '@/components/TextSplit';
+import { H1 } from '@/components/Typography';
+import RichText from '@/components/RichText';
 
 export default function HighlightBlock({
   id,
   alignment,
   title,
-  subtitle,
   text,
   image,
   button,
@@ -40,14 +39,14 @@ export default function HighlightBlock({
               : 'md:mr-auto md:pr-16 lg:pr-24 xl:pr`-32',
           )}
         >
-          <H1Mini>{title}</H1Mini>
-          <H1 as="p">{subtitle}</H1>
-          <TextSplit
-            className={'space-y-4'}
-            text={text}
-            render={(p) => <Subtitle>{p}</Subtitle>}
-          />
-          <div className="mt-8">
+          {(title || text) && (
+            <div className={'mb-8'}>
+              {title && <H1>{title}</H1>}
+              {text && <RichText variant={'title'} text={text} />}
+            </div>
+          )}
+
+          <div>
             <LinkButton
               size={'large'}
               href={button.link}

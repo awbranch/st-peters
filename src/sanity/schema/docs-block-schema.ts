@@ -1,5 +1,8 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { createStockBlockFields } from '@/sanity/schema/utils';
+import {
+  createRichTextBlock,
+  createStockBlockFields,
+} from '@/sanity/schema/utils';
 import { FaFile as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -10,6 +13,17 @@ export default defineType({
   description: 'List documents',
   fields: [
     ...createStockBlockFields(),
+    defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'text',
+      title: 'Text',
+      type: 'array',
+      of: [createRichTextBlock(['decorators', 'links'])],
+    }),
     defineField({
       name: 'documents',
       title: 'Documents',

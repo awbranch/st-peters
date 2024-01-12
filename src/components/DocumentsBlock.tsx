@@ -2,45 +2,53 @@ import React, { ReactNode } from 'react';
 import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
 import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
-import TextSplit from '@/components/TextSplit';
 import { File } from 'sanity';
+import { H1 } from '@/components/Typography';
+import RichText from '@/components/RichText';
 
-export default function DocumentsBlock({ id, documents }: Props) {
+export default function DocumentsBlock({ id, title, text, documents }: Props) {
   return (
-    <ul id={id?.current} role="list" className="divide-y divide-gray-100">
-      {documents.map((d, i) => (
-        <li key={urlForFile(d.file)} className="py-5">
-          <div className="flex min-w-0 gap-x-4">
-            <div className={'flex-none'}>
-              <FileLink file={d.file}>
-                {fileAttributes(d.file).format === 'pdf' ? (
-                  <FaFilePdf className={'h-10 w-10'} />
-                ) : (
-                  <FaFileZipper className={'h-10 w-10'} />
-                )}
-              </FileLink>
-            </div>
+    <div id={id?.current}>
+      {(title || text) && (
+        <div className="mb-8">
+          {title && <H1>{title}</H1>}
+          {text && <RichText variant={'title'} text={text} />}
+        </div>
+      )}
 
-            <div className="min-w-0 flex-auto">
-              <FileLink file={d.file}>
-                <p
-                  className={'text-base font-semibold leading-6 text-gray-900'}
-                >
-                  {d.name}
+      <ul role="list" className="divide-y divide-gray-100">
+        {documents.map((d, i) => (
+          <li key={urlForFile(d.file)} className="py-5">
+            <div className="flex min-w-0 gap-x-4">
+              <div className={'flex-none'}>
+                <FileLink file={d.file}>
+                  {fileAttributes(d.file).format === 'pdf' ? (
+                    <FaFilePdf className={'h-10 w-10'} />
+                  ) : (
+                    <FaFileZipper className={'h-10 w-10'} />
+                  )}
+                </FileLink>
+              </div>
+
+              <div className="min-w-0 flex-auto">
+                <FileLink file={d.file}>
+                  <p
+                    className={
+                      'text-base font-semibold leading-6 text-gray-900'
+                    }
+                  >
+                    {d.name}
+                  </p>
+                </FileLink>
+                <p className={'text-sm leading-5 text-gray-500'}>
+                  {d.description}
                 </p>
-              </FileLink>
-              <TextSplit
-                className={'space-y-2'}
-                text={d.description}
-                render={(p) => (
-                  <p className={'text-sm leading-5 text-gray-500'}>{p}</p>
-                )}
-              />
+              </div>
             </div>
-          </div>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 

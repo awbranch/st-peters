@@ -6,6 +6,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
 import { NewspaperText as NewspaperTextConfig } from '@/types/NewspaperText';
+import NewspaperText from '@/components/NewspaperText';
 import {
   BlockQuote,
   Em,
@@ -15,15 +16,17 @@ import {
   OL,
   Para,
   Strong,
+  Subtitle,
+  Title,
   UL,
 } from '@/components/Typography';
-import NewspaperText from '@/components/NewspaperText';
 
 type Props = {
+  variant?: 'blog' | 'title' | 'hero';
   text: PortableTextBlock[];
 };
 
-const RichText = ({ text }: Props) => {
+const RichText = ({ variant = 'blog', text }: Props) => {
   const components = {
     marks: {
       link: ({
@@ -40,11 +43,15 @@ const RichText = ({ text }: Props) => {
       ),
     },
     block: {
-      h1: ({ children }: { children: React.ReactNode }) => <H1>{children}</H1>,
+      h1: ({ children }: { children: React.ReactNode }) =>
+        variant == 'hero' ? <Title>{children}</Title> : <H1>{children}</H1>,
       h2: ({ children }: { children: React.ReactNode }) => <H2>{children}</H2>,
-      normal: ({ children }: { children: React.ReactNode }) => (
-        <Para>{children}</Para>
-      ),
+      normal: ({ children }: { children: React.ReactNode }) =>
+        variant === 'blog' ? (
+          <Para>{children}</Para>
+        ) : (
+          <Subtitle>{children}</Subtitle>
+        ),
       blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     },
     list: {

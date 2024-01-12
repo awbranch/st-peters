@@ -1,11 +1,11 @@
 import { TeamGridBlock as Props } from '@/types/TeamGridBlock';
-import { H1, Subtitle } from '@/components/Typography';
+import { H1 } from '@/components/Typography';
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
 import Link from 'next/link';
-import TextSplit from '@/components/TextSplit';
+import RichText from '@/components/RichText';
 
 export default async function TeamGridBlock({
   id,
@@ -15,24 +15,22 @@ export default async function TeamGridBlock({
 }: Props) {
   return (
     <div id={id?.current}>
-      <div className="mx-auto max-w-4xl text-center">
-        <H1>{title}</H1>
-      </div>
-      <TextSplit
-        className={'space-y-4 text-center'}
-        text={text}
-        render={(p) => <Subtitle>{p}</Subtitle>}
-      />
+      {(title || text) && (
+        <div className="mx-auto max-w-4xl text-center mb-16">
+          {title && <H1>{title}</H1>}
+          {text && <RichText variant={'title'} text={text} />}
+        </div>
+      )}
 
       <ul
         role="list"
-        className="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+        className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
       >
         {members.map((member) => (
           <li key={member._key}>
             <ResponsiveImage
               image={member.image}
-              className={'aspect-[5/4] rounded-2xl'}
+              className={'aspect-square rounded-2xl'}
               sizes={'100vw'}
             />
             <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
