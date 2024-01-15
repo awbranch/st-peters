@@ -1,9 +1,8 @@
 import React from 'react';
 import { ButtonTileGridBlock as Props } from '@/types/ButtonTileGridBlock';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
 import Link from 'next/link';
 import { urlFor } from '@/sanity/sanity-utils';
+import BlockTitle from '@/components/BlockTitle';
 
 export default async function ButtonTileGridBlock({
   title,
@@ -12,12 +11,7 @@ export default async function ButtonTileGridBlock({
 }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mx-auto max-w-4xl text-center mb-12">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
         {buttons.map((button, i) => (

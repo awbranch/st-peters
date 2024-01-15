@@ -36,6 +36,23 @@ export default defineType({
         }),
       readOnly: ({ document }) => document?.variant === 'collection',
     }),
+    defineField({
+      title: 'Max Width',
+      name: 'maxWidth',
+      type: 'string',
+      initialValue: 'md',
+      options: {
+        list: [
+          { title: 'Extra Small', value: 'xs' },
+          { title: 'Small', value: 'sm' },
+          { title: 'Medium', value: 'md' },
+          { title: 'Large', value: 'lg' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+      validation: (Rule: any) => Rule.required(),
+    }),
 
     defineField({
       name: 'blocks',

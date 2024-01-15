@@ -8,7 +8,7 @@ import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
 export default function FAQsBlock({ faqs }: Props) {
   return (
     <div>
-      <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
+      <div className="mx-auto divide-y divide-gray-900/10">
         <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
           {faqs.map((faq) => (
             <Disclosure as="div" key={faq.question} className="pt-6">

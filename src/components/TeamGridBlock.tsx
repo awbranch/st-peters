@@ -1,21 +1,15 @@
 import { TeamGridBlock as Props } from '@/types/TeamGridBlock';
-import { H1 } from '@/components/Typography';
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
 import Link from 'next/link';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default async function TeamGridBlock({ title, text, members }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mx-auto max-w-4xl text-center mb-16">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} />
 
       <ul
         role="list"

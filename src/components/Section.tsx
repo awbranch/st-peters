@@ -2,11 +2,12 @@ import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
 import { Color } from '@/types/Color';
+import { PageWidth } from '@/types/PageWidth';
 
 type Props = {
   id?: string;
   color?: Color;
-  narrow?: boolean;
+  maxWidth?: PageWidth;
   className?: string;
   children: React.ReactNode;
 };
@@ -14,7 +15,7 @@ type Props = {
 export default function Section({
   id,
   color = 'white',
-  narrow = false,
+  maxWidth = 'lg',
   className,
   children,
 }: Props) {
@@ -32,7 +33,7 @@ export default function Section({
         className,
       )}
     >
-      <Container narrow={narrow}>{children}</Container>
+      <Container maxWidth={maxWidth}>{children}</Container>
     </section>
   );
 }

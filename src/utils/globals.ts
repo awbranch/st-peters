@@ -10,8 +10,16 @@ import {
   faXTwitter,
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
+import { PageWidth } from '@/types/PageWidth';
 
-export const maxScreenWidth = 1280;
+export const maxPageWidth = 1280;
+
+export const pageWidths: { [V in PageWidth]: number } = {
+  xs: 750,
+  sm: 840,
+  md: 930,
+  lg: maxPageWidth,
+};
 
 export const breakpoints = {
   xs: 480,

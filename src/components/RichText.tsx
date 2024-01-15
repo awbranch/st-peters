@@ -60,7 +60,7 @@ const RichText = ({ variant = 'blog', text }: Props) => {
       image: ({ value }: { value: Image }) => {
         return (
           <ResponsiveImage
-            className="mb-4 my-12 w-full"
+            className="mb-4 my-12 w-full rounded-2xl"
             image={value}
             sizes={'100vw'}
           />

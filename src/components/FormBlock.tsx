@@ -3,18 +3,12 @@ import { FormBlock as Props } from '@/types/FormBlock';
 import VolunteerForm from '@/components/VolunteerForm';
 import DonateForm from '@/components/DonateForm';
 import ContactForm from '@/components/ContactForm';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default function FormBlock({ title, text, formType }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mx-auto max-w-4xl text-center mb-12">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} />
       {formType === 'contact' ? (
         <ContactForm />
       ) : formType === 'donate' ? (

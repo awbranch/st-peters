@@ -29,7 +29,7 @@ export default function HighlightBlock({
           className={'h-full'}
         />
       </div>
-      <div className="relative mx-auto max-w-7xl py-24 sm:py-32 lg:py-40">
+      <div className="relative py-24 sm:py-32 lg:py-40">
         <div
           className={twJoin(
             'pl-6 pr-6 md:w-2/3 lg:w-1/2',

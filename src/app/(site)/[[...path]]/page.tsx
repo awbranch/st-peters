@@ -27,6 +27,7 @@ export default async function GenericPage({ params }: Props) {
               key={b.id?.current}
               id={b.id?.current}
               color={b?.background}
+              maxWidth={page.maxWidth}
             >
               {b.block && <Block block={b.block} />}
             </Section>

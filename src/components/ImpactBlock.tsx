@@ -1,19 +1,13 @@
 import React from 'react';
 import { ImpactBlock as Props } from '@/types/ImpactBlock';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default function ImpactBlock({ title, text, impacts }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mx-auto max-w-4xl text-center mb-12">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="px-6 lg:px-8">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
           {impacts.map((impact, i) => (
             <div key={i} className="mx-auto flex max-w-xs flex-col gap-y-4">

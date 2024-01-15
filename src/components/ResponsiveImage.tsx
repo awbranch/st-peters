@@ -1,5 +1,5 @@
 import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
-import { maxScreenWidth } from '@/utils/globals';
+import { maxPageWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import React from 'react';
 
@@ -30,9 +30,9 @@ export default function ResponsiveImage({
   // Small images get scaled up to the width or height you specify. To avoid this use &fit=max.
 
   const src =
-    width <= maxScreenWidth
+    width <= maxPageWidth
       ? urlFor(image).url()
-      : urlFor(image).width(maxScreenWidth).url();
+      : urlFor(image).width(maxPageWidth).url();
 
   const srcSet = widths
     .filter((w) => w < width)

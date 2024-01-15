@@ -1,8 +1,7 @@
 import React from 'react';
 import { ImageTileGridBlock as Props } from '@/types/ImageTileGridBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default async function ImageTileGridBlock({
   title,
@@ -11,12 +10,7 @@ export default async function ImageTileGridBlock({
 }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mx-auto max-w-4xl text-center mb-12">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} />
 
       <div className="mx-auto grid max-w-2xl auto-rows-fr grid-cols-1 gap-10 lg:mx-0 lg:max-w-none lg:grid-cols-3">
         {images.map((tile) => (

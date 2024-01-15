@@ -1,15 +1,16 @@
 import React from 'react';
-import { maxScreenWidth } from '@/utils/globals';
+import { pageWidths } from '@/utils/globals';
 import { DivProps } from 'react-html-props';
+import { PageWidth } from '@/types/PageWidth';
 
 type Props = DivProps & {
   children: React.ReactNode;
-  narrow?: boolean;
+  maxWidth?: PageWidth;
 };
 
 export default function Container({
   children,
-  narrow = false,
+  maxWidth = 'lg',
   ...props
 }: Props) {
   return (
@@ -17,7 +18,7 @@ export default function Container({
       {...props}
       style={{
         margin: '0 auto 0 auto',
-        maxWidth: narrow ? '930px' : maxScreenWidth,
+        maxWidth: pageWidths[maxWidth],
       }}
     >
       {children}
