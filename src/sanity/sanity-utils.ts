@@ -6,7 +6,7 @@ import { Page } from '@/types/Page';
 import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
-import { DonationRequest } from '@/types/DonationRequest';
+import { ShareableBlock } from '@/types/ShareableBlock';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -125,10 +125,7 @@ export async function getNewsStories(
   const orderDir = timeRange === 'future' ? 'asc' : 'desc';
 
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == $category ${dateQuery}]{
-     ...,
-     donationRequest->
-  } | order(date ${orderDir})`,
+    groq`*[_type == "newsStory" && category == $category ${dateQuery}] | order(date ${orderDir})`,
     {
       category,
     },
@@ -138,10 +135,7 @@ export async function getNewsStories(
 
 export async function getNewsStory(slug: string) {
   return client.fetch<NewsStory>(
-    groq`*[_type == "newsStory" && slug.current == $slug]{
-     ...,
-     donationRequest->
-  }[0]`,
+    groq`*[_type == "newsStory" && slug.current == $slug][0]`,
     {
       slug,
     },
@@ -165,9 +159,9 @@ export async function getFooter() {
   );
 }
 
-export async function getDonationRequest(id: string) {
-  return client.fetch<DonationRequest>(
-    groq`*[_type == "donationRequest" && _id == $id][0]`,
+export async function getDocument(id: string) {
+  return client.fetch<ShareableBlock>(
+    groq`*[_id == $id][0]`,
     {
       id,
     },

@@ -1,9 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createImageField,
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 import { IoFlashlight as icon } from 'react-icons/io5';
 
 export default defineType({
@@ -14,7 +10,6 @@ export default defineType({
   description:
     'Highlight another section of the site for the user to navigate to.',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       title: 'Alignment',
       name: 'alignment',

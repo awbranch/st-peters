@@ -1,9 +1,6 @@
 import { defineField, defineType } from 'sanity';
 import { FaImages as icon } from 'react-icons/fa6';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'imageTileGridBlock',
@@ -12,7 +9,6 @@ export default defineType({
   icon,
   description: 'A grid of large image tiles',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'title',
       title: 'Title',

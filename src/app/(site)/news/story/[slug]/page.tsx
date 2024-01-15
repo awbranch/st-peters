@@ -1,6 +1,5 @@
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
-import DonationRequestBlock from '@/components/DonationRequestBlock';
 import { toFullDate } from '@/utils/date';
 import { getNewsStory, getTopNewsStories } from '@/sanity/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
@@ -30,10 +29,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         />
         <RichText text={story.text} />
       </Section>
-      {story.donationRequests &&
-        story.donationRequests.map((d) => (
-          <DonationRequestBlock key={d._key} {...d} />
-        ))}
       {stories && (
         <Section>
           <h1 className={'text-xl'}>More News</h1>

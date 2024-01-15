@@ -6,13 +6,12 @@ import Link from 'next/link';
 import { urlFor } from '@/sanity/sanity-utils';
 
 export default async function ButtonTileGridBlock({
-  id,
   title,
   text,
   buttons,
 }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

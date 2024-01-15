@@ -1,8 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 import { FaRegWindowMaximize as icon } from 'react-icons/fa';
 
 const formTypes = [
@@ -18,7 +15,6 @@ export default defineType({
   icon,
   description: 'A block that displays a form.',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'title',
       title: 'Title',

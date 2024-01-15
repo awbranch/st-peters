@@ -1,9 +1,9 @@
 import React from 'react';
 import { GoogleMapBlock as Props } from '@/types/GoogleMapBlock';
 
-export default function GoogleMapBlock({ id, embedURL }: Props) {
+export default function GoogleMapBlock({ embedURL }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       <iframe
         className="mt-3"
         id="google-map"

@@ -4,10 +4,9 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
 import RichText from '@/components/RichText';
 
-export default function HeroBlock({ id, text, image, buttons }: Props) {
+export default function HeroBlock({ text, image, buttons }: Props) {
   return (
     <div
-      id={id?.current}
       className={
         'grid grid-flow-row lg:grid-flow-col lg:auto-cols-fr gap-16 max-w-2xl lg:max-w-full mx-auto'
       }

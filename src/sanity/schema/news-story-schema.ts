@@ -85,12 +85,6 @@ export default defineType({
       ],
       validation: (Rule: any) => Rule.required(),
     }),
-    defineField({
-      name: 'donationRequests',
-      title: 'Donation Requests',
-      type: 'array',
-      of: [{ type: 'donationRequestBlock' }],
-    }),
   ],
   preview: {
     select: {

@@ -8,7 +8,6 @@ import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
 export default function HighlightBlock({
-  id,
   alignment,
   title,
   text,
@@ -16,7 +15,7 @@ export default function HighlightBlock({
   button,
 }: Props) {
   return (
-    <div id={id?.current} className="relative">
+    <div className="relative">
       <div
         className={twJoin(
           'relative h-80 overflow-hidden md:absolute md:h-full md:w-1/3 lg:w-1/2',

@@ -6,9 +6,9 @@ import { File } from 'sanity';
 import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
-export default function DocumentsBlock({ id, title, text, documents }: Props) {
+export default function DocumentsBlock({ title, text, documents }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mb-8">
           {title && <H1>{title}</H1>}
@@ -17,7 +17,7 @@ export default function DocumentsBlock({ id, title, text, documents }: Props) {
       )}
 
       <ul role="list" className="divide-y divide-gray-100">
-        {documents.map((d, i) => (
+        {documents.map((d) => (
           <li key={urlForFile(d.file)} className="py-5">
             <div className="flex min-w-0 gap-x-4">
               <div className={'flex-none'}>

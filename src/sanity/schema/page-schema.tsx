@@ -1,5 +1,6 @@
-import { defineArrayMember, defineField, defineType } from 'sanity';
+import { defineField, defineType } from 'sanity';
 import { FaFile as icon } from 'react-icons/fa';
+import sectionBlocks from '@/sanity/schema/section-blocks-schema';
 
 export default defineType({
   name: 'page',
@@ -37,10 +38,14 @@ export default defineType({
     }),
 
     defineField({
-      name: 'sections',
-      title: 'Sections',
+      name: 'blocks',
+      title: 'Blocks',
       type: 'array',
-      of: [defineArrayMember({ type: 'section' })],
+      of: sectionBlocks.map((b) => ({
+        type: b.name,
+        title: b.title,
+        icon: b.icon,
+      })),
     }),
   ],
   preview: {

@@ -5,9 +5,9 @@ import { FAQsBlock as Props } from '@/types/FAQsBlock';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
 
-export default function FAQsBlock({ id, faqs }: Props) {
+export default function FAQsBlock({ faqs }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       <div className="mx-auto max-w-4xl divide-y divide-gray-900/10">
         <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
           {faqs.map((faq) => (

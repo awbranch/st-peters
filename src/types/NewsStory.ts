@@ -1,6 +1,5 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { Image } from '@/types/Image';
-import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 
 export type NewsStory = {
   category: string;
@@ -10,5 +9,4 @@ export type NewsStory = {
   description: string;
   image: Image;
   text: PortableTextBlock[];
-  donationRequests: DonationRequestBlock[];
 };

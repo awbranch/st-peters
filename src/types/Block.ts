@@ -10,11 +10,11 @@ import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
 import { FormBlock } from '@/types/FormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
-import { Slug } from 'sanity';
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
 import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
+import { ReferenceBlock } from '@/types/ReferenceBlock';
 
 export type Block =
   | DocumentsBlock
@@ -30,11 +30,11 @@ export type Block =
   | InstagramBlock
   | JobsBlock
   | LunchBlock
+  | ReferenceBlock
   | TeamGridBlock
   | TeamListBlock
   | TextBlock;
 
 export type BlockProps = {
   _key: string;
-  id?: Slug;
 };

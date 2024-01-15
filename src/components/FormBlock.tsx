@@ -6,9 +6,9 @@ import ContactForm from '@/components/ContactForm';
 import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
-export default function FormBlock({ id, title, text, formType }: Props) {
+export default function FormBlock({ title, text, formType }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

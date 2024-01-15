@@ -3,9 +3,9 @@ import { ImpactBlock as Props } from '@/types/ImpactBlock';
 import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
-export default function ImpactBlock({ id, title, text, impacts }: Props) {
+export default function ImpactBlock({ title, text, impacts }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

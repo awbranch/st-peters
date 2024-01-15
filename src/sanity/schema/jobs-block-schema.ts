@@ -1,8 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import {
-  createImageField,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createImageField } from '@/sanity/schema/utils';
 import { FaPersonDigging as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -12,7 +9,6 @@ export default defineType({
   icon,
   description: 'A block that displays job openings.',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'title',
       title: 'Title',

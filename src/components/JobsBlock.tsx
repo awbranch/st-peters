@@ -6,7 +6,6 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import TextSplit from '@/components/TextSplit';
 
 export default function JobsBlock({
-  id,
   title,
   text,
   jobs,
@@ -15,7 +14,7 @@ export default function JobsBlock({
   noOpenings,
 }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       <div
         className={
           'mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-24 max-w-lg lg:max-w-full'

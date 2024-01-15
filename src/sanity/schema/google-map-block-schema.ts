@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity';
-import { createStockBlockFields } from '@/sanity/schema/utils';
 import { FaMapMarkerAlt as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -9,7 +8,6 @@ export default defineType({
   icon,
   description: 'A block that contains an embedded google map.',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'embedURL',
       title: 'Google Maps Embed URL',

@@ -1,9 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createImageField,
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 import { FaCircleExclamation as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -14,7 +10,6 @@ export default defineType({
   description:
     'A block with a large image and text that typically appears at the top of a webpage.',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'text',
       title: 'Text',

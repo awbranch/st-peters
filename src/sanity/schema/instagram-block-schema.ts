@@ -1,8 +1,5 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createRichTextBlock,
-  createStockBlockFields,
-} from '@/sanity/schema/utils';
+import { createRichTextBlock } from '@/sanity/schema/utils';
 import { FaInstagram as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -12,7 +9,6 @@ export default defineType({
   description: 'This block displays the instagram live feed.',
   icon,
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'title',
       title: 'Title',

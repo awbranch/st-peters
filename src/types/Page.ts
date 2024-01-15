@@ -1,10 +1,6 @@
-import { Block } from '@/types/Block';
-import { Section } from '@/types/Section';
+import { SectionBlock } from '@/types/SectionBlock';
 
 export type Page = {
-  variant: 'generic' | 'collection';
   path: string;
-  text?: Array<Block>;
-  blocks: Array<Block>;
-  sections?: Array<Section>;
+  blocks?: Array<SectionBlock>;
 };

@@ -1,8 +1,15 @@
 import { BlockProps } from '@/types/Block';
-import { Reference } from 'sanity';
+import { PortableTextBlock } from 'sanity';
+import { Image } from '@/types/Image';
+import { DonationLevel } from '@/types/DonationLevel';
 
 export type DonationRequestBlock = BlockProps & {
   _type: 'donationRequestBlock';
   alignment: 'left' | 'right';
-  request: Reference;
+  title: string;
+  text: PortableTextBlock[];
+  image: Image;
+  levelsTitle: string;
+  levels?: DonationLevel[];
+  otherLevel: boolean;
 };

@@ -13,7 +13,7 @@ import SimpleText from '@/components/SimpleText';
 import React from 'react';
 import RichText from '@/components/RichText';
 
-export default async function LunchBlock({ id, title, text, tbd }: Props) {
+export default async function LunchBlock({ title, text, tbd }: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -34,7 +34,7 @@ export default async function LunchBlock({ id, title, text, tbd }: Props) {
   }
 
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

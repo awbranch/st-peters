@@ -7,14 +7,9 @@ import { socialIcons } from '@/utils/globals';
 import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
-export default async function TeamListBlock({
-  id,
-  title,
-  text,
-  members,
-}: Props) {
+export default async function TeamListBlock({ title, text, members }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

@@ -5,13 +5,12 @@ import { H1 } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
 export default async function ImageTileGridBlock({
-  id,
   title,
   text,
   images,
 }: Props) {
   return (
-    <div id={id?.current}>
+    <div>
       {(title || text) && (
         <div className="mx-auto max-w-4xl text-center mb-12">
           {title && <H1>{title}</H1>}

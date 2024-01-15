@@ -1,5 +1,4 @@
 import { defineField, defineType } from 'sanity';
-import { createStockBlockFields } from '@/sanity/schema/utils';
 import { FaQuestionCircle as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -9,7 +8,6 @@ export default defineType({
   icon,
   description: 'List of frequently asked questions',
   fields: [
-    ...createStockBlockFields(),
     defineField({
       name: 'faqs',
       title: 'FAQs',
