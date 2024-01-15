@@ -27,14 +27,4 @@ export default defineType({
       of: [defineArrayMember({ type: 'impact' })],
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Impact Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

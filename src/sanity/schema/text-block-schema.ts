@@ -17,18 +17,7 @@ export default defineType({
         createRichTextBlock(),
         createImageField('image', 'Image'),
         { type: 'buttonRow' },
-        { type: 'newspaperText' },
       ],
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Text Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

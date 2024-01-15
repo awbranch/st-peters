@@ -15,6 +15,7 @@ import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
 import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
 import { ReferenceBlock } from '@/types/ReferenceBlock';
+import { ListSetBlock } from '@/types/ListSetBlock';
 
 export type Block =
   | DocumentsBlock
@@ -30,6 +31,7 @@ export type Block =
   | InstagramBlock
   | JobsBlock
   | LunchBlock
+  | ListSetBlock
   | ReferenceBlock
   | TeamGridBlock
   | TeamListBlock

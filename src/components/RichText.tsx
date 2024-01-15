@@ -5,8 +5,6 @@ import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
-import { NewspaperText as NewspaperTextConfig } from '@/types/NewspaperText';
-import NewspaperText from '@/components/NewspaperText';
 import {
   BlockQuote,
   Em,
@@ -70,9 +68,6 @@ const RichText = ({ variant = 'blog', text }: Props) => {
       },
       buttonRow: ({ value }: { value: ButtonRowConfig }) => {
         return <ButtonRow {...value} />;
-      },
-      newspaperText: ({ value }: { value: NewspaperTextConfig }) => {
-        return <NewspaperText {...value} />;
       },
     },
   };

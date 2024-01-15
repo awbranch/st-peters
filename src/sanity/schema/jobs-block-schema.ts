@@ -41,14 +41,4 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Jobs Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

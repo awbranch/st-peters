@@ -27,14 +27,4 @@ export default defineType({
       of: [{ type: 'imageTile' }],
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Image Tile Grid Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

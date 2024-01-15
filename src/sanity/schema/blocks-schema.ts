@@ -9,6 +9,7 @@ import highlightBlock from '@/sanity/schema/highlight-block-schema';
 import imageTileGridBlock from '@/sanity/schema/image-tile-grid-block-schema';
 import impactBlock from '@/sanity/schema/impact-block-schema';
 import instagramBlock from '@/sanity/schema/instagram-block-schema';
+import listSetBlock from '@/sanity/schema/list-set-block-schema';
 import lunchBlock from '@/sanity/schema/lunch-block-schema';
 import jobsBlock from '@/sanity/schema/jobs-block-schema';
 import teamGridBlock from '@/sanity/schema/team-grid-block-schema';
@@ -29,6 +30,7 @@ const blocks = [
   impactBlock,
   instagramBlock,
   jobsBlock,
+  listSetBlock,
   lunchBlock,
   referenceBlock,
   teamGridBlock,

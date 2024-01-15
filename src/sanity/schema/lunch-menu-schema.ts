@@ -1,7 +1,7 @@
 import { defineField, defineType } from 'sanity';
 import { FaClipboardList as icon } from 'react-icons/fa';
 
-const lunchMenu = defineType({
+export default defineType({
   name: 'lunchMenu',
   title: 'Lunch Menus',
   type: 'document',
@@ -42,5 +42,3 @@ const lunchMenu = defineType({
     },
   ],
 });
-
-export default lunchMenu;

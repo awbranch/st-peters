@@ -27,14 +27,4 @@ export default defineType({
       of: [defineArrayMember({ type: 'doc' })],
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Documents Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

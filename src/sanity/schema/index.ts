@@ -19,8 +19,8 @@ import impact from '@/sanity/schema/impact-schema';
 import job from '@/sanity/schema/job-schema';
 import link from '@/sanity/schema/link-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
+import listSetList from '@/sanity/schema/list-set-list-schema';
 import menuItem from '@/sanity/schema/menu-item-schema';
-import newspaperText from '@/sanity/schema/newspaper-text-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
 import social from '@/sanity/schema/social-schema';
 import teamGridMember from '@/sanity/schema/team-grid-member-schema';
@@ -46,8 +46,8 @@ const schemas = [
   job,
   link,
   lunchMenu,
+  listSetList,
   menuItem,
-  newspaperText,
   newsStory,
   social,
   teamGridMember,

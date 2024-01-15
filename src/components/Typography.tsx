@@ -132,7 +132,7 @@ export const BlockQuote = ({
 
 export const UL = ({ children, className, ...rest }: ULPropsWithoutRef) => {
   return (
-    <ul className={twMerge('list-disc mt-2 mb-3 ml-2', className)} {...rest}>
+    <ul className={twMerge('list-disc mt-2 mb-3 ml-6', className)} {...rest}>
       {children}
     </ul>
   );
@@ -140,7 +140,7 @@ export const UL = ({ children, className, ...rest }: ULPropsWithoutRef) => {
 
 export const OL = ({ children, className, ...rest }: OLPropsWithoutRef) => {
   return (
-    <ol className={twMerge('list-decimal mt-2 mb-3 ml-2', className)} {...rest}>
+    <ol className={twMerge('list-decimal mt-2 mb-3 ml-6', className)} {...rest}>
       {children}
     </ol>
   );
