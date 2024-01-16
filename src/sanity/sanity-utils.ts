@@ -73,24 +73,40 @@ export async function getLunchMenus() {
   );
 }
 
-export async function getPagesByVariant(variant: string) {
-  return client.fetch<Page[]>(
-    groq`*[_type == "page" && variant == variant]`,
-    {
-      variant: variant,
-    },
+export async function getPages() {
+  let pages = await client.fetch<Page[]>(
+    groq`*[_type == "page"]`,
+    {},
     { next: { revalidate: 5 } },
   );
+  pages.forEach((p) => addBackgroundColor(p));
+  return pages;
 }
 
 export async function getPageByPath(path: string[]) {
-  return client.fetch<Page>(
+  let page = await client.fetch<Page>(
     groq`*[_type == "page" && path == $path][0]`,
     {
       path: '/' + path.join('/'),
     },
     { next: { revalidate: 5 } },
   );
+  addBackgroundColor(page);
+  return page;
+}
+
+/**
+ * It's helpful for blocks to know the background color of the section when displaying
+ * @param page
+ */
+function addBackgroundColor(page: Page) {
+  if (page) {
+    page.blocks.forEach((b) => {
+      if (b.block && b.background) {
+        b.block.background = { ...b.background };
+      }
+    });
+  }
 }
 
 export async function getTopNewsStories(count: number) {

@@ -1,9 +1,9 @@
 import React from 'react';
 import { JobsBlock as Props } from '@/types/JobsBlock';
-import { H1, Subtitle } from '@/components/Typography';
 import LinkButton from '@/components/LinkButton';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import TextSplit from '@/components/TextSplit';
+import BlockTitle from '@/components/BlockTitle';
 
 export default function JobsBlock({
   title,
@@ -15,19 +15,12 @@ export default function JobsBlock({
 }: Props) {
   return (
     <div>
+      <BlockTitle alignment={'left'} title={title} text={text} />
       <div
         className={
           'mx-auto grid grid-cols-1 lg:grid-cols-2 gap-y-8 gap-x-24 max-w-lg lg:max-w-full'
         }
       >
-        <div>
-          <H1 className={'mt-0'}>{title}</H1>
-          <TextSplit
-            className={'space-y-4'}
-            text={text}
-            render={(p) => <Subtitle>{p}</Subtitle>}
-          />
-        </div>
         <div className={'row-start-2'}>
           <ResponsiveImage
             image={image}

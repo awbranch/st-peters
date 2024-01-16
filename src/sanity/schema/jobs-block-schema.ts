@@ -1,5 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { createImageField } from '@/sanity/schema/utils';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 import { FaPersonDigging as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -18,7 +18,8 @@ export default defineType({
     defineField({
       name: 'text',
       title: 'Text',
-      type: 'text',
+      type: 'array',
+      of: [createRichTextBlock(['decorators', 'links'])],
       validation: (Rule: any) => Rule.required(),
     }),
     createImageField('image', 'Image'),

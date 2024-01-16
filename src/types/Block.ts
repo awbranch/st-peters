@@ -16,6 +16,7 @@ import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
 import { ReferenceBlock } from '@/types/ReferenceBlock';
 import { ListSetBlock } from '@/types/ListSetBlock';
+import { LabeledColor } from '@/types/Color';
 
 export type Block =
   | DocumentsBlock
@@ -39,4 +40,5 @@ export type Block =
 
 export type BlockProps = {
   _key: string;
+  background?: LabeledColor;
 };

@@ -4,18 +4,20 @@ import RichText from '@/components/RichText';
 import { FAQsBlock as Props } from '@/types/FAQsBlock';
 import { Disclosure } from '@headlessui/react';
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
+import BlockTitle from '@/components/BlockTitle';
 
-export default function FAQsBlock({ faqs }: Props) {
+export default function FAQsBlock({ title, text, faqs, background }: Props) {
   return (
     <div>
-      <div className="mx-auto divide-y divide-gray-900/10">
-        <dl className="mt-10 space-y-6 divide-y divide-gray-900/10">
+      <BlockTitle title={title} text={text} alignment={'left'} />
+      <div className="mx-auto">
+        <dl className="mt-10 space-y-6 divide-y divide-gray-300/50">
           {faqs.map((faq) => (
             <Disclosure as="div" key={faq.question} className="pt-6">
               {({ open }) => (
                 <>
                   <dt>
-                    <Disclosure.Button className="flex w-full items-start justify-between text-left text-gray-900">
+                    <Disclosure.Button className="flex w-full items-start justify-between">
                       <span className="text-base font-semibold leading-7">
                         {faq.question}
                       </span>
@@ -34,10 +36,7 @@ export default function FAQsBlock({ faqs }: Props) {
                       </span>
                     </Disclosure.Button>
                   </dt>
-                  <Disclosure.Panel
-                    as="dd"
-                    className="mt-2 pr-12 text-gray-600"
-                  >
+                  <Disclosure.Panel as="dd" className="mt-2 pr-12 opacity-80">
                     <RichText text={faq.answer} />
                   </Disclosure.Panel>
                 </>

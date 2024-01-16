@@ -67,21 +67,6 @@ export const H1 = ({
     children,
   );
 
-export const H1Mini = ({
-  as,
-  children,
-  className,
-  ...rest
-}: DivPropsWithoutRef & Extended) =>
-  React.createElement(
-    as || 'h1',
-    {
-      className: twMerge('text-base font-semibold leading-7 mb-4', className),
-      ...rest,
-    },
-    children,
-  );
-
 export const H2 = ({
   as,
   children,
@@ -110,6 +95,21 @@ export const Para = ({
     as || 'p',
     {
       className: twMerge('text-base leading-relaxed mb-6', className),
+      ...rest,
+    },
+    children,
+  );
+
+export const Large = ({
+  as,
+  children,
+  className,
+  ...rest
+}: DivPropsWithoutRef & Extended) =>
+  React.createElement(
+    as || 'p',
+    {
+      className: twMerge('text-xl leading-relaxed mb-6', className),
       ...rest,
     },
     children,

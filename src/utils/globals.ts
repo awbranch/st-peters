@@ -74,20 +74,13 @@ export const themeColors = {
   },
 };
 
-export const textColorList = [
+export const userColorList = [
   { label: 'green', value: themeColors.grass.DEFAULT },
   { label: 'blue', value: themeColors.ocean.DEFAULT },
   { label: 'pink', value: themeColors.sunset.DEFAULT },
   { label: 'black', value: themeColors.black },
   { label: 'white', value: '#ffffff' },
   { label: 'gray', value: '#f3f4f6' },
-];
-
-export const buttonColorList = [
-  { label: 'green', value: themeColors.grass.DEFAULT },
-  { label: 'blue', value: themeColors.ocean.DEFAULT },
-  { label: 'pink', value: themeColors.sunset.DEFAULT },
-  { label: 'black', value: themeColors.black },
 ];
 
 export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {

@@ -36,7 +36,7 @@ type Props = {
 
 export default function News({ stories }: Props) {
   return (
-    <Section narrow={true}>
+    <Section maxWidth="md">
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
         News
       </h2>

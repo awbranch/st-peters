@@ -45,4 +45,10 @@ button.slick-arrow::before {
   line-height: 30px !important;;
 }
 
+.margins-y-0 > *:first-child {
+  margin-top: 0 !important;
+}
 
+.margins-y-0 > *:last-child {
+  margin-bottom: 0 !important;
+}

@@ -1,6 +1,7 @@
 import blocks from '@/sanity/schema/blocks-schema';
 
 import { defineField, defineType } from 'sanity';
+import { userColorList } from '@/utils/globals';
 
 const sectionBlocks = blocks.map((b) => createSectionBlock(b));
 
@@ -16,19 +17,10 @@ function getSectionBlockFields() {
     defineField({
       name: 'background',
       title: 'Background',
-      type: 'string',
-      initialValue: 'white',
+      type: 'simplerColor',
       options: {
-        list: [
-          { title: 'White', value: 'white' },
-          { title: 'Pink', value: 'pink' },
-          { title: 'Gray ', value: 'gray' },
-          { title: 'Black', value: 'black' },
-        ],
-        layout: 'radio',
-        direction: 'horizontal',
+        colorList: userColorList,
       },
-      validation: (Rule: any) => Rule.required(),
     }),
   ];
 }

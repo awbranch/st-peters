@@ -18,7 +18,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main>
-      <Section id="story">
+      <Section id="story" maxWidth="md">
         <h1 className="text-xl">{story.title}</h1>
         <div className="text-sm">{toFullDate(story.date)}</div>
         <ResponsiveImage

@@ -10,6 +10,7 @@ import {
   Em,
   H1,
   H2,
+  Large,
   Link,
   OL,
   Para,
@@ -50,6 +51,7 @@ const RichText = ({ variant = 'blog', text }: Props) => {
         ) : (
           <Subtitle>{children}</Subtitle>
         ),
+      large: ({ children }) => <Large>{children}</Large>,
       blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
     },
     list: {
@@ -60,7 +62,7 @@ const RichText = ({ variant = 'blog', text }: Props) => {
       image: ({ value }: { value: Image }) => {
         return (
           <ResponsiveImage
-            className="mb-4 my-12 w-full rounded-2xl"
+            className="my-12 w-full rounded-2xl"
             image={value}
             sizes={'100vw'}
           />
@@ -72,7 +74,11 @@ const RichText = ({ variant = 'blog', text }: Props) => {
     },
   };
 
-  return <PortableText value={text} components={components as any} />;
+  return (
+    <div className={'margins-y-0'}>
+      <PortableText value={text} components={components as any} />
+    </div>
+  );
 };
 
 export default RichText;

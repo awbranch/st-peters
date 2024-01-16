@@ -3,18 +3,12 @@ import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
 import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
 import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
 import { File } from 'sanity';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default function DocumentsBlock({ title, text, documents }: Props) {
   return (
     <div>
-      {(title || text) && (
-        <div className="mb-8">
-          {title && <H1>{title}</H1>}
-          {text && <RichText variant={'title'} text={text} />}
-        </div>
-      )}
+      <BlockTitle title={title} text={text} alignment={'left'} />
 
       <ul role="list" className="divide-y divide-gray-100">
         {documents.map((d) => (

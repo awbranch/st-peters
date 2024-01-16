@@ -11,7 +11,7 @@ export default async function Test() {
   return (
     <div>
       <main>
-        <Container narrow={true}>
+        <Container maxWidth={'md'}>
           {menus.map((m, i) => (
             <div key={i}>
               <>

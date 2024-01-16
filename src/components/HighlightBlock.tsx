@@ -4,8 +4,7 @@ import { HighlightBlock as Props } from '@/types/HighlightBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import LinkButton from '@/components/LinkButton';
-import { H1 } from '@/components/Typography';
-import RichText from '@/components/RichText';
+import BlockTitle from '@/components/BlockTitle';
 
 export default function HighlightBlock({
   alignment,
@@ -38,12 +37,7 @@ export default function HighlightBlock({
               : 'md:mr-auto md:pr-16 lg:pr-24 xl:pr`-32',
           )}
         >
-          {(title || text) && (
-            <div className={'mb-8'}>
-              {title && <H1>{title}</H1>}
-              {text && <RichText variant={'title'} text={text} />}
-            </div>
-          )}
+          <BlockTitle title={title} text={text} alignment={'left'} />
 
           <div>
             <LinkButton

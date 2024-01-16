@@ -1,6 +1,5 @@
 export type Color = 'white' | 'gray' | 'green' | 'blue' | 'pink' | 'black';
-export type TextColor = 'white' | 'black';
-export type ColorStruct = {
+export type LabeledColor = {
   label: Color;
   color: string;
 };
