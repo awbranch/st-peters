@@ -27,14 +27,4 @@ export default defineType({
       of: [{ type: 'teamGridMember' }],
     }),
   ],
-  preview: {
-    select: { id: 'id', title: 'title' },
-    prepare({ id, title }) {
-      return {
-        title: title,
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

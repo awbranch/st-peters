@@ -26,7 +26,7 @@ export const Title = ({
     as || 'h1',
     {
       className: twMerge(
-        'text-4xl xs:text-5xl sm:text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]',
+        'text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]',
         className,
       ),
       ...rest,
@@ -58,10 +58,7 @@ export const H1 = ({
   React.createElement(
     as || 'h1',
     {
-      className: twMerge(
-        'text-3xl xs:text-4xl sm:text-5xl font-bold mt-8 mb-6',
-        className,
-      ),
+      className: twMerge('text-5xl font-bold mt-8 mb-6', className),
       ...rest,
     },
     children,
@@ -77,7 +74,7 @@ export const H2 = ({
     as || 'h2',
     {
       className: twMerge(
-        'text-2xl xs:text-3xl sm:text-4xl font-bold tracking-tight mt-8 mb-6',
+        'text-4xl font-bold tracking-tight mt-8 mb-6',
         className,
       ),
       ...rest,
@@ -110,6 +107,21 @@ export const Large = ({
     as || 'p',
     {
       className: twMerge('text-xl leading-relaxed mb-6', className),
+      ...rest,
+    },
+    children,
+  );
+
+export const Small = ({
+  as,
+  children,
+  className,
+  ...rest
+}: DivPropsWithoutRef & Extended) =>
+  React.createElement(
+    as || 'p',
+    {
+      className: twMerge('text-sm leading-relaxed mb-4', className),
       ...rest,
     },
     children,

@@ -1,11 +1,13 @@
 import buttonTileGridBlock from '@/sanity/schema/button-tile-grid-block-schema';
+import ctaBlock from '@/sanity/schema/cta-block-schema';
+import ctaListBlock from '@/sanity/schema/cta-list-block-schema';
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import donationRequestBlock from '@/sanity/schema/donation-request-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
 import formBlock from '@/sanity/schema/form-block-schema';
 import googleMapBlock from '@/sanity/schema/google-map-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
-import highlightBlock from '@/sanity/schema/highlight-block-schema';
+import iframeBlock from '@/sanity/schema/iframe-block-schema';
 import imageTileGridBlock from '@/sanity/schema/image-tile-grid-block-schema';
 import impactBlock from '@/sanity/schema/impact-block-schema';
 import instagramBlock from '@/sanity/schema/instagram-block-schema';
@@ -19,13 +21,15 @@ import referenceBlock from '@/sanity/schema/reference-block-schema';
 
 const blocks = [
   buttonTileGridBlock,
+  ctaBlock,
+  ctaListBlock,
   docsBlock,
   donationRequestBlock,
   faqsBlock,
   formBlock,
   googleMapBlock,
   heroBlock,
-  highlightBlock,
+  iframeBlock,
   imageTileGridBlock,
   impactBlock,
   instagramBlock,

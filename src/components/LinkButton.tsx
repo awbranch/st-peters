@@ -18,13 +18,13 @@ type Props = APropsWithoutRef & {
 };
 
 const classes =
-  'inline-flex items-center rounded-md font-medium shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
+  'inline-flex items-center justify-center rounded-md shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
 
 // TODO: May want to consider using this library to manage the variants
 // https://cva.style/docs/getting-started/variants
 const variantClasses: { [V in ButtonVariant]: string } = {
-  outline: 'ring-2 ring-inset',
-  solid: '',
+  outline: 'ring-2 ring-inset font-semibold',
+  solid: 'font-medium',
 };
 
 const sizeClasses: { [S in Size]: string } = {

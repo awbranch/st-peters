@@ -1,13 +1,13 @@
-import { defineField, defineType } from 'sanity';
+import { defineArrayMember, defineField, defineType } from 'sanity';
+import { MdOutlineChecklistRtl as icon } from 'react-icons/md';
 import { createRichTextBlock } from '@/sanity/schema/utils';
-import { FaUsers as icon } from 'react-icons/fa';
 
 export default defineType({
-  name: 'teamListBlock',
-  title: 'Team List Block',
+  name: 'ctaListBlock',
+  title: 'Call to Action List Block',
   type: 'object',
   icon,
-  description: 'A list of team members',
+  description: 'A list of call to actions.',
   fields: [
     defineField({
       name: 'title',
@@ -21,10 +21,10 @@ export default defineType({
       of: [createRichTextBlock(['decorators', 'links'])],
     }),
     defineField({
-      name: 'members',
-      title: 'Members',
+      name: 'ctas',
+      title: 'Call to Actions',
       type: 'array',
-      of: [{ type: 'teamListMember' }],
+      of: [defineArrayMember({ type: 'cta' })],
     }),
   ],
 });

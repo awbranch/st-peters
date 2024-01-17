@@ -1,12 +1,12 @@
 import React from 'react';
 import { twJoin } from 'tailwind-merge';
-import { HighlightBlock as Props } from '@/types/HighlightBlock';
+import { CallToActionBlock as Props } from '@/types/CallToActionBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import LinkButton from '@/components/LinkButton';
 import BlockTitle from '@/components/BlockTitle';
 
-export default function HighlightBlock({
+export default function CallToActionBlock({
   alignment,
   title,
   text,

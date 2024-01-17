@@ -15,14 +15,4 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Google Map Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

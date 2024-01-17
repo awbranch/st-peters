@@ -27,14 +27,4 @@ export default defineType({
       of: [{ type: 'buttonTile' }],
     }),
   ],
-  preview: {
-    select: { id: 'id' },
-    prepare({ id }) {
-      return {
-        title: 'Button Tile Grid Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

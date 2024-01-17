@@ -11,6 +11,7 @@ import address from '@/sanity/schema/address-schema';
 import button from '@/sanity/schema/button-schema';
 import buttonRow from '@/sanity/schema/button-row-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
+import cta from '@/sanity/schema/cta-schema';
 import doc from '@/sanity/schema/doc-schema';
 import donationLevel from '@/sanity/schema/donation-level-schema';
 import faq from '@/sanity/schema/faq-schema';
@@ -38,6 +39,7 @@ const schemas = [
   button,
   buttonRow,
   buttonTile,
+  cta,
   doc,
   donationLevel,
   faq,

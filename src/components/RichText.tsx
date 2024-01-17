@@ -14,6 +14,7 @@ import {
   Link,
   OL,
   Para,
+  Small,
   Strong,
   Subtitle,
   Title,
@@ -21,7 +22,7 @@ import {
 } from '@/components/Typography';
 
 type Props = {
-  variant?: 'blog' | 'title' | 'hero';
+  variant?: 'small' | 'blog' | 'title' | 'hero';
   text: PortableTextBlock[];
 };
 
@@ -48,6 +49,8 @@ const RichText = ({ variant = 'blog', text }: Props) => {
       normal: ({ children }: { children: React.ReactNode }) =>
         variant === 'blog' ? (
           <Para>{children}</Para>
+        ) : variant === 'small' ? (
+          <Small>{children}</Small>
         ) : (
           <Subtitle>{children}</Subtitle>
         ),

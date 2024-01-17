@@ -2,7 +2,6 @@ import React from 'react';
 import { Block as BlockConfig } from '@/types/Block';
 import HeroBlock from '@/components/HeroBlock';
 import LunchBlock from '@/components/LunchBlock';
-import HighlightBlock from '@/components/HighlightBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import TextBlock from '@/components/TextBlock';
 import GoogleMapBlock from '@/components/GoogleMapBlock';
@@ -17,6 +16,9 @@ import TeamGridBlock from '@/components/TeamGridBlock';
 import TeamListBlock from '@/components/TeamListBlock';
 import ReferenceBlock from '@/components/ReferenceBlock';
 import ListSetBlock from '@/components/ListSetBlock';
+import CallToActionBlock from '@/components/CallToActionBlock';
+import CallToActionListBlock from '@/components/CallToActionListBlock';
+import IframeBlock from '@/components/IframeBlock';
 
 type Props = {
   block: BlockConfig;
@@ -30,8 +32,14 @@ export default function Block({ block }: Props) {
     case 'lunchBlock':
       return <LunchBlock {...block} />;
 
-    case 'highlightBlock':
-      return <HighlightBlock {...block} />;
+    case 'ctaBlock':
+      return <CallToActionBlock {...block} />;
+
+    case 'ctaListBlock':
+      return <CallToActionListBlock {...block} />;
+
+    case 'iframeBlock':
+      return <IframeBlock {...block} />;
 
     case 'impactBlock':
       return <ImpactBlock {...block} />;

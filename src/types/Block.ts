@@ -12,13 +12,18 @@ import { FormBlock } from '@/types/FormBlock';
 import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
+import { IframeBlock } from '@/types/IframeBlock';
 import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
 import { ReferenceBlock } from '@/types/ReferenceBlock';
 import { ListSetBlock } from '@/types/ListSetBlock';
 import { LabeledColor } from '@/types/Color';
+import { CallToActionBlock } from '@/types/CallToActionBlock';
+import { CallToActionListBlock } from '@/types/CallToActionListBlock';
 
 export type Block =
+  | CallToActionBlock
+  | CallToActionListBlock
   | DocumentsBlock
   | DonationRequestBlock
   | FAQsBlock
@@ -28,6 +33,7 @@ export type Block =
   | GoogleMapBlock
   | HeroBlock
   | HighlightBlock
+  | IframeBlock
   | ImpactBlock
   | InstagramBlock
   | JobsBlock

@@ -37,17 +37,4 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
-  preview: {
-    select: { type: 'formType', id: 'id' },
-    prepare({ type, id }) {
-      let title =
-        formTypes.find((t) => t.value === type)?.title || 'Form Block';
-
-      return {
-        title: title,
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

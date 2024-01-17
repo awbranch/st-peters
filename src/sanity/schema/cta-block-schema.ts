@@ -1,14 +1,13 @@
 import { defineField, defineType } from 'sanity';
+import { FaBoltLightning as icon } from 'react-icons/fa6';
 import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
-import { IoFlashlight as icon } from 'react-icons/io5';
 
 export default defineType({
-  name: 'highlightBlock',
-  title: 'Highlight Block',
+  name: 'ctaBlock',
+  title: 'Call to Action Block',
   type: 'object',
   icon,
-  description:
-    'Highlight another section of the site for the user to navigate to.',
+  description: 'A large call to action that is displayed landscape.',
   fields: [
     defineField({
       title: 'Alignment',
@@ -42,14 +41,4 @@ export default defineType({
       type: 'button',
     }),
   ],
-  preview: {
-    select: { title: 'title', id: 'id' },
-    prepare({ title, id }) {
-      return {
-        title: title || 'Highlight Block',
-        subtitle: id ? `#${id.current}` : '',
-        media: icon,
-      };
-    },
-  },
 });

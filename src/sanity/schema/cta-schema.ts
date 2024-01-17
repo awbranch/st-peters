@@ -1,13 +1,13 @@
 import { defineField, defineType } from 'sanity';
-import { createRichTextBlock } from '@/sanity/schema/utils';
-import { FaUsers as icon } from 'react-icons/fa';
+import { FaBoltLightning as icon } from 'react-icons/fa6';
+import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
 
 export default defineType({
-  name: 'teamListBlock',
-  title: 'Team List Block',
+  name: 'cta',
+  title: 'Call to Action',
   type: 'object',
   icon,
-  description: 'A list of team members',
+  description: 'A call to action.',
   fields: [
     defineField({
       name: 'title',
@@ -20,11 +20,11 @@ export default defineType({
       type: 'array',
       of: [createRichTextBlock(['decorators', 'links'])],
     }),
+    createImageField('image', 'Image'),
     defineField({
-      name: 'members',
-      title: 'Members',
-      type: 'array',
-      of: [{ type: 'teamListMember' }],
+      name: 'button',
+      title: 'Button',
+      type: 'button',
     }),
   ],
 });
