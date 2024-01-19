@@ -14,6 +14,7 @@ import buttonTile from '@/sanity/schema/button-tile-schema';
 import cta from '@/sanity/schema/cta-schema';
 import doc from '@/sanity/schema/doc-schema';
 import faq from '@/sanity/schema/faq-schema';
+import iconListItem from '@/sanity/schema/icon-list-item-schema';
 import imageTile from '@/sanity/schema/image-tile-schema';
 import impact from '@/sanity/schema/impact-schema';
 import job from '@/sanity/schema/job-schema';
@@ -42,6 +43,7 @@ const schemas = [
   cta,
   doc,
   faq,
+  iconListItem,
   imageTile,
   impact,
   job,

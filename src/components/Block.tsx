@@ -17,6 +17,7 @@ import ListSetBlock from '@/components/ListSetBlock';
 import CallToActionBlock from '@/components/CallToActionBlock';
 import CallToActionListBlock from '@/components/CallToActionListBlock';
 import IframeBlock from '@/components/IframeBlock';
+import IconListBlock from '@/components/IconListBlock';
 
 type Props = {
   block: BlockConfig;
@@ -24,35 +25,14 @@ type Props = {
 
 export default function Block({ block }: Props) {
   switch (block._type) {
-    case 'heroBlock':
-      return <HeroBlock {...block} />;
-
-    case 'lunchBlock':
-      return <LunchBlock {...block} />;
+    case 'buttonTileGridBlock':
+      return <ButtonTileGridBlock {...block} />;
 
     case 'ctaBlock':
       return <CallToActionBlock {...block} />;
 
     case 'ctaListBlock':
       return <CallToActionListBlock {...block} />;
-
-    case 'iframeBlock':
-      return <IframeBlock {...block} />;
-
-    case 'impactBlock':
-      return <ImpactBlock {...block} />;
-
-    case 'textBlock':
-      return <TextBlock {...block} />;
-
-    case 'teamListBlock':
-      return <TeamListBlock {...block} />;
-
-    case 'teamGridBlock':
-      return <TeamGridBlock {...block} />;
-
-    case 'jobsBlock':
-      return <JobsBlock {...block} />;
 
     case 'docsBlock':
       return <DocumentsBlock {...block} />;
@@ -63,17 +43,41 @@ export default function Block({ block }: Props) {
     case 'formBlock':
       return <FormBlock {...block} />;
 
-    case 'buttonTileGridBlock':
-      return <ButtonTileGridBlock {...block} />;
+    case 'heroBlock':
+      return <HeroBlock {...block} />;
+
+    case 'iconListBlock':
+      return <IconListBlock {...block} />;
+
+    case 'iframeBlock':
+      return <IframeBlock {...block} />;
 
     case 'imageTileGridBlock':
       return <ImageTileGridBlock {...block} />;
 
-    case 'referenceBlock':
-      return <ReferenceBlock {...block} />;
+    case 'impactBlock':
+      return <ImpactBlock {...block} />;
+
+    case 'jobsBlock':
+      return <JobsBlock {...block} />;
 
     case 'listSetBlock':
       return <ListSetBlock {...block} />;
+
+    case 'lunchBlock':
+      return <LunchBlock {...block} />;
+
+    case 'referenceBlock':
+      return <ReferenceBlock {...block} />;
+
+    case 'teamGridBlock':
+      return <TeamGridBlock {...block} />;
+
+    case 'teamListBlock':
+      return <TeamListBlock {...block} />;
+
+    case 'textBlock':
+      return <TextBlock {...block} />;
 
     default:
       return (

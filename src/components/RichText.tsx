@@ -13,6 +13,7 @@ import {
   Link,
   OL,
   Para,
+  Small,
   Strong,
   Subtitle,
   UL,
@@ -58,6 +59,7 @@ const RichText = ({ text, overrides }: Props) => {
         <Para>{children}</Para>
       ),
       subtitle: ({ children }) => <Subtitle>{children}</Subtitle>,
+      small: ({ children }) => <Small>{children}</Small>,
       blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
       ...(overrides?.block ? overrides.block : {}),
     },

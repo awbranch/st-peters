@@ -1,38 +1,40 @@
-import { HeroBlock } from '@/types/HeroBlock';
-import { LunchBlock } from '@/types/LunchBlock';
-import { HighlightBlock } from '@/types/HighlightBlock';
-import { ImpactBlock } from '@/types/ImpactBlock';
-import { TextBlock } from '@/types/TextBlock';
-import { JobsBlock } from '@/types/JobsBlock';
+import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
+import { CallToActionBlock } from '@/types/CallToActionBlock';
+import { CallToActionListBlock } from '@/types/CallToActionListBlock';
 import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
 import { FormBlock } from '@/types/FormBlock';
-import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
-import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
+import { HeroBlock } from '@/types/HeroBlock';
+import { HighlightBlock } from '@/types/HighlightBlock';
+import { IconListBlock } from '@/types/IconListBlock';
 import { IframeBlock } from '@/types/IframeBlock';
+import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
+import { ImpactBlock } from '@/types/ImpactBlock';
+import { JobsBlock } from '@/types/JobsBlock';
+import { LabeledColor } from '@/types/Color';
+import { ListSetBlock } from '@/types/ListSetBlock';
+import { LunchBlock } from '@/types/LunchBlock';
+import { ReferenceBlock } from '@/types/ReferenceBlock';
 import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
-import { ReferenceBlock } from '@/types/ReferenceBlock';
-import { ListSetBlock } from '@/types/ListSetBlock';
-import { LabeledColor } from '@/types/Color';
-import { CallToActionBlock } from '@/types/CallToActionBlock';
-import { CallToActionListBlock } from '@/types/CallToActionListBlock';
+import { TextBlock } from '@/types/TextBlock';
 
 export type Block =
+  | ButtonTileGridBlock
   | CallToActionBlock
   | CallToActionListBlock
   | DocumentsBlock
   | FAQsBlock
-  | ImageTileGridBlock
-  | ButtonTileGridBlock
   | FormBlock
   | HeroBlock
   | HighlightBlock
+  | IconListBlock
   | IframeBlock
+  | ImageTileGridBlock
   | ImpactBlock
   | JobsBlock
-  | LunchBlock
   | ListSetBlock
+  | LunchBlock
   | ReferenceBlock
   | TeamGridBlock
   | TeamListBlock

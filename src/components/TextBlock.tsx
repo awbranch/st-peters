@@ -8,7 +8,7 @@ export default function TextBlock({ text, alignment }: TextBlock) {
     <div
       className={twJoin(
         alignment === 'left' && 'text-left',
-        alignment === 'center' && 'mx-auto max-w-4xl text-center',
+        alignment === 'center' && 'mx-auto max-w-2xl text-center',
         alignment === 'right' && 'text-right',
       )}
     >

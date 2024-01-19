@@ -1,6 +1,13 @@
 import { defineField, defineType } from 'sanity';
 import { FaFile as icon } from 'react-icons/fa';
 
+const pageWidths = [
+  { title: 'Large', value: 'lg' },
+  { title: 'Medium', value: 'md' },
+  { title: 'Small', value: 'sm' },
+  { title: 'Extra Small', value: 'xs' },
+];
+
 export default defineType({
   name: 'page',
   title: 'Pages',
@@ -41,13 +48,8 @@ export default defineType({
       type: 'string',
       initialValue: 'md',
       options: {
-        list: [
-          { title: 'Extra Small', value: 'xs' },
-          { title: 'Small', value: 'sm' },
-          { title: 'Medium', value: 'md' },
-          { title: 'Large', value: 'lg' },
-        ],
-        layout: 'dropdown',
+        list: pageWidths,
+        layout: 'radio',
         direction: 'horizontal',
       },
       validation: (Rule: any) => Rule.required(),
@@ -60,9 +62,7 @@ export default defineType({
     }),
   ],
   preview: {
-    select: {
-      path: 'path',
-    },
+    select: { path: 'path' },
     prepare({ path }) {
       return {
         title: path,

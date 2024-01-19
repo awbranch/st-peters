@@ -5,6 +5,7 @@ import docsBlock from '@/sanity/schema/docs-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
 import formBlock from '@/sanity/schema/form-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
+import iconListBlock from '@/sanity/schema/icon-list-block-schema';
 import iframeBlock from '@/sanity/schema/iframe-block-schema';
 import imageTileGridBlock from '@/sanity/schema/image-tile-grid-block-schema';
 import impactBlock from '@/sanity/schema/impact-block-schema';
@@ -24,6 +25,7 @@ const blocks = [
   faqsBlock,
   formBlock,
   heroBlock,
+  iconListBlock,
   iframeBlock,
   imageTileGridBlock,
   impactBlock,
