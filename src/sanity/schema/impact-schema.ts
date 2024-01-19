@@ -30,7 +30,7 @@ export default defineType({
       const { category, value } = selection;
       return {
         title: category,
-        subtitle: value.toLocaleString(),
+        subtitle: value?.toLocaleString(),
         icon: icon,
       };
     },

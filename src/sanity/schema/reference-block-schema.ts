@@ -13,10 +13,20 @@ export default defineType({
       title: 'Shared Block',
       type: 'reference',
       to: [{ type: 'shareableBlock' }],
-      validation: (Rule) => Rule.required(),
+      validation: (Rule: any) => Rule.required(),
       options: {
         disableNew: true,
       },
     }),
   ],
+  preview: {
+    select: { name: 'block.name' },
+    prepare({ name }) {
+      return {
+        title: `Reference Block`,
+        subtitle: name,
+        media: icon,
+      };
+    },
+  },
 });

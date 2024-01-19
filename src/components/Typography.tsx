@@ -97,21 +97,6 @@ export const Para = ({
     children,
   );
 
-export const Large = ({
-  as,
-  children,
-  className,
-  ...rest
-}: DivPropsWithoutRef & Extended) =>
-  React.createElement(
-    as || 'p',
-    {
-      className: twMerge('text-xl leading-relaxed mb-6', className),
-      ...rest,
-    },
-    children,
-  );
-
 export const Small = ({
   as,
   children,

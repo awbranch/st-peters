@@ -1,8 +1,8 @@
-import { SectionBlock } from '@/types/SectionBlock';
+import { Section } from '@/types/Section';
 import { PageWidth } from '@/types/PageWidth';
 
 export type Page = {
   path: string;
   maxWidth: PageWidth;
-  blocks?: Array<SectionBlock>;
+  sections?: Array<Section>;
 };

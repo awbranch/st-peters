@@ -4,6 +4,7 @@ import {
   BlockStyleDefinition,
   defineArrayMember,
   defineField,
+  PortableTextBlock,
 } from 'sanity';
 
 export function createImageField(name: string, title: string, group?: string) {
@@ -31,7 +32,7 @@ export type CRTLevel =
   | 'all'
   | 'h1'
   | 'h2'
-  | 'large'
+  | 'subtitle'
   | 'small'
   | 'blockquote'
   | 'lists'
@@ -53,12 +54,12 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
     styles.push({ title: 'Heading 2', value: 'h2' });
   }
 
-  if (levels.includes('all') || levels.includes('large')) {
+  if (levels.includes('all') || levels.includes('subtitle')) {
     styles.push({
-      title: 'Large',
-      value: 'large',
+      title: 'Subtitle',
+      value: 'subtitle',
       component: ({ children }) => (
-        <span style={{ fontSize: '1.2rem' }}>{children}</span>
+        <span style={{ fontSize: '1.2rem', opacity: '0.8' }}>{children}</span>
       ),
     });
   }
@@ -91,14 +92,6 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
       ...[
         { title: 'Bold', value: 'strong' },
         { title: 'Italic', value: 'em' },
-        // {
-        //   title: 'Lighten',
-        //   value: 'lighten',
-        //   component: ({ children }) => (
-        //     <span style={{ opacity: 0.5 }}>{children}</span>
-        //   ),
-        //   icon: PiCircleDashed,
-        // },
       ],
     );
   }
@@ -135,4 +128,12 @@ export function createRichTextBlock(levels: Array<CRTLevel> = ['all']) {
       annotations: annotations,
     },
   });
+}
+
+export function getFirstBlockText(portableText: PortableTextBlock[]): string {
+  const block = (portableText || []).find((block) => block._type === 'block');
+  return (block.children as any)
+    .filter((child) => child._type === 'span')
+    .map((span) => span.text)
+    .join('');
 }

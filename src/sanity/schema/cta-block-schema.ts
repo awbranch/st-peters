@@ -1,6 +1,10 @@
 import { defineField, defineType } from 'sanity';
 import { FaBoltLightning as icon } from 'react-icons/fa6';
-import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
+import {
+  createImageField,
+  createRichTextBlock,
+  getFirstBlockText,
+} from '@/sanity/schema/utils';
 
 export default defineType({
   name: 'ctaBlock',
@@ -24,15 +28,10 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
       name: 'text',
       title: 'Text',
       type: 'array',
-      of: [createRichTextBlock(['decorators', 'links'])],
+      of: [createRichTextBlock(['h1', 'decorators', 'links'])],
     }),
     createImageField('image', 'Image'),
     defineField({
@@ -41,4 +40,14 @@ export default defineType({
       type: 'button',
     }),
   ],
+  preview: {
+    select: { text: 'text', image: 'image' },
+    prepare({ text, image }) {
+      return {
+        title: 'Call to Action Block',
+        subtitle: getFirstBlockText(text),
+        media: image,
+      };
+    },
+  },
 });

@@ -4,11 +4,11 @@ import { CallToActionBlock as Props } from '@/types/CallToActionBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
 import LinkButton from '@/components/LinkButton';
-import BlockTitle from '@/components/BlockTitle';
+import RichText from '@/components/RichText';
+import { Subtitle } from '@/components/Typography';
 
 export default function CallToActionBlock({
   alignment,
-  title,
   text,
   image,
   button,
@@ -37,9 +37,18 @@ export default function CallToActionBlock({
               : 'md:mr-auto md:pr-16 lg:pr-24 xl:pr`-32',
           )}
         >
-          <BlockTitle title={title} text={text} alignment={'left'} />
+          <RichText
+            text={text}
+            overrides={{
+              block: {
+                normal: ({ children }: { children: React.ReactNode }) => (
+                  <Subtitle>{children}</Subtitle>
+                ),
+              },
+            }}
+          />
 
-          <div>
+          <div className={'mt-10'}>
             <LinkButton
               size={'large'}
               href={button.link}

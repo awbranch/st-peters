@@ -21,17 +21,22 @@ export default async function GenericPage({ params }: Props) {
   return (
     <>
       <main>
-        {page?.blocks &&
-          page.blocks.map((b) => (
-            <Section
-              key={b.id?.current}
-              id={b.id?.current}
-              color={b?.background?.label}
-              maxWidth={page.maxWidth}
-            >
-              {b.block && <Block block={b.block} />}
-            </Section>
-          ))}
+        {page?.sections?.map((s) => (
+          <Section
+            key={s.id?.current}
+            id={s.id?.current}
+            color={s?.background?.label}
+            maxWidth={page.maxWidth}
+          >
+            {s?.blocks && (
+              <div className={'space-y-12'}>
+                {s.blocks.map((b) => (
+                  <Block key={b._key} block={b} />
+                ))}
+              </div>
+            )}
+          </Section>
+        ))}
       </main>
     </>
   );

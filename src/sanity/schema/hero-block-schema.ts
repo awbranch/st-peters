@@ -1,5 +1,9 @@
 import { defineField, defineType } from 'sanity';
-import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
+import {
+  createImageField,
+  createRichTextBlock,
+  getFirstBlockText,
+} from '@/sanity/schema/utils';
 import { FaCircleExclamation as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -25,4 +29,14 @@ export default defineType({
       of: [{ type: 'button' }],
     }),
   ],
+  preview: {
+    select: { text: 'text', image: 'image' },
+    prepare({ text, image }) {
+      return {
+        title: 'Hero Block',
+        subtitle: getFirstBlockText(text),
+        media: image,
+      };
+    },
+  },
 });

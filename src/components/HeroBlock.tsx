@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroBlock as Props } from '@/types/HeroBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import LinkButton from '@/components/LinkButton';
+import { Subtitle, Title } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
 export default function HeroBlock({ text, image, buttons }: Props) {
@@ -12,7 +13,20 @@ export default function HeroBlock({ text, image, buttons }: Props) {
       }
     >
       <div className={'max-w-lg lg:max-w-full'}>
-        <RichText text={text} variant={'hero'} />
+        <RichText
+          text={text}
+          overrides={{
+            block: {
+              h1: ({ children }: { children: React.ReactNode }) => (
+                <Title>{children}</Title>
+              ),
+              normal: ({ children }: { children: React.ReactNode }) => (
+                <Subtitle>{children}</Subtitle>
+              ),
+            },
+          }}
+        />
+
         {buttons && (
           <div className={'mt-8 flex flex-row gap-4'}>
             {buttons.map((b) => (

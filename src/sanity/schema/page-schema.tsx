@@ -1,6 +1,5 @@
 import { defineField, defineType } from 'sanity';
 import { FaFile as icon } from 'react-icons/fa';
-import sectionBlocks from '@/sanity/schema/section-blocks-schema';
 
 export default defineType({
   name: 'page',
@@ -48,21 +47,16 @@ export default defineType({
           { title: 'Medium', value: 'md' },
           { title: 'Large', value: 'lg' },
         ],
-        layout: 'radio',
+        layout: 'dropdown',
         direction: 'horizontal',
       },
       validation: (Rule: any) => Rule.required(),
     }),
-
     defineField({
-      name: 'blocks',
-      title: 'Blocks',
+      name: 'sections',
+      title: 'Sections',
       type: 'array',
-      of: sectionBlocks.map((b) => ({
-        type: b.name,
-        title: b.title,
-        icon: b.icon,
-      })),
+      of: [{ type: 'section' }],
     }),
   ],
   preview: {

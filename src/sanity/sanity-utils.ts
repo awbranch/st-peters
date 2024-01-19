@@ -101,10 +101,12 @@ export async function getPageByPath(path: string[]) {
  */
 function addBackgroundColor(page: Page) {
   if (page) {
-    page.blocks.forEach((b) => {
-      if (b.block && b.background) {
-        b.block.background = { ...b.background };
-      }
+    page?.sections?.forEach((section) => {
+      section?.blocks?.forEach((block) => {
+        if (section.background) {
+          block.background = { ...section.background };
+        }
+      });
     });
   }
 }

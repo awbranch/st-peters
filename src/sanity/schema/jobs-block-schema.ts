@@ -1,5 +1,5 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
+import { createImageField } from '@/sanity/schema/utils';
 import { FaPersonDigging as icon } from 'react-icons/fa6';
 
 export default defineType({
@@ -9,19 +9,6 @@ export default defineType({
   icon,
   description: 'A block that displays job openings.',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      validation: (Rule: any) => Rule.required(),
-    }),
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [createRichTextBlock(['decorators', 'links'])],
-      validation: (Rule: any) => Rule.required(),
-    }),
     createImageField('image', 'Image'),
     defineField({
       name: 'jobs',
@@ -42,4 +29,13 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
+  preview: {
+    select: { jobs: 'jobs' },
+    prepare({ jobs }) {
+      return {
+        title: jobs !== undefined ? `${jobs?.length} Jobs` : 'Jobs Block',
+        media: icon,
+      };
+    },
+  },
 });

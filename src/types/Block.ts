@@ -2,14 +2,11 @@ import { HeroBlock } from '@/types/HeroBlock';
 import { LunchBlock } from '@/types/LunchBlock';
 import { HighlightBlock } from '@/types/HighlightBlock';
 import { ImpactBlock } from '@/types/ImpactBlock';
-import { InstagramBlock } from '@/types/InstagramBlock';
 import { TextBlock } from '@/types/TextBlock';
-import { GoogleMapBlock } from '@/types/GoogleMapBlock';
 import { JobsBlock } from '@/types/JobsBlock';
 import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
 import { FormBlock } from '@/types/FormBlock';
-import { DonationRequestBlock } from '@/types/DonationRequestBlock';
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { ImageTileGridBlock } from '@/types/ImageTileGridBlock';
 import { IframeBlock } from '@/types/IframeBlock';
@@ -25,17 +22,14 @@ export type Block =
   | CallToActionBlock
   | CallToActionListBlock
   | DocumentsBlock
-  | DonationRequestBlock
   | FAQsBlock
   | ImageTileGridBlock
   | ButtonTileGridBlock
   | FormBlock
-  | GoogleMapBlock
   | HeroBlock
   | HighlightBlock
   | IframeBlock
   | ImpactBlock
-  | InstagramBlock
   | JobsBlock
   | LunchBlock
   | ListSetBlock

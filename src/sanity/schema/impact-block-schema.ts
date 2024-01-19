@@ -1,5 +1,4 @@
 import { defineArrayMember, defineField, defineType } from 'sanity';
-import { createRichTextBlock } from '@/sanity/schema/utils';
 import { FaFistRaised as icon } from 'react-icons/fa';
 
 export default defineType({
@@ -10,21 +9,20 @@ export default defineType({
   description: 'List impactful data',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'text',
-      title: 'Text',
-      type: 'array',
-      of: [createRichTextBlock(['decorators', 'links'])],
-    }),
-    defineField({
       name: 'impacts',
       title: 'Impacts',
       type: 'array',
       of: [defineArrayMember({ type: 'impact' })],
     }),
   ],
+  preview: {
+    select: { impacts: 'impacts' },
+    prepare({ impacts }) {
+      return {
+        title: 'Impact Block',
+        subtitle: impacts.length && `${impacts?.length} Impact Statements`,
+        media: icon,
+      };
+    },
+  },
 });

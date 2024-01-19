@@ -4,12 +4,10 @@ import HeroBlock from '@/components/HeroBlock';
 import LunchBlock from '@/components/LunchBlock';
 import ImpactBlock from '@/components/ImpactBlock';
 import TextBlock from '@/components/TextBlock';
-import GoogleMapBlock from '@/components/GoogleMapBlock';
 import JobsBlock from '@/components/JobsBlock';
 import DocumentsBlock from '@/components/DocumentsBlock';
 import FAQsBlock from '@/components/FAQsBlock';
 import FormBlock from '@/components/FormBlock';
-import DonationRequestBlock from '@/components/DonationRequestBlock';
 import ButtonTileGridBlock from '@/components/ButtonTileGridBlock';
 import ImageTileGridBlock from '@/components/ImageTileGridBlock';
 import TeamGridBlock from '@/components/TeamGridBlock';
@@ -47,9 +45,6 @@ export default function Block({ block }: Props) {
     case 'textBlock':
       return <TextBlock {...block} />;
 
-    case 'googleMapBlock':
-      return <GoogleMapBlock {...block} />;
-
     case 'teamListBlock':
       return <TeamListBlock {...block} />;
 
@@ -67,9 +62,6 @@ export default function Block({ block }: Props) {
 
     case 'formBlock':
       return <FormBlock {...block} />;
-
-    case 'donationRequestBlock':
-      return <DonationRequestBlock {...block} />;
 
     case 'buttonTileGridBlock':
       return <ButtonTileGridBlock {...block} />;

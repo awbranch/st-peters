@@ -3,12 +3,10 @@ import { FormBlock as Props } from '@/types/FormBlock';
 import VolunteerForm from '@/components/VolunteerForm';
 import DonateForm from '@/components/DonateForm';
 import ContactForm from '@/components/ContactForm';
-import BlockTitle from '@/components/BlockTitle';
 
-export default function FormBlock({ title, text, formType }: Props) {
+export default function FormBlock({ formType }: Props) {
   return (
     <div>
-      <BlockTitle title={title} text={text} />
       {formType === 'contact' ? (
         <ContactForm />
       ) : formType === 'donate' ? (

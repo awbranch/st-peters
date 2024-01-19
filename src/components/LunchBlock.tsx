@@ -10,9 +10,8 @@ import { LunchBlock as Props } from '@/types/LunchBlock';
 import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
-import BlockTitle from '@/components/BlockTitle';
 
-export default async function LunchBlock({ title, text, tbd }: Props) {
+export default async function LunchBlock({ tbd }: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -33,35 +32,32 @@ export default async function LunchBlock({ title, text, tbd }: Props) {
   }
 
   return (
-    <div>
-      <BlockTitle title={title} text={text} />
-      <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-        {menus.map((menu, i) => (
-          <div
-            key={i}
-            className={twJoin(
-              menu.date === today
-                ? 'bg-white bg-opacity-5 ring-2 ring-sunset'
-                : 'ring-1 ring-white/10',
-              'rounded-3xl p-8 xl:p-10',
-            )}
-          >
-            <div className="flex items-center justify-between gap-x-4">
-              <h2 id={menu.date} className="text-lg font-semibold leading-8">
-                {menu.date === today ? 'Today' : toMonthAndDate(menu.date)}
-              </h2>
-            </div>
-            <p className="mt-2 flex items-baseline gap-x-1">
-              <span className="text-4xl font-bold tracking-tight">
-                {getWeekday(menu.date)}
-              </span>
-            </p>
-            <div className="mt-6 space-y-3 text-sm leading-6 xl:mt-8 lg:min-h-[200px] opacity-70">
-              <SimpleText text={menu.menu} />
-            </div>
+    <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      {menus.map((menu, i) => (
+        <div
+          key={i}
+          className={twJoin(
+            menu.date === today
+              ? 'bg-white bg-opacity-5 ring-2 ring-sunset'
+              : 'ring-1 ring-white/10',
+            'rounded-3xl p-8 xl:p-10',
+          )}
+        >
+          <div className="flex items-center justify-between gap-x-4">
+            <h2 id={menu.date} className="text-lg font-semibold leading-8">
+              {menu.date === today ? 'Today' : toMonthAndDate(menu.date)}
+            </h2>
           </div>
-        ))}
-      </div>
+          <p className="mt-2 flex items-baseline gap-x-1">
+            <span className="text-4xl font-bold tracking-tight">
+              {getWeekday(menu.date)}
+            </span>
+          </p>
+          <div className="mt-6 space-y-3 text-sm leading-6 xl:mt-8 lg:min-h-[200px] opacity-70">
+            <SimpleText text={menu.menu} />
+          </div>
+        </div>
+      ))}
     </div>
   );
 }

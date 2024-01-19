@@ -15,4 +15,13 @@ export default defineType({
       validation: (Rule: any) => Rule.required(),
     }),
   ],
+  preview: {
+    select: {},
+    prepare() {
+      return {
+        title: 'Iframe Block',
+        media: icon,
+      };
+    },
+  },
 });
