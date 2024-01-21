@@ -19,12 +19,12 @@ export default function Error({
 
   return (
     <main>
-      <Section className={'text-center'}>
-        <h1 className="text-xl mb-4">Something went wrong!</h1>
+      <Section className={'text-center'} maxWidth={'md'}>
+        <h1 className="text-3xl font-semibold mb-10">Something went wrong!</h1>
         <Button
           color={'black'}
           variant={'solid'}
-          size={'small'}
+          size={'large'}
           onClick={
             // Attempt to recover by trying to re-render the segment
             () => reset()
@@ -33,7 +33,7 @@ export default function Error({
           Try Again
         </Button>
 
-        <div className={'mt-4 text-left'}>
+        <div className={'mt-10 text-left'}>
           <Para>{error.stack}</Para>
         </div>
       </Section>
