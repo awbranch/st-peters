@@ -13,7 +13,7 @@ import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
 import { twJoin } from 'tailwind-merge';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 
 type Props = {
   logo: Image;

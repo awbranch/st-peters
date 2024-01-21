@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroBlock as Props } from '@/types/HeroBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 import { Subtitle, Title } from '@/components/Typography';
 import RichText from '@/components/RichText';
 

@@ -1,13 +1,26 @@
 import React from 'react';
-import { TextArea, TextInput } from '@/components/FormControls';
+import { Select, TextArea, TextInput } from '@/components/FormControls';
 import { Button } from '@/components/Button';
+import { ContactFormBlock as Props } from '@/types/ContactFormBlock';
 
-type Props = {};
-
-export default function ContactForm({}: Props) {
+export default function ContactFormBlock({ subjects, background }: Props) {
   return (
     <form>
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        <div className={'sm:col-span-2'}>
+          <Select
+            name={'subject'}
+            title={'Subject'}
+            options={
+              subjects
+                ? subjects.map((s) => ({
+                    name: s.name,
+                    value: s.name,
+                  }))
+                : []
+            }
+          />
+        </div>
         <TextInput
           name={'firstName'}
           title={'First Name'}
@@ -33,7 +46,7 @@ export default function ContactForm({}: Props) {
         </div>
       </div>
       <div className="mt-8 flex justify-end">
-        <Button type="submit" variant={'outline'} color={'pink'}>
+        <Button type="submit" variant={'outline'} color={background?.label}>
           Send message
         </Button>
       </div>

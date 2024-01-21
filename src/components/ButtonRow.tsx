@@ -1,6 +1,6 @@
 import React from 'react';
 import { ButtonRow as Props } from '@/types/ButtonRow';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 
 export default async function ButtonRow({ buttons }: Props) {
   return (

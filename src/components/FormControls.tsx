@@ -5,32 +5,33 @@ type TextInputProps = {
   name: string;
   title: string;
   type?: string;
+  autoComplete?: string;
   className?: string;
 };
 
+const labelClasses = 'block text-sm font-semibold leading-6';
 const inputClasses =
-  'peer w-full py-1 px-1 rounded bg-white text-sunset focus:outline-none border-l-4 border-white focus:border-gray-500 placeholder-transparent';
-
-const labelClasses =
-  'absolute px-1.5 left-0 -top-2.5 text-white text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-sunset-light peer-placeholder-shown:top-1 transition-all peer-focus:-top-2.5 peer-focus:text-white peer-focus:text-sm';
+  'mt-2 block w-full rounded-md border-0 px-3.5 py-2 text-sm leading-6 font-medium text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600';
 
 export function TextInput({
   name,
   title,
   type = 'text',
+  autoComplete,
   className,
 }: TextInputProps) {
   return (
-    <div className={twMerge('relative mt-3', className)}>
-      <input
-        id={name}
-        type={type}
-        placeholder={title}
-        className={inputClasses}
-      />
+    <div className={className}>
       <label htmlFor={name} className={labelClasses}>
         {title}
       </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        autoComplete={autoComplete}
+        className={inputClasses}
+      />
     </div>
   );
 }
@@ -44,16 +45,42 @@ type TextAreaProps = {
 
 export function TextArea({ name, title, rows = 5, className }: TextAreaProps) {
   return (
-    <div className={twMerge('relative mt-3', className)}>
-      <textarea
-        id={name}
-        placeholder={title}
-        className={inputClasses}
-        rows={rows}
-      />
+    <div className={className}>
       <label htmlFor={name} className={labelClasses}>
         {title}
       </label>
+      <textarea
+        id={name}
+        name={name}
+        rows={rows}
+        className={inputClasses}
+        defaultValue={''}
+      />
+    </div>
+  );
+}
+
+type SelectProps = {
+  name: string;
+  title: string;
+  options: Array<{ name: string; value: string }>;
+  className?: string;
+};
+
+export function Select({ name, title, options, className }: SelectProps) {
+  return (
+    <div className={className}>
+      <label htmlFor={name} className={labelClasses}>
+        {title}
+      </label>
+
+      <select id={name} name={name} className={inputClasses}>
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
@@ -89,20 +116,5 @@ export function RadioButton({
         {title}
       </label>
     </div>
-  );
-}
-
-export function SubmitButton() {
-  return (
-    <button
-      id={'submit'}
-      name={'submit'}
-      type={'submit'}
-      className={
-        'inline-block bg-white text-sunset hover:bg-sunset-dark hover:text-white font-bold py-1 px-3 rounded-full focus:outline-gray-500 border-none'
-      }
-    >
-      Submit
-    </button>
   );
 }

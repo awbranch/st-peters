@@ -2,7 +2,7 @@ import React from 'react';
 import { CallToActionListBlock as Props } from '@/types/CallToActionListBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 import Link from 'next/link';
 
 export default function CallToActionListBlock({ ctas }: Props) {

@@ -1,14 +1,9 @@
 import React from 'react';
-import {
-  RadioButton,
-  SubmitButton,
-  TextArea,
-  TextInput,
-} from '@/components/FormControls';
+import { RadioButton, TextArea, TextInput } from '@/components/FormControls';
+import { Button } from '@/components/Button';
+import { VolunteerFormBlock as Props } from '@/types/VolunteerFormBlock';
 
-type Props = {};
-
-export default function VolunteerForm({}: Props) {
+export default function VolunteerFormBlock({}: Props) {
   return (
     <form>
       <div className={'flex flex-col gap-2 md:gap-4 mb-4'}>
@@ -42,7 +37,7 @@ export default function VolunteerForm({}: Props) {
         <TextArea name={'information'} title={'Additional Information'} />
       </div>
       <div className={'text-right'}>
-        <SubmitButton />
+        <Button>Submit</Button>
       </div>
     </form>
   );

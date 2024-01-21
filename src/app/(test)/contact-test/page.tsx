@@ -1,58 +1,105 @@
 import Section from '@/components/Section';
-import { splitText } from '@/utils/text';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLocationDot } from '@fortawesome/pro-light-svg-icons';
-import React from 'react';
-import { H1 } from '@/components/Typography';
-
-const features = [
-  {
-    name: 'Mailing Address',
-    description: 'PO Box 11031\nRochester, NY 14611',
-    icon: faEnvelope,
-  },
-  {
-    name: 'Street Address',
-    description: '681 Brown Street\nRochester, NY 14611',
-    icon: faLocationDot,
-  },
-];
 
 export default function Example() {
   return (
-    <Section>
-      <div className="mx-auto max-w-2xl">
-        <div className={'text-center'}>
-          <h2 className={'text-base font-bold'}>Contact us at</h2>
-          <H1 className={'my-6'}>St. Peter’s Kitchen</H1>
-          <div className={'text-base font-medium space-y-1'}>
-            <div>info@stpeterskitchen.org</div>
-            <div>(585) 235-6511</div>
+    <Section maxWidth={'md'}>
+      <form action="#" method="POST">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          <div>
+            <label
+              htmlFor="first-name"
+              className="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              First name
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autoComplete="given-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div>
+            <label
+              htmlFor="last-name"
+              className="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Last name
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                autoComplete="family-name"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Email
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autoComplete="email"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="phone-number"
+              className="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Phone number
+            </label>
+            <div className="mt-2.5">
+              <input
+                type="tel"
+                name="phone-number"
+                id="phone-number"
+                autoComplete="tel"
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+          <div className="sm:col-span-2">
+            <label
+              htmlFor="message"
+              className="block text-sm font-semibold leading-6 text-gray-900"
+            >
+              Message
+            </label>
+            <div className="mt-2.5">
+              <textarea
+                name="message"
+                id="message"
+                rows={4}
+                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                defaultValue={''}
+              />
+            </div>
           </div>
         </div>
-        <dl className="mx-auto my-16 grid gap-x-8 grid-cols-2 gap-y-16">
-          {features.map((feature) => (
-            <div key={feature.name} className="relative pl-16">
-              <dt className="text-base font-semibold leading-7 text-gray-900">
-                <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-lg bg-sunset">
-                  <FontAwesomeIcon
-                    className={'h-6 mx-auto text-white'}
-                    aria-hidden="true"
-                    icon={feature.icon as any}
-                  />
-                </div>
-                {feature.name}
-              </dt>
-              <dd className="mt-1 text-base leading-7 text-gray-600">
-                {splitText(feature.description).map((s, i) => (
-                  <div key={i}>{s}</div>
-                ))}
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-      <div className={'mx-auto max-w-4xl'}></div>
+        <div className="mt-8 flex justify-end">
+          <button
+            type="submit"
+            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Send message
+          </button>
+        </div>
+      </form>
     </Section>
   );
 }

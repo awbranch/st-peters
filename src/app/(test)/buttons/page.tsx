@@ -1,15 +1,17 @@
 import type { Color } from '@/types/Color';
-import LinkButton, { Icon, Size } from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 import { twJoin } from 'tailwind-merge';
 import Link from 'next/link';
 import React from 'react';
 import { ButtonVariant } from '@/types/ButtonVariant';
 import Section from '@/components/Section';
+import { ButtonSize } from '@/types/ButtonSize';
+import { ButtonIcon } from '@/types/ButtonIcon';
 
 const variants: ButtonVariant[] = ['solid', 'outline'];
-const icons: Icon[] = ['none', 'down', 'right', 'left'];
+const icons: ButtonIcon[] = ['none', 'down', 'right', 'left'];
 const colors: Color[] = ['white', 'gray', 'green', 'blue', 'pink', 'black'];
-const sizes: Size[] = ['small', 'medium', 'large'];
+const sizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default function TextExample() {
   return (

@@ -3,7 +3,7 @@ import { twJoin } from 'tailwind-merge';
 import { CallToActionBlock as Props } from '@/types/CallToActionBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { breakpoints } from '@/utils/globals';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 import RichText from '@/components/RichText';
 import { Subtitle } from '@/components/Typography';
 

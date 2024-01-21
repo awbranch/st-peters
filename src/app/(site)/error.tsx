@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import Button from '@/components/Button';
+import { Button } from '@/components/Button';
 import { Para } from '@/components/Typography';
 import Section from '@/components/Section';
 

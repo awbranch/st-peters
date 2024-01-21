@@ -1,9 +1,9 @@
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { CallToActionBlock } from '@/types/CallToActionBlock';
 import { CallToActionListBlock } from '@/types/CallToActionListBlock';
+import { ContactFormBlock } from '@/types/ContactFormBlock';
 import { DocumentsBlock } from '@/types/DocumentsBlock';
 import { FAQsBlock } from '@/types/FAQsBlock';
-import { FormBlock } from '@/types/FormBlock';
 import { HeroBlock } from '@/types/HeroBlock';
 import { HighlightBlock } from '@/types/HighlightBlock';
 import { IconListBlock } from '@/types/IconListBlock';
@@ -18,14 +18,15 @@ import { ReferenceBlock } from '@/types/ReferenceBlock';
 import { TeamGridBlock } from '@/types/TeamGridBlock';
 import { TeamListBlock } from '@/types/TeamListBlock';
 import { TextBlock } from '@/types/TextBlock';
+import { VolunteerFormBlock } from '@/types/VolunteerFormBlock';
 
 export type Block =
   | ButtonTileGridBlock
   | CallToActionBlock
   | CallToActionListBlock
+  | ContactFormBlock
   | DocumentsBlock
   | FAQsBlock
-  | FormBlock
   | HeroBlock
   | HighlightBlock
   | IconListBlock
@@ -38,7 +39,8 @@ export type Block =
   | ReferenceBlock
   | TeamGridBlock
   | TeamListBlock
-  | TextBlock;
+  | TextBlock
+  | VolunteerFormBlock;
 
 export type BlockProps = {
   _key: string;

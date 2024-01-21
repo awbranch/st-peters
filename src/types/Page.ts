@@ -4,5 +4,5 @@ import { PageWidth } from '@/types/PageWidth';
 export type Page = {
   path: string;
   maxWidth: PageWidth;
-  sections?: Array<Section>;
+  sections?: Section[];
 };

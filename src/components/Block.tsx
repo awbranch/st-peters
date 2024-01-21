@@ -7,7 +7,6 @@ import TextBlock from '@/components/TextBlock';
 import JobsBlock from '@/components/JobsBlock';
 import DocumentsBlock from '@/components/DocumentsBlock';
 import FAQsBlock from '@/components/FAQsBlock';
-import FormBlock from '@/components/FormBlock';
 import ButtonTileGridBlock from '@/components/ButtonTileGridBlock';
 import ImageTileGridBlock from '@/components/ImageTileGridBlock';
 import TeamGridBlock from '@/components/TeamGridBlock';
@@ -18,6 +17,8 @@ import CallToActionBlock from '@/components/CallToActionBlock';
 import CallToActionListBlock from '@/components/CallToActionListBlock';
 import IframeBlock from '@/components/IframeBlock';
 import IconListBlock from '@/components/IconListBlock';
+import ContactFormBlock from '@/components/ContactFormBlock';
+import VolunteerFormBlock from '@/components/VolunteerFormBlock';
 
 type Props = {
   block: BlockConfig;
@@ -40,8 +41,8 @@ export default function Block({ block }: Props) {
     case 'faqsBlock':
       return <FAQsBlock {...block} />;
 
-    case 'formBlock':
-      return <FormBlock {...block} />;
+    case 'contactFormBlock':
+      return <ContactFormBlock {...block} />;
 
     case 'heroBlock':
       return <HeroBlock {...block} />;
@@ -78,6 +79,9 @@ export default function Block({ block }: Props) {
 
     case 'textBlock':
       return <TextBlock {...block} />;
+
+    case 'volunteerFormBlock':
+      return <VolunteerFormBlock {...block} />;
 
     default:
       return (

@@ -11,6 +11,7 @@ import bookmark from '@/sanity/schema/bookmark-schema';
 import button from '@/sanity/schema/button-schema';
 import buttonRow from '@/sanity/schema/button-row-schema';
 import buttonTile from '@/sanity/schema/button-tile-schema';
+import contactFormSubject from '@/sanity/schema/contact-form-subject-schema';
 import cta from '@/sanity/schema/cta-schema';
 import doc from '@/sanity/schema/doc-schema';
 import faq from '@/sanity/schema/faq-schema';
@@ -40,6 +41,7 @@ const schemas = [
   button,
   buttonRow,
   buttonTile,
+  contactFormSubject,
   cta,
   doc,
   faq,

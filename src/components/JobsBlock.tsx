@@ -1,6 +1,6 @@
 import React from 'react';
 import { JobsBlock as Props } from '@/types/JobsBlock';
-import LinkButton from '@/components/LinkButton';
+import { LinkButton } from '@/components/Button';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { splitText } from '@/utils/text';
 
