@@ -2,6 +2,8 @@ import { getPageByPath, getPages } from '@/sanity/sanity-utils';
 import React from 'react';
 import Section from '@/components/Section';
 import BlockList from '@/components/BlockList';
+import Container from '@/components/Container';
+import BreadCrumbs from '@/components/BreadCrumbs';
 
 export const dynamicParams = false;
 
@@ -21,6 +23,11 @@ export default async function GenericPage({ params }: Props) {
   return (
     <>
       <main>
+        {path.length > 1 && (
+          <Container maxWidth={'lg'}>
+            <BreadCrumbs path={path} />
+          </Container>
+        )}
         {page?.sections?.map((s) => (
           <Section
             key={s.id?.current}

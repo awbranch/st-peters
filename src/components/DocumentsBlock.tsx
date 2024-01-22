@@ -8,7 +8,7 @@ export default function DocumentsBlock({ documents }: Props) {
   return (
     <ul role="list" className="divide-y divide-gray-100">
       {documents.map((d) => (
-        <li key={urlForFile(d.file)} className="py-5">
+        <li key={d._key} className="py-5">
           <div className="flex min-w-0 gap-x-4">
             <div className={'flex-none'}>
               <FileLink file={d.file}>

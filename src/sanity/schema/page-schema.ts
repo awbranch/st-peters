@@ -40,7 +40,6 @@ export default defineType({
             return result.length === 0 ? true : 'Paths must be unique';
           });
         }),
-      readOnly: ({ document }) => document?.variant === 'collection',
     }),
     defineField({
       title: 'Max Width',

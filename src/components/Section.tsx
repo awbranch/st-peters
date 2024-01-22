@@ -23,7 +23,7 @@ export default function Section({
     <section
       id={id}
       className={twMerge(
-        'px-4 md:px-10 py-20 md:py-24',
+        'py-20 md:py-24',
         color === 'green' && 'bg-grass text-white',
         color === 'blue' && 'bg-ocean text-white',
         color === 'pink' && 'bg-sunset text-white',
