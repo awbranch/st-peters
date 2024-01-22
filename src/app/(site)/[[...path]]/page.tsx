@@ -1,7 +1,7 @@
 import { getPageByPath, getPages } from '@/sanity/sanity-utils';
 import React from 'react';
 import Section from '@/components/Section';
-import Block from '@/components/Block';
+import BlockList from '@/components/BlockList';
 
 export const dynamicParams = false;
 
@@ -28,13 +28,7 @@ export default async function GenericPage({ params }: Props) {
             color={s?.background?.label}
             maxWidth={page.maxWidth}
           >
-            {s?.blocks && (
-              <div className={'space-y-12'}>
-                {s.blocks.map((b) => (
-                  <Block key={b._key} block={b} />
-                ))}
-              </div>
-            )}
+            {s?.blocks && <BlockList blocks={s.blocks} />}
           </Section>
         ))}
       </main>

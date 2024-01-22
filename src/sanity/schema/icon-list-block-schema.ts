@@ -19,7 +19,7 @@ export default defineType({
     prepare({ items }) {
       return {
         title: 'Icon List Block',
-        subtitle: items.length && `${items?.length} Items`,
+        subtitle: items?.length && `${items?.length} Items`,
         media: icon,
       };
     },

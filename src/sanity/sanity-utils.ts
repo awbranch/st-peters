@@ -6,7 +6,7 @@ import { Page } from '@/types/Page';
 import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
-import { ShareableBlock } from '@/types/ShareableBlock';
+import { ShareableBlockSet } from '@/types/ShareableBlockSet';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -177,8 +177,8 @@ export async function getFooter() {
   );
 }
 
-export async function getDocument(id: string) {
-  return client.fetch<ShareableBlock>(
+export async function getShareableBlockSet(id: string) {
+  return client.fetch<ShareableBlockSet>(
     groq`*[_id == $id][0]`,
     {
       id,

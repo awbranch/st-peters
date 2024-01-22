@@ -6,13 +6,13 @@ export default defineType({
   title: 'Reference Block',
   type: 'object',
   icon,
-  description: 'A block that references a shared block.',
+  description: 'A block that references a shareable block set.',
   fields: [
     defineField({
-      name: 'block',
-      title: 'Shared Block',
+      name: 'blockSet',
+      title: 'Sharable Block Set',
       type: 'reference',
-      to: [{ type: 'shareableBlock' }],
+      to: [{ type: 'shareableBlockSet' }],
       validation: (Rule: any) => Rule.required(),
       options: {
         disableNew: true,
@@ -20,7 +20,7 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { name: 'block.name' },
+    select: { name: 'blockSet.name' },
     prepare({ name }) {
       return {
         title: `Reference Block`,

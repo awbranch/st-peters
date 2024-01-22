@@ -1,10 +1,10 @@
 import { defineField, defineType } from 'sanity';
-import { FaCube as icon } from 'react-icons/fa6';
+import { FaCubes as icon } from 'react-icons/fa6';
 import blocks from '@/sanity/schema/blocks-schema';
 
 export default defineType({
-  name: 'shareableBlock',
-  title: 'Shareable Block',
+  name: 'shareableBlockSet',
+  title: 'Shareable Block Set',
   type: 'document',
   icon,
   fields: [
@@ -14,24 +14,21 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'block',
-      title: 'Block',
+      name: 'blocks',
+      title: 'Blocks',
       type: 'array',
       of: blocks
         .filter((b) => b.name !== 'referenceBlock')
         .map((b) => ({ type: b.name })),
-      validation: (Rule: any) => Rule.required().min(1).max(1),
     }),
   ],
   preview: {
-    select: { name: 'name', block: 'block' },
-    prepare({ name, block }) {
+    select: { name: 'name', blocks: 'blocks' },
+    prepare({ name, blocks }) {
       return {
         title: name,
-        subtitle:
-          block &&
-          block[0]?._type &&
-          blocks.find((b) => b.name === block[0]?._type)?.title,
+        subtitle: blocks?.length && `${blocks?.length} Blocks`,
+        media: icon,
       };
     },
   },

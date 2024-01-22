@@ -3,7 +3,7 @@ import footer from '@/sanity/schema/footer-schema';
 import page from '@/sanity/schema/page-schema';
 import section from '@/sanity/schema/section-schema';
 import blocks from '@/sanity/schema/blocks-schema';
-import shareableBlock from '@/sanity/schema/shareable-block-schema';
+import shareableBlockSet from '@/sanity/schema/shareable-block-set-schema';
 
 import action from '@/sanity/schema/action-schema';
 import address from '@/sanity/schema/address-schema';
@@ -34,7 +34,7 @@ const schemas = [
   page,
   section,
   ...blocks,
-  shareableBlock,
+  shareableBlockSet,
   action,
   address,
   bookmark,

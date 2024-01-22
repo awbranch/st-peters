@@ -15,4 +15,14 @@ export default defineType({
       of: [{ type: 'imageTile' }],
     }),
   ],
+  preview: {
+    select: { images: 'images' },
+    prepare({ images }) {
+      return {
+        title: 'Image Tile Grid Block',
+        subtitle: images?.length && `${images?.length} Image Tiles`,
+        media: icon,
+      };
+    },
+  },
 });

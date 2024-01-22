@@ -21,11 +21,25 @@ import ContactFormBlock from '@/components/ContactFormBlock';
 import VolunteerFormBlock from '@/components/VolunteerFormBlock';
 import ArticleBlock from '@/components/ArticleBlock';
 
-type Props = {
+type BlockListProps = {
+  blocks: BlockConfig[];
+};
+
+export default function BlockList({ blocks }: BlockListProps) {
+  return (
+    <div className={'space-y-12'}>
+      {blocks.map((b) => (
+        <Block key={b._key} block={b} />
+      ))}
+    </div>
+  );
+}
+
+type BlockProps = {
   block: BlockConfig;
 };
 
-export default function Block({ block }: Props) {
+function Block({ block }: BlockProps) {
   switch (block._type) {
     case 'articleBlock':
       return <ArticleBlock {...block} />;

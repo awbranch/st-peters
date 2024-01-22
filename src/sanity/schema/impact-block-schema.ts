@@ -20,7 +20,7 @@ export default defineType({
     prepare({ impacts }) {
       return {
         title: 'Impact Block',
-        subtitle: impacts.length && `${impacts?.length} Impact Statements`,
+        subtitle: impacts?.length && `${impacts?.length} Impact Statements`,
         media: icon,
       };
     },

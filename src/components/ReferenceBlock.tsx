@@ -1,16 +1,26 @@
 import React from 'react';
 import { ReferenceBlock as Props } from '@/types/ReferenceBlock';
-import { getDocument } from '@/sanity/sanity-utils';
-import Block from '@/components/Block';
+import { getShareableBlockSet } from '@/sanity/sanity-utils';
+import BlockList from '@/components/BlockList';
 
-export default async function ReferenceBlock({ block }: Props) {
-  const shareableBlock = await getDocument(block._ref);
+export default async function ReferenceBlock({ blockSet }: Props) {
+  const shareableBlockSet = blockSet?._ref
+    ? await getShareableBlockSet(blockSet?._ref)
+    : null;
 
-  if (shareableBlock?.block) {
-    return <Block block={shareableBlock?.block[0]} />;
-  } else {
+  if (!shareableBlockSet) {
     return (
-      <div className={'text-5xl text-red-700'}>Unknown Block {block._key}</div>
+      <div className={'text-5xl text-red-700'}>
+        Unknown Block Set {blockSet._key}
+      </div>
     );
+  } else if (!shareableBlockSet.blocks?.length) {
+    return (
+      <div className={'text-5xl text-red-700'}>
+        Block Set {shareableBlockSet.name} contains no blocks
+      </div>
+    );
+  } else {
+    return <BlockList blocks={shareableBlockSet.blocks} />;
   }
 }
