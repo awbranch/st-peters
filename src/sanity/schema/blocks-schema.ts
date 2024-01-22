@@ -1,10 +1,10 @@
+import articleBlock from '@/sanity/schema/article-block-schema';
 import buttonTileGridBlock from '@/sanity/schema/button-tile-grid-block-schema';
 import contactFormBlock from '@/sanity/schema/contact-form-block-schema';
 import ctaBlock from '@/sanity/schema/cta-block-schema';
 import ctaListBlock from '@/sanity/schema/cta-list-block-schema';
 import docsBlock from '@/sanity/schema/docs-block-schema';
 import faqsBlock from '@/sanity/schema/faqs-block-schema';
-import formBlock from '@/sanity/schema/form-block-schema';
 import heroBlock from '@/sanity/schema/hero-block-schema';
 import iconListBlock from '@/sanity/schema/icon-list-block-schema';
 import iframeBlock from '@/sanity/schema/iframe-block-schema';
@@ -20,13 +20,13 @@ import textBlock from '@/sanity/schema/text-block-schema';
 import volunteerFormBlock from '@/sanity/schema/volunteer-form-block-schema';
 
 const blocks = [
+  articleBlock,
   buttonTileGridBlock,
   contactFormBlock,
   ctaBlock,
   ctaListBlock,
   docsBlock,
   faqsBlock,
-  formBlock,
   heroBlock,
   iconListBlock,
   iframeBlock,

@@ -1,3 +1,4 @@
+import { ArticleBlock } from '@/types/ArticleBlock';
 import { ButtonTileGridBlock } from '@/types/ButtonTileGridBlock';
 import { CallToActionBlock } from '@/types/CallToActionBlock';
 import { CallToActionListBlock } from '@/types/CallToActionListBlock';
@@ -21,6 +22,7 @@ import { TextBlock } from '@/types/TextBlock';
 import { VolunteerFormBlock } from '@/types/VolunteerFormBlock';
 
 export type Block =
+  | ArticleBlock
   | ButtonTileGridBlock
   | CallToActionBlock
   | CallToActionListBlock

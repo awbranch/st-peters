@@ -1,17 +1,13 @@
 import { defineField, defineType } from 'sanity';
-import {
-  createImageField,
-  createRichTextBlock,
-  getFirstBlockText,
-} from '@/sanity/schema/utils';
-import { FaRegFileAlt as icon } from 'react-icons/fa';
+import { createRichTextBlock, getFirstBlockText } from '@/sanity/schema/utils';
+import { FaAlignJustify as icon } from 'react-icons/fa6';
 
 export default defineType({
   name: 'textBlock',
   title: 'Text Block',
   type: 'object',
   icon,
-  description: 'A block that can display text and images.',
+  description: 'Display short form text such as titles.',
   fields: [
     defineField({
       name: 'alignment',
@@ -34,10 +30,14 @@ export default defineType({
       title: 'Text',
       type: 'array',
       of: [
-        createRichTextBlock(),
-        createImageField('image', 'Image'),
-        { type: 'buttonRow' },
-        { type: 'bookmark' },
+        createRichTextBlock([
+          'h1',
+          'subtitle',
+          'small',
+          'decorators',
+          'links',
+          'textColor',
+        ]),
       ],
     }),
   ],

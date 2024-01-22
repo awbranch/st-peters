@@ -19,6 +19,7 @@ import IframeBlock from '@/components/IframeBlock';
 import IconListBlock from '@/components/IconListBlock';
 import ContactFormBlock from '@/components/ContactFormBlock';
 import VolunteerFormBlock from '@/components/VolunteerFormBlock';
+import ArticleBlock from '@/components/ArticleBlock';
 
 type Props = {
   block: BlockConfig;
@@ -26,6 +27,9 @@ type Props = {
 
 export default function Block({ block }: Props) {
   switch (block._type) {
+    case 'articleBlock':
+      return <ArticleBlock {...block} />;
+
     case 'buttonTileGridBlock':
       return <ButtonTileGridBlock {...block} />;
 
