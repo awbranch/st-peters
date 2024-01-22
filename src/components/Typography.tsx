@@ -77,7 +77,7 @@ export const H2 = ({
     as || 'h2',
     {
       className: twMerge(
-        'text-4xl font-bold tracking-normal leading-tight mt-8 mb-6',
+        'text-4xl font-bold tracking-normal leading-tight mt-12 mb-6',
         className,
       ),
       ...rest,

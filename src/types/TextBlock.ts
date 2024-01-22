@@ -1,8 +1,9 @@
 import { BlockProps } from '@/types/Block';
 import { PortableTextBlock } from 'sanity';
+import { Alignment } from '@/types/Alignment';
 
 export type TextBlock = BlockProps & {
   _type: 'textBlock';
-  alignment: 'left' | 'center' | 'right';
+  alignment: Alignment;
   text: PortableTextBlock[];
 };
