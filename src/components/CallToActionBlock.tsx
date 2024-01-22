@@ -28,13 +28,13 @@ export default function CallToActionBlock({
           className={'h-full rounded-2xl'}
         />
       </div>
-      <div className="relative py-24 sm:py-32 lg:py-40">
+      <div className="relative py-12 md:py-24 lg:py-32">
         <div
           className={twJoin(
             'pl-6 pr-6 md:w-1/2',
             alignment === 'left'
-              ? 'md:ml-auto md:pl-16 lg:pl-24 xl:pl-32'
-              : 'md:mr-auto md:pr-16 lg:pr-24 xl:pr`-32',
+              ? 'md:ml-auto md:pl-12 lg:pl-16 xl:pl-24'
+              : 'md:mr-auto md:pr-12 lg:pr-16 xl:pr-24',
           )}
         >
           <RichText
