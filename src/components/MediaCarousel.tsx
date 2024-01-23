@@ -2,6 +2,7 @@ import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { Image } from '@/types/Image';
+import { Para } from '@/components/Typography';
 
 type MediaCarouselProps = {
   children: React.ReactNode;
@@ -29,10 +30,10 @@ export function MediaCarouselItem({
           image={image}
           priority={false}
           sizes={'33vw'}
-          className={'object-cover w-[300px] h-[280px]'}
+          className={'object-cover w-[280px] h-[250px] rounded-xl'}
         />
       </Link>
-      <h2 className="text-lg mt-1 text-center">{title}</h2>
+      <Para className="text-lg mt-3 font-semibold text-center">{title}</Para>
     </div>
   );
 }

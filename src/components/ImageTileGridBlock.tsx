@@ -1,6 +1,7 @@
 import React from 'react';
 import { ImageTileGridBlock as Props } from '@/types/ImageTileGridBlock';
 import ResponsiveImage from '@/components/ResponsiveImage';
+import Link from 'next/link';
 
 export default async function ImageTileGridBlock({ images }: Props) {
   return (
@@ -21,10 +22,10 @@ export default async function ImageTileGridBlock({ images }: Props) {
           <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
           <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-            <a href={tile.url}>
+            <Link href={tile.url}>
               <span className="absolute inset-0" />
               {tile.label}
-            </a>
+            </Link>
           </h3>
         </article>
       ))}

@@ -8,6 +8,7 @@ import { NewsStory } from '@/types/NewsStory';
 import { twJoin } from 'tailwind-merge';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { toShortDate } from '@/utils/date';
+import Link from 'next/link';
 
 const sortOptions = [
   { name: 'Newest', href: '#' },
@@ -63,7 +64,7 @@ export default function News({ stories }: Props) {
                   {sortOptions.map((option) => (
                     <Menu.Item key={option.name}>
                       {({ active }) => (
-                        <a
+                        <Link
                           href={option.href}
                           className={twJoin(
                             active ? 'bg-gray-100' : '',
@@ -71,7 +72,7 @@ export default function News({ stories }: Props) {
                           )}
                         >
                           {option.name}
-                        </a>
+                        </Link>
                       )}
                     </Menu.Item>
                   ))}
@@ -131,35 +132,35 @@ export default function News({ stories }: Props) {
             className="relative isolate flex flex-col gap-8 lg:flex-row"
           >
             <div className="relative aspect-[16/9] sm:aspect-[2/1] lg:aspect-square lg:w-64 lg:shrink-0">
-              <ResponsiveImage
-                image={story.image}
-                className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                sizes={'100vw'}
-              />
-              {/*<div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />*/}
+              <Link href={`/news/story/${story.slug.current}`}>
+                <ResponsiveImage
+                  image={story.previewImage}
+                  className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
+                  sizes={'100vw'}
+                />
+              </Link>
             </div>
             <div>
               <div className="flex items-center gap-x-4 text-xs">
                 <time dateTime={story.date} className="text-gray-500">
                   {toShortDate(story.date)}
                 </time>
-                <a
+                <Link
                   href={'#'}
-                  className="relative z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200"
+                  className="z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200"
                 >
                   {categories.find((c) => c.value === story.category)?.label}
-                </a>
+                </Link>
               </div>
-              <div className="group relative max-w-xl">
-                <h3 className="mt-3 text-xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
-                  <a href={`/news/story/${story.slug.current}`}>
-                    <span className="absolute inset-0" />
+              <div className="max-w-xl">
+                <Link href={`/news/story/${story.slug.current}`}>
+                  <h3 className="mt-3 text-2xl font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
                     {story.title}
-                  </a>
-                </h3>
-                <p className="mt-5 text-base leading-relaxed text-gray-600">
-                  {story.description}
-                </p>
+                  </h3>
+                  <p className="mt-5 text-base leading-relaxed text-gray-600">
+                    {story.summary}
+                  </p>
+                </Link>
               </div>
             </div>
           </article>

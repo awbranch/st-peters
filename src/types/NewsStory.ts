@@ -6,7 +6,7 @@ export type NewsStory = {
   date: string;
   title: string;
   slug: Slug;
-  description: string;
-  image: Image;
+  summary: string;
+  previewImage: Image;
   text: PortableTextBlock[];
 };

@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
-import { titleCase } from 'text-case';
 
-type Props = {
-  path: string[];
+type Route = {
+  name: string;
+  path: string;
 };
 
-export default function BreadCrumbs({ path }: Props) {
-  let routes = convertToRoutes(path);
+type BreadCrumbsProps = {
+  routes: Route[];
+};
 
+export default function BreadCrumbs({ routes }: BreadCrumbsProps) {
   return (
     <nav className="mt-6 ml-2" aria-label="Breadcrumb">
       <ol role="list" className="flex gap-4">
@@ -25,7 +27,7 @@ export default function BreadCrumbs({ path }: Props) {
               <Link
                 href={r.path}
                 className="text-sm font-medium text-gray-400 hover:text-gray-500"
-                aria-current={r.current ? 'page' : undefined}
+                aria-current={i === routes.length - 1 ? 'page' : undefined}
               >
                 {r.name}
               </Link>
@@ -35,19 +37,4 @@ export default function BreadCrumbs({ path }: Props) {
       </ol>
     </nav>
   );
-}
-
-function convertToRoutes(paths: string[]) {
-  let routes: { name: string; path: string; current: boolean }[] = [];
-  let currentPath = '';
-  paths.forEach((p, i) => {
-    currentPath += `/${p}`;
-    routes.push({
-      name: titleCase(p.replace(/-/g, ' ')),
-      path: currentPath,
-      current: i === paths.length - 1,
-    });
-  });
-
-  return routes;
 }

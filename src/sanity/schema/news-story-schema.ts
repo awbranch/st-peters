@@ -66,14 +66,15 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
+      name: 'summary',
+      title: 'Summary',
       type: 'text',
       description:
-        'A short description that appears on the page listing all stories.',
+        'A short summary that appears with the preview image on the news summary page.',
       validation: (Rule: any) => Rule.required(),
     }),
-    createImageField('image', 'Image'),
+    createImageField('previewImage', 'Preview Image'),
+
     defineField({
       name: 'text',
       title: 'Text',

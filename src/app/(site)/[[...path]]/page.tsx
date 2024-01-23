@@ -4,6 +4,7 @@ import Section from '@/components/Section';
 import BlockList from '@/components/BlockList';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
+import { titleCase } from 'text-case';
 
 export const dynamicParams = false;
 
@@ -25,7 +26,7 @@ export default async function GenericPage({ params }: Props) {
       <main>
         {path.length > 1 && (
           <Container maxWidth={'lg'}>
-            <BreadCrumbs path={path} />
+            <BreadCrumbs routes={convertToRoutes(path)} />
           </Container>
         )}
         {page?.sections?.map((s) => (
@@ -41,4 +42,18 @@ export default async function GenericPage({ params }: Props) {
       </main>
     </>
   );
+}
+
+function convertToRoutes(paths: string[]) {
+  let routes: { name: string; path: string }[] = [];
+  let currentPath = '';
+  paths.forEach((p) => {
+    currentPath += `/${p}`;
+    routes.push({
+      name: titleCase(p.replace(/-/g, ' ')),
+      path: currentPath,
+    });
+  });
+
+  return routes;
 }

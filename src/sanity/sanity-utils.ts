@@ -69,7 +69,7 @@ export async function getLunchMenus() {
   return client.fetch<LunchMenu[]>(
     groq`*[_type == "lunchMenu" && dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1]{date, menu} | order(date asc)[0..2]`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -77,7 +77,7 @@ export async function getPages() {
   let pages = await client.fetch<Page[]>(
     groq`*[_type == "page"]`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
   pages.forEach((p) => addBackgroundColor(p));
   return pages;
@@ -89,7 +89,7 @@ export async function getPageByPath(path: string[]) {
     {
       path: '/' + path.join('/'),
     },
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
   addBackgroundColor(page);
   return page;
@@ -115,7 +115,7 @@ export async function getTopNewsStories(count: number) {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -125,7 +125,7 @@ export async function getAllNewsStories() {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"] | order(date desc)`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -147,7 +147,7 @@ export async function getNewsStories(
     {
       category,
     },
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -157,7 +157,7 @@ export async function getNewsStory(slug: string) {
     {
       slug,
     },
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -165,7 +165,7 @@ export async function getHeader() {
   return client.fetch<Header>(
     groq`*[_type == "header"][0]`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -173,7 +173,7 @@ export async function getFooter() {
   return client.fetch<Footer>(
     groq`*[_type == "footer"][0]`,
     {},
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
 }
 
@@ -183,6 +183,14 @@ export async function getShareableBlockSet(id: string) {
     {
       id,
     },
-    { next: { revalidate: 5 } },
+    fetchOptions(),
   );
+}
+
+function fetchOptions() {
+  if (process.env.NODE_ENV === 'development') {
+    return { next: { revalidate: 5 } };
+  } else {
+    return {};
+  }
 }

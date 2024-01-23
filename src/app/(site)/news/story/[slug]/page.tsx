@@ -1,9 +1,12 @@
-import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import { toFullDate } from '@/utils/date';
 import { getNewsStory, getTopNewsStories } from '@/sanity/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
 import Section from '@/components/Section';
+import Container from '@/components/Container';
+import BreadCrumbs from '@/components/BreadCrumbs';
+import React from 'react';
+import { H2, Small } from '@/components/Typography';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const story = await getNewsStory(params.slug);
@@ -18,27 +21,29 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <main>
-      <Section id="story" maxWidth="md">
-        <h1 className="text-xl">{story.title}</h1>
-        <div className="text-sm">{toFullDate(story.date)}</div>
-        <ResponsiveImage
-          className="w-full mt-2 mb-3"
-          image={story.image}
-          priority={false}
-          sizes={'100vw'}
+      <Container maxWidth={'lg'}>
+        <BreadCrumbs
+          routes={[
+            { name: 'News', path: '/news' },
+            { name: story.title, path: `/news/story/${story.slug.current}` },
+          ]}
         />
+      </Container>
+
+      <Section id="story" maxWidth="sm">
+        <Small className={'mb-8'}>{toFullDate(story.date)}</Small>
         <RichText text={story.text} />
       </Section>
       {stories && (
-        <Section>
-          <h1 className={'text-xl'}>More News</h1>
+        <Section maxWidth="sm">
+          <H2>More News</H2>
           <MediaCarousel>
             {stories.slice(0, 3).map((s, i) => (
               <MediaCarouselItem
                 key={i}
                 href={`/news/story/${s.slug.current}`}
                 title={s.title}
-                image={s.image}
+                image={s.previewImage}
               ></MediaCarouselItem>
             ))}
           </MediaCarousel>

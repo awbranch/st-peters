@@ -22,7 +22,7 @@ export default function NewsletterSignupForm({ config }: Props) {
           />
           <button
             type="submit"
-            className="absolute font-bold m-0 px-2 rounded-xl bg-sunset text-white text-sm top-[6px] bottom-[6px] right-[6px] hover:bg-sunset-dark"
+            className="absolute font-bold m-0 px-2 rounded-2xl bg-sunset text-white text-sm top-[6px] bottom-[6px] right-[6px] hover:bg-sunset-dark"
           >
             subscribe
           </button>
