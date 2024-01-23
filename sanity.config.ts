@@ -8,6 +8,7 @@ import schemas from '@/sanity/schema';
 import { ComponentType } from 'react';
 import { noteField } from 'sanity-plugin-note-field';
 import { userColorList } from '@/utils/globals';
+import { tags } from 'sanity-plugin-tags';
 
 const singletons = {
   settings: '43e2d671-9f4d-4c59-9e2f-b9787c07cd88',
@@ -73,6 +74,7 @@ const config = defineConfig({
       defaultColorList: userColorList,
     }),
     noteField(),
+    tags({}),
   ],
   schema: {
     types: schemas,

@@ -1,2 +1,5 @@
 @tailwind base;
 
+div[class^="TagsInput-module_menu"] {
+    z-index: 5!important;
+}

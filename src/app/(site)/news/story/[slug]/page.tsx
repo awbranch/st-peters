@@ -7,6 +7,7 @@ import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import React from 'react';
 import { H2, Small } from '@/components/Typography';
+import BlockList from '@/components/BlockList';
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const story = await getNewsStory(params.slug);
@@ -30,12 +31,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
         />
       </Container>
 
-      <Section id="story" maxWidth="sm">
+      <Section id="story" maxWidth="md">
         <Small className={'mb-8'}>{toFullDate(story.date)}</Small>
         <RichText text={story.text} />
       </Section>
+
+      {story?.sections?.map((s) => (
+        <Section
+          key={s.id?.current}
+          id={s.id?.current}
+          color={s?.background?.label}
+          maxWidth={'md'}
+        >
+          {s?.blocks && <BlockList blocks={s.blocks} />}
+        </Section>
+      ))}
+
       {stories && (
-        <Section maxWidth="sm">
+        <Section maxWidth="md">
           <H2>More News</H2>
           <MediaCarousel>
             {stories.slice(0, 3).map((s, i) => (

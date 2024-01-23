@@ -1,4 +1,3 @@
-import { NewsCategory } from '@/types/NewsCategory';
 import { SocialMediaService } from '@/types/SocialMediaService';
 import { faEnvelope, IconDefinition } from '@fortawesome/pro-solid-svg-icons';
 
@@ -28,27 +27,6 @@ export const breakpoints = {
   lg: 1024,
   xl: 1280,
 };
-
-export const newsCategories: NewsCategory[] = [
-  {
-    name: 'Past Events',
-    slug: 'past-events',
-    sanityName: 'Event',
-    sanityCategory: 'event',
-  },
-  {
-    name: 'Upcoming Events',
-    slug: 'upcoming-events',
-    sanityName: 'Event',
-    sanityCategory: 'event',
-  },
-  {
-    name: 'Community Stories',
-    slug: 'community-stories',
-    sanityName: 'Community Story',
-    sanityCategory: 'community-story',
-  },
-];
 
 export function isFullyQualifiedURL(url: string) {
   const pattern = /^(https?:\/\/).*$/i;

@@ -1,34 +1,20 @@
 import { defineField, defineType } from 'sanity';
-import { newsCategories } from '@/utils/globals';
-import { FaBookOpenReader, FaCalendarDays, FaNewspaper } from 'react-icons/fa6';
+import { FaNewspaper as icon } from 'react-icons/fa6';
 import { createImageField, createRichTextBlock } from '@/sanity/schema/utils';
-
-const iconSet = {
-  event: FaCalendarDays,
-  'community-story': FaBookOpenReader,
-};
-
-// Drop the upcoming-events and remap to title/value pairs for Sanity wants
-const newsCategoryList = newsCategories
-  .slice(1)
-  .map((s) => ({ title: s.sanityName, value: s.sanityCategory }));
 
 export default defineType({
   name: 'newsStory',
   title: 'News Story',
   type: 'document',
-  icon: FaNewspaper,
+  icon,
   fields: [
     defineField({
-      title: 'Category',
-      name: 'category',
-      type: 'string',
+      title: 'Categories',
+      name: 'categories',
+      type: 'tags',
       options: {
-        list: newsCategoryList,
-        layout: 'radio',
-        direction: 'horizontal',
+        includeFromReference: 'newsCategory',
       },
-      validation: (Rule: any) => Rule.required(),
     }),
     defineField({
       name: 'date',
@@ -86,18 +72,21 @@ export default defineType({
       ],
       validation: (Rule: any) => Rule.required(),
     }),
+    defineField({
+      name: 'sections',
+      title: 'Additional Sections',
+      type: 'array',
+      of: [{ type: 'section' }],
+    }),
   ],
   preview: {
     select: {
       title: 'title',
       date: 'date',
-      category: 'category',
     },
-    prepare({ title, date, category }) {
+    prepare({ title, date }) {
       const parts = date.split('-');
       const subtitle = `${parts[1]}/${parts[2]}/${parts[0]}`;
-      const cat = newsCategoryList.find((c) => c.value === category);
-      let icon = iconSet[cat?.value] || FaNewspaper;
       return {
         title,
         subtitle,

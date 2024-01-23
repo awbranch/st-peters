@@ -7,6 +7,7 @@ import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
 import { ShareableBlockSet } from '@/types/ShareableBlockSet';
+import { NewsCategory } from '@/types/NewsCategory';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -109,6 +110,14 @@ function addBackgroundColor(page: Page) {
       });
     });
   }
+}
+
+export async function getNewsCategories() {
+  return client.fetch<NewsCategory[]>(
+    groq`*[_type == "newsCategory"]`,
+    {},
+    fetchOptions(),
+  );
 }
 
 export async function getTopNewsStories(count: number) {

@@ -9,17 +9,11 @@ import { twJoin } from 'tailwind-merge';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { toShortDate } from '@/utils/date';
 import Link from 'next/link';
+import { NewsCategory } from '@/types/NewsCategory';
 
 const sortOptions = [
   { name: 'Newest', href: '#' },
   { name: 'Oldest', href: '#' },
-];
-
-const categories = [
-  { value: 'any', label: 'Any', selected: true },
-  { value: 'event', label: 'Event', selected: false },
-  { value: 'community-story', label: 'Community Story', selected: false },
-  { value: 'upcoming', label: 'Upcoming', selected: false },
 ];
 
 const menuTransitionProps = {
@@ -32,10 +26,21 @@ const menuTransitionProps = {
 };
 
 type Props = {
+  categories: NewsCategory[];
   stories: NewsStory[];
 };
 
-export default function News({ stories }: Props) {
+export default function News({ stories, categories }: Props) {
+  // Add upcoming events
+  const cats = [
+    {
+      _key: 'upcoming-events',
+      value: 'upcoming-events',
+      label: 'Upcoming Events',
+    },
+    ...categories,
+  ];
+
   return (
     <Section maxWidth="md">
       <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -99,13 +104,12 @@ export default function News({ stories }: Props) {
               <Transition as={Fragment} {...menuTransitionProps}>
                 <Popover.Panel className="absolute right-0 z-10 mt-2 origin-top-right rounded-md bg-white p-4 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <form className="space-y-4">
-                    {categories.map((category, optionIdx) => (
+                    {cats.map((category, optionIdx) => (
                       <div key={category.value} className="flex items-center">
                         <input
                           id={`filter-category-${optionIdx}`}
                           name={`${category}[]`}
                           defaultValue={category.value}
-                          checked={category.selected}
                           type="checkbox"
                           className="h-4 w-4 rounded border-gray-300 text-sunset focus:ring-sunset-light"
                         />
@@ -145,12 +149,15 @@ export default function News({ stories }: Props) {
                 <time dateTime={story.date} className="text-gray-500">
                   {toShortDate(story.date)}
                 </time>
-                <Link
-                  href={'#'}
-                  className="z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200"
-                >
-                  {categories.find((c) => c.value === story.category)?.label}
-                </Link>
+                {story?.categories.map((c) => (
+                  <Link
+                    key={c._key}
+                    href={'#'}
+                    className="z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-200"
+                  >
+                    {c.label}
+                  </Link>
+                ))}
               </div>
               <div className="max-w-xl">
                 <Link href={`/news/story/${story.slug.current}`}>

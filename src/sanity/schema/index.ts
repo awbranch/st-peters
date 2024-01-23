@@ -23,6 +23,7 @@ import link from '@/sanity/schema/link-schema';
 import lunchMenu from '@/sanity/schema/lunch-menu-schema';
 import listSetList from '@/sanity/schema/list-set-list-schema';
 import menuItem from '@/sanity/schema/menu-item-schema';
+import newsCategory from '@/sanity/schema/news-category-schema';
 import newsStory from '@/sanity/schema/news-story-schema';
 import social from '@/sanity/schema/social-schema';
 import teamGridMember from '@/sanity/schema/team-grid-member-schema';
@@ -53,6 +54,7 @@ const schemas = [
   lunchMenu,
   listSetList,
   menuItem,
+  newsCategory,
   newsStory,
   social,
   teamGridMember,
