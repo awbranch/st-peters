@@ -14,6 +14,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "St. Peter's Kitchen",
   description: "St. Peter's Kitchen serves lunch weekdays in Rochester, NY",
+  robots: 'noindex',
 };
 
 export default function RootLayout({
