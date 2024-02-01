@@ -1,6 +1,10 @@
 import RichText from '@/components/RichText';
 import { toFullDate } from '@/utils/date';
-import { getNewsStory, getTopNewsStories } from '@/sanity/sanity-utils';
+import {
+  getAllNewsStories,
+  getNewsStory,
+  getTopNewsStories,
+} from '@/sanity/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
@@ -8,6 +12,11 @@ import BreadCrumbs from '@/components/BreadCrumbs';
 import React from 'react';
 import { H2, Small } from '@/components/Typography';
 import BlockList from '@/components/BlockList';
+
+export async function generateStaticParams() {
+  const stories = await getAllNewsStories();
+  return stories.map((s) => ({ slug: s.slug.current }));
+}
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const story = await getNewsStory(params.slug);
