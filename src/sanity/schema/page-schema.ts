@@ -42,6 +42,20 @@ export default defineType({
         }),
     }),
     defineField({
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      description:
+        'The page title to be shown in the browser tab and used for SEO.',
+    }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      type: 'text',
+      description:
+        'A concise summary of the pages content for search engine results and user previews.',
+    }),
+    defineField({
       title: 'Max Width',
       name: 'maxWidth',
       type: 'string',
@@ -61,10 +75,11 @@ export default defineType({
     }),
   ],
   preview: {
-    select: { path: 'path' },
-    prepare({ path }) {
+    select: { path: 'path', title: 'title' },
+    prepare({ path, title }) {
       return {
         title: path,
+        subtitle: title,
         media: icon,
       };
     },

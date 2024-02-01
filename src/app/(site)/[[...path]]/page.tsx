@@ -5,6 +5,7 @@ import BlockList from '@/components/BlockList';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import { titleCase } from 'text-case';
+import type { Metadata } from 'next';
 
 export const dynamicParams = false;
 
@@ -16,6 +17,16 @@ export async function generateStaticParams() {
 type Props = {
   params: { path: string[] };
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const path = params && params.path ? params.path : [];
+  const page = await getPageByPath(path);
+
+  return {
+    ...(page.title ? { title: page.title } : {}),
+    ...(page.description ? { description: page.description } : {}),
+  };
+}
 
 export default async function GenericPage({ params }: Props) {
   const path = params && params.path ? params.path : [];

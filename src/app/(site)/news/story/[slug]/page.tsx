@@ -12,13 +12,27 @@ import BreadCrumbs from '@/components/BreadCrumbs';
 import React from 'react';
 import { H2, Small } from '@/components/Typography';
 import BlockList from '@/components/BlockList';
+import { Metadata } from 'next';
 
 export async function generateStaticParams() {
   const stories = await getAllNewsStories();
   return stories.map((s) => ({ slug: s.slug.current }));
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+type Props = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const story = await getNewsStory(params.slug);
+
+  return {
+    title: story.title ? `${story.title} - St. Peter's Kitchen` : undefined,
+    description: story?.summary,
+  };
+}
+
+export default async function Page({ params }: Props) {
   const story = await getNewsStory(params.slug);
 
   // Get 13 most recent news stories
