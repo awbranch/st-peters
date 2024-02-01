@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  if (process.env.VERCEL_ENV === 'production') {
+  if (process.env.BRANCH_STUDIO_VISIBILITY === 'public') {
     return {
       rules: {
         userAgent: '*',
         disallow: '/admin',
       },
-      sitemap: 'https://stpeterskitchen.org/sitemap.xml',
+      sitemap: `${process.env.BRANCH_STUDIO_HOME_URL}/sitemap.xml`,
     };
   } else
     return {

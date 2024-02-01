@@ -20,29 +20,35 @@ function isRecent(date: Date): boolean {
 }
 
 export default async function sitemap() {
-  const pages = (await getPages()) as PageWithMeta[];
-  const stories = (await getAllNewsStories()) as NewsStoryWithMeta[];
+  if (process.env.BRANCH_STUDIO_VISIBILITY === 'public') {
+    const pages = (await getPages()) as PageWithMeta[];
+    const stories = (await getAllNewsStories()) as NewsStoryWithMeta[];
 
-  const root = 'https://stpeterskitchen.org';
-  const pageMap = pages.map((p) => {
-    const slashes = slashCount(p.path);
-    return {
-      url: `${root}${p.path}`,
-      lastModified: p._updatedAt,
-      changeFrequency: slashes <= 1 ? 'monthly' : 'yearly',
-      priority: slashes <= 1 ? 1 : slashes === 2 ? 0.5 : 0,
-    };
-  });
+    const root = process.env.BRANCH_STUDIO_HOME_URL;
+    const pageMap = pages.map((p) => {
+      const slashes = slashCount(p.path);
+      return {
+        url: `${root}${p.path}`,
+        lastModified: p._updatedAt,
+        changeFrequency: slashes <= 1 ? 'monthly' : 'yearly',
+        priority: slashes <= 1 ? 1 : slashes === 2 ? 0.5 : 0,
+      };
+    });
 
-  const storiesMap = stories.map((s) => {
-    const recent = isRecent(new Date(s._updatedAt));
-    return {
-      url: `${root}/news/story/${s.slug.current}`,
-      lastModified: s._updatedAt,
-      changeFrequency: recent ? 'monthly' : 'never',
-      priority: recent ? 1 : 0,
-    };
-  });
+    const storiesMap = stories.map((s) => {
+      const recent = isRecent(new Date(s._updatedAt));
+      return {
+        url: `${root}/news/story/${s.slug.current}`,
+        lastModified: s._updatedAt,
+        changeFrequency: recent ? 'monthly' : 'never',
+        priority: recent ? 1 : 0,
+      };
+    });
 
-  return pageMap.concat(storiesMap).sort((a, b) => a.url.localeCompare(b.url));
+    return pageMap
+      .concat(storiesMap)
+      .sort((a, b) => a.url.localeCompare(b.url));
+  }
+
+  return [];
 }
