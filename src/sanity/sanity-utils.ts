@@ -132,7 +132,7 @@ export type NewsStoryTimeRange = 'all' | 'past' | 'future';
 
 export async function getAllNewsStories() {
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory"] | order(date desc)`,
+    groq`*[_type == "newsStory"]{..., categories[]->{label, value}} | order(date desc)`,
     {},
     fetchOptions(),
   );
