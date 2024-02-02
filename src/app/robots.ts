@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: '*',
         disallow: '/admin',
       },
-      sitemap: `${process.env.BRANCH_STUDIO_HOME_URL}/sitemap.xml`,
+      sitemap: `${process.env.BRANCH_STUDIO_BASE_URL}/sitemap.xml`,
     };
   } else
     return {

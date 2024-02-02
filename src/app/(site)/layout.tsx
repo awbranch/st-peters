@@ -18,6 +18,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.BRANCH_STUDIO_BASE_URL),
   title: "St. Peter's Kitchen",
   description: "St. Peter's Kitchen serves lunch weekdays in Rochester, NY",
   ...(process.env.BRANCH_STUDIO_VISIBILITY !== 'public'

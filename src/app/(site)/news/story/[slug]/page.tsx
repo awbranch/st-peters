@@ -29,6 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: story.title ? `${story.title} - St. Peter's Kitchen` : undefined,
     description: story?.summary,
+    alternates: {
+      canonical: `/news/story/${params.slug}`,
+    },
   };
 }
 

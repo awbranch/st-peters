@@ -24,7 +24,7 @@ export default async function sitemap() {
     const pages = (await getPages()) as PageWithMeta[];
     const stories = (await getAllNewsStories()) as NewsStoryWithMeta[];
 
-    const root = process.env.BRANCH_STUDIO_HOME_URL;
+    const root = process.env.BRANCH_STUDIO_BASE_URL;
     const pageMap = pages.map((p) => {
       const slashes = slashCount(p.path);
       return {
