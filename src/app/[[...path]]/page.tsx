@@ -36,25 +36,23 @@ export default async function GenericPage({ params }: Props) {
   const page = await getPageByPath(path);
 
   return (
-    <>
-      <main>
-        {path.length > 1 && (
-          <Container maxWidth={'lg'}>
-            <BreadCrumbs routes={convertToRoutes(path)} />
-          </Container>
-        )}
-        {page?.sections?.map((s) => (
-          <Section
-            key={s.id?.current}
-            id={s.id?.current}
-            color={s?.background?.label}
-            maxWidth={page.maxWidth}
-          >
-            {s?.blocks && <BlockList blocks={s.blocks} />}
-          </Section>
-        ))}
-      </main>
-    </>
+    <main>
+      {path.length > 1 && (
+        <Container maxWidth={'lg'}>
+          <BreadCrumbs routes={convertToRoutes(path)} />
+        </Container>
+      )}
+      {page?.sections?.map((s) => (
+        <Section
+          key={s.id?.current}
+          id={s.id?.current}
+          color={s?.background?.label}
+          maxWidth={page.maxWidth}
+        >
+          {s?.blocks && <BlockList blocks={s.blocks} />}
+        </Section>
+      ))}
+    </main>
   );
 }
 
