@@ -4,15 +4,17 @@ import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Container from '@/components/Container';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faXmark } from '@fortawesome/pro-solid-svg-icons';
-import { urlFor } from '@/sanity/sanity-utils';
+import {
+  faBars,
+  faChevronDown,
+  faXmark,
+} from '@fortawesome/pro-solid-svg-icons';
+import { urlFor } from '@/utils/sanity-utils';
 import { Image } from '@/types/Image';
 import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
 import { twJoin } from 'tailwind-merge';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { LinkButton } from '@/components/Button';
 
 type Props = {
@@ -62,8 +64,9 @@ export default function NavBar({
                       <Popover.Overlay className="fixed inset-0" />
                       <Popover.Button className="flex items-center gap-x-1 text-base font-medium text-black">
                         {item.name}
-                        <ChevronDownIcon
-                          className="h-5 w-5 flex-none text-black"
+                        <FontAwesomeIcon
+                          icon={faChevronDown}
+                          className="ml-1 h-3.5 w-3.5 flex-none text-black"
                           aria-hidden="true"
                         />
                       </Popover.Button>
@@ -178,10 +181,11 @@ export default function NavBar({
                           <>
                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-medium leading-7 text-black hover:bg-gray-50">
                               {item.name}
-                              <ChevronDownIcon
+                              <FontAwesomeIcon
+                                icon={faChevronDown}
                                 className={twJoin(
                                   open ? 'rotate-180' : '',
-                                  'h-5 w-5 flex-none',
+                                  'h-4 w-4 flex-none',
                                 )}
                                 aria-hidden="true"
                               />

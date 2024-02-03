@@ -1,5 +1,5 @@
 import React from 'react';
-import { getHeader } from '@/sanity/sanity-utils';
+import { getHeader } from '@/utils/sanity-utils';
 import NotificationBar from '@/components/NotificationBar';
 import NavBar from '@/components/NavBar';
 

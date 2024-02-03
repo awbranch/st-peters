@@ -4,7 +4,7 @@ import {
   getAllNewsStories,
   getNewsStory,
   getTopNewsStories,
-} from '@/sanity/sanity-utils';
+} from '@/utils/sanity-utils';
 import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
 import Section from '@/components/Section';
 import Container from '@/components/Container';

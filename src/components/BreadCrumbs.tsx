@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/pro-solid-svg-icons';
 
 type Route = {
   name: string;
@@ -17,10 +18,11 @@ export default function BreadCrumbs({ routes }: BreadCrumbsProps) {
       <ol role="list" className="flex gap-4">
         {routes.map((r, i) => (
           <li key={r.path}>
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
               {i > 0 && (
-                <ChevronRightIcon
-                  className="h-5 w-5 flex-shrink-0 text-gray-400"
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  className="h-3 w-3 flex-shrink-0 text-gray-400"
                   aria-hidden="true"
                 />
               )}

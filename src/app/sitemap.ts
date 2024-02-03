@@ -1,4 +1,4 @@
-import { getAllNewsStories, getPages } from '@/sanity/sanity-utils';
+import { getAllNewsStories, getPages } from '@/utils/sanity-utils';
 import { Page } from '@/types/Page';
 import { NewsStory } from '@/types/NewsStory';
 

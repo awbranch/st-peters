@@ -1,4 +1,4 @@
-import { imageAttributes, urlFor } from '@/sanity/sanity-utils';
+import { imageAttributes, urlFor } from '@/utils/sanity-utils';
 import { maxPageWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import React from 'react';

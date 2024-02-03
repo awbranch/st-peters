@@ -1,7 +1,7 @@
 import React from 'react';
 import RichText from '@/components/RichText';
 import Link from 'next/link';
-import { getFooter, urlFor } from '@/sanity/sanity-utils';
+import { getFooter, urlFor } from '@/utils/sanity-utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wave from '@/components/Wave';
 import NewsletterSignupForm from '@/components/NewsletterSignupForm';

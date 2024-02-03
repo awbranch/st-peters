@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
-import { FaFilePdf, FaFileZipper } from 'react-icons/fa6';
-import { fileAttributes, urlForFile } from '@/sanity/sanity-utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilePdf, faFileZipper } from '@fortawesome/pro-solid-svg-icons';
+
+import { fileAttributes, urlForFile } from '@/utils/sanity-utils';
 import { DocumentsBlock as Props } from '@/types/DocumentsBlock';
 import { File } from 'sanity';
 
@@ -13,9 +15,12 @@ export default function DocumentsBlock({ documents }: Props) {
             <div className={'flex-none'}>
               <FileLink file={d.file}>
                 {fileAttributes(d.file).format === 'pdf' ? (
-                  <FaFilePdf className={'h-10 w-10'} />
+                  <FontAwesomeIcon icon={faFilePdf} className={'h-10 w-10'} />
                 ) : (
-                  <FaFileZipper className={'h-10 w-10'} />
+                  <FontAwesomeIcon
+                    icon={faFileZipper}
+                    className={'h-10 w-10'}
+                  />
                 )}
               </FileLink>
             </div>

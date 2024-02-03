@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReferenceBlock as Props } from '@/types/ReferenceBlock';
-import { getShareableBlockSet } from '@/sanity/sanity-utils';
+import { getShareableBlockSet } from '@/utils/sanity-utils';
 import BlockList from '@/components/BlockList';
 
 export default async function ReferenceBlock({ blockSet }: Props) {

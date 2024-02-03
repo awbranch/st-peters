@@ -1,5 +1,5 @@
 import NewsBlock from '@/components/NewsBlock';
-import { getAllNewsStories, getNewsCategories } from '@/sanity/sanity-utils';
+import { getAllNewsStories, getNewsCategories } from '@/utils/sanity-utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

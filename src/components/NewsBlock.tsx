@@ -2,7 +2,6 @@
 
 import React, { Fragment } from 'react';
 import { Menu, Popover, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import Section from '@/components/Section';
 import { NewsStory } from '@/types/NewsStory';
 import { twJoin } from 'tailwind-merge';
@@ -10,6 +9,9 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { toShortDate } from '@/utils/date';
 import Link from 'next/link';
 import { NewsCategory } from '@/types/NewsCategory';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 
 const sortOptions = [
   { name: 'Newest', href: '#' },
@@ -54,10 +56,11 @@ export default function News({ stories, categories }: Props) {
         <div className="flex justify-end gap-x-6">
           <Menu as="div" className="relative inline-block">
             <div>
-              <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+              <Menu.Button className="group inline-flex justify-center items-center text-sm font-medium text-gray-700 hover:text-gray-900">
                 Sort
-                <ChevronDownIcon
-                  className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="-mr-1 ml-2 h-3 w-3 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                   aria-hidden="true"
                 />
               </Menu.Button>
@@ -94,8 +97,9 @@ export default function News({ stories, categories }: Props) {
               <div>
                 <Popover.Button className="group inline-flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
                   <span>Category</span>
-                  <ChevronDownIcon
-                    className="-mr-1 ml-1 h-5 w-5 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    className="-mr-1 ml-2 h-3 w-3 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
                 </Popover.Button>

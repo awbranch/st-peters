@@ -3,7 +3,8 @@ import React from 'react';
 import RichText from '@/components/RichText';
 import { FAQsBlock as Props } from '@/types/FAQsBlock';
 import { Disclosure } from '@headlessui/react';
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/pro-solid-svg-icons';
 
 export default function FAQsBlock({ faqs }: Props) {
   return (
@@ -20,12 +21,17 @@ export default function FAQsBlock({ faqs }: Props) {
                     </span>
                     <span className="ml-6 flex h-7 items-center">
                       {open ? (
-                        <MinusSmallIcon
-                          className="h-6 w-6"
+                        <FontAwesomeIcon
+                          icon={faPlus}
+                          className="h-4 w-4"
                           aria-hidden="true"
                         />
                       ) : (
-                        <PlusSmallIcon className="h-6 w-6" aria-hidden="true" />
+                        <FontAwesomeIcon
+                          icon={faMinus}
+                          className="h-4 w-4"
+                          aria-hidden="true"
+                        />
                       )}
                     </span>
                   </Disclosure.Button>

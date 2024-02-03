@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonTileGridBlock as Props } from '@/types/ButtonTileGridBlock';
 import Link from 'next/link';
-import { urlFor } from '@/sanity/sanity-utils';
+import { urlFor } from '@/utils/sanity-utils';
 
 export default async function ButtonTileGridBlock({ buttons }: Props) {
   return (

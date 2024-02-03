@@ -1,4 +1,4 @@
-import { getPageByPath, getPages } from '@/sanity/sanity-utils';
+import { getPageByPath, getPages } from '@/utils/sanity-utils';
 import React from 'react';
 import Section from '@/components/Section';
 import BlockList from '@/components/BlockList';
