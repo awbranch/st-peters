@@ -36,7 +36,7 @@ export default async function GenericPage({ params }: Props) {
   const page = await getPageByPath(path);
 
   return (
-    <main>
+    <>
       {path.length > 1 && (
         <Container maxWidth={'lg'}>
           <BreadCrumbs routes={convertToRoutes(path)} />
@@ -52,7 +52,7 @@ export default async function GenericPage({ params }: Props) {
           {s?.blocks && <BlockList blocks={s.blocks} />}
         </Section>
       ))}
-    </main>
+    </>
   );
 }
 
