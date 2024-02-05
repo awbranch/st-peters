@@ -1,7 +1,7 @@
 import { getPageByPath, getPages } from '@/utils/sanity-utils';
 import React from 'react';
 import Section from '@/components/Section';
-import BlockList from '@/components/BlockList';
+import ComponentList from '@/components/ComponentList';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import { titleCase } from 'text-case';
@@ -42,14 +42,14 @@ export default async function GenericPage({ params }: Props) {
           <BreadCrumbs routes={convertToRoutes(path)} />
         </Container>
       )}
-      {page?.sections?.map((s) => (
+      {page?.blocks?.map((s) => (
         <Section
           key={s.id?.current}
           id={s.id?.current}
           color={s?.background?.label}
           maxWidth={page.maxWidth}
         >
-          {s?.blocks && <BlockList blocks={s.blocks} />}
+          {s?.components && <ComponentList components={s.components} />}
         </Section>
       ))}
     </>

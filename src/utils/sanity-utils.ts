@@ -6,7 +6,7 @@ import { Page } from '@/types/Page';
 import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
-import { ShareableBlockSet } from '@/types/ShareableBlockSet';
+import { ComponentSet } from '@/types/ComponentSet';
 import { NewsCategory } from '@/types/NewsCategory';
 
 const client = createClient({
@@ -102,10 +102,10 @@ export async function getPageByPath(path: string[]) {
  */
 function addBackgroundColor(page: Page) {
   if (page) {
-    page?.sections?.forEach((section) => {
-      section?.blocks?.forEach((block) => {
-        if (section.background) {
-          block.background = { ...section.background };
+    page?.blocks?.forEach((b) => {
+      b?.components?.forEach((c) => {
+        if (c.background) {
+          c.background = { ...c.background };
         }
       });
     });
@@ -186,8 +186,8 @@ export async function getFooter() {
   );
 }
 
-export async function getShareableBlockSet(id: string) {
-  return client.fetch<ShareableBlockSet>(
+export async function getComponentSet(id: string) {
+  return client.fetch<ComponentSet>(
     groq`*[_id == $id][0]`,
     {
       id,

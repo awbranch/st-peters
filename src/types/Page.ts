@@ -1,4 +1,4 @@
-import { Section } from '@/types/Section';
+import { Block } from '@/types/Block';
 import { PageWidth } from '@/types/PageWidth';
 
 export type Page = {
@@ -6,5 +6,5 @@ export type Page = {
   title: string;
   description: string;
   maxWidth: PageWidth;
-  sections?: Section[];
+  blocks?: Block[];
 };

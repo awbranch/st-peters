@@ -4,7 +4,7 @@ import { PortableText } from '@portabletext/react';
 import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonRow from '@/components/ButtonRow';
-import { ButtonRow as ButtonRowConfig } from '@/types/ButtonRow';
+import { ButtonRow as ButtonRowType } from '@/types/ButtonRow';
 import {
   BlockQuote,
   Em,
@@ -78,7 +78,7 @@ const RichText = ({ text, overrides }: Props) => {
           />
         );
       },
-      buttonRow: ({ value }: { value: ButtonRowConfig }) => {
+      buttonRow: ({ value }: { value: ButtonRowType }) => {
         return <ButtonRow {...value} />;
       },
       bookmark: ({ value }: { value: Bookmark }) => {

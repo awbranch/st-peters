@@ -11,7 +11,7 @@ import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import React from 'react';
 import { H2, Small } from '@/components/Typography';
-import BlockList from '@/components/BlockList';
+import ComponentList from '@/components/ComponentList';
 import { Metadata } from 'next';
 
 export async function generateStaticParams() {
@@ -62,14 +62,14 @@ export default async function Page({ params }: Props) {
         <RichText text={story.text} />
       </Section>
 
-      {story?.sections?.map((s) => (
+      {story?.blocks?.map((b) => (
         <Section
-          key={s.id?.current}
-          id={s.id?.current}
-          color={s?.background?.label}
+          key={b.id?.current}
+          id={b.id?.current}
+          color={b?.background?.label}
           maxWidth={'md'}
         >
-          {s?.blocks && <BlockList blocks={s.blocks} />}
+          {b?.components && <ComponentList components={b.components} />}
         </Section>
       ))}
 

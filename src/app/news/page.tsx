@@ -1,4 +1,4 @@
-import NewsBlock from '@/components/NewsBlock';
+import NewsBlock from '@/components/NewsList';
 import { getAllNewsStories, getNewsCategories } from '@/utils/sanity-utils';
 import { Metadata } from 'next';
 

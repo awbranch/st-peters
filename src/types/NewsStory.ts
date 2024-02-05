@@ -1,7 +1,7 @@
 import { PortableTextBlock, Slug } from 'sanity';
 import { Image } from '@/types/Image';
 import { NewsCategory } from '@/types/NewsCategory';
-import { Section } from '@/types/Section';
+import { Block } from '@/types/Block';
 
 export type NewsStory = {
   categories: NewsCategory[];
@@ -11,5 +11,5 @@ export type NewsStory = {
   summary: string;
   previewImage: Image;
   text: PortableTextBlock[];
-  sections?: Section[];
+  blocks?: Block[];
 };
