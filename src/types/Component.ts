@@ -19,9 +19,11 @@ import { TeamGrid } from '@/types/TeamGrid';
 import { TeamList } from '@/types/TeamList';
 import { TitleText } from '@/types/TitleText';
 import { VolunteerForm } from '@/types/VolunteerForm';
+import { ButtonRow } from '@/types/ButtonRow';
 
 export type Component =
   | Article
+  | ButtonRow
   | ButtonTileGrid
   | CallToAction
   | CallToActionList

@@ -7,7 +7,7 @@ export default async function ButtonRow({ alignment, buttons }: Props) {
   return (
     <div
       className={twJoin(
-        'flex flex-col xs:flex-row gap-4 mt-8 mb-24',
+        'flex flex-col xs:flex-row gap-8',
         alignment === 'left' && 'justify-start',
         alignment === 'center' && 'justify-center',
         alignment === 'right' && 'justify-end',

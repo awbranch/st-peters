@@ -20,6 +20,7 @@ import IconList from '@/components/IconList';
 import ContactForm from '@/components/ContactForm';
 import VolunteerForm from '@/components/VolunteerForm';
 import Article from '@/components/Article';
+import ButtonRow from '@/components/ButtonRow';
 
 type ComponentListProps = {
   components: ComponentType[];
@@ -46,6 +47,9 @@ function Component({ component }: ComponentProps) {
 
     case 'buttonTileGrid':
       return <ButtonTileGrid {...component} />;
+
+    case 'buttonRow':
+      return <ButtonRow {...component} />;
 
     case 'callToAction':
       return <CallToAction {...component} />;

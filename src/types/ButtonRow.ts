@@ -1,9 +1,9 @@
 import { Button } from '@/types/Button';
 import { Alignment } from '@/types/Alignment';
+import { ComponentProps } from '@/types/Component';
 
-export type ButtonRow = {
+export type ButtonRow = ComponentProps & {
   _type: 'buttonRow';
-  _key: string;
   alignment: Alignment;
   buttons: Button[];
 };

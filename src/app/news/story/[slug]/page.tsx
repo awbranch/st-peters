@@ -1,4 +1,3 @@
-import RichText from '@/components/RichText';
 import { toFullDate } from '@/utils/date';
 import {
   getAllNewsStories,
@@ -13,6 +12,7 @@ import React from 'react';
 import { H2, Small } from '@/components/Typography';
 import ComponentList from '@/components/ComponentList';
 import { Metadata } from 'next';
+import RichText from '@/components/RichText';
 
 export async function generateStaticParams() {
   const stories = await getAllNewsStories();
@@ -60,6 +60,11 @@ export default async function Page({ params }: Props) {
       <Section id="story" maxWidth="md">
         <Small className={'mb-8'}>{toFullDate(story.date)}</Small>
         <RichText text={story.text} />
+        {story.components && (
+          <div className={'mt-12'}>
+            <ComponentList components={story.components} />
+          </div>
+        )}
       </Section>
 
       {story?.blocks?.map((b) => (
