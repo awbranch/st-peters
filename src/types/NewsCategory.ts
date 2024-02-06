@@ -1,5 +1,5 @@
 export type NewsCategory = {
-  _key: string;
+  _id: string;
   value: string;
   label: string;
 };

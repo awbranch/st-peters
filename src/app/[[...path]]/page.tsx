@@ -7,6 +7,7 @@ import BreadCrumbs from '@/components/BreadCrumbs';
 import { titleCase } from 'text-case';
 import type { Metadata } from 'next';
 
+// This line should be removed if exporting static pages
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
@@ -42,14 +43,14 @@ export default async function GenericPage({ params }: Props) {
           <BreadCrumbs routes={convertToRoutes(path)} />
         </Container>
       )}
-      {page?.blocks?.map((s) => (
+      {page?.blocks?.map((b) => (
         <Section
-          key={s.id?.current}
-          id={s.id?.current}
-          color={s?.background?.label}
+          key={b._key}
+          id={b.id?.current}
+          color={b?.background?.label}
           maxWidth={page.maxWidth}
         >
-          {s?.components && <ComponentList components={s.components} />}
+          {b?.components && <ComponentList components={b.components} />}
         </Section>
       ))}
     </>
