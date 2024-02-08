@@ -1,12 +1,13 @@
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
-import { Color } from '@/types/Color';
 import { PageWidth } from '@/types/PageWidth';
+import { Palette } from '@/types/Palette';
+import { userPaletteClasses } from '@/utils/utils';
 
 type Props = {
   id?: string;
-  color?: Color;
+  palette?: Palette;
   maxWidth?: PageWidth;
   className?: string;
   children: React.ReactNode;
@@ -14,7 +15,7 @@ type Props = {
 
 export default function Section({
   id,
-  color = 'white',
+  palette = 'white',
   maxWidth = 'lg',
   className,
   children,
@@ -24,12 +25,7 @@ export default function Section({
       id={id}
       className={twMerge(
         'py-20 md:py-24',
-        color === 'green' && 'bg-grass text-white',
-        color === 'blue' && 'bg-ocean text-white',
-        color === 'pink' && 'bg-sunset text-white',
-        color === 'black' && 'bg-black text-white',
-        color === 'white' && 'bg-white text-black',
-        color === 'gray' && 'bg-gray-100 text-black',
+        userPaletteClasses[palette].block,
         className,
       )}
     >

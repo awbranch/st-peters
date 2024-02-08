@@ -5,10 +5,7 @@ import type { Config } from 'tailwindcss';
 import { breakpoints, themeColors } from './src/utils/globals';
 
 const config: Config = {
-  content: [
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
       fontFamily: {

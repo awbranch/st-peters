@@ -16,6 +16,7 @@ import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
 import { twJoin } from 'tailwind-merge';
 import { LinkButton } from '@/components/Button';
+import { userPaletteButtonProps } from '@/utils/utils';
 
 type Props = {
   logo: Image;
@@ -103,8 +104,7 @@ export default function NavBar({
                   key={i}
                   size={'large'}
                   href={b.link}
-                  color={b.color.label}
-                  variant={b.variant}
+                  {...userPaletteButtonProps.white[b.style]}
                 >
                   {b.label}
                 </LinkButton>

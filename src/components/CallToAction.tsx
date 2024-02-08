@@ -6,12 +6,14 @@ import { breakpoints } from '@/utils/globals';
 import { LinkButton } from '@/components/Button';
 import RichText from '@/components/RichText';
 import { Subtitle } from '@/components/Typography';
+import { userPaletteButtonProps } from '@/utils/utils';
 
 export default function CallToAction({
   alignment,
   text,
   image,
   button,
+  palette,
 }: Props) {
   return (
     <div className="relative">
@@ -39,6 +41,7 @@ export default function CallToAction({
         >
           <RichText
             text={text}
+            palette={palette}
             overrides={{
               block: {
                 normal: ({ children }: { children: React.ReactNode }) => (
@@ -53,8 +56,7 @@ export default function CallToAction({
               size={'large'}
               href={button.link}
               icon={button.icon}
-              color={button.color.label}
-              variant={button.variant}
+              {...userPaletteButtonProps[palette][button.style]}
             >
               {button.label}
             </LinkButton>

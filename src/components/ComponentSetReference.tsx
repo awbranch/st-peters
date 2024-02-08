@@ -3,7 +3,10 @@ import { ComponentSetReference as Props } from '@/types/ComponentSetReference';
 import { getComponentSet } from '@/utils/sanity-utils';
 import ComponentList from '@/components/ComponentList';
 
-export default async function ComponentSetReference({ componentSet }: Props) {
+export default async function ComponentSetReference({
+  componentSet,
+  palette,
+}: Props) {
   const set = componentSet?._ref
     ? await getComponentSet(componentSet?._ref)
     : null;
@@ -21,6 +24,7 @@ export default async function ComponentSetReference({ componentSet }: Props) {
       </div>
     );
   } else {
+    set.components.forEach((c) => (c.palette = palette));
     return <ComponentList components={set.components} />;
   }
 }

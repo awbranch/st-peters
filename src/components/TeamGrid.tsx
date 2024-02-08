@@ -4,6 +4,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
 import Link from 'next/link';
+import { twJoin } from 'tailwind-merge';
 
 export default async function TeamGrid({ members }: Props) {
   return (
@@ -18,13 +19,15 @@ export default async function TeamGrid({ members }: Props) {
             className={'aspect-square rounded-2xl'}
             sizes={'100vw'}
           />
-          <h3 className="mt-6 text-lg font-semibold leading-8 tracking-tight text-gray-900">
+          <h3 className={twJoin('mt-6 text-xl font-semibold tracking-tight')}>
             {member.name}
           </h3>
           {member.title && (
-            <p className="text-base leading-7 text-gray-600">{member.title}</p>
+            <p className="mt-2 text-sm font-light leading-normal">
+              {member.title}
+            </p>
           )}
-          <ul role="list" className="mt-2 flex gap-x-6">
+          <ul role="list" className="mt-3 flex gap-x-6">
             {[
               { type: 'twitter', url: member.twitterUrl },
               { type: 'linkedin', url: member.linkedInUrl },
@@ -34,7 +37,7 @@ export default async function TeamGrid({ members }: Props) {
                   <li key={social.type}>
                     <Link
                       href={social.url}
-                      className={'text-gray-400 hover:text-gray-500'}
+                      className={'opacity-90 hover:opacity-50'}
                       target="_blank"
                       rel="noreferrer noopener"
                     >

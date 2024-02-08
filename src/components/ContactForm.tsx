@@ -2,8 +2,9 @@ import React from 'react';
 import { Select, TextArea, TextInput } from '@/components/FormControls';
 import { Button } from '@/components/Button';
 import { ContactForm as Props } from '@/types/ContactForm';
+import { userPaletteButtonProps } from '@/utils/utils';
 
-export default function ContactForm({ subjects, background }: Props) {
+export default function ContactForm({ subjects, palette }: Props) {
   return (
     <form>
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -55,7 +56,7 @@ export default function ContactForm({ subjects, background }: Props) {
         </div>
       </div>
       <div className="mt-8 flex justify-end">
-        <Button type="submit" variant={'outline'} color={background?.label}>
+        <Button type="submit" {...userPaletteButtonProps[palette].primary}>
           Send message
         </Button>
       </div>

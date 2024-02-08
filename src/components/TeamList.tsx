@@ -4,10 +4,18 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
+import { twJoin } from 'tailwind-merge';
+import { userPaletteClasses } from '@/utils/utils';
 
-export default async function TeamList({ members }: Props) {
+export default async function TeamList({ members, palette }: Props) {
   return (
-    <ul role="list" className="space-y-12 divide-y divide-gray-200">
+    <ul
+      role="list"
+      className={twJoin(
+        'space-y-12 divide-y',
+        userPaletteClasses[palette].divide,
+      )}
+    >
       {members.map((member) => (
         <li
           key={member._key}
@@ -15,15 +23,15 @@ export default async function TeamList({ members }: Props) {
         >
           <ResponsiveImage
             image={member.image}
-            className={'aspect-square w-64 h-fit flex-none rounded-2xl '}
+            className={'aspect-square w-64 h-fit flex-none rounded-2xl'}
             sizes={'100vw'}
           />
           <div className="flex-auto">
-            <h3 className="text-xl font-semibold tracking-tight text-gray-900">
+            <h3 className="text-xl font-semibold tracking-tight">
               {member.name}
             </h3>
-            <p className="text-sm leading-7 text-gray-600">{member.title}</p>
-            <p className="mt-2 text-sm leading-relaxed text-gray-600">
+            <p className="text-sm font-light leading-normal">{member.title}</p>
+            <p className="mt-2 text-sm font-light leading-relaxed">
               {member.bio}
             </p>
             <ul role="list" className="mt-4 flex gap-x-6">
@@ -37,7 +45,7 @@ export default async function TeamList({ members }: Props) {
                     <li key={social.type}>
                       <Link
                         href={social.url}
-                        className={'text-gray-400 hover:text-gray-500'}
+                        className={'opacity-90 hover:opacity-50'}
                         target="_blank"
                         rel="noreferrer noopener"
                       >

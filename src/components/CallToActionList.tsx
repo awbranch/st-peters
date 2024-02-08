@@ -4,12 +4,17 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import { LinkButton } from '@/components/Button';
 import Link from 'next/link';
+import { userPaletteButtonProps, userPaletteClasses } from '@/utils/utils';
+import { twJoin } from 'tailwind-merge';
 
-export default function CallToActionList({ items }: Props) {
+export default function CallToActionList({ items, palette }: Props) {
   return (
     <ul
       role="list"
-      className="divide-y divide-gray-200 max-w-md mx-auto md:max-w-full"
+      className={twJoin(
+        'divide-y max-w-md mx-auto md:max-w-full',
+        userPaletteClasses[palette].divide,
+      )}
     >
       {items.map((cta) => (
         <li key={cta._key} className="py-16 md:py-6">
@@ -29,7 +34,7 @@ export default function CallToActionList({ items }: Props) {
               )}
               {cta.text && (
                 <div className={'opacity-80'}>
-                  <RichText text={cta.text} />
+                  <RichText text={cta.text} palette={palette} />
                 </div>
               )}
             </div>
@@ -37,11 +42,10 @@ export default function CallToActionList({ items }: Props) {
               <div className="flex-none mt-6 md:mt-10">
                 <LinkButton
                   size={'large'}
-                  variant={cta.button.variant}
                   href={cta.button.link}
-                  color={cta.button.color.label}
                   icon={cta.button.icon}
                   className={'w-32'}
+                  {...userPaletteButtonProps[palette][cta.button.style]}
                 >
                   {cta.button.label}
                 </LinkButton>

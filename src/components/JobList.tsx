@@ -3,12 +3,14 @@ import { JobList as Props } from '@/types/JobList';
 import { LinkButton } from '@/components/Button';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { splitText } from '@/utils/text';
+import { userPaletteButtonProps } from '@/utils/utils';
 
 export default function JobList({
   jobs,
   image,
   eooStatement,
   noOpenings,
+  palette,
 }: Props) {
   return (
     <div
@@ -41,10 +43,9 @@ export default function JobList({
                   <dd className="text-base mt-6 text-bold">
                     <LinkButton
                       href={job.applyLink}
-                      color={'white'}
-                      variant={'outline'}
-                      size={'small'}
+                      size={'large'}
                       icon={'right'}
+                      {...userPaletteButtonProps[palette].secondary}
                     >
                       Apply
                     </LinkButton>

@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "fix": "next lint --fix",
-    "prettier": "prettier './app/**/*.{tsx,ts}' --write"
+    "prettier": "prettier './src/**/*.{tsx,ts}' --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

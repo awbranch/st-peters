@@ -52,13 +52,23 @@ export const themeColors = {
   },
 };
 
-export const userColorList = [
-  { label: 'green', value: themeColors.grass.DEFAULT },
-  { label: 'blue', value: themeColors.ocean.DEFAULT },
-  { label: 'pink', value: themeColors.sunset.DEFAULT },
-  { label: 'black', value: themeColors.black },
-  { label: 'white', value: '#ffffff' },
-  { label: 'gray', value: '#f3f4f6' },
+export const userPalettes = [
+  {
+    value: 'white',
+    background: '#ffffff',
+  },
+  {
+    value: 'highlight',
+    background: themeColors.sunset.DEFAULT,
+  },
+  {
+    value: 'gray',
+    background: '#f3f4f6',
+  },
+  {
+    value: 'black',
+    background: '#111827',
+  },
 ];
 
 export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {

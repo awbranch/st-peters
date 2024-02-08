@@ -6,7 +6,7 @@ import { Disclosure } from '@headlessui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMinus, faPlus } from '@fortawesome/pro-solid-svg-icons';
 
-export default function FAQList({ faqs }: Props) {
+export default function FAQList({ faqs, palette }: Props) {
   return (
     <div className="mx-auto">
       <dl className="mt-10 space-y-6 divide-y divide-gray-300/50">
@@ -37,7 +37,7 @@ export default function FAQList({ faqs }: Props) {
                   </Disclosure.Button>
                 </dt>
                 <Disclosure.Panel as="dd" className="mt-2 pr-12 opacity-80">
-                  <RichText text={faq.answer} />
+                  <RichText text={faq.answer} palette={palette} />
                 </Disclosure.Panel>
               </>
             )}

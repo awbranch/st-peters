@@ -2,8 +2,9 @@ import React from 'react';
 import { RadioButton, TextArea, TextInput } from '@/components/FormControls';
 import { Button } from '@/components/Button';
 import { VolunteerForm as Props } from '@/types/VolunteerForm';
+import { userPaletteButtonProps } from '@/utils/utils';
 
-export default function VolunteerForm({ background }: Props) {
+export default function VolunteerForm({ palette }: Props) {
   return (
     <form>
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -63,7 +64,7 @@ export default function VolunteerForm({ background }: Props) {
         </div>
       </div>
       <div className="mt-8 flex justify-end">
-        <Button type="submit" variant={'outline'} color={background?.label}>
+        <Button type="submit" {...userPaletteButtonProps[palette].primary}>
           Send message
         </Button>
       </div>

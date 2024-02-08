@@ -47,7 +47,7 @@ export default async function GenericPage({ params }: Props) {
         <Section
           key={b._key}
           id={b.id?.current}
-          color={b?.background?.label}
+          palette={b.palette}
           maxWidth={page.maxWidth}
         >
           {b?.components && <ComponentList components={b.components} />}

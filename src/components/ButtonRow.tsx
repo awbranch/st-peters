@@ -2,8 +2,13 @@ import React from 'react';
 import { ButtonRow as Props } from '@/types/ButtonRow';
 import { LinkButton } from '@/components/Button';
 import { twJoin } from 'tailwind-merge';
+import { userPaletteButtonProps } from '@/utils/utils';
 
-export default async function ButtonRow({ alignment, buttons }: Props) {
+export default async function ButtonRow({
+  alignment,
+  buttons,
+  palette,
+}: Props) {
   return (
     <div
       className={twJoin(
@@ -19,8 +24,7 @@ export default async function ButtonRow({ alignment, buttons }: Props) {
           size={'large'}
           href={b.link}
           icon={b.icon}
-          color={b.color.label}
-          variant={b.variant}
+          {...userPaletteButtonProps[palette][b.style]}
         >
           {b.label}
         </LinkButton>

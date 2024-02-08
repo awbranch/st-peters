@@ -11,7 +11,6 @@ import { IFrame } from '@/types/IFrame';
 import { ImageTileGrid } from '@/types/ImageTileGrid';
 import { ImpactList } from '@/types/ImpactList';
 import { JobList } from '@/types/JobList';
-import { LabeledColor } from '@/types/Color';
 import { ListSet } from '@/types/ListSet';
 import { LunchMenuList } from '@/types/LunchMenuList';
 import { ComponentSetReference } from '@/types/ComponentSetReference';
@@ -20,6 +19,7 @@ import { TeamList } from '@/types/TeamList';
 import { TitleText } from '@/types/TitleText';
 import { VolunteerForm } from '@/types/VolunteerForm';
 import { ButtonRow } from '@/types/ButtonRow';
+import { Palette } from '@/types/Palette';
 
 export type Component =
   | Article
@@ -46,5 +46,5 @@ export type Component =
 
 export type ComponentProps = {
   _key: string;
-  background?: LabeledColor;
+  palette?: Palette;
 };

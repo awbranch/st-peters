@@ -80,7 +80,7 @@ export async function getPages() {
     {},
     fetchOptions(),
   );
-  pages.forEach((p) => addBackgroundColor(p));
+  pages.forEach((p) => addPalette(p));
   return pages;
 }
 
@@ -92,21 +92,19 @@ export async function getPageByPath(path: string[]) {
     },
     fetchOptions(),
   );
-  addBackgroundColor(page);
+  addPalette(page);
   return page;
 }
 
 /**
- * It's helpful for blocks to know the background color of the section when displaying
+ * It's helpful for components to know the palette of the blocks they are contained within
  * @param page
  */
-function addBackgroundColor(page: Page) {
+function addPalette(page: Page) {
   if (page) {
     page?.blocks?.forEach((b) => {
       b?.components?.forEach((c) => {
-        if (c.background) {
-          c.background = { ...c.background };
-        }
+        c.palette = b.palette;
       });
     });
   }

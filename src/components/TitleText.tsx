@@ -4,7 +4,7 @@ import { TitleText as Props } from '@/types/TitleText';
 import { twJoin } from 'tailwind-merge';
 import { H1, Para } from '@/components/Typography';
 
-export default function TitleText({ text, alignment }: Props) {
+export default function TitleText({ text, alignment, palette }: Props) {
   return (
     <div
       className={twJoin(
@@ -15,6 +15,7 @@ export default function TitleText({ text, alignment }: Props) {
     >
       <RichText
         text={text}
+        palette={palette}
         overrides={{
           block: {
             h1: ({ children }: { children: React.ReactNode }) => (

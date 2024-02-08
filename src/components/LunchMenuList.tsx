@@ -11,7 +11,7 @@ import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';
 import React from 'react';
 
-export default async function LunchMenuList({ tbd }: Props) {
+export default async function LunchMenuList({ tbd, palette }: Props) {
   const menus = await getLunchMenus();
 
   // Fill in any missing dates
@@ -38,8 +38,19 @@ export default async function LunchMenuList({ tbd }: Props) {
           key={i}
           className={twJoin(
             menu.date === today
-              ? 'bg-white bg-opacity-5 ring-2 ring-sunset'
-              : 'ring-1 ring-white/10',
+              ? twJoin(
+                  'ring-2',
+                  palette === 'white' && 'bg-white ring-sunset',
+                  palette === 'highlight' && 'bg-white bg-opacity-5 ring-white',
+                  palette === 'gray' && 'bg-white ring-sunset',
+                  palette === 'black' && 'bg-white bg-opacity-5 ring-sunset',
+                )
+              : twJoin(
+                  palette === 'white' && 'ring-1 ring-black/10',
+                  palette === 'highlight' && 'ring-1 ring-white/20',
+                  palette === 'gray' && 'bg-gray-50 ring-1 ring-black/30',
+                  palette === 'black' && 'ring-1 ring-white/10',
+                ),
             'rounded-3xl p-8 xl:p-10',
           )}
         >

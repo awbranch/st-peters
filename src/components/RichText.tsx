@@ -19,6 +19,9 @@ import {
   UL,
 } from '@/components/Typography';
 import { Bookmark } from '@/types/Bookmark';
+import { Palette } from '@/types/Palette';
+import { twJoin } from 'tailwind-merge';
+import { userPaletteClasses } from '@/utils/utils';
 
 type Override = {
   [V in 'marks' | 'block' | 'list' | 'types']?: {
@@ -32,10 +35,11 @@ type Override = {
 
 type Props = {
   text: PortableTextBlock[];
+  palette?: Palette;
   overrides?: Override;
 };
 
-const RichText = ({ text, overrides }: Props) => {
+const RichText = ({ text, overrides, palette = 'white' }: Props) => {
   const components = {
     marks: {
       link: ({
@@ -47,8 +51,10 @@ const RichText = ({ text, overrides }: Props) => {
       }) => <Link href={value.href}>{children}</Link>,
       em: ({ children }) => <Em>{children}</Em>,
       strong: ({ children }) => <Strong>{children}</Strong>,
-      textColor: ({ children, value }) => (
-        <span style={{ color: value.value }}>{children}</span>
+      accent: ({ children }) => (
+        <span className={twJoin(userPaletteClasses[palette].accent)}>
+          {children}
+        </span>
       ),
       ...(overrides?.marks ? overrides.marks : {}),
     },
@@ -79,7 +85,7 @@ const RichText = ({ text, overrides }: Props) => {
         );
       },
       buttonRow: ({ value }: { value: ButtonRowType }) => {
-        return <ButtonRow {...value} />;
+        return <ButtonRow {...value} palette={palette} />;
       },
       bookmark: ({ value }: { value: Bookmark }) => {
         return <div id={value.id?.current} />;

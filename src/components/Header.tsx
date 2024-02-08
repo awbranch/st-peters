@@ -11,7 +11,7 @@ export default async function Header() {
       {props.showNotification && (
         <NotificationBar
           message={props.notificationMessage}
-          background={props.notificationBackground?.label}
+          palette={props.notificationPalette}
         />
       )}
       <NavBar

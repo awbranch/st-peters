@@ -4,8 +4,9 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { LinkButton } from '@/components/Button';
 import { Subtitle, Title } from '@/components/Typography';
 import RichText from '@/components/RichText';
+import { userPaletteButtonProps } from '@/utils/utils';
 
-export default function Hero({ text, image, buttons }: Props) {
+export default function Hero({ text, image, buttons, palette }: Props) {
   return (
     <div
       className={
@@ -15,6 +16,7 @@ export default function Hero({ text, image, buttons }: Props) {
       <div className={'max-w-lg lg:max-w-full'}>
         <RichText
           text={text}
+          palette={palette}
           overrides={{
             block: {
               h1: ({ children }: { children: React.ReactNode }) => (
@@ -33,10 +35,9 @@ export default function Hero({ text, image, buttons }: Props) {
               <LinkButton
                 key={b.label}
                 href={b.link}
-                color={b.color.label}
                 size={'large'}
-                variant={b.variant}
                 icon={b.icon}
+                {...userPaletteButtonProps[palette][b.style]}
               >
                 {b.label}
               </LinkButton>

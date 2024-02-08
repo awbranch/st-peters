@@ -13,6 +13,8 @@ import { H2, Small } from '@/components/Typography';
 import ComponentList from '@/components/ComponentList';
 import { Metadata } from 'next';
 import RichText from '@/components/RichText';
+import { NewsStory } from '@/types/NewsStory';
+import { Palette } from '@/types/Palette';
 
 export async function generateStaticParams() {
   const stories = await getAllNewsStories();
@@ -37,6 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function Page({ params }: Props) {
   const story = await getNewsStory(params.slug);
+  addPalette(story, 'white');
 
   // Get 13 most recent news stories
   const topStories = await getTopNewsStories(13);
@@ -59,7 +62,7 @@ export default async function Page({ params }: Props) {
 
       <Section id="story" maxWidth="md">
         <Small className={'mb-8'}>{toFullDate(story.date)}</Small>
-        <RichText text={story.text} />
+        <RichText text={story.text} palette={'white'} />
         {story.components && (
           <div className={'mt-12'}>
             <ComponentList components={story.components} />
@@ -71,7 +74,7 @@ export default async function Page({ params }: Props) {
         <Section
           key={b.id?.current}
           id={b.id?.current}
-          color={b?.background?.label}
+          palette={b.palette}
           maxWidth={'md'}
         >
           {b?.components && <ComponentList components={b.components} />}
@@ -95,4 +98,15 @@ export default async function Page({ params }: Props) {
       )}
     </main>
   );
+}
+
+function addPalette(story: NewsStory, palette: Palette) {
+  if (story.components) {
+    story.components.forEach((s) => (s.palette = palette));
+  }
+  if (story.blocks) {
+    story.blocks.forEach((b) =>
+      b.components.forEach((c) => (c.palette = b.palette)),
+    );
+  }
 }

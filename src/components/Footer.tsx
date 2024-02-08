@@ -14,7 +14,7 @@ export default async function Footer() {
 
   return (
     <footer>
-      <Section id={'newsletter'} color={'gray'} className="text-center">
+      <Section id={'newsletter'} palette={'gray'} className="text-center">
         <h2 className={'text-lg mb-2'}>{props.newsletterSignupTitle}</h2>
         <NewsletterSignupForm config={props.newsletterConfig} />
         <div className={'mt-1'}>
@@ -24,7 +24,7 @@ export default async function Footer() {
       <div className={'bg-gray-100'}>
         <Wave />
       </div>
-      <Section color={'black'} className={'text-center'}>
+      <Section palette={'black'} className={'text-center'}>
         <div>
           <div
             className={

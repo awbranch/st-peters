@@ -2,12 +2,12 @@ import { PortableTextBlock } from 'sanity';
 import { Image } from '@/types/Image';
 import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
-import { LabeledColor } from '@/types/Color';
+import { Palette } from '@/types/Palette';
 
 export type Header = {
   showNotification: boolean;
   notificationMessage: PortableTextBlock[];
-  notificationBackground: LabeledColor;
+  notificationPalette: Palette;
   logo: Image;
   wideLogo?: Image;
   menuItems: MenuItem[];
