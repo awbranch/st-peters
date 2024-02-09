@@ -22,7 +22,7 @@ export default function CallToActionList({ items, palette }: Props) {
             <Link href={cta?.button?.link || '#'} className={'flex-none'}>
               <ResponsiveImage
                 image={cta.image}
-                className={'aspect-square w-64 md:w-40 h-fit rounded-lg'}
+                className={'aspect-square w-64 md:w-48 h-fit rounded-lg'}
                 sizes={'100vw'}
               />
             </Link>
