@@ -4,12 +4,8 @@ import React, { Fragment, useState } from 'react';
 import Link from 'next/link';
 import Container from '@/components/Container';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faBars,
-  faChevronDown,
-  faXmark,
-} from '@fortawesome/pro-solid-svg-icons';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { urlFor } from '@/utils/sanity-utils';
 import { Image } from '@/types/Image';
 import { MenuItem } from '@/types/MenuItem';
@@ -66,9 +62,8 @@ export default function NavBar({
                       <Popover.Overlay className="fixed inset-0" />
                       <Popover.Button className="flex items-center gap-x-1 text-base font-medium text-black">
                         {item.name}
-                        <FontAwesomeIcon
-                          icon={faChevronDown}
-                          className="ml-1 h-3.5 w-3.5 flex-none text-black"
+                        <ChevronDownIcon
+                          className="ml-1 h-5 w-5 flex-none text-black"
                           aria-hidden="true"
                         />
                       </Popover.Button>
@@ -118,11 +113,7 @@ export default function NavBar({
                 onClick={() => setMobileMenuOpen(true)}
               >
                 <span className="sr-only">Open main menu</span>
-                <FontAwesomeIcon
-                  className={'h-6 w-6'}
-                  icon={faBars}
-                  aria-hidden="true"
-                />
+                <Bars3Icon className={'h-6 w-6'} aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -155,11 +146,7 @@ export default function NavBar({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <FontAwesomeIcon
-                className={'h-6 w-6'}
-                icon={faXmark}
-                aria-hidden="true"
-              />
+              <XMarkIcon className={'h-6 w-6'} aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">
@@ -182,11 +169,10 @@ export default function NavBar({
                           <>
                             <Disclosure.Button className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-medium leading-7 text-black hover:bg-gray-50">
                               {item.name}
-                              <FontAwesomeIcon
-                                icon={faChevronDown}
+                              <ChevronDownIcon
                                 className={twJoin(
                                   open ? 'rotate-180' : '',
-                                  'h-4 w-4 flex-none',
+                                  'h-6 w-6 flex-none',
                                 )}
                                 aria-hidden="true"
                               />

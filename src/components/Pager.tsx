@@ -1,9 +1,9 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faChevronLeft,
-  faChevronRight,
-} from '@fortawesome/pro-solid-svg-icons';
+  ArrowLongLeftIcon,
+  ArrowLongRightIcon,
+} from '@heroicons/react/20/solid';
+
 import Link from 'next/link';
 import { twJoin } from 'tailwind-merge';
 
@@ -74,17 +74,29 @@ function ArrowButton({ style, href, enabled }: ArrowButtonProps) {
           : 'text-gray-300 cursor-default',
       )}
     >
-      {style === 'last' && 'Next'}
-      <FontAwesomeIcon
-        icon={style === 'first' ? faChevronLeft : faChevronRight}
-        className={twJoin(
-          'h-5 w-5',
-          style === 'first' ? 'mr-3' : 'ml-3',
-          enabled ? 'text-gray-500' : 'text-gray-300',
-        )}
-        aria-hidden="true"
-      />
-      {style === 'first' && 'Previous'}
+      {style === 'first' ? (
+        <>
+          <ArrowLongLeftIcon
+            className={twJoin(
+              'h-5 w-5 mr-3',
+              enabled ? 'text-gray-500' : 'text-gray-300',
+            )}
+            aria-hidden="true"
+          />
+          Previous
+        </>
+      ) : (
+        <>
+          Next
+          <ArrowLongRightIcon
+            className={twJoin(
+              'h-5 w-5 ml-3',
+              enabled ? 'text-gray-500' : 'text-gray-300',
+            )}
+            aria-hidden="true"
+          />
+        </>
+      )}
     </Link>
   );
 }

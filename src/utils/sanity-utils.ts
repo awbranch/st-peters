@@ -150,3 +150,21 @@ function fetchOptions() {
     return {};
   }
 }
+
+export function storyMultiplier(stories: NewsStory[], count: number) {
+  const multi: NewsStory[] = [];
+
+  for (let i = 0; i < count; i++) {
+    stories.forEach((s) =>
+      multi.push({
+        ...s,
+        slug: {
+          ...s.slug,
+          current: i === 0 ? s.slug.current : s.slug.current + `-copy-${i}`,
+        },
+      }),
+    );
+  }
+
+  return multi;
+}

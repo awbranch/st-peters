@@ -1,12 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import { PortableTextBlock } from 'sanity';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/pro-regular-svg-icons';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 import NotificationRichText from '@/components/NotificationRichText';
 import { twJoin } from 'tailwind-merge';
 import { Palette } from '@/types/Palette';
-
 import { userPaletteClasses } from '@/utils/globals';
 
 type Props = {
@@ -35,11 +33,7 @@ export default function NotificationBar({ message, palette = 'black' }: Props) {
           onClick={() => setBarVisible(false)}
         >
           <span className="sr-only">Dismiss</span>
-          <FontAwesomeIcon
-            className={'h-4 w-4'}
-            icon={faXmark}
-            aria-hidden="true"
-          />
+          <XMarkIcon className={'h-4 w-4'} aria-hidden="true" />
         </button>
       </div>
     </div>

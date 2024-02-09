@@ -1,13 +1,10 @@
 import React from 'react';
 import type { Color } from '@/types/Color';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faArrowDown,
-  faArrowLeft,
-  faArrowRight,
-} from '@fortawesome/pro-solid-svg-icons';
-
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from '@heroicons/react/20/solid';
 import { APropsWithoutRef, ButtonPropsWithoutRef } from 'react-html-props';
 import { twMerge } from 'tailwind-merge';
 import { ButtonIcon } from '@/types/ButtonIcon';
@@ -86,19 +83,14 @@ export function Button({
       {...props}
     >
       {icon === 'left' && (
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          className="-ml-0.5 h-4 w-4"
-          aria-hidden="true"
-        />
+        <ArrowLeftIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
       )}
       {children}
-      {(icon === 'right' || icon === 'down') && (
-        <FontAwesomeIcon
-          icon={icon === 'right' ? faArrowRight : faArrowDown}
-          className="-ml-0.5 h-4 w-4"
-          aria-hidden="true"
-        />
+      {icon === 'right' && (
+        <ArrowRightIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+      )}
+      {icon === 'down' && (
+        <ArrowDownIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
       )}
     </button>
   );
@@ -127,19 +119,14 @@ export function LinkButton({
       {...props}
     >
       {icon === 'left' && (
-        <FontAwesomeIcon
-          icon={faArrowLeft}
-          className="-ml-0.5 h-4 w-4"
-          aria-hidden="true"
-        />
+        <ArrowLeftIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
       )}
       {children}
-      {(icon === 'right' || icon === 'down') && (
-        <FontAwesomeIcon
-          icon={icon === 'right' ? faArrowRight : faArrowDown}
-          className="-ml-0.5 h-4 w-4"
-          aria-hidden="true"
-        />
+      {icon === 'right' && (
+        <ArrowRightIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
+      )}
+      {icon === 'down' && (
+        <ArrowDownIcon className="-ml-0.5 h-5 w-5" aria-hidden="true" />
       )}
     </Link>
   );
