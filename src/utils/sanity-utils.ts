@@ -7,7 +7,6 @@ import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
 import { ComponentSet } from '@/types/ComponentSet';
-import { NewsCategory } from '@/types/NewsCategory';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -110,60 +109,10 @@ function addPalette(page: Page) {
   }
 }
 
-export async function getNewsCategories() {
-  return client.fetch<NewsCategory[]>(
-    groq`*[_type == "newsCategory"]`,
-    {},
-    fetchOptions(),
-  );
-}
-
-export async function getTopNewsStories(count: number) {
-  return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory"] | order(date desc)[0..${count}]`,
-    {},
-    fetchOptions(),
-  );
-}
-
-export type NewsStoryTimeRange = 'all' | 'past' | 'future';
-
-export async function getAllNewsStories() {
+export async function getNewsStories() {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory"]{..., categories[]->{label, value}} | order(date desc)`,
     {},
-    fetchOptions(),
-  );
-}
-
-export async function getNewsStories(
-  category: string,
-  timeRange: NewsStoryTimeRange = 'all',
-) {
-  const dateQuery =
-    timeRange === 'past'
-      ? "&& dateTime(date + 'T00:00:00Z') < dateTime(now())"
-      : timeRange === 'future'
-      ? "&& dateTime(date + 'T00:00:00Z') > dateTime(now()) - 60*60*24*1"
-      : '';
-
-  const orderDir = timeRange === 'future' ? 'asc' : 'desc';
-
-  return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory" && category == $category ${dateQuery}] | order(date ${orderDir})`,
-    {
-      category,
-    },
-    fetchOptions(),
-  );
-}
-
-export async function getNewsStory(slug: string) {
-  return client.fetch<NewsStory>(
-    groq`*[_type == "newsStory" && slug.current == $slug][0]`,
-    {
-      slug,
-    },
     fetchOptions(),
   );
 }

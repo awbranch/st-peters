@@ -7,10 +7,10 @@ import {
   StrongPropsWithoutRef,
   ULPropsWithoutRef,
 } from 'react-html-props';
-import { isFullyQualifiedURL } from '@/utils/globals';
 import NextLink from 'next/link';
 import { twMerge } from 'tailwind-merge';
 import React from 'react';
+import { isFullyQualifiedURL } from '@/utils/utils';
 
 type Extended = {
   as?: string;

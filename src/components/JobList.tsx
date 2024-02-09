@@ -2,8 +2,8 @@ import React from 'react';
 import { JobList as Props } from '@/types/JobList';
 import { LinkButton } from '@/components/Button';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { splitText } from '@/utils/text';
-import { userPaletteButtonProps } from '@/utils/utils';
+import { userPaletteButtonProps } from '@/utils/globals';
+import { splitText } from '@/utils/utils';
 
 export default function JobList({
   jobs,

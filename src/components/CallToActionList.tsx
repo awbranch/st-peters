@@ -4,8 +4,8 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import RichText from '@/components/RichText';
 import { LinkButton } from '@/components/Button';
 import Link from 'next/link';
-import { userPaletteButtonProps, userPaletteClasses } from '@/utils/utils';
 import { twJoin } from 'tailwind-merge';
+import { userPaletteButtonProps, userPaletteClasses } from '@/utils/globals';
 
 export default function CallToActionList({ items, palette }: Props) {
   return (

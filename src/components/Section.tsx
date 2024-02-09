@@ -3,7 +3,8 @@ import { twMerge } from 'tailwind-merge';
 import Container from '@/components/Container';
 import { PageWidth } from '@/types/PageWidth';
 import { Palette } from '@/types/Palette';
-import { userPaletteClasses } from '@/utils/utils';
+
+import { userPaletteClasses } from '@/utils/globals';
 
 type Props = {
   id?: string;

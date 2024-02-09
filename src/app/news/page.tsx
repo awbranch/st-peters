@@ -1,5 +1,5 @@
 import NewsList from '@/components/NewsList';
-import { getAllNewsStories, getNewsCategories } from '@/utils/sanity-utils';
+import { getNewsStories } from '@/utils/sanity-utils';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -10,8 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default async function News() {
-  const stories = await getAllNewsStories();
-  const categories = await getNewsCategories();
-
-  return <NewsList stories={stories} categories={categories} />;
+  const stories = await getNewsStories();
+  return <NewsList stories={stories} page={1} />;
 }

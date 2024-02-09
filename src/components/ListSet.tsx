@@ -1,7 +1,7 @@
 import React from 'react';
 import { ListSet as Props } from '@/types/ListSet';
-import { splitText } from '@/utils/text';
 import { twJoin } from 'tailwind-merge';
+import { splitText } from '@/utils/utils';
 
 export default function ListSet({ lists }: Props) {
   return (

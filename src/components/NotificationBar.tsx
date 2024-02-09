@@ -6,7 +6,8 @@ import { faXmark } from '@fortawesome/pro-regular-svg-icons';
 import NotificationRichText from '@/components/NotificationRichText';
 import { twJoin } from 'tailwind-merge';
 import { Palette } from '@/types/Palette';
-import { userPaletteClasses } from '@/utils/utils';
+
+import { userPaletteClasses } from '@/utils/globals';
 
 type Props = {
   message: PortableTextBlock[];

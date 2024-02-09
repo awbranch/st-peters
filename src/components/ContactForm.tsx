@@ -2,7 +2,8 @@ import React from 'react';
 import { Select, TextArea, TextInput } from '@/components/FormControls';
 import { Button } from '@/components/Button';
 import { ContactForm as Props } from '@/types/ContactForm';
-import { userPaletteButtonProps } from '@/utils/utils';
+
+import { userPaletteButtonProps } from '@/utils/globals';
 
 export default function ContactForm({ subjects, palette }: Props) {
   return (

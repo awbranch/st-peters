@@ -2,7 +2,8 @@ import React from 'react';
 import { RadioButton, TextArea, TextInput } from '@/components/FormControls';
 import { Button } from '@/components/Button';
 import { VolunteerForm as Props } from '@/types/VolunteerForm';
-import { userPaletteButtonProps } from '@/utils/utils';
+
+import { userPaletteButtonProps } from '@/utils/globals';
 
 export default function VolunteerForm({ palette }: Props) {
   return (

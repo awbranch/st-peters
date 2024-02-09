@@ -3,9 +3,8 @@ import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { socialIcons } from '@/utils/globals';
+import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
-import { userPaletteClasses } from '@/utils/utils';
 
 export default async function TeamList({ members, palette }: Props) {
   return (

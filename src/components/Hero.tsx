@@ -4,7 +4,8 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import { LinkButton } from '@/components/Button';
 import { Subtitle, Title } from '@/components/Typography';
 import RichText from '@/components/RichText';
-import { userPaletteButtonProps } from '@/utils/utils';
+
+import { userPaletteButtonProps } from '@/utils/globals';
 
 export default function Hero({ text, image, buttons, palette }: Props) {
   return (

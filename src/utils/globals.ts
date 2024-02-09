@@ -10,8 +10,14 @@ import {
   faYoutube,
 } from '@fortawesome/free-brands-svg-icons';
 import { PageWidth } from '@/types/PageWidth';
+import { Palette } from '@/types/Palette';
+import { ButtonStyle } from '@/types/ButtonStyle';
+import { ButtonVariant } from '@/types/ButtonVariant';
+import { Color } from '@/types/Color';
 
 export const maxPageWidth = 1280;
+
+export const newsStoriesPerPage = 5;
 
 export const pageWidths: { [V in PageWidth]: number } = {
   xs: 750,
@@ -27,11 +33,6 @@ export const breakpoints = {
   lg: 1024,
   xl: 1280,
 };
-
-export function isFullyQualifiedURL(url: string) {
-  const pattern = /^(https?:\/\/).*$/i;
-  return pattern.test(url);
-}
 
 export const themeColors = {
   black: '#111827',
@@ -52,25 +53,6 @@ export const themeColors = {
   },
 };
 
-export const userPalettes = [
-  {
-    value: 'white',
-    background: '#ffffff',
-  },
-  {
-    value: 'highlight',
-    background: themeColors.sunset.DEFAULT,
-  },
-  {
-    value: 'gray',
-    background: '#f3f4f6',
-  },
-  {
-    value: 'black',
-    background: '#111827',
-  },
-];
-
 export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
   email: faEnvelope,
   facebook: faFacebookF,
@@ -79,4 +61,82 @@ export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
   twitter: faTwitter,
   x: faXTwitter,
   linkedin: faLinkedin,
+};
+
+type PaletteClass = {
+  [P in Palette]: {
+    [C in 'block' | 'accent' | 'divide']: string;
+  };
+};
+
+export const userPaletteButtonProps: {
+  [P in Palette]: {
+    [S in ButtonStyle]: {
+      variant: ButtonVariant;
+      color: Color;
+    };
+  };
+} = {
+  white: {
+    primary: {
+      variant: 'solid',
+      color: 'pink',
+    },
+    secondary: {
+      variant: 'outline',
+      color: 'pink',
+    },
+  },
+  highlight: {
+    primary: {
+      variant: 'solid',
+      color: 'black',
+    },
+    secondary: {
+      variant: 'solid',
+      color: 'white',
+    },
+  },
+  gray: {
+    primary: {
+      variant: 'solid',
+      color: 'pink',
+    },
+    secondary: {
+      variant: 'outline',
+      color: 'pink',
+    },
+  },
+  black: {
+    primary: {
+      variant: 'solid',
+      color: 'pink',
+    },
+    secondary: {
+      variant: 'solid',
+      color: 'white',
+    },
+  },
+};
+export const userPaletteClasses: PaletteClass = {
+  white: {
+    block: 'bg-white text-black',
+    accent: 'text-sunset',
+    divide: 'divide-black/10',
+  },
+  highlight: {
+    block: 'bg-sunset text-white',
+    accent: 'text-white',
+    divide: 'divide-white/30',
+  },
+  gray: {
+    block: 'bg-gray-100 text-black',
+    accent: 'text-sunset',
+    divide: 'divide-black/20',
+  },
+  black: {
+    block: 'bg-black text-white',
+    accent: 'text-sunset',
+    divide: 'divide-white/10',
+  },
 };

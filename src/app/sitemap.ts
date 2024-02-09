@@ -1,4 +1,4 @@
-import { getAllNewsStories, getPages } from '@/utils/sanity-utils';
+import { getNewsStories, getPages } from '@/utils/sanity-utils';
 import { Page } from '@/types/Page';
 import { NewsStory } from '@/types/NewsStory';
 
@@ -22,7 +22,7 @@ function isRecent(date: Date): boolean {
 export default async function sitemap() {
   if (process.env.BRANCH_STUDIO_VISIBILITY === 'public') {
     const pages = (await getPages()) as PageWithMeta[];
-    const stories = (await getAllNewsStories()) as NewsStoryWithMeta[];
+    const stories = (await getNewsStories()) as NewsStoryWithMeta[];
 
     const root = process.env.BRANCH_STUDIO_BASE_URL;
     const pageMap = pages.map((p) => {

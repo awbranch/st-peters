@@ -1,10 +1,6 @@
 import { toFullDate } from '@/utils/date';
-import {
-  getAllNewsStories,
-  getNewsStory,
-  getTopNewsStories,
-} from '@/utils/sanity-utils';
-import { MediaCarousel, MediaCarouselItem } from '@/components/MediaCarousel';
+import { getNewsStories } from '@/utils/sanity-utils';
+import { TopNewsStoriesGrid } from '@/components/TopNewsStoriesGrid';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
@@ -16,8 +12,11 @@ import RichText from '@/components/RichText';
 import { NewsStory } from '@/types/NewsStory';
 import { Palette } from '@/types/Palette';
 
+// This line should be removed if exporting static pages
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
-  const stories = await getAllNewsStories();
+  const stories = await getNewsStories();
   return stories.map((s) => ({ slug: s.slug.current }));
 }
 
@@ -26,7 +25,8 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const story = await getNewsStory(params.slug);
+  const stories = await getNewsStories();
+  const story = stories.find((s) => s.slug.current === params.slug);
 
   return {
     title: story.title ? `${story.title} - St. Peter's Kitchen` : undefined,
@@ -38,16 +38,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  const story = await getNewsStory(params.slug);
+  // Its actually more efficient to get all the news stories since this is calculated
+  // at build time and Next caches all query requests with the same parameters
+  // Calling this would actually result in a separate API call to sanity
+  const stories = await getNewsStories();
+  const story = stories.find((s) => s.slug.current === params.slug);
+  const topStories = stories
+    .filter((s) => s.slug.current !== story.slug.current)
+    .slice(0, 3);
+
   addPalette(story, 'white');
-
-  // Get 13 most recent news stories
-  const topStories = await getTopNewsStories(13);
-
-  // Remove this story from the list
-  const stories = topStories.filter(
-    (s) => s.slug.current !== story.slug.current,
-  );
 
   return (
     <main>
@@ -84,16 +84,7 @@ export default async function Page({ params }: Props) {
       {stories && (
         <Section maxWidth="md">
           <H2>More News</H2>
-          <MediaCarousel>
-            {stories.slice(0, 3).map((s, i) => (
-              <MediaCarouselItem
-                key={i}
-                href={`/news/story/${s.slug.current}`}
-                title={s.title}
-                image={s.previewImage}
-              ></MediaCarouselItem>
-            ))}
-          </MediaCarousel>
+          <TopNewsStoriesGrid stories={topStories} />
         </Section>
       )}
     </main>

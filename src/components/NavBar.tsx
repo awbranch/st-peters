@@ -16,7 +16,8 @@ import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
 import { twJoin } from 'tailwind-merge';
 import { LinkButton } from '@/components/Button';
-import { userPaletteButtonProps } from '@/utils/utils';
+
+import { userPaletteButtonProps } from '@/utils/globals';
 
 type Props = {
   logo: Image;

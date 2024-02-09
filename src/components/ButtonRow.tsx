@@ -2,7 +2,8 @@ import React from 'react';
 import { ButtonRow as Props } from '@/types/ButtonRow';
 import { LinkButton } from '@/components/Button';
 import { twJoin } from 'tailwind-merge';
-import { userPaletteButtonProps } from '@/utils/utils';
+
+import { userPaletteButtonProps } from '@/utils/globals';
 
 export default async function ButtonRow({
   alignment,

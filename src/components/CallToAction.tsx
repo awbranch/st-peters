@@ -2,11 +2,10 @@ import React from 'react';
 import { twJoin } from 'tailwind-merge';
 import { CallToAction as Props } from '@/types/CallToAction';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { breakpoints } from '@/utils/globals';
+import { breakpoints, userPaletteButtonProps } from '@/utils/globals';
 import { LinkButton } from '@/components/Button';
 import RichText from '@/components/RichText';
 import { Subtitle } from '@/components/Typography';
-import { userPaletteButtonProps } from '@/utils/utils';
 
 export default function CallToAction({
   alignment,

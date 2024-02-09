@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconList as Props } from '@/types/IconList';
-import { splitText } from '@/utils/text';
 import { urlFor } from '@/utils/sanity-utils';
+import { splitText } from '@/utils/utils';
 
 export default async function IconList({ items }: Props) {
   return (

@@ -21,7 +21,8 @@ import {
 import { Bookmark } from '@/types/Bookmark';
 import { Palette } from '@/types/Palette';
 import { twJoin } from 'tailwind-merge';
-import { userPaletteClasses } from '@/utils/utils';
+
+import { userPaletteClasses } from '@/utils/globals';
 
 type Override = {
   [V in 'marks' | 'block' | 'list' | 'types']?: {
