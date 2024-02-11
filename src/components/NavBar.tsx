@@ -182,7 +182,7 @@ export default function NavBar({
                                 <Link
                                   key={i}
                                   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-medium leading-7 text-black hover:bg-gray-50"
-                                  href={subItem.url}
+                                  href={subItem.url || '#'}
                                   onClick={() => setMobileMenuOpen(false)}
                                 >
                                   {subItem.name}

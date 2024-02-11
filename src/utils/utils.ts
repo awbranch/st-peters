@@ -5,7 +5,8 @@ export function splitText(text: string) {
     .map((t) => t.trim());
 }
 
-export function isFullyQualifiedURL(url: string) {
+export function isFullyQualifiedURL(url?: string) {
+  if (!url) return false;
   const pattern = /^(https?:\/\/).*$/i;
   return pattern.test(url);
 }

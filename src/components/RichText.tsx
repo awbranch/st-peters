@@ -50,9 +50,11 @@ const RichText = ({ text, overrides, palette = 'white' }: Props) => {
         children: React.ReactNode;
         value: any;
       }) => <Link href={value.href}>{children}</Link>,
-      em: ({ children }) => <Em>{children}</Em>,
-      strong: ({ children }) => <Strong>{children}</Strong>,
-      accent: ({ children }) => (
+      em: ({ children }: { children: React.ReactNode }) => <Em>{children}</Em>,
+      strong: ({ children }: { children: React.ReactNode }) => (
+        <Strong>{children}</Strong>
+      ),
+      accent: ({ children }: { children: React.ReactNode }) => (
         <span className={twJoin(userPaletteClasses[palette].accent)}>
           {children}
         </span>
@@ -65,14 +67,24 @@ const RichText = ({ text, overrides, palette = 'white' }: Props) => {
       normal: ({ children }: { children: React.ReactNode }) => (
         <Para>{children}</Para>
       ),
-      subtitle: ({ children }) => <Subtitle>{children}</Subtitle>,
-      small: ({ children }) => <Small>{children}</Small>,
-      blockquote: ({ children }) => <BlockQuote>{children}</BlockQuote>,
+      subtitle: ({ children }: { children: React.ReactNode }) => (
+        <Subtitle>{children}</Subtitle>
+      ),
+      small: ({ children }: { children: React.ReactNode }) => (
+        <Small>{children}</Small>
+      ),
+      blockquote: ({ children }: { children: React.ReactNode }) => (
+        <BlockQuote>{children}</BlockQuote>
+      ),
       ...(overrides?.block ? overrides.block : {}),
     },
     list: {
-      bullet: ({ children }) => <UL>{children}</UL>,
-      number: ({ children }) => <OL>{children}</OL>,
+      bullet: ({ children }: { children: React.ReactNode }) => (
+        <UL>{children}</UL>
+      ),
+      number: ({ children }: { children: React.ReactNode }) => (
+        <OL>{children}</OL>
+      ),
       ...(overrides?.list ? overrides.list : {}),
     },
     types: {

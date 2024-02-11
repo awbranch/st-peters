@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
+import { SocialMediaService } from '@/types/SocialMediaService';
+
+type SocialUrlArray = Array<{ type: SocialMediaService; url: string }>;
 
 export default async function TeamList({ members, palette }: Props) {
   return (
@@ -34,11 +37,13 @@ export default async function TeamList({ members, palette }: Props) {
               {member.bio}
             </p>
             <ul role="list" className="mt-4 flex gap-x-6">
-              {[
-                { type: 'email', url: member.email },
-                { type: 'twitter', url: member.twitterUrl },
-                { type: 'linkedin', url: member.linkedInUrl },
-              ].map(
+              {(
+                [
+                  { type: 'email', url: member.email },
+                  { type: 'twitter', url: member.twitterUrl },
+                  { type: 'linkedin', url: member.linkedInUrl },
+                ] as SocialUrlArray
+              ).map(
                 (social) =>
                   social.url && (
                     <li key={social.type}>

@@ -38,28 +38,32 @@ export default function CallToAction({
               : 'md:mr-auto md:pr-12 lg:pr-16 xl:pr-24',
           )}
         >
-          <RichText
-            text={text}
-            palette={palette}
-            overrides={{
-              block: {
-                normal: ({ children }: { children: React.ReactNode }) => (
-                  <Subtitle>{children}</Subtitle>
-                ),
-              },
-            }}
-          />
+          {text && (
+            <RichText
+              text={text}
+              palette={palette}
+              overrides={{
+                block: {
+                  normal: ({ children }: { children: React.ReactNode }) => (
+                    <Subtitle>{children}</Subtitle>
+                  ),
+                },
+              }}
+            />
+          )}
 
-          <div className={'mt-10'}>
-            <LinkButton
-              size={'large'}
-              href={button.link}
-              icon={button.icon}
-              {...userPaletteButtonProps[palette][button.style]}
-            >
-              {button.label}
-            </LinkButton>
-          </div>
+          {button && (
+            <div className={'mt-10'}>
+              <LinkButton
+                size={'large'}
+                href={button.link}
+                icon={button.icon}
+                {...userPaletteButtonProps[palette][button.style]}
+              >
+                {button.label}
+              </LinkButton>
+            </div>
+          )}
         </div>
       </div>
     </div>

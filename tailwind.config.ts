@@ -16,10 +16,13 @@ const config: Config = {
       },
       colors: themeColors,
     },
-    screens: Object.entries(breakpoints).reduce((a, [k, v]) => {
-      a[k] = `${v}px`;
-      return a;
-    }, {}),
+    screens: Object.entries(breakpoints).reduce(
+      (a, [k, v]) => {
+        a[k] = `${v}px`;
+        return a;
+      },
+      {} as { [key: string]: string },
+    ),
   },
   plugins: [require('@tailwindcss/forms')],
 };

@@ -20,6 +20,7 @@ type ButtonProps = ButtonPropsWithoutRef & {
 };
 
 type LinkProps = APropsWithoutRef & {
+  href: string;
   size?: ButtonSize;
   color?: Color;
   icon?: ButtonIcon;

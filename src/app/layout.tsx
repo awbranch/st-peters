@@ -17,6 +17,14 @@ const montserrat = Montserrat({
   fallback: ['Helvetica', 'sans-serif'],
 });
 
+if (!process.env.BRANCH_STUDIO_BASE_URL) {
+  throw Error('BRANCH_STUDIO_BASE_URL has not been set');
+}
+
+if (!process.env.BRANCH_STUDIO_VISIBILITY) {
+  throw Error('BRANCH_STUDIO_VISIBILITY has not been set');
+}
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.BRANCH_STUDIO_BASE_URL),
   title: "St. Peter's Kitchen",

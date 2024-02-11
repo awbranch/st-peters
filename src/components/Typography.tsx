@@ -151,7 +151,9 @@ export const Link = ({
   children,
   className,
   ...rest
-}: APropsWithoutRef) => {
+}: APropsWithoutRef & {
+  href: string;
+}) => {
   return (
     <NextLink
       href={href}

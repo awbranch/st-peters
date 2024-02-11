@@ -46,5 +46,5 @@ export type Component =
 
 export type ComponentProps = {
   _key: string;
-  palette?: Palette;
+  palette: Palette;
 };

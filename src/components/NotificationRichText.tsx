@@ -17,8 +17,8 @@ export default function NotificationRichText({ message }: Props) {
         children: React.ReactNode;
         value: any;
       }) => <Link href={value.href}>{children}</Link>,
-      em: ({ children }) => <em>{children}</em>,
-      strong: ({ children }) => (
+      em: ({ children }: { children: React.ReactNode }) => <em>{children}</em>,
+      strong: ({ children }: { children: React.ReactNode }) => (
         <strong className="font-semibold">{children}</strong>
       ),
     },

@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { socialIcons } from '@/utils/globals';
 import Link from 'next/link';
 import { twJoin } from 'tailwind-merge';
+import { SocialMediaService } from '@/types/SocialMediaService';
+
+type SocialUrlArray = Array<{ type: SocialMediaService; url: string }>;
 
 export default async function TeamGrid({ members }: Props) {
   return (
@@ -28,10 +31,12 @@ export default async function TeamGrid({ members }: Props) {
             </p>
           )}
           <ul role="list" className="mt-3 flex gap-x-6">
-            {[
-              { type: 'twitter', url: member.twitterUrl },
-              { type: 'linkedin', url: member.linkedInUrl },
-            ].map(
+            {(
+              [
+                { type: 'twitter', url: member.twitterUrl },
+                { type: 'linkedin', url: member.linkedInUrl },
+              ] as SocialUrlArray
+            ).map(
               (social) =>
                 social.url && (
                   <li key={social.type}>

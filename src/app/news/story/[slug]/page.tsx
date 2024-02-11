@@ -5,7 +5,7 @@ import Section from '@/components/Section';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import React from 'react';
-import { H2, Small } from '@/components/Typography';
+import { H1, H2, Small } from '@/components/Typography';
 import ComponentList from '@/components/ComponentList';
 import { Metadata } from 'next';
 import RichText from '@/components/RichText';
@@ -29,7 +29,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const story = stories.find((s) => s.slug.current === params.slug);
 
   return {
-    title: story.title ? `${story.title} - St. Peter's Kitchen` : undefined,
+    title: story
+      ? `${story.title} - St. Peter's Kitchen`
+      : "St. Peter's Kitchen",
     description: story?.summary,
     alternates: {
       canonical: `/news/story/${params.slug}`,
@@ -43,6 +45,17 @@ export default async function Page({ params }: Props) {
   // Calling this would actually result in a separate API call to sanity
   const stories = await getNewsStories();
   const story = stories.find((s) => s.slug.current === params.slug);
+
+  if (!story) {
+    return (
+      <main>
+        <Section palette={'white'} maxWidth={'md'}>
+          <H1>Story: {params.slug} Not Found</H1>
+        </Section>
+      </main>
+    );
+  }
+
   const topStories = stories
     .filter((s) => s.slug.current !== story.slug.current)
     .slice(0, 3);
@@ -96,8 +109,10 @@ function addPalette(story: NewsStory, palette: Palette) {
     story.components.forEach((s) => (s.palette = palette));
   }
   if (story.blocks) {
-    story.blocks.forEach((b) =>
-      b.components.forEach((c) => (c.palette = b.palette)),
-    );
+    story.blocks.forEach((b) => {
+      if (b.components) {
+        b.components.forEach((c) => (c.palette = b.palette));
+      }
+    });
   }
 }

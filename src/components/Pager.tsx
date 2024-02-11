@@ -131,13 +131,9 @@ function Ellipses() {
   );
 }
 
-function slidingWindow(
-  array: any[],
-  index: number,
-  windowSize: number,
-): any[] | null {
+function slidingWindow(array: any[], index: number, windowSize: number) {
   if (index < 0 || index >= array.length || windowSize <= 0) {
-    return null;
+    return [];
   }
 
   let startIndex = Math.max(0, index - Math.floor(windowSize / 2));
