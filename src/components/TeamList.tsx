@@ -3,9 +3,14 @@ import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { socialIcons, userPaletteClasses } from '@/utils/globals';
+import {
+  socialIcons,
+  userPaletteButtonProps,
+  userPaletteClasses,
+} from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
 import { SocialMediaService } from '@/types/SocialMediaService';
+import { LinkButton } from '@/components/Button';
 
 type SocialUrlArray = Array<{ type: SocialMediaService; url: string }>;
 
@@ -63,6 +68,18 @@ export default async function TeamList({ members, palette }: Props) {
                   ),
               )}
             </ul>
+            {member.contact && (
+              <div className={'mt-4'}>
+                <LinkButton
+                  size={'small'}
+                  href={member.contact}
+                  icon={'right'}
+                  {...userPaletteButtonProps[palette]['secondary']}
+                >
+                  Contact
+                </LinkButton>
+              </div>
+            )}
           </div>
         </li>
       ))}

@@ -1,15 +1,6 @@
-import {
-  APropsWithoutRef,
-  BlockQuoteProps,
-  DivPropsWithoutRef,
-  EmPropsWithoutRef,
-  OLPropsWithoutRef,
-  StrongPropsWithoutRef,
-  ULPropsWithoutRef,
-} from 'react-html-props';
+import React, { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 import NextLink from 'next/link';
 import { twMerge } from 'tailwind-merge';
-import React from 'react';
 import { isFullyQualifiedURL } from '@/utils/utils';
 
 type Extended = {
@@ -21,7 +12,7 @@ export const Title = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'h1',
     {
@@ -39,7 +30,7 @@ export const Subtitle = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'p',
     {
@@ -54,7 +45,7 @@ export const H1 = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'h1',
     {
@@ -72,7 +63,7 @@ export const H2 = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'h2',
     {
@@ -90,7 +81,7 @@ export const Para = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'p',
     {
@@ -105,7 +96,7 @@ export const Small = ({
   children,
   className,
   ...rest
-}: DivPropsWithoutRef & Extended) =>
+}: HTMLAttributes<HTMLElement> & Extended) =>
   React.createElement(
     as || 'p',
     {
@@ -119,7 +110,7 @@ export const BlockQuote = ({
   children,
   className,
   ...rest
-}: BlockQuoteProps) => {
+}: HTMLAttributes<HTMLElement>) => {
   return (
     <blockquote
       className={twMerge('border-l-black border-l-4 pl-1', className)}
@@ -130,7 +121,11 @@ export const BlockQuote = ({
   );
 };
 
-export const UL = ({ children, className, ...rest }: ULPropsWithoutRef) => {
+export const UL = ({
+  children,
+  className,
+  ...rest
+}: HTMLAttributes<HTMLElement>) => {
   return (
     <ul className={twMerge('list-disc mt-2 mb-3 ml-6', className)} {...rest}>
       {children}
@@ -138,7 +133,11 @@ export const UL = ({ children, className, ...rest }: ULPropsWithoutRef) => {
   );
 };
 
-export const OL = ({ children, className, ...rest }: OLPropsWithoutRef) => {
+export const OL = ({
+  children,
+  className,
+  ...rest
+}: HTMLAttributes<HTMLElement>) => {
   return (
     <ol className={twMerge('list-decimal mt-2 mb-3 ml-6', className)} {...rest}>
       {children}
@@ -151,7 +150,7 @@ export const Link = ({
   children,
   className,
   ...rest
-}: APropsWithoutRef & {
+}: AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
 }) => {
   return (
@@ -172,7 +171,7 @@ export const Strong = ({
   children,
   className,
   ...rest
-}: StrongPropsWithoutRef) => {
+}: HTMLAttributes<HTMLElement>) => {
   return (
     <strong className={twMerge('font-semibold', className)} {...rest}>
       {children}
@@ -180,7 +179,11 @@ export const Strong = ({
   );
 };
 
-export const Em = ({ children, className, ...rest }: EmPropsWithoutRef) => {
+export const Em = ({
+  children,
+  className,
+  ...rest
+}: HTMLAttributes<HTMLElement>) => {
   return (
     <em className={className} {...rest}>
       {children}

@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 import type { Color } from '@/types/Color';
 import {
   ArrowDownIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
 } from '@heroicons/react/20/solid';
-import { APropsWithoutRef, ButtonPropsWithoutRef } from 'react-html-props';
 import { twMerge } from 'tailwind-merge';
 import { ButtonIcon } from '@/types/ButtonIcon';
 import { ButtonSize } from '@/types/ButtonSize';
 import { ButtonVariant } from '@/types/ButtonVariant';
 import Link from 'next/link';
 
-type ButtonProps = ButtonPropsWithoutRef & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   size?: ButtonSize;
   color?: Color;
   icon?: ButtonIcon;
   variant?: ButtonVariant;
 };
 
-type LinkProps = APropsWithoutRef & {
+type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   href: string;
   size?: ButtonSize;
   color?: Color;

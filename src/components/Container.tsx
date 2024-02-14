@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { pageWidths } from '@/utils/globals';
-import { DivProps } from 'react-html-props';
 import { PageWidth } from '@/types/PageWidth';
 import { twMerge } from 'tailwind-merge';
 
-type Props = DivProps & {
+type Props = HTMLAttributes<HTMLElement> & {
   maxWidth?: PageWidth;
   className?: string;
   children: React.ReactNode;

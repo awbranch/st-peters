@@ -6,6 +6,7 @@ export type TeamListMember = {
   name: string;
   title: string;
   bio: string;
+  contact?: string;
   email?: string;
   twitterUrl?: string;
   linkedInUrl?: string;

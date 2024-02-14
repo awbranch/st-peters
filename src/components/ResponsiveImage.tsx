@@ -1,12 +1,10 @@
+import React, { ImgHTMLAttributes } from 'react';
 import { imageAttributes, urlFor } from '@/utils/sanity-utils';
 import { maxPageWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
-import React from 'react';
-
 import { twMerge } from 'tailwind-merge';
-import { ImgPropsWithoutRef } from 'react-html-props';
 
-type Props = ImgPropsWithoutRef & {
+type Props = ImgHTMLAttributes<HTMLImageElement> & {
   image: Image;
   sizes: string;
   priority?: boolean;
