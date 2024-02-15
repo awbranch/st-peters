@@ -16,38 +16,44 @@ type Props = {
   name?: string;
   className?: string;
   items: ListboxItem[];
-  unselectedId: string;
   selectedId: string;
-  setSelectedId: (id: string) => void;
+  setSelectedId: (id: string | null) => void;
+  noneSelectedText: string;
 };
 
 export default function Listbox({
   name,
   className,
   items,
-  unselectedId,
   selectedId,
   setSelectedId,
+  noneSelectedText,
 }: Props) {
   const handleChange = (id: string) => {
     setSelectedId(id);
   };
 
-  const selectedItem = items.find((s) => s.id === selectedId) || items[0];
-  const anyImages = items.find((i) => !!i.image);
+  const selectedItem = items.find((s) => s.id === selectedId);
+  const anyImages = !!items.find((i) => i.image);
 
   return (
-    <ListboxHUI name={name} value={selectedItem?.id} onChange={handleChange}>
+    <ListboxHUI
+      name={name}
+      value={selectedItem?.id || '-- none --'}
+      onChange={handleChange}
+    >
       <div className={twMerge('relative', className)}>
         <ListboxHUI.Button
           className={twJoin(
             'relative w-full rounded-md border-0 pl-3.5 py-2 pr-12 text-sm leading-6 bg-white text-left shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 cursor-default ',
-            selectedItem.id === unselectedId
-              ? 'text-gray-400 font-regular italic'
-              : 'text-gray-800 font-medium',
+            selectedItem
+              ? 'text-gray-800 font-medium'
+              : 'text-gray-400 font-regular italic',
           )}
         >
-          <span className="block truncate">{selectedItem.name}</span>
+          <span className="block truncate">
+            {selectedItem ? selectedItem.name : noneSelectedText}
+          </span>
           <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
             <ChevronUpDownIcon
               className="h-5 w-5 text-gray-400"
@@ -87,16 +93,14 @@ export default function Listbox({
                       className={twJoin(
                         'truncate',
                         anyImages ? 'ml-10' : 'ml-3',
-                        selected && item.id !== unselectedId && 'font-semibold',
-                        item.id === unselectedId &&
-                          'text-gray-400 font-regular italic',
+                        selected && 'font-semibold',
                       )}
                     >
                       {item.name}
                     </span>
                   </div>
 
-                  {selected && item.id !== unselectedId && (
+                  {selected && (
                     <span
                       className={twJoin(
                         'absolute inset-y-0 right-0 flex items-center pr-4',
