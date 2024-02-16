@@ -1,8 +1,4 @@
-type ContactFormMessage = {
-  subject: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber?: string;
-  message: string;
-};
+import { z } from 'zod';
+import { ContactMessageSchema } from '@/schemas/ContactMessageSchema';
+
+export type ContactMessage = z.infer<typeof ContactMessageSchema>;

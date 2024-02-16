@@ -62,11 +62,17 @@ const colorClasses: { [V in ButtonVariant]: { [C in Color]: string } } = {
   },
 };
 
+const disabledClasses: { [V in ButtonVariant]: string } = {
+  outline: 'opacity-50 hover:bg-clear-none cursor-default',
+  solid: 'opacity-50 hover:bg-clear-none cursor-default',
+};
+
 export function Button({
   color = 'pink',
   size = 'large',
   variant = 'solid',
   icon = 'none',
+  disabled = false,
   className,
   children,
   ...props
@@ -78,6 +84,7 @@ export function Button({
         variantClasses[variant],
         sizeClasses[size],
         colorClasses[variant][color],
+        disabled && disabledClasses[variant],
         className,
       )}
       {...props}
