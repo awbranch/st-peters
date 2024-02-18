@@ -84,11 +84,13 @@ export async function getPages() {
   return pages;
 }
 
-export async function getPageByPath(path: string) {
+export async function getPageByPath(path: string | string[]) {
+  const pagePath = Array.isArray(path) ? '/' + path.join('/') : path;
+
   let page = await client.fetch<Page>(
     groq`*[_type == "page" && path == $path][0]`,
     {
-      path: path,
+      path: pagePath,
     },
     fetchOptions(),
   );

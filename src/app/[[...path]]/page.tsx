@@ -20,7 +20,8 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const page = await getPageByPath(pagePath(params.path));
+  const path = params && params.path ? params.path : [];
+  const page = await getPageByPath(path);
 
   return {
     ...(page.title ? { title: page.title } : {}),
@@ -32,8 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GenericPage({ params }: Props) {
-  const path = params.path;
-  const page = await getPageByPath(pagePath(path));
+  const path = params && params.path ? params.path : [];
+  const page = await getPageByPath(path);
 
   return (
     <>
@@ -68,8 +69,4 @@ function convertToRoutes(paths: string[]) {
   });
 
   return routes;
-}
-
-function pagePath(path: string[]) {
-  return '/' + path.join('/');
 }
