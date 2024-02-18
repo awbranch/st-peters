@@ -108,7 +108,7 @@ export const sendContactMessage = async (
     const destStatus = await transporter.sendMail({
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
       to: subject.emailTo,
-      // cc: contactForm.catchAllEmail,
+      cc: contactForm.catchAllEmail,
       subject: `Contact Form Message: ${subject.name}`,
       text: buildDestMessage(subject, message),
     });
