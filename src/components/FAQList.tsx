@@ -15,7 +15,7 @@ export default function FAQList({ faqs, palette }: Props) {
               <>
                 <dt>
                   <Disclosure.Button className="flex w-full items-start justify-between">
-                    <span className="text-base font-semibold leading-7">
+                    <span className="text-base text-left font-semibold leading-7">
                       {faq.question}
                     </span>
                     <span className="ml-6 flex h-7 items-center">
