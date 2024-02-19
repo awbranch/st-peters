@@ -2,10 +2,9 @@
 
 import { ContactMessage } from '@/types/ContactMessage';
 import { ContactMessageSchema } from '@/schemas/ContactMessageSchema';
-import { getEmailTemplate, getPageByPath } from '@/utils/sanity-utils';
+import { getPageByPath } from '@/utils/sanity-utils';
 import nodemailer from 'nodemailer';
 import { errorToString } from '@/utils/utils';
-import { EmailTemplate } from '@/types/EmailTemplate';
 import { ContactFormSubject } from '@/types/ContactFormSubject';
 
 const transporter = nodemailer.createTransport({
@@ -90,20 +89,7 @@ export const sendContactMessage = async (
       };
     }
 
-    const templateName = 'contact-form-confirmation';
-
     // Fetch the email template
-    let emailTemplate = await getEmailTemplate(templateName);
-    if (!emailTemplate) {
-      console.error(
-        `Contact Form Message: Email template now found: "${emailTemplate}"`,
-      );
-      return {
-        success: false,
-        message: 'Email template not found',
-      };
-    }
-
     // Email the subjectEmail and CC the catchAllEmail
     const destStatus = await transporter.sendMail({
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
@@ -125,8 +111,8 @@ export const sendContactMessage = async (
     const confStatus = await transporter.sendMail({
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
       to: message.email,
-      subject: emailTemplate.subject,
-      text: buildConfirmationResponse(emailTemplate, message),
+      subject: contactForm.confSubject,
+      text: buildConfirmationResponse(contactForm.confTemplate, message),
     });
 
     console.log(
@@ -170,10 +156,10 @@ function buildDestMessage(
 }
 
 function buildConfirmationResponse(
-  emailTemplate: EmailTemplate,
+  emailTemplate: string,
   message: ContactMessage,
 ) {
-  let text = emailTemplate.template;
+  let text = emailTemplate;
   const { firstName, lastName } = message;
   text = text.replace('{{firstName}}', firstName);
   text = text.replace('{{lastName}}', lastName);

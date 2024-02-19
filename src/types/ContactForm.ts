@@ -5,4 +5,6 @@ export type ContactForm = ComponentProps & {
   _type: 'contactForm';
   catchAllEmail: string;
   subjects?: ContactFormSubject[];
+  confSubject: string;
+  confTemplate: string;
 };

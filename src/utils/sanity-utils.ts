@@ -7,7 +7,6 @@ import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
 import { ComponentSet } from '@/types/ComponentSet';
-import { EmailTemplate } from '@/types/EmailTemplate';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -96,16 +95,6 @@ export async function getPageByPath(path: string | string[]) {
   );
   addPalette(page);
   return page;
-}
-
-export async function getEmailTemplate(id: string) {
-  return client.fetch<EmailTemplate>(
-    groq`*[_type == "emailTemplate" && id.current == $id][0]`,
-    {
-      id: id,
-    },
-    fetchOptions(),
-  );
 }
 
 /**
