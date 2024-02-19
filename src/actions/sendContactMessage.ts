@@ -2,20 +2,10 @@
 
 import { ContactMessage } from '@/types/ContactMessage';
 import { ContactMessageSchema } from '@/schemas/ContactMessageSchema';
-import { getPageByPath } from '@/utils/sanity-utils';
-import nodemailer from 'nodemailer';
-import { errorToString } from '@/utils/utils';
+import { getPageComponent } from '@/utils/sanity-utils';
+import { errorToString, trim } from '@/utils/utils';
 import { ContactFormSubject } from '@/types/ContactFormSubject';
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.BRANCH_STUDIO_SMTP_USER,
-    pass: process.env.BRANCH_STUDIO_SMTP_PASS,
-  },
-  logger: true,
-  debug: true,
-});
+import { sentMessageInfoToString, transporter } from '@/utils/mail';
 
 export const sendContactMessage = async (
   pagePath: string,
@@ -28,7 +18,7 @@ export const sendContactMessage = async (
     // Reparse the results
     if (!results.success) {
       const errors = results.error.flatten();
-      console.error('Contact Form Message: Invalid message format', errors);
+      console.error('Contact Message: Invalid message format', errors);
       return {
         success: false,
         message:
@@ -38,26 +28,13 @@ export const sendContactMessage = async (
       };
     }
 
-    // Get the email address for the selected subject
     const cleanMessage = results.data;
 
-    // Look up the contact information
-    const page = await getPageByPath(pagePath);
-    if (!page) {
-      console.error(`Contact Form Message: Page path not found: "${pagePath}"`);
-      return {
-        success: false,
-        message: 'Page path not found',
-      };
-    }
-
-    const contactForm = page.blocks
-      ?.flatMap((b) => b.components || [])
-      .find((c) => c._key === formKey);
+    const contactForm = await getPageComponent(pagePath, formKey);
 
     if (!contactForm) {
       console.error(
-        `Contact Form Message: Invalid form key: "${formKey}" on page path: "${pagePath}"`,
+        `Contact Message: Invalid form key: "${formKey}" on page path: "${pagePath}"`,
       );
       return {
         success: false,
@@ -67,7 +44,7 @@ export const sendContactMessage = async (
 
     if (contactForm._type !== 'contactForm') {
       console.error(
-        `Contact Form Message: Invalid form type: "${contactForm._type}" for form key "${formKey}" on page path: "${pagePath}"`,
+        `Contact Message: Invalid form type: "${contactForm._type}" for form key "${formKey}" on page path: "${pagePath}"`,
       );
       return {
         success: false,
@@ -81,7 +58,7 @@ export const sendContactMessage = async (
 
     if (!subject) {
       console.error(
-        `Contact Form Message: Invalid subject: "${cleanMessage.subject}" for form key "${formKey}" on page path: "${pagePath}"`,
+        `Contact Message: Invalid subject: "${cleanMessage.subject}" for form key "${formKey}" on page path: "${pagePath}"`,
       );
       return {
         success: false,
@@ -89,22 +66,18 @@ export const sendContactMessage = async (
       };
     }
 
-    // Fetch the email template
-    // Email the subjectEmail and CC the catchAllEmail
+    // Email St. Peter's with the contact message
     const destStatus = await transporter.sendMail({
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
       to: subject.emailTo,
       cc: contactForm.catchAllEmail,
-      subject: `Contact Form Message: ${subject.name}`,
-      text: buildDestMessage(subject, message),
+      subject: `Contact Message: ${subject.name}`,
+      text: buildDestMessage(subject, cleanMessage),
     });
 
     console.log(
-      `Message destination email response: ${destStatus.response} id: ${
-        destStatus.messageId
-      } accepted: ${JSON.stringify(
-        destStatus.accepted,
-      )} rejected: ${JSON.stringify(destStatus.rejected)}`,
+      'Message destination email response: ' +
+        sentMessageInfoToString(destStatus),
     );
 
     // Send a confirmation email to the person that filled in the contact form
@@ -112,15 +85,12 @@ export const sendContactMessage = async (
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
       to: message.email,
       subject: contactForm.confSubject,
-      text: buildConfirmationResponse(contactForm.confTemplate, message),
+      text: buildConfirmationResponse(contactForm.confTemplate, cleanMessage),
     });
 
     console.log(
-      `Message confirmation email response: ${confStatus.response} id: ${
-        confStatus.messageId
-      } accepted: ${JSON.stringify(
-        confStatus.accepted,
-      )} rejected: ${JSON.stringify(confStatus.rejected)}`,
+      'Message confirmation email response: ' +
+        sentMessageInfoToString(confStatus),
     );
   } catch (e) {
     return {
@@ -139,20 +109,12 @@ function buildDestMessage(
   subject: ContactFormSubject,
   message: ContactMessage,
 ) {
-  return (
-    'Subject: ' +
-    subject.name +
-    '\n' +
-    'From: ' +
-    message.firstName +
-    ' ' +
-    message.lastName +
-    '\n' +
-    message.email +
-    (message.phoneNumber ? '\n' + message.phoneNumber : '') +
-    '\n\n---\n\n' +
-    message.message
-  );
+  return trim`Contact Message
+  Subject: ${subject.name}
+  From: ${message.firstName} ${message.lastName} 
+  ${message.email}${message.phoneNumber ? '\n' + message.phoneNumber : ''}
+
+  ${message.message}`;
 }
 
 function buildConfirmationResponse(

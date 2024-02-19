@@ -26,3 +26,18 @@ export function errorToString(error: any): string {
     return 'Unknown error';
   }
 }
+
+export function trim(
+  strings: TemplateStringsArray,
+  ...values: string[]
+): string {
+  let result = '';
+  strings.forEach((str, i) => {
+    result += str + (values[i] || '');
+  });
+
+  return result
+    .split('\n')
+    .map((s) => s.trim())
+    .join('\n');
+}

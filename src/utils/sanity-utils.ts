@@ -170,3 +170,18 @@ export function storyMultiplier(stories: NewsStory[], count: number) {
 
   return multi;
 }
+
+export async function getPageComponent(pagePath: string, componentKey: string) {
+  const page = await getPageByPath(pagePath);
+  if (page) {
+    const component = page.blocks
+      ?.flatMap((b) => b.components || [])
+      .find((c) => c._key === componentKey);
+
+    if (component) {
+      return component;
+    }
+  }
+
+  return null;
+}
