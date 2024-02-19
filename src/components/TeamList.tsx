@@ -30,7 +30,9 @@ export default async function TeamList({ members, palette }: Props) {
         >
           <ResponsiveImage
             image={member.image}
-            className={'aspect-square w-64 h-fit flex-none rounded-2xl'}
+            className={
+              'aspect-square w-full xs:w-64 xs:h-fit flex-none rounded-2xl'
+            }
             sizes={'100vw'}
           />
           <div className="flex-auto">

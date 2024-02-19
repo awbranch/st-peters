@@ -17,7 +17,7 @@ export const Title = ({
     as || 'h1',
     {
       className: twMerge(
-        'text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]',
+        'text-5xl xs:text-6xl font-bold tracking-tight mb-8 [text-wrap:balance]',
         className,
       ),
       ...rest,
