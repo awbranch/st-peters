@@ -5,6 +5,8 @@ import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonRow as ButtonRowType } from '@/types/ButtonRow';
+import YouTubeVideo from '@/components/YouTubeVideo';
+import { YouTubeVideo as YouTubeVideoType } from '@/types/YouTubeVideo';
 import {
   BlockQuote,
   Em,
@@ -99,6 +101,9 @@ const RichText = ({ text, overrides, palette = 'white' }: Props) => {
       },
       buttonRow: ({ value }: { value: ButtonRowType }) => {
         return <ButtonRow {...value} palette={palette} />;
+      },
+      youTubeVideo: ({ value }: { value: YouTubeVideoType }) => {
+        return <YouTubeVideo {...value} />;
       },
       bookmark: ({ value }: { value: Bookmark }) => {
         return <div id={value.id?.current} />;

@@ -20,6 +20,7 @@ import { TitleText } from '@/types/TitleText';
 import { VolunteerForm } from '@/types/VolunteerForm';
 import { ButtonRow } from '@/types/ButtonRow';
 import { Palette } from '@/types/Palette';
+import { YouTubeVideo } from '@/types/YouTubeVideo';
 
 export type Component =
   | Article
@@ -42,7 +43,8 @@ export type Component =
   | TeamGrid
   | TeamList
   | TitleText
-  | VolunteerForm;
+  | VolunteerForm
+  | YouTubeVideo;
 
 export type ComponentProps = {
   _key: string;

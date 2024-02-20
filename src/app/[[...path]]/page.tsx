@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = await getPageByPath(path);
 
   return {
-    ...(page.title ? { title: page.title } : {}),
+    ...(page.title ? { title: page.title + " - St. Peter's Kitchen" } : {}),
     ...(page.description ? { description: page.description } : {}),
     alternates: {
       canonical: page.path,

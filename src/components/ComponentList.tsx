@@ -21,6 +21,7 @@ import ContactForm from '@/components/ContactForm';
 import VolunteerForm from '@/components/VolunteerForm';
 import Article from '@/components/Article';
 import ButtonRow from '@/components/ButtonRow';
+import YouTubeVideo from '@/components/YouTubeVideo';
 
 type ComponentListProps = {
   components: ComponentType[];
@@ -104,6 +105,9 @@ function Component({ component }: ComponentProps) {
 
     case 'volunteerForm':
       return <VolunteerForm {...component} />;
+
+    case 'youTubeVideo':
+      return <YouTubeVideo {...component} />;
 
     default:
       return (

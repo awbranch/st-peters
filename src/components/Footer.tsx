@@ -124,13 +124,14 @@ export default async function Footer() {
             </ul>
           </section>
           <section id={'site-map'}>
-            <ul
-              className={
-                'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-2'
-              }
-            >
+            <ul className={'columns-1 sm:columns-2 md:columns-3 gap-16'}>
               {props.siteMap.map((s) => (
-                <li key={s.name} className={'text-center xs:text-left'}>
+                <li
+                  key={s.name}
+                  className={
+                    'text-center sm:text-left leading-loose sm:leading-relaxed'
+                  }
+                >
                   <Link
                     className={'hover:underline hover:underline-offset-4'}
                     href={s.url}
