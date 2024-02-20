@@ -1,25 +1,43 @@
 import React from 'react';
-import RichText from '@/components/RichText';
 import Link from 'next/link';
 import { getFooter, urlFor } from '@/utils/sanity-utils';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wave from '@/components/Wave';
-import NewsletterSignupForm from '@/components/NewsletterSignupForm';
 import Section from '@/components/Section';
 import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
+import { ArrowRightIcon } from '@heroicons/react/20/solid';
 
 export default async function Footer() {
   const props = await getFooter();
 
   return (
     <footer>
-      <Section id={'newsletter'} palette={'gray'} className="text-center">
-        <h2 className={'text-lg mb-2'}>{props.newsletterSignupTitle}</h2>
-        <NewsletterSignupForm config={props.newsletterConfig} />
-        <div className={'mt-1'}>
-          <RichText text={props.pastNewslettersMessage} />
-        </div>
+      <Section id={'newsletter'} palette={'gray'}>
+        <p className={'text-xl text-center font-semibold mb-3'}>
+          {props.newsletterTitle}
+        </p>
+        <Link
+          className={
+            'flex flex-row items-center py-1.5 pl-6 pr-1.5 bg-white mx-auto max-w-xs border-[3px] border-black rounded-full group'
+          }
+          href={props.newsletterUrl}
+        >
+          <p
+            className={
+              'text-sm font-medium text-black tracking-wide leading-tight text-left [text-wrap:balance] group-hover:text-gray-600'
+            }
+          >
+            {props.newsletterText}
+          </p>
+          <span
+            className={
+              'flex items-center bg-sunset text-white rounded-full h-12 aspect-square justify-center p-2 group-hover:bg-sunset-light'
+            }
+          >
+            <ArrowRightIcon />
+          </span>
+        </Link>
       </Section>
       <div className={'bg-gray-100'}>
         <Wave />
