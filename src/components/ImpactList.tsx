@@ -7,8 +7,8 @@ export default function ImpactList({ impacts }: Props) {
       <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
         {impacts.map((impact, i) => (
           <div key={i} className="mx-auto flex max-w-xs flex-col gap-y-4">
-            <dt className="text-base leading-7">{impact.category}</dt>
-            <dd className="order-first text-4xl font-semibold tracking-wide sm:text-6xl">
+            <dt className="text-base leading-4">{impact.category}</dt>
+            <dd className="order-first text-5xl xs:text-6xl xl:text-7xl font-semibold tracking-wide">
               {impact.value.toLocaleString('en-US')}
             </dd>
           </div>
