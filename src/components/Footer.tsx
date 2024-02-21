@@ -19,20 +19,20 @@ export default async function Footer() {
         </p>
         <Link
           className={
-            'flex flex-row items-center py-1.5 pl-6 pr-1.5 bg-white mx-auto max-w-xs border-[3px] border-black rounded-full group'
+            'flex flex-row items-center py-1.5 pl-6 pr-1.5 bg-black mx-auto max-w-xs rounded-full group hover:bg-gray-700'
           }
           href={props.newsletterUrl}
         >
           <p
             className={
-              'text-sm font-medium text-black tracking-wide leading-tight text-left [text-wrap:balance] group-hover:text-gray-600'
+              'text-sm font-regular text-white tracking-wide leading-tight text-left [text-wrap:balance]'
             }
           >
             {props.newsletterText}
           </p>
           <span
             className={
-              'flex items-center bg-sunset text-white rounded-full h-12 aspect-square justify-center p-2 group-hover:bg-sunset-light'
+              'flex items-center bg-white text-black rounded-full h-12 aspect-square justify-center p-2 group-hover:text-gray-700'
             }
           >
             <ArrowRightIcon />
