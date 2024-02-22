@@ -3,8 +3,7 @@ import { Link } from '@/types/Link';
 import { Image } from '@/types/Image';
 
 export type Footer = {
-  newsletterTitle: string;
-  newsletterText: string;
+  newsletterLabel: string;
   newsletterUrl: string;
   logo: Image;
   contactPhone?: string;

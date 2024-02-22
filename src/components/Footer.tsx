@@ -6,7 +6,7 @@ import Wave from '@/components/Wave';
 import Section from '@/components/Section';
 import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
-import { ArrowRightIcon } from '@heroicons/react/20/solid';
+import NewsletterButton from '@/components/NewsletterButton';
 
 export default async function Footer() {
   const props = await getFooter();
@@ -14,30 +14,12 @@ export default async function Footer() {
   return (
     <footer>
       <Section id={'newsletter'} palette={'gray'}>
-        <p className={'text-xl text-center font-semibold mb-3'}>
-          {props.newsletterTitle}
-        </p>
-        <Link
-          className={
-            'flex flex-row items-center py-1.5 pl-6 pr-1.5 bg-black mx-auto max-w-xs rounded-full group hover:bg-gray-700'
-          }
-          href={props.newsletterUrl}
-        >
-          <p
-            className={
-              'text-sm font-regular text-white tracking-wide leading-tight text-left [text-wrap:balance]'
-            }
-          >
-            {props.newsletterText}
-          </p>
-          <span
-            className={
-              'flex items-center bg-white text-black rounded-full h-12 aspect-square justify-center p-2 group-hover:text-gray-700'
-            }
-          >
-            <ArrowRightIcon />
-          </span>
-        </Link>
+        <div className={'text-center'}>
+          <NewsletterButton
+            href={props.newsletterUrl}
+            label={props.newsletterLabel}
+          />
+        </div>
       </Section>
       <div className={'bg-gray-100'}>
         <Wave />
