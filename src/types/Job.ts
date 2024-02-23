@@ -4,4 +4,5 @@ export type Job = {
   subtitle?: string;
   description: string;
   applyLink: string;
+  hidden: boolean;
 };

@@ -12,6 +12,7 @@ export default function JobList({
   noOpenings,
   palette,
 }: Props) {
+  const visibleJobs = jobs.filter((job) => job.hidden);
   return (
     <div
       className={
@@ -26,9 +27,9 @@ export default function JobList({
         />
       </div>
       <div className={'row-start-3 lg:row-start-2 flex items-center'}>
-        {jobs?.length > 0 ? (
+        {visibleJobs.length > 0 ? (
           <ul className="-my-8 divide-y divide-gray-300">
-            {jobs.map((job) => (
+            {visibleJobs.map((job) => (
               <li key={job._key} className="py-8">
                 <dl className="gap-x-3">
                   <dt className="sr-only">Role</dt>

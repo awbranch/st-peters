@@ -5,6 +5,7 @@ import { Palette } from '@/types/Palette';
 export type Block = {
   _key: string;
   id: Slug;
+  hidden: boolean;
   palette: Palette;
   components?: Component[];
 };

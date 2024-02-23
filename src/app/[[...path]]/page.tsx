@@ -43,16 +43,18 @@ export default async function GenericPage({ params }: Props) {
           <BreadCrumbs routes={convertToRoutes(path)} />
         </Container>
       )}
-      {page?.blocks?.map((b) => (
-        <Section
-          key={b._key}
-          id={b.id?.current}
-          palette={b.palette}
-          maxWidth={page.maxWidth}
-        >
-          {b?.components && <ComponentList components={b.components} />}
-        </Section>
-      ))}
+      {page?.blocks
+        ?.filter((b) => !b.hidden)
+        ?.map((b) => (
+          <Section
+            key={b._key}
+            id={b.id?.current}
+            palette={b.palette}
+            maxWidth={page.maxWidth}
+          >
+            {b?.components && <ComponentList components={b.components} />}
+          </Section>
+        ))}
     </>
   );
 }
