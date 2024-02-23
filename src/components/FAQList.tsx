@@ -4,11 +4,18 @@ import RichText from '@/components/RichText';
 import { FAQList as Props } from '@/types/FAQList';
 import { Disclosure } from '@headlessui/react';
 import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
+import { twJoin } from 'tailwind-merge';
+import { userPaletteClasses } from '@/utils/globals';
 
 export default function FAQList({ faqs, palette }: Props) {
   return (
     <div className="mx-auto">
-      <dl className="mt-10 space-y-6 divide-y divide-gray-300/50">
+      <dl
+        className={twJoin(
+          'mt-10 space-y-6 divide-y',
+          userPaletteClasses[palette].divide,
+        )}
+      >
         {faqs.map((faq) => (
           <Disclosure as="div" key={faq.question} className="pt-6">
             {({ open }) => (
