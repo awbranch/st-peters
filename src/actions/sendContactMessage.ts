@@ -69,7 +69,7 @@ export const sendContactMessage = async (
     // Email St. Peter's with the contact message
     const destStatus = await transporter.sendMail({
       from: process.env.BRANCH_STUDIO_EMAIL_FROM,
-      to: subject.emailTo,
+      to: subject.emailTo.split(',').map((e) => e.trim()),
       cc: contactForm.catchAllEmail,
       subject: `Contact Message: ${subject.name}`,
       text: buildDestMessage(subject, cleanMessage),

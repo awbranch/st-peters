@@ -113,7 +113,7 @@ function addPalette(page: Page) {
 
 export async function getNewsStories() {
   return client.fetch<NewsStory[]>(
-    groq`*[_type == "newsStory"]{..., categories[]->{label, value}} | order(date desc)`,
+    groq`*[_type == "newsStory" && hidden != true]{..., categories[]->{label, value}} | order(date desc)`,
     {},
     fetchOptions(),
   );
