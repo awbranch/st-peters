@@ -22,7 +22,7 @@ import { FormPlaceholder } from '@/components/FormPlaceholder';
 type Props = {
   formKey: string;
   subjects: ListboxItem[];
-  blockId: string;
+  blockId?: string;
   palette: Palette;
 };
 
@@ -83,7 +83,11 @@ function ContactFormImplClient({ formKey, subjects, palette, blockId }: Props) {
 
   watch((data, { name }) => {
     if (name === 'subject') {
-      router.replace(`${pathname}?subject=${data.subject}#${blockId}`, {
+      let newPath = `${pathname}?subject=${data.subject}`;
+      if (blockId) {
+        newPath += `#${blockId}`;
+      }
+      router.replace(newPath, {
         scroll: false,
       });
     }

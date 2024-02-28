@@ -48,6 +48,6 @@ export type Component =
 
 export type ComponentProps = {
   _key: string;
-  blockId: string;
+  blockId?: string;
   palette: Palette;
 };
