@@ -10,7 +10,7 @@ import TextInput from '@/components/TextInput';
 import InputError from '@/components/InputError';
 import TextArea from '@/components/TextArea';
 import { sendContactMessage } from '@/actions/sendContactMessage';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { errorToString } from '@/utils/utils';
 import { Suspense, useEffect } from 'react';
 import { ContactMessage } from '@/types/ContactMessage';
@@ -22,6 +22,7 @@ import { FormPlaceholder } from '@/components/FormPlaceholder';
 type Props = {
   formKey: string;
   subjects: ListboxItem[];
+  blockId: string;
   palette: Palette;
 };
 
@@ -34,8 +35,9 @@ export default function ContactFormClient(props: Props) {
   );
 }
 
-function ContactFormImplClient({ formKey, subjects, palette }: Props) {
+function ContactFormImplClient({ formKey, subjects, palette, blockId }: Props) {
   const pathname = usePathname();
+  const router = useRouter();
 
   // Find the selected subject
   const searchParams = useSearchParams();
@@ -47,6 +49,7 @@ function ContactFormImplClient({ formKey, subjects, palette }: Props) {
     handleSubmit,
     setError,
     reset,
+    watch,
   } = useForm<ContactMessage>({ resolver: zodResolver(ContactMessageSchema) });
 
   useEffect(() => {
@@ -77,6 +80,14 @@ function ContactFormImplClient({ formKey, subjects, palette }: Props) {
       toast.error(errorToString(e));
     }
   };
+
+  watch((data, { name }) => {
+    if (name === 'subject') {
+      router.replace(`${pathname}?subject=${data.subject}#${blockId}`, {
+        scroll: false,
+      });
+    }
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>

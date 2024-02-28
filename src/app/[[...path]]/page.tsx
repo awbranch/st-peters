@@ -48,7 +48,7 @@ export default async function GenericPage({ params }: Props) {
         ?.map((b) => (
           <Section
             key={b._key}
-            id={b.id?.current}
+            id={b.id.current}
             palette={b.palette}
             maxWidth={page.maxWidth}
           >

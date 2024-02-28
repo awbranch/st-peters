@@ -79,7 +79,7 @@ export async function getPages() {
     {},
     fetchOptions(),
   );
-  pages.forEach((p) => addPalette(p));
+  pages.forEach((p) => addBlockConfig(p));
   return pages;
 }
 
@@ -93,7 +93,7 @@ export async function getPageByPath(path: string | string[]) {
     },
     fetchOptions(),
   );
-  addPalette(page);
+  addBlockConfig(page);
   return page;
 }
 
@@ -101,11 +101,12 @@ export async function getPageByPath(path: string | string[]) {
  * It's helpful for components to know the palette of the blocks they are contained within
  * @param page
  */
-function addPalette(page: Page) {
+function addBlockConfig(page: Page) {
   if (page) {
     page?.blocks?.forEach((b) => {
       b?.components?.forEach((c) => {
         c.palette = b.palette;
+        c.blockId = b.id.current;
       });
     });
   }
