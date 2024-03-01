@@ -26,6 +26,10 @@ import { twJoin } from 'tailwind-merge';
 
 import { userPaletteClasses } from '@/utils/globals';
 
+type CaptionedImage = Image & {
+  caption?: string;
+};
+
 type Override = {
   [V in 'marks' | 'block' | 'list' | 'types']?: {
     [key: string]: ({
@@ -90,13 +94,24 @@ const RichText = ({ text, overrides, palette = 'white' }: Props) => {
       ...(overrides?.list ? overrides.list : {}),
     },
     types: {
-      image: ({ value }: { value: Image }) => {
+      image: ({ value }: { value: CaptionedImage }) => {
         return (
-          <ResponsiveImage
-            className="my-12 w-full rounded-2xl"
-            image={value}
-            sizes={'100vw'}
-          />
+          <figure className={'my-12 w-full'}>
+            <ResponsiveImage
+              className="w-full rounded-2xl"
+              image={value}
+              sizes={'100vw'}
+            />
+            {value.caption && (
+              <figcaption
+                className={
+                  'hidden xs:block text-xs text-center font-medium mt-2 opacity-40'
+                }
+              >
+                {value.caption}
+              </figcaption>
+            )}
+          </figure>
         );
       },
       buttonRow: ({ value }: { value: ButtonRowType }) => {
