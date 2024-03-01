@@ -46,13 +46,13 @@ export default async function Footer() {
                 'flex flex-col gap-2 text-base tracking-wider text-center'
               }
             >
-              {props.contactEmail && (
-                <a
+              {props.contactFormLabel && props.contactFormLink && (
+                <Link
                   className={'block hover:underline'}
-                  href={'mailto:' + props.contactEmail}
+                  href={props.contactFormLink}
                 >
-                  {props.contactEmail}
-                </a>
+                  {props.contactFormLabel}
+                </Link>
               )}
               {props.contactPhone && (
                 <a

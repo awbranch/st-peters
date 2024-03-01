@@ -7,7 +7,8 @@ export type Footer = {
   newsletterUrl: string;
   logo: Image;
   contactPhone?: string;
-  contactEmail?: string;
+  contactFormLabel?: string;
+  contactFormLink?: string;
   streetAddress?: string;
   mailingAddress?: string;
   socialTitle: string;
