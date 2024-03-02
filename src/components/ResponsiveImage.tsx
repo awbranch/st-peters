@@ -1,5 +1,5 @@
 import React, { ImgHTMLAttributes } from 'react';
-import { imageAttributes, urlFor } from '@/utils/sanity-utils';
+import { imageAttributes, urlFor } from '@/utils/sanity';
 import { maxPageWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import { twMerge } from 'tailwind-merge';
@@ -19,6 +19,10 @@ export default function ResponsiveImage({
   priority = false,
   className,
 }: Props) {
+  if (!image?.asset) {
+    return <></>;
+  }
+
   const { width, height } = imageAttributes(image);
 
   const objectPosition = image.hotspot

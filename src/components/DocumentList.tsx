@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilePdf, faFileZipper } from '@fortawesome/pro-solid-svg-icons';
 
-import { fileAttributes, urlForFile } from '@/utils/sanity-utils';
+import { fileAttributes, urlForFile } from '@/utils/sanity';
 import { DocumentList as Props } from '@/types/DocumentList';
 import { File } from 'sanity';
 

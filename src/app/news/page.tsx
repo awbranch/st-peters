@@ -1,5 +1,5 @@
 import NewsList from '@/components/NewsList';
-import { getNewsStories } from '@/utils/sanity-utils';
+import { getNewsStories } from '@/utils/sanity';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

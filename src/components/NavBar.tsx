@@ -6,7 +6,7 @@ import Container from '@/components/Container';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { urlFor } from '@/utils/sanity-utils';
+import { urlFor } from '@/utils/sanity';
 import { Image } from '@/types/Image';
 import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';

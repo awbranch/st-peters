@@ -1,4 +1,4 @@
-import { getPageByPath, getPages } from '@/utils/sanity-utils';
+import { getPageByPath, getPages } from '@/utils/sanity';
 import React from 'react';
 import Section from '@/components/Section';
 import ComponentList from '@/components/ComponentList';
@@ -23,13 +23,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = params && params.path ? params.path : [];
   const page = await getPageByPath(path);
 
-  return {
-    ...(page.title ? { title: page.title + " - St. Peter's Kitchen" } : {}),
-    ...(page.description ? { description: page.description } : {}),
-    alternates: {
-      canonical: page.path,
-    },
-  };
+  return page
+    ? {
+        ...(page.title ? { title: page.title + " - St. Peter's Kitchen" } : {}),
+        ...(page.description ? { description: page.description } : {}),
+        alternates: {
+          canonical: page.path,
+        },
+      }
+    : {};
 }
 
 export default async function GenericPage({ params }: Props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentSetReference as Props } from '@/types/ComponentSetReference';
-import { getComponentSet } from '@/utils/sanity-utils';
+import { getComponentSet } from '@/utils/sanity';
 import ComponentList from '@/components/ComponentList';
 
 export default async function ComponentSetReference({

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { newsStoriesPerPage } from '@/utils/globals';
 import React from 'react';
-import { getNewsStories } from '@/utils/sanity-utils';
+import { getNewsStories } from '@/utils/sanity';
 import NewsList from '@/components/NewsList';
 
 export const dynamicParams = false;

@@ -86,22 +86,28 @@ export async function getPages() {
 export async function getPageByPath(path: string | string[]) {
   const pagePath = Array.isArray(path) ? '/' + path.join('/') : path;
 
-  let page = await client.fetch<Page>(
-    groq`*[_type == "page" && path == $path][0]`,
-    {
-      path: pagePath,
-    },
-    fetchOptions(),
-  );
-  addBlockConfig(page);
-  return page;
+  if (process.env.NODE_ENV === 'development') {
+    let page = await client.fetch<Page>(
+      groq`*[_type == "page" && path == $path][0]`,
+      {
+        path: pagePath,
+      },
+      fetchOptions(),
+    );
+    addBlockConfig(page);
+    return page;
+  } else {
+    // During production, since requests are cached it reduces api calls to get all pages
+    let pages = await getPages();
+    return pages.find((p) => p.path === pagePath);
+  }
 }
 
 /**
  * It's helpful for components to know the palette of the blocks they are contained within
  * @param page
  */
-function addBlockConfig(page: Page) {
+function addBlockConfig(page?: Page) {
   if (page) {
     page?.blocks?.forEach((b) => {
       b?.components?.forEach((c) => {
@@ -136,14 +142,26 @@ export async function getFooter() {
   );
 }
 
-export async function getComponentSet(id: string) {
-  return client.fetch<ComponentSet>(
-    groq`*[_id == $id][0]`,
-    {
-      id,
-    },
+export async function getComponentSets() {
+  return client.fetch<ComponentSet[]>(
+    groq`*[_type == "componentSet"]`,
     fetchOptions(),
   );
+}
+
+export async function getComponentSet(id: string) {
+  if (process.env.NODE_ENV === 'development') {
+    return client.fetch<ComponentSet>(
+      groq`*[_id == $id][0]`,
+      {
+        id,
+      },
+      fetchOptions(),
+    );
+  } else {
+    let s = await getComponentSets();
+    return s.find((c) => c._id === id);
+  }
 }
 
 function fetchOptions() {

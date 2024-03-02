@@ -44,7 +44,7 @@ export default function NewsList({ stories, page }: Props) {
                 <time dateTime={story.date} className="text-gray-500">
                   {toShortDate(story.date)}
                 </time>
-                {story?.categories.map((c) => (
+                {story?.categories?.map((c) => (
                   <span
                     key={c._id}
                     className="z-10 rounded-full bg-gray-100 px-3 py-1.5 font-medium text-gray-600"

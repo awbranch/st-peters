@@ -2,7 +2,7 @@
 
 import { ContactMessage } from '@/types/ContactMessage';
 import { ContactMessageSchema } from '@/schemas/ContactMessageSchema';
-import { getPageComponent } from '@/utils/sanity-utils';
+import { getPageComponent } from '@/utils/sanity';
 import { errorToString, trim } from '@/utils/utils';
 import { ContactFormSubject } from '@/types/ContactFormSubject';
 import { sentMessageInfoToString, transporter } from '@/utils/mail';

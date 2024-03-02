@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { getFooter, urlFor } from '@/utils/sanity-utils';
+import { getFooter, urlFor } from '@/utils/sanity';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wave from '@/components/Wave';
 import Section from '@/components/Section';

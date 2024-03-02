@@ -5,7 +5,7 @@ import {
   isWeekday,
   toMonthAndDate,
 } from '@/utils/date';
-import { getLunchMenus } from '@/utils/sanity-utils';
+import { getLunchMenus } from '@/utils/sanity';
 import { LunchMenuList as Props } from '@/types/LunchMenuList';
 import { twJoin } from 'tailwind-merge';
 import SimpleText from '@/components/SimpleText';

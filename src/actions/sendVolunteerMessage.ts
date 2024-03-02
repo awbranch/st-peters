@@ -2,7 +2,7 @@
 
 import { VolunteerMessage } from '@/types/VolunteerMessage';
 import { VolunteerMessageSchema } from '@/schemas/VolunteerMessageSchema';
-import { getPageComponent } from '@/utils/sanity-utils';
+import { getPageComponent } from '@/utils/sanity';
 import { sentMessageInfoToString, transporter } from '@/utils/mail';
 import { trim } from '@/utils/utils';
 

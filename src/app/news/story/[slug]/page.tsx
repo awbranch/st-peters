@@ -1,5 +1,5 @@
 import { toFullDate } from '@/utils/date';
-import { getNewsStories } from '@/utils/sanity-utils';
+import { getNewsStories } from '@/utils/sanity';
 import { TopNewsStoriesGrid } from '@/components/TopNewsStoriesGrid';
 import Section from '@/components/Section';
 import Container from '@/components/Container';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ButtonTileGrid as Props } from '@/types/ButtonTileGrid';
 import Link from 'next/link';
-import { urlFor } from '@/utils/sanity-utils';
+import { urlFor } from '@/utils/sanity';
 import { twJoin } from 'tailwind-merge';
 
 export default async function ButtonTileGrid({ buttons, palette }: Props) {
