@@ -13,7 +13,7 @@ export function TopNewsStoriesGrid({ stories }: Props) {
       _type={'imageTileGrid'}
       palette={'white'}
       images={stories.map((s) => ({
-        _key: s.slug.current,
+        _key: s._id,
         image: s.previewImage,
         label: s.title,
         url: `/news/story/${s.slug.current}`,

@@ -19,9 +19,9 @@ export default async function ButtonRow({
         alignment === 'right' && 'justify-end',
       )}
     >
-      {buttons.map((b, i) => (
+      {buttons.map((b) => (
         <LinkButton
-          key={i}
+          key={b._key}
           size={'large'}
           href={b.link}
           icon={b.icon}

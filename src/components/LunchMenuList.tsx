@@ -33,9 +33,9 @@ export default async function LunchMenuList({ tbd, palette }: Props) {
 
   return (
     <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-      {menus.map((menu, i) => (
+      {menus.map((menu) => (
         <div
-          key={i}
+          key={menu._key}
           className={twJoin(
             menu.date === today
               ? twJoin(

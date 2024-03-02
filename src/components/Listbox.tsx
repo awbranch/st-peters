@@ -62,9 +62,9 @@ export default function Listbox({
           </span>
         </ListboxHUI.Button>
         <ListboxHUI.Options className="absolute z-10 mt-1 max-h-80 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-          {items.map((item, idx) => (
+          {items.map((item) => (
             <ListboxHUI.Option
-              key={idx}
+              key={item.id}
               value={item.id}
               className={({ active }) =>
                 twJoin(

@@ -6,9 +6,9 @@ import { splitText } from '@/utils/utils';
 export default function ListSet({ lists }: Props) {
   return (
     <div className={'columns-1 gap-x-10 md:columns-2 space-y-10'}>
-      {lists.map((listSet, i) => (
+      {lists.map((listSet) => (
         <div
-          key={i}
+          key={listSet._key}
           className={twJoin(
             splitText(listSet.list).length < 10 && 'break-inside-avoid-column',
           )}

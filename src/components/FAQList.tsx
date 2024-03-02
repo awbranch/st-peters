@@ -17,7 +17,7 @@ export default function FAQList({ faqs, palette }: Props) {
         )}
       >
         {faqs.map((faq) => (
-          <Disclosure as="div" key={faq.question} className="pt-6">
+          <Disclosure as="div" key={faq._key} className="pt-6">
             {({ open }) => (
               <>
                 <dt>

@@ -109,7 +109,7 @@ export default async function Footer() {
             <ul className={'columns-1 sm:columns-2 md:columns-3 gap-16'}>
               {props.siteMap.map((s) => (
                 <li
-                  key={s.name}
+                  key={s._key}
                   className={
                     'text-center sm:text-left leading-loose sm:leading-relaxed'
                   }

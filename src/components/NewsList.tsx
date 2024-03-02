@@ -27,7 +27,7 @@ export default function NewsList({ stories, page }: Props) {
       <div className="my-16 space-y-20 lg:space-y-20">
         {storiesOnPage.map((story) => (
           <article
-            key={story.slug.current}
+            key={story._id}
             className="relative isolate flex flex-col gap-8 lg:flex-row"
           >
             <div className="relative aspect-[3/2] sm:aspect-[16/9] lg:aspect-[3/2] lg:w-96 lg:shrink-0">

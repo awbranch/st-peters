@@ -5,6 +5,7 @@ import { Component } from '@/types/Component';
 import { Block } from '@/types/Block';
 
 export type NewsStory = {
+  _id: string;
   categories: NewsCategory[];
   date: string;
   title: string;

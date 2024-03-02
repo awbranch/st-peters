@@ -7,9 +7,9 @@ import { twJoin } from 'tailwind-merge';
 export default async function ButtonTileGrid({ buttons, palette }: Props) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 auto-rows-fr">
-      {buttons.map((button, i) => (
+      {buttons.map((button) => (
         <Link
-          key={i}
+          key={button._key}
           className={twJoin(
             'block p-6  sm:p-8 rounded-xl ease-in-out duration-200 hover:scale-105',
             palette === 'white' && 'bg-gray-100 text-black',

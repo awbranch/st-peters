@@ -34,7 +34,7 @@ export default function Hero({ text, image, buttons, palette }: Props) {
           <div className={'mt-8 flex flex-row gap-4'}>
             {buttons.map((b) => (
               <LinkButton
-                key={b.label}
+                key={b._key}
                 href={b.link}
                 size={'large'}
                 icon={b.icon}

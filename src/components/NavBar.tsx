@@ -48,8 +48,8 @@ export default function NavBar({
           </Link>
           <div className="flex items-center gap-x-6">
             <Popover.Group className="hidden lg:flex gap-x-6">
-              {menuItems.map((item, i) => (
-                <span key={i}>
+              {menuItems.map((item) => (
+                <span key={item._key}>
                   {item.action === 'link' ? (
                     <Link
                       className="text-base font-medium text-black"
@@ -78,9 +78,9 @@ export default function NavBar({
                         leaveTo="opacity-0 translate-y-1"
                       >
                         <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-56 rounded-xl bg-white p-2 shadow-lg ring-1 ring-gray-900/5">
-                          {item.menu.map((subItem, i) => (
+                          {item.menu.map((subItem) => (
                             <a
-                              key={i}
+                              key={subItem._key}
                               href={subItem.url}
                               className="block rounded-lg px-3 py-2 text-sm font-medium leading-8 text-black hover:bg-gray-50"
                             >
@@ -95,9 +95,9 @@ export default function NavBar({
               ))}
             </Popover.Group>
             <div className="flex gap-x-6">
-              {actionButtons.map((b, i) => (
+              {actionButtons.map((b) => (
                 <LinkButton
-                  key={i}
+                  key={b._key}
                   size={'large'}
                   href={b.link}
                   {...userPaletteButtonProps.white[b.style]}
@@ -152,10 +152,10 @@ export default function NavBar({
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {menuItems.map((item, i) =>
+                {menuItems.map((item) =>
                   item.action === 'link' ? (
                     <Link
-                      key={i}
+                      key={item._key}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-medium leading-7 text-black hover:bg-gray-50"
                       href={item.action === 'link' ? item.url : '#'}
                       onClick={() => setMobileMenuOpen(false)}
@@ -163,7 +163,7 @@ export default function NavBar({
                       {item.name}
                     </Link>
                   ) : (
-                    <div key={i}>
+                    <div key={item._key}>
                       <Disclosure as="div" className="-mx-3">
                         {({ open }) => (
                           <>
@@ -180,7 +180,7 @@ export default function NavBar({
                             <Disclosure.Panel className="mt-2 space-y-2">
                               {item.menu.map((subItem) => (
                                 <Link
-                                  key={i}
+                                  key={subItem._key}
                                   className="block rounded-lg py-2 pl-6 pr-3 text-sm font-medium leading-7 text-black hover:bg-gray-50"
                                   href={subItem.url || '#'}
                                   onClick={() => setMobileMenuOpen(false)}

@@ -85,7 +85,7 @@ export default async function Page({ params }: Props) {
 
       {story?.blocks?.map((b) => (
         <Section
-          key={b.id?.current}
+          key={b._key}
           id={b.id?.current}
           palette={b.palette}
           maxWidth={'md'}
