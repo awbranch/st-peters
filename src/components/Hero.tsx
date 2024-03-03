@@ -49,7 +49,7 @@ export default function Hero({ text, image, buttons, palette }: Props) {
       <div className={'max-w-lg lg:max-w-full'}>
         <ResponsiveImage
           image={image}
-          priority={true}
+          priority={false}
           sizes={`(max-width: ${breakpoints.lg}px) 32rem, 50vw`}
           className={'rounded-2xl'}
         />
