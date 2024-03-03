@@ -5,7 +5,7 @@ import { LinkButton } from '@/components/Button';
 import { Subtitle, Title } from '@/components/Typography';
 import RichText from '@/components/RichText';
 
-import { userPaletteButtonProps } from '@/utils/globals';
+import { breakpoints, userPaletteButtonProps } from '@/utils/globals';
 
 export default function Hero({ text, image, buttons, palette }: Props) {
   return (
@@ -50,7 +50,7 @@ export default function Hero({ text, image, buttons, palette }: Props) {
         <ResponsiveImage
           image={image}
           priority={true}
-          sizes={`100vw`}
+          sizes={`(max-width: ${breakpoints.lg}px) 32rem, 50vw`}
           className={'rounded-2xl'}
         />
       </div>

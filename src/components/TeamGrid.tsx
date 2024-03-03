@@ -2,7 +2,7 @@ import { TeamGrid as Props } from '@/types/TeamGrid';
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { socialIcons } from '@/utils/globals';
+import { breakpoints, socialIcons } from '@/utils/globals';
 import Link from 'next/link';
 import { twJoin } from 'tailwind-merge';
 import { SocialMediaService } from '@/types/SocialMediaService';
@@ -20,7 +20,7 @@ export default async function TeamGrid({ members }: Props) {
           <ResponsiveImage
             image={member.image}
             className={'aspect-square rounded-2xl'}
-            sizes={'100vw'}
+            sizes={`(max-width: ${breakpoints.sm}px) 100vw, (max-width: ${breakpoints.lg}px) 50vw, 33vw`}
           />
           <h3 className={twJoin('mt-6 text-xl font-semibold tracking-tight')}>
             {member.name}

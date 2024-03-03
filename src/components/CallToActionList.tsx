@@ -5,7 +5,11 @@ import RichText from '@/components/RichText';
 import { LinkButton } from '@/components/Button';
 import Link from 'next/link';
 import { twJoin } from 'tailwind-merge';
-import { userPaletteButtonProps, userPaletteClasses } from '@/utils/globals';
+import {
+  breakpoints,
+  userPaletteButtonProps,
+  userPaletteClasses,
+} from '@/utils/globals';
 
 export default function CallToActionList({ items, palette }: Props) {
   return (
@@ -23,7 +27,7 @@ export default function CallToActionList({ items, palette }: Props) {
               <ResponsiveImage
                 image={cta.image}
                 className={'aspect-square w-64 md:w-48 h-fit rounded-lg'}
-                sizes={'100vw'}
+                sizes={`(max-width: ${breakpoints.md}px) 100vw, 25vw`}
               />
             </Link>
             <div className="flex-auto text-center md:text-left">

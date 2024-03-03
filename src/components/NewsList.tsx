@@ -4,7 +4,7 @@ import { NewsStory } from '@/types/NewsStory';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import { toShortDate } from '@/utils/date';
 import Link from 'next/link';
-import { newsStoriesPerPage } from '@/utils/globals';
+import { breakpoints, newsStoriesPerPage } from '@/utils/globals';
 import Pager from '@/components/Pager';
 import { H1 } from '@/components/Typography';
 
@@ -35,7 +35,7 @@ export default function NewsList({ stories, page }: Props) {
                 <ResponsiveImage
                   image={story.previewImage}
                   className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
-                  sizes={'100vw'}
+                  sizes={`(max-width: ${breakpoints.lg}px) 100vw, 24rem`}
                 />
               </Link>
             </div>

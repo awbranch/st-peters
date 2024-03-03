@@ -25,7 +25,7 @@ export default function CallToAction({
         <ResponsiveImage
           image={image}
           priority={false}
-          sizes={`(min-width: ${breakpoints.sm}px) 450px, 100vw`}
+          sizes={`(max-width: ${breakpoints.md}px) 100vw, 50vw`}
           className={'h-full rounded-2xl'}
         />
       </div>

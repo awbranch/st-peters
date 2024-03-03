@@ -4,6 +4,7 @@ import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  breakpoints,
   socialIcons,
   userPaletteButtonProps,
   userPaletteClasses,
@@ -33,7 +34,7 @@ export default async function TeamList({ members, palette }: Props) {
             className={
               'aspect-square w-full xs:w-64 xs:h-fit flex-none rounded-2xl'
             }
-            sizes={'100vw'}
+            sizes={`(max-width: ${breakpoints.xs}px) 100vw, 25vw`}
           />
           <div className="flex-auto">
             <h3 className="text-xl font-semibold tracking-tight">

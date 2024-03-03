@@ -2,6 +2,7 @@ import React from 'react';
 import { ImageTileGrid as Props } from '@/types/ImageTileGrid';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
+import { breakpoints } from '@/utils/globals';
 
 export default async function ImageTileGrid({ images }: Props) {
   return (
@@ -15,7 +16,7 @@ export default async function ImageTileGrid({ images }: Props) {
             <ResponsiveImage
               image={tile.image}
               priority={false}
-              sizes={`100vw`}
+              sizes={`(max-width: ${breakpoints.sm}px) 100vw, (max-width: ${breakpoints.lg}px) 50vw, 33vw`}
               className="aspect-square w-full rounded-2xl object-cover"
             />
             <h3 className="mt-4 text-lg font-semibold leading-8 text-center underline-offset-4 group-hover:underline">

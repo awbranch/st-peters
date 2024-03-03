@@ -1,6 +1,5 @@
 import React, { ImgHTMLAttributes } from 'react';
 import { imageAttributes, urlFor } from '@/utils/sanity';
-import { maxPageWidth } from '@/utils/globals';
 import { Image } from '@/types/Image';
 import { twMerge } from 'tailwind-merge';
 
@@ -11,7 +10,7 @@ type Props = ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;
 };
 
-const widths = [640, 750, 828, 1080, 1200, 1920, 2048, 3840];
+const responsiveWidths = [700, 990, 1280, 1570, 1860];
 
 export default function ResponsiveImage({
   image,
@@ -29,20 +28,25 @@ export default function ResponsiveImage({
     ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
     : undefined;
 
-  // Small images get scaled up to the width or height you specify. To avoid this use &fit=max.
-
-  const src =
-    width <= maxPageWidth
-      ? urlFor(image).url()
-      : urlFor(image).width(maxPageWidth).url();
-
-  const srcSet = widths
+  const sources = responsiveWidths
     .filter((w) => w < width)
-    .concat([width])
-    .map(
-      (w) => `${urlFor(image).width(w).auto('format').quality(75).url()} ${w}w`,
-    )
-    .join(', ');
+    .map((w) => ({
+      url: urlFor(image).width(w).auto('format').url(),
+      width: w,
+    }));
+
+  // This can happen if the image width is less than the min responsive width
+  // Just serve up the small image without any formatting or compression
+  if (sources.length === 0) {
+    sources.push({
+      url: urlFor(image).url(),
+      width: width,
+    });
+  }
+
+  // Set the src to the best image. This is the fallback if srcSet fails to find an image
+  const src = sources[sources.length - 1].url;
+  const srcSet = sources.map((s) => `${s.url} ${s.width}w`).join(', ');
 
   return (
     <img
