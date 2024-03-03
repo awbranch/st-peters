@@ -6,7 +6,6 @@ import Container from '@/components/Container';
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/16/solid';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
-import { urlFor } from '@/utils/sanity';
 import { Image } from '@/types/Image';
 import { MenuItem } from '@/types/MenuItem';
 import { Button } from '@/types/Button';
@@ -14,6 +13,7 @@ import { twJoin } from 'tailwind-merge';
 import { LinkButton } from '@/components/Button';
 
 import { userPaletteButtonProps } from '@/utils/globals';
+import SvgImage from '@/components/SvgImage';
 
 type Props = {
   logo: Image;
@@ -35,15 +35,13 @@ export default function NavBar({
         <nav className="flex items-center justify-between" aria-label="Global">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">St. Peter&apos;s Kitchen</span>
-            <img
+            <SvgImage
               className="h-12 w-auto hidden xs:inline-block"
-              src={urlFor(wideLogo || logo).url()}
-              alt={logo.alt}
+              image={wideLogo || logo}
             />
-            <img
+            <SvgImage
               className="h-12 w-auto inline-block xs:hidden"
-              src={urlFor(logo).url()}
-              alt={logo.alt}
+              image={logo}
             />
           </Link>
           <div className="flex items-center gap-x-6">
@@ -134,11 +132,7 @@ export default function NavBar({
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">St. Peter&amp;s Kitchen</span>
-              <img
-                className="h-10 w-auto"
-                src={urlFor(logo).url()}
-                alt="St. Peter's Kitchen"
-              />
+              <SvgImage className="h-10 w-auto" image={logo} />
             </Link>
             <button
               type="button"

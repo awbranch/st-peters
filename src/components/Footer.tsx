@@ -1,9 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { getFooter, urlFor } from '@/utils/sanity';
+import { getFooter } from '@/utils/sanity';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wave from '@/components/Wave';
 import Section from '@/components/Section';
+import SvgImage from '@/components/SvgImage';
 import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
 import NewsletterButton from '@/components/NewsletterButton';
@@ -35,11 +36,7 @@ export default async function Footer() {
             className={'flex flex-col gap-10 items-center'}
           >
             <Link href="/">
-              <img
-                className="block h-auto w-64"
-                src={urlFor(props.logo).url()}
-                alt="St. Peter's Kitchen"
-              />
+              <SvgImage image={props.logo} className="block h-auto w-64" />
             </Link>
             <div
               className={
