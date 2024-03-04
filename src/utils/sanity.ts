@@ -7,6 +7,7 @@ import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
 import { ComponentSet } from '@/types/ComponentSet';
+import { SocialCards } from '@/types/SocialCards';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -203,4 +204,12 @@ export async function getPageComponent(pagePath: string, componentKey: string) {
   }
 
   return null;
+}
+
+export async function getSocialCards() {
+  return await client.fetch<SocialCards>(
+    groq`*[_type == "socialCards"][0]`,
+    {},
+    fetchOptions(),
+  );
 }

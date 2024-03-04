@@ -1,4 +1,9 @@
-import { getPageByPath, getPages } from '@/utils/sanity';
+import {
+  getPageByPath,
+  getPages,
+  getSocialCards,
+  urlFor,
+} from '@/utils/sanity';
 import React from 'react';
 import Section from '@/components/Section';
 import ComponentList from '@/components/ComponentList';
@@ -22,16 +27,42 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = params && params.path ? params.path : [];
   const page = await getPageByPath(path);
+  const socialCards = await getSocialCards();
 
-  return page
-    ? {
-        ...(page.title ? { title: page.title + " - St. Peter's Kitchen" } : {}),
-        ...(page.description ? { description: page.description } : {}),
-        alternates: {
-          canonical: page.path,
-        },
+  let meta: Metadata = {};
+  if (page) {
+    if (page.title) {
+      meta.title = page.title + " - St. Peter's Kitchen";
+    }
+    if (page.description) {
+      meta.description = page.description;
+    }
+    if (page.path) {
+      meta.alternates = {
+        canonical: page.path,
+      };
+
+      if (socialCards) {
+        if (socialCards.opengraph) {
+          meta.openGraph = {
+            title: "St. Peter's Kitchen",
+            type: 'website',
+            url: page.path,
+            images: urlFor(socialCards.opengraph).url(),
+          };
+        }
+
+        if (socialCards.twitter) {
+          meta.twitter = {
+            title: "St. Peter's Kitchen",
+            images: urlFor(socialCards.twitter).url(),
+          };
+        }
       }
-    : {};
+    }
+  }
+
+  return meta;
 }
 
 export default async function GenericPage({ params }: Props) {
