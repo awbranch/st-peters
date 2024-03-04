@@ -35,7 +35,7 @@ export default async function Footer() {
             id={'address'}
             className={'flex flex-col gap-10 items-center'}
           >
-            <Link href="/">
+            <Link href="/" aria-label={'Go Home'}>
               <SvgImage image={props.logo} className="block h-auto w-64" />
             </Link>
             <div
@@ -92,7 +92,12 @@ export default async function Footer() {
             <ul className={'flex flex-row gap-6'}>
               {props.social.map((s) => (
                 <li key={s.service}>
-                  <Link href={s.url} target="_blank" rel="noreferrer noopener">
+                  <Link
+                    href={s.url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    aria-label={`Go to ${s.service}`}
+                  >
                     <FontAwesomeIcon
                       className={'h-[50px] text-white mx-auto'}
                       icon={socialIcons[s.service]}
