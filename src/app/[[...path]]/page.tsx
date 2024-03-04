@@ -43,21 +43,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
 
       if (socialCards) {
+        const title =
+          "St. Peter's Kitchen" + page.title ? ' - ' + page.title : '';
         if (socialCards.opengraph) {
           meta.openGraph = {
-            title: "St. Peter's Kitchen",
+            title: title,
             type: 'website',
             url: page.path,
             images: urlFor(socialCards.opengraph).url(),
           };
         }
 
-        if (socialCards.twitter) {
-          meta.twitter = {
-            title: "St. Peter's Kitchen",
-            images: urlFor(socialCards.twitter).url(),
-          };
-        }
+        // if (socialCards.twitter) {
+        //   meta.twitter = {
+        //     title: title,
+        //     card: 'summary_large_image',
+        //     images: urlFor(socialCards.twitter).url(),
+        //   };
+        // }
       }
     }
   }
