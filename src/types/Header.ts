@@ -12,4 +12,5 @@ export type Header = {
   wideLogo?: Image;
   menuItems: MenuItem[];
   actionButtons: Button[];
+  socialImage: Image;
 };

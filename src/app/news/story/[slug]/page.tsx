@@ -1,5 +1,5 @@
 import { toFullDate } from '@/utils/date';
-import { getNewsStories } from '@/utils/sanity';
+import { getNewsStories, urlFor } from '@/utils/sanity';
 import { TopNewsStoriesGrid } from '@/components/TopNewsStoriesGrid';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
@@ -27,16 +27,42 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const stories = await getNewsStories();
   const story = stories.find((s) => s.slug.current === params.slug);
+  const path = `/news/story/${params.slug}`;
 
-  return {
-    title: story
-      ? `${story.title} - St. Peter's Kitchen`
-      : "St. Peter's Kitchen",
-    description: story?.summary,
+  let meta: Metadata = {
     alternates: {
-      canonical: `/news/story/${params.slug}`,
+      canonical: path,
     },
   };
+
+  if (story) {
+    const title = story.title
+      ? `${story.title} - St. Peter's Kitchen`
+      : "St. Peter's Kitchen";
+
+    meta.title = title;
+
+    if (story.summary) {
+      meta.description = story.summary;
+    }
+
+    if (story.previewImage) {
+      meta.openGraph = {
+        title: title,
+        type: 'website',
+        url: path,
+        images: urlFor(story.previewImage)
+          .fit('fill')
+          .width(1200)
+          .height(630)
+          .url(),
+
+        // urlFor(image).width(w).auto('format').url(),
+      };
+    }
+  }
+
+  return meta;
 }
 
 export default async function Page({ params }: Props) {

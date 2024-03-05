@@ -1,9 +1,4 @@
-import {
-  getPageByPath,
-  getPages,
-  getSocialCards,
-  urlFor,
-} from '@/utils/sanity';
+import { getHeader, getPageByPath, getPages, urlFor } from '@/utils/sanity';
 import React from 'react';
 import Section from '@/components/Section';
 import ComponentList from '@/components/ComponentList';
@@ -27,7 +22,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = params && params.path ? params.path : [];
   const page = await getPageByPath(path);
-  const socialCards = await getSocialCards();
+  const { socialImage } = await getHeader();
 
   let meta: Metadata = {};
   if (page) {
@@ -42,25 +37,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         canonical: page.path,
       };
 
-      if (socialCards) {
+      if (socialImage) {
         const title =
-          "St. Peter's Kitchen" + page.title ? ' - ' + page.title : '';
-        if (socialCards.opengraph) {
-          meta.openGraph = {
-            title: title,
-            type: 'website',
-            url: page.path,
-            images: urlFor(socialCards.opengraph).url(),
-          };
-        }
-
-        // if (socialCards.twitter) {
-        //   meta.twitter = {
-        //     title: title,
-        //     card: 'summary_large_image',
-        //     images: urlFor(socialCards.twitter).url(),
-        //   };
-        // }
+          "St. Peter's Kitchen" + (page.title ? ' - ' + page.title : '');
+        meta.openGraph = {
+          title: title,
+          type: 'website',
+          url: page.path,
+          images: urlFor(socialImage).url(),
+        };
       }
     }
   }
