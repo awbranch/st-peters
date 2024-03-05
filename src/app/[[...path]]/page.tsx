@@ -22,7 +22,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const path = params && params.path ? params.path : [];
   const page = await getPageByPath(path);
-  const { socialImage } = await getHeader();
+  const socialImage = page?.socialImage || (await getHeader()).socialImage;
 
   let meta: Metadata = {};
   if (page) {
