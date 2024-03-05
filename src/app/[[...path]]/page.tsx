@@ -6,6 +6,7 @@ import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import { titleCase } from 'text-case';
 import type { Metadata } from 'next';
+import { socialMediaImageDimensions } from '@/utils/globals';
 
 // This line should be removed if exporting static pages
 export const dynamicParams = false;
@@ -38,13 +39,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       };
 
       if (socialImage) {
+        const { width, height } = socialMediaImageDimensions;
         const title =
           "St. Peter's Kitchen" + (page.title ? ' - ' + page.title : '');
         meta.openGraph = {
           title: title,
           type: 'website',
           url: page.path,
-          images: urlFor(socialImage).url(),
+          images: urlFor(socialImage)
+            .fit('fill')
+            .width(width)
+            .height(height)
+            .url(),
         };
       }
     }

@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
-import { newsStoriesPerPage } from '@/utils/globals';
+import {
+  newsStoriesPerPage,
+  socialMediaImageDimensions,
+} from '@/utils/globals';
 import React from 'react';
-import { getNewsStories } from '@/utils/sanity';
+import { getHeader, getNewsStories, urlFor } from '@/utils/sanity';
 import NewsList from '@/components/NewsList';
 
 export const dynamicParams = false;
@@ -21,12 +24,27 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return {
+  const { socialImage } = await getHeader();
+  const path = `/news/${params.page}`;
+
+  let meta: Metadata = {
     title: `Page ${params.page} - News - St. Peter's Kitchen`,
     alternates: {
-      canonical: `/news/${params.page}`,
+      canonical: path,
     },
   };
+
+  if (socialImage) {
+    const { width, height } = socialMediaImageDimensions;
+    meta.openGraph = {
+      title: `St. Peter's Kitchen - News - Page ${params.page}`,
+      type: 'website',
+      url: path,
+      images: urlFor(socialImage).fit('fill').width(width).height(height).url(),
+    };
+  }
+
+  return meta;
 }
 
 export default async function News({ params }: Props) {

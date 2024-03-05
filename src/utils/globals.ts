@@ -34,6 +34,11 @@ export const breakpoints = {
   xl: 1280,
 };
 
+export const socialMediaImageDimensions = {
+  width: 1200,
+  height: 630,
+};
+
 export const themeColors = {
   black: '#111827',
   grass: {

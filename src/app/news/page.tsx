@@ -1,6 +1,7 @@
 import NewsList from '@/components/NewsList';
 import { getHeader, getNewsStories, urlFor } from '@/utils/sanity';
 import { Metadata } from 'next';
+import { socialMediaImageDimensions } from '@/utils/globals';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { socialImage } = await getHeader();
@@ -14,12 +15,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 
   if (socialImage) {
-    const title = "St. Peter's Kitchen - News";
+    const { width, height } = socialMediaImageDimensions;
     meta.openGraph = {
-      title: title,
+      title: "St. Peter's Kitchen - News",
       type: 'website',
       url: path,
-      images: urlFor(socialImage).url(),
+      images: urlFor(socialImage).fit('fill').width(width).height(height).url(),
     };
   }
 

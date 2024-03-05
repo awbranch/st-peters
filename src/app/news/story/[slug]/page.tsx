@@ -11,6 +11,7 @@ import { Metadata } from 'next';
 import RichText from '@/components/RichText';
 import { NewsStory } from '@/types/NewsStory';
 import { Palette } from '@/types/Palette';
+import { socialMediaImageDimensions } from '@/utils/globals';
 
 // This line should be removed if exporting static pages
 export const dynamicParams = false;
@@ -47,17 +48,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     if (story.previewImage) {
+      const { width, height } = socialMediaImageDimensions;
       meta.openGraph = {
         title: title,
         type: 'website',
         url: path,
         images: urlFor(story.previewImage)
           .fit('fill')
-          .width(1200)
-          .height(630)
+          .width(width)
+          .height(height)
           .url(),
-
-        // urlFor(image).width(w).auto('format').url(),
       };
     }
   }
