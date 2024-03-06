@@ -1,7 +1,6 @@
 import React from 'react';
 import { PortableTextBlock } from 'sanity';
 import { PortableText } from '@portabletext/react';
-import { Image } from '@/types/Image';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import ButtonRow from '@/components/ButtonRow';
 import { ButtonRow as ButtonRowType } from '@/types/ButtonRow';
@@ -25,10 +24,7 @@ import { Palette } from '@/types/Palette';
 import { twJoin } from 'tailwind-merge';
 
 import { userPaletteClasses } from '@/utils/globals';
-
-type CaptionedImage = Image & {
-  caption?: string;
-};
+import { CaptionedImage } from '@/types/CaptionedImage';
 
 type Override = {
   [V in 'marks' | 'block' | 'list' | 'types']?: {

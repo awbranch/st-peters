@@ -21,6 +21,7 @@ import { VolunteerForm } from '@/types/VolunteerForm';
 import { ButtonRow } from '@/types/ButtonRow';
 import { Palette } from '@/types/Palette';
 import { YouTubeVideo } from '@/types/YouTubeVideo';
+import { ImageGallery } from '@/types/ImageGallery';
 
 export type Component =
   | Article
@@ -35,6 +36,7 @@ export type Component =
   | IconList
   | IFrame
   | ImageTileGrid
+  | ImageGallery
   | ImpactList
   | JobList
   | ListSet

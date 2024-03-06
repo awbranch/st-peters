@@ -22,6 +22,7 @@ import VolunteerForm from '@/components/VolunteerForm';
 import Article from '@/components/Article';
 import ButtonRow from '@/components/ButtonRow';
 import YouTubeVideo from '@/components/YouTubeVideo';
+import ImageGallery from '@/components/ImageGallery';
 
 type ComponentListProps = {
   components: ComponentType[];
@@ -75,6 +76,9 @@ function Component({ component }: ComponentProps) {
 
     case 'iframe':
       return <IFrame {...component} />;
+
+    case 'imageGallery':
+      return <ImageGallery {...component} />;
 
     case 'imageTileGrid':
       return <ImageTileGrid {...component} />;
