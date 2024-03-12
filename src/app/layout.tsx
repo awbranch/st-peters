@@ -6,6 +6,7 @@ import { Montserrat } from 'next/font/google';
 import { twJoin } from 'tailwind-merge';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -44,6 +45,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
       </body>
+      <GoogleTagManager gtmId="GTM-MD6DRC8S" />
     </html>
   );
 }
