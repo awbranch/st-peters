@@ -7,6 +7,7 @@ import { NewsStory } from '@/types/NewsStory';
 import { Footer } from '@/types/Footer';
 import { Header } from '@/types/Header';
 import { ComponentSet } from '@/types/ComponentSet';
+import { Settings } from '@/types/Settings';
 
 const client = createClient({
   projectId: 't6t8tv0q',
@@ -121,6 +122,14 @@ function addBlockConfig(page?: Page) {
 export async function getNewsStories() {
   return client.fetch<NewsStory[]>(
     groq`*[_type == "newsStory" && hidden != true]{..., categories[]->{label, value}} | order(date desc)`,
+    {},
+    fetchOptions(),
+  );
+}
+
+export async function getSettings() {
+  return client.fetch<Settings>(
+    groq`*[_type == "settings"][0]`,
     {},
     fetchOptions(),
   );

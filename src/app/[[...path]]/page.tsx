@@ -1,4 +1,10 @@
-import { getHeader, getPageByPath, getPages, urlFor } from '@/utils/sanity';
+import {
+  getHeader,
+  getPageByPath,
+  getPages,
+  getSettings,
+  urlFor,
+} from '@/utils/sanity';
 import React from 'react';
 import Section from '@/components/Section';
 import ComponentList from '@/components/ComponentList';
@@ -21,6 +27,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const settings = await getSettings();
   const path = params && params.path ? params.path : [];
   const page = await getPageByPath(path);
   const socialImage = page?.socialImage || (await getHeader()).socialImage;
@@ -28,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   let meta: Metadata = {};
   if (page) {
     if (page.title) {
-      meta.title = page.title + " - St. Peter's Kitchen";
+      meta.title = page.title + ' - ' + settings.title;
     }
     if (page.description) {
       meta.description = page.description;
@@ -40,8 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
       if (socialImage) {
         const { width, height } = socialMediaImageDimensions;
-        const title =
-          "St. Peter's Kitchen" + (page.title ? ' - ' + page.title : '');
+        const title = settings.title + (page.title ? ' - ' + page.title : '');
         meta.openGraph = {
           title: title,
           type: 'website',

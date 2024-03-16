@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const { createClient, groq } = require('next-sanity');
+
 const nextConfig = {
   // output: 'export',
   images: {
@@ -16,48 +19,22 @@ const nextConfig = {
     },
   },
   async redirects() {
-    return [
-      {
-        source: '/contact-us',
-        destination: '/contact',
-        permanent: true,
-      },
-      {
-        source: '/other-programs',
-        destination: '/about/area-programs',
-        permanent: true,
-      },
-      {
-        source: '/meal-program',
-        destination: '/about/lunch-program',
-        permanent: true,
-      },
-      {
-        source: '/meal-program',
-        destination: '/about/lunch-program',
-        permanent: true,
-      },
-      {
-        source: '/community-garden/',
-        destination: '/about/seasonal-programs',
-        permanent: true,
-      },
-      {
-        source: '/community-garden',
-        destination: '/about/seasonal-programs',
-        permanent: true,
-      },
-      {
-        source: '/delivery-volunteers',
-        destination: '/volunteer',
-        permanent: true,
-      },
-      {
-        source: '/news-events',
-        destination: '/news',
-        permanent: true,
-      },
-    ];
+    const client = createClient({
+      projectId: 't6t8tv0q',
+      dataset: 'production',
+      apiVersion: '2023-08-28',
+      useCdn: false,
+    });
+
+    let settings = await client.fetch(groq`*[_type == "settings"][0]`);
+
+    return settings?.redirects
+      ? settings.redirects.map((r) => ({
+          source: r.source,
+          destination: r.destination,
+          permanent: true,
+        }))
+      : [];
   },
 };
 

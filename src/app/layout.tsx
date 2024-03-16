@@ -7,6 +7,7 @@ import { twJoin } from 'tailwind-merge';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import { GoogleTagManager } from '@next/third-parties/google';
+import { getSettings } from '@/utils/sanity';
 
 const montserrat = Montserrat({
   weight: 'variable',
@@ -24,14 +25,29 @@ if (!process.env.BRANCH_STUDIO_VISIBILITY) {
   throw Error('BRANCH_STUDIO_VISIBILITY has not been set');
 }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.BRANCH_STUDIO_BASE_URL),
-  title: "St. Peter's Kitchen",
-  description: "St. Peter's Kitchen serves lunch weekdays in Rochester, NY",
-  ...(process.env.BRANCH_STUDIO_VISIBILITY !== 'public'
-    ? { robots: 'noindex' }
-    : {}),
-};
+export async function generateMetadata(): Promise<Metadata> {
+  let meta: Metadata = {};
+
+  if (process.env.BRANCH_STUDIO_BASE_URL) {
+    meta.metadataBase = new URL(process.env.BRANCH_STUDIO_BASE_URL);
+  }
+
+  const settings = await getSettings();
+  if (settings) {
+    if (settings.title) {
+      meta.title = settings.title;
+    }
+    if (settings.description) {
+      meta.description = settings.description;
+    }
+  }
+
+  if (process.env.BRANCH_STUDIO_VISIBILITY !== 'public') {
+    meta.robots = 'noindex';
+  }
+
+  return meta;
+}
 
 export default function RootLayout({
   children,

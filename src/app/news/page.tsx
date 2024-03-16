@@ -1,14 +1,15 @@
 import NewsList from '@/components/NewsList';
-import { getHeader, getNewsStories, urlFor } from '@/utils/sanity';
+import { getHeader, getNewsStories, getSettings, urlFor } from '@/utils/sanity';
 import { Metadata } from 'next';
 import { socialMediaImageDimensions } from '@/utils/globals';
 
 export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings();
   const { socialImage } = await getHeader();
   const path = '/news';
 
   let meta: Metadata = {
-    title: "News - St. Peter's Kitchen",
+    title: `News - ${settings.title}`,
     alternates: {
       canonical: path,
     },
@@ -17,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   if (socialImage) {
     const { width, height } = socialMediaImageDimensions;
     meta.openGraph = {
-      title: "St. Peter's Kitchen - News",
+      title: `${settings.title} - News`,
       type: 'website',
       url: path,
       images: urlFor(socialImage).fit('fill').width(width).height(height).url(),

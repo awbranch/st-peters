@@ -1,5 +1,5 @@
 import { toFullDate } from '@/utils/date';
-import { getNewsStories, urlFor } from '@/utils/sanity';
+import { getNewsStories, getSettings, urlFor } from '@/utils/sanity';
 import { TopNewsStoriesGrid } from '@/components/TopNewsStoriesGrid';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
@@ -26,6 +26,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const settings = await getSettings();
   const stories = await getNewsStories();
   const story = stories.find((s) => s.slug.current === params.slug);
   const path = `/news/story/${params.slug}`;
@@ -38,8 +39,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (story) {
     const title = story.title
-      ? `${story.title} - St. Peter's Kitchen`
-      : "St. Peter's Kitchen";
+      ? `${story.title} - ${settings.title}`
+      : settings.title;
 
     meta.title = title;
 
