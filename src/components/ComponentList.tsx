@@ -16,6 +16,7 @@ import ListSet from '@/components/ListSet';
 import CallToAction from '@/components/CallToAction';
 import CallToActionList from '@/components/CallToActionList';
 import IFrame from '@/components/IFrame';
+import Script from '@/components/Script';
 import IconList from '@/components/IconList';
 import ContactForm from '@/components/ContactForm';
 import VolunteerForm from '@/components/VolunteerForm';
@@ -97,6 +98,9 @@ function Component({ component }: ComponentProps) {
 
     case 'componentSetReference':
       return <ComponentSetReference {...component} />;
+
+    case 'script':
+      return <Script {...component} />;
 
     case 'teamGrid':
       return <TeamGrid {...component} />;

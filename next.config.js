@@ -3,6 +3,7 @@
 const { createClient, groq } = require('next-sanity');
 
 const nextConfig = {
+  // reactStrictMode: false,
   // output: 'export',
   images: {
     remotePatterns: [

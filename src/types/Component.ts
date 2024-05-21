@@ -14,6 +14,7 @@ import { JobList } from '@/types/JobList';
 import { ListSet } from '@/types/ListSet';
 import { LunchMenuList } from '@/types/LunchMenuList';
 import { ComponentSetReference } from '@/types/ComponentSetReference';
+import { Script } from '@/types/Script';
 import { TeamGrid } from '@/types/TeamGrid';
 import { TeamList } from '@/types/TeamList';
 import { TitleText } from '@/types/TitleText';
@@ -42,6 +43,7 @@ export type Component =
   | ListSet
   | LunchMenuList
   | ComponentSetReference
+  | Script
   | TeamGrid
   | TeamList
   | TitleText
