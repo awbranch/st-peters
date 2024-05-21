@@ -9,7 +9,6 @@ export default function ScriptClient({ attributes }: Props) {
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    console.log('Script Use Effect');
     if (divRef.current) {
       const script = document.createElement('script');
       Object.entries(attributes).forEach(([key, value]) => {
