@@ -51,7 +51,7 @@ const RichText = ({ text, overrides, palette = 'white' }: Props) => {
       }: {
         children: React.ReactNode;
         value: any;
-      }) => <Link href={value.href}>{children}</Link>,
+      }) => <Link href={value.href || ''}>{children}</Link>,
       em: ({ children }: { children: React.ReactNode }) => <Em>{children}</Em>,
       strong: ({ children }: { children: React.ReactNode }) => (
         <Strong>{children}</Strong>
