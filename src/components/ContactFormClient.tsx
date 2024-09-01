@@ -97,7 +97,7 @@ function ContactFormImplClient({ formKey, subjects, palette, blockId }: Props) {
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
         <div className={'sm:col-span-2'}>
-          <Label className={'block'} htmlFor={'firstName'}>
+          <Label className={'block'} htmlFor={'subject'}>
             Subject
           </Label>
 

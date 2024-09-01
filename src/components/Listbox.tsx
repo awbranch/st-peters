@@ -45,7 +45,7 @@ export default function Listbox({
       <div className={twMerge('relative', className)}>
         <ListboxHUI.Button
           className={twJoin(
-            'relative w-full rounded-md border-0 pl-3.5 py-2 pr-12 text-sm leading-6 bg-white text-left shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 cursor-default ',
+            'relative w-full rounded-md border-0 pl-3.5 py-2 pr-12 text-sm leading-6 bg-white text-left shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 cursor-default',
             selectedItem
               ? 'text-gray-800 font-medium'
               : 'text-gray-400 font-regular italic',
