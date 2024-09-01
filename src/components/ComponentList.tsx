@@ -18,6 +18,7 @@ import CallToActionList from '@/components/CallToActionList';
 import IFrame from '@/components/IFrame';
 import Script from '@/components/Script';
 import IconList from '@/components/IconList';
+import LogoGrid from '@/components/LogoGrid';
 import ContactForm from '@/components/ContactForm';
 import VolunteerForm from '@/components/VolunteerForm';
 import Article from '@/components/Article';
@@ -92,6 +93,9 @@ function Component({ component }: ComponentProps) {
 
     case 'listSet':
       return <ListSet {...component} />;
+
+    case 'logoGrid':
+      return <LogoGrid {...component} />;
 
     case 'lunchMenuList':
       return <LunchMenuList {...component} />;
