@@ -1,6 +1,7 @@
 import { toFullDate } from '@/utils/date';
 import { getNewsStories, getSettings, urlFor } from '@/utils/sanity';
 import { TopNewsStoriesGrid } from '@/components/TopNewsStoriesGrid';
+import Block from '@/components/Block';
 import Section from '@/components/Section';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
@@ -110,19 +111,10 @@ export default async function Page({ params }: Props) {
         )}
       </Section>
 
-      {story?.blocks?.map((b) => (
-        <Section
-          key={b._key}
-          id={b.id?.current}
-          palette={b.palette}
-          maxWidth={'md'}
-        >
-          {b?.components && <ComponentList components={b.components} />}
-        </Section>
-      ))}
+      {story?.blocks?.map((b) => <Block key={b._key} {...b} />)}
 
       {stories && (
-        <Section maxWidth="md">
+        <Section maxWidth="lg">
           <H2>More News</H2>
           <TopNewsStoriesGrid stories={topStories} />
         </Section>
