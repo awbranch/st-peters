@@ -6,8 +6,7 @@ import {
   urlFor,
 } from '@/utils/sanity';
 import React from 'react';
-import Section from '@/components/Section';
-import ComponentList from '@/components/ComponentList';
+import Block from '@/components/Block';
 import Container from '@/components/Container';
 import BreadCrumbs from '@/components/BreadCrumbs';
 import { titleCase } from 'text-case';
@@ -76,18 +75,9 @@ export default async function GenericPage({ params }: Props) {
           <BreadCrumbs routes={convertToRoutes(path)} />
         </Container>
       )}
-      {page?.blocks
-        ?.filter((b) => !b.hidden)
-        ?.map((b) => (
-          <Section
-            key={b._key}
-            id={b.id.current}
-            palette={b.palette}
-            maxWidth={page.maxWidth}
-          >
-            {b?.components && <ComponentList components={b.components} />}
-          </Section>
-        ))}
+      {page?.blocks?.map((b, i) => (
+        <Block key={b._key} {...b} first={i === 0} />
+      ))}
     </>
   );
 }
