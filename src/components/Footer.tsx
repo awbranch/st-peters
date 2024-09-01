@@ -8,6 +8,7 @@ import SvgImage from '@/components/SvgImage';
 import { socialIcons, userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
 import NewsletterButton from '@/components/NewsletterButton';
+import { splitText } from '@/utils/utils';
 
 export default async function Footer() {
   const props = await getFooter();
@@ -139,7 +140,7 @@ type AddressProps = {
 export function Address({ text }: AddressProps) {
   return (
     <div className={'text-left'}>
-      {text.split(/\n+/).map((l, i) => (
+      {splitText(text).map((l, i) => (
         <div key={i}>{l}</div>
       ))}
     </div>
