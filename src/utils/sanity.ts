@@ -154,6 +154,7 @@ export async function getFooter() {
 export async function getComponentSets() {
   return client.fetch<ComponentSet[]>(
     groq`*[_type == "componentSet"]`,
+    {},
     fetchOptions(),
   );
 }
