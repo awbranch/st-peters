@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFilePdf, faFileZipper } from '@fortawesome/pro-solid-svg-icons';
 
 import { fileAttributes, urlForFile } from '@/utils/sanity';
 import { DocumentList as Props } from '@/types/DocumentList';
 import { File } from 'sanity';
+import { FilePdfIcon, FileZipIcon } from '@/components/Icon';
 
 export default function DocumentList({ items }: Props) {
   return (
@@ -15,12 +14,9 @@ export default function DocumentList({ items }: Props) {
             <div className={'flex-none'}>
               <FileLink file={d.file}>
                 {fileAttributes(d.file).format === 'pdf' ? (
-                  <FontAwesomeIcon icon={faFilePdf} className={'h-10 w-10'} />
+                  <FilePdfIcon className={'h-10 w-10 fill-current'} />
                 ) : (
-                  <FontAwesomeIcon
-                    icon={faFileZipper}
-                    className={'h-10 w-10'}
-                  />
+                  <FileZipIcon className={'h-10 w-10  fill-current'} />
                 )}
               </FileLink>
             </div>

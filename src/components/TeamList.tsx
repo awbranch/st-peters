@@ -2,16 +2,15 @@ import { TeamList as Props } from '@/types/TeamList';
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   breakpoints,
-  socialIcons,
   userPaletteButtonProps,
   userPaletteClasses,
 } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
 import { SocialMediaService } from '@/types/SocialMediaService';
 import { LinkButton } from '@/components/Button';
+import { SocialIcon } from '@/components/Icon';
 
 type SocialUrlArray = Array<{ type: SocialMediaService; url: string }>;
 
@@ -62,9 +61,9 @@ export default async function TeamList({ members, palette }: Props) {
                         rel="noreferrer noopener"
                       >
                         <span className="sr-only">{social.type}</span>
-                        <FontAwesomeIcon
-                          className={'h-[20px] mx-auto mb-1'}
-                          icon={socialIcons[social.type]}
+                        <SocialIcon
+                          className={'h-[20px] mx-auto mb-1 fill-current'}
+                          service={social.type}
                         />
                       </Link>
                     </li>

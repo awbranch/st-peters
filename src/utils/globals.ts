@@ -1,14 +1,3 @@
-import { SocialMediaService } from '@/types/SocialMediaService';
-import { faEnvelope, IconDefinition } from '@fortawesome/pro-solid-svg-icons';
-
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-  faXTwitter,
-  faYoutube,
-} from '@fortawesome/free-brands-svg-icons';
 import { PageWidth } from '@/types/PageWidth';
 import { Palette } from '@/types/Palette';
 import { ButtonStyle } from '@/types/ButtonStyle';
@@ -56,16 +45,6 @@ export const themeColors = {
     DEFAULT: '#db2777',
     dark: '#C02168',
   },
-};
-
-export const socialIcons: { [K in SocialMediaService]: IconDefinition } = {
-  email: faEnvelope,
-  facebook: faFacebookF,
-  instagram: faInstagram,
-  youtube: faYoutube,
-  twitter: faTwitter,
-  x: faXTwitter,
-  linkedin: faLinkedin,
 };
 
 type PaletteClass = {

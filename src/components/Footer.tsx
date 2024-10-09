@@ -1,14 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { getFooter } from '@/utils/sanity';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Wave from '@/components/Wave';
 import Section from '@/components/Section';
 import SvgImage from '@/components/SvgImage';
-import { socialIcons, userPaletteClasses } from '@/utils/globals';
+import { userPaletteClasses } from '@/utils/globals';
 import { twJoin } from 'tailwind-merge';
 import NewsletterButton from '@/components/NewsletterButton';
 import { splitText } from '@/utils/utils';
+import { SocialIcon } from '@/components/Icon';
 
 export default async function Footer() {
   const props = await getFooter();
@@ -99,9 +99,9 @@ export default async function Footer() {
                     rel="noreferrer noopener"
                     aria-label={`Go to ${s.service}`}
                   >
-                    <FontAwesomeIcon
-                      className={'h-[50px] text-white mx-auto'}
-                      icon={socialIcons[s.service]}
+                    <SocialIcon
+                      className={'h-[50px] fill-white mx-auto'}
+                      service={s.service}
                     />
                   </Link>
                 </li>

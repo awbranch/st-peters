@@ -1,11 +1,11 @@
 import { TeamGrid as Props } from '@/types/TeamGrid';
 import React from 'react';
 import ResponsiveImage from '@/components/ResponsiveImage';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { breakpoints, socialIcons } from '@/utils/globals';
+import { breakpoints } from '@/utils/globals';
 import Link from 'next/link';
 import { twJoin } from 'tailwind-merge';
 import { SocialMediaService } from '@/types/SocialMediaService';
+import { SocialIcon } from '@/components/Icon';
 
 type SocialUrlArray = Array<{ type: SocialMediaService; url: string }>;
 
@@ -47,9 +47,9 @@ export default async function TeamGrid({ members }: Props) {
                       rel="noreferrer noopener"
                     >
                       <span className="sr-only">{social.type}</span>
-                      <FontAwesomeIcon
-                        className={'h-[20px] mx-auto mb-1'}
-                        icon={socialIcons[social.type]}
+                      <SocialIcon
+                        className={'h-[20px] mx-auto mb-1 fill-current'}
+                        service={social.type}
                       />
                     </Link>
                   </li>

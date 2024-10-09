@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faTypewriter } from '@fortawesome/pro-solid-svg-icons';
+import { TypewriterIcon, AngleRightIcon } from '@/components/Icon';
 
 type Props = {
   href: string;
@@ -21,14 +20,14 @@ export default function NewsletterButton({ href, label }: Props) {
           'flex items-center bg-white text-black rounded-full h-12 aspect-square justify-center p-2 group-hover:text-gray-700'
         }
       >
-        <FontAwesomeIcon className={'h-full'} icon={faTypewriter} />
+        <TypewriterIcon className={'h-full fill-current'} />
       </span>
       <span
         className={'text-white text-base text-left font-semibold tracking-wide'}
       >
         {label}
       </span>
-      <FontAwesomeIcon className={'h-6 w-6 text-white'} icon={faAngleRight} />
+      <AngleRightIcon className={'h-6 w-6 fill-white'} />
     </Link>
   );
 }
